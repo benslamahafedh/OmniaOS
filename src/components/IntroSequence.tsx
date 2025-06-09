@@ -41,7 +41,7 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
       if (currentIndex >= bootSequence.length) {
         if (!isCompletedRef.current) {
           isCompletedRef.current = true;
-          setTimeout(onComplete, 1000);
+          setTimeout(onComplete, 500);
         }
         return;
       }
@@ -59,11 +59,11 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
           return newMessages;
         });
         currentCharIndex++;
-        charTimer = setTimeout(typeMessage, 30);
+        charTimer = setTimeout(typeMessage, 15);
       } else {
         currentIndex++;
         currentCharIndex = 0;
-        messageTimer = setTimeout(typeMessage, 500);
+        messageTimer = setTimeout(typeMessage, 200);
       }
     };
 
