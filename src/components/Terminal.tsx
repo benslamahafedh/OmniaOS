@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Terminal as TerminalIcon, X, Maximize2, Minimize2, Copy } from 'lucide-react';
+import { Terminal as TerminalIcon, X, Maximize2, Minimize2 } from 'lucide-react';
 
 interface TerminalProps {
   onClose: () => void;

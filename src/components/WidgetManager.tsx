@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { 
-  Monitor, Gauge, Calendar, Clock, Music, Image, 
-  BarChart3, Activity, Cpu, MemoryStick, HardDrive,
-  Wifi, Battery, Volume2, ThermometerSun, X, 
-  Minimize2, Maximize2, Plus, Settings
+  Monitor, Gauge, Calendar, Clock,
+  Cpu, MemoryStick, Activity, 
+  Minimize2, Maximize2, Plus, X,
+  BarChart3, HardDrive
 } from 'lucide-react';
 
 interface Widget {
@@ -15,7 +15,6 @@ interface Widget {
   width: number;
   height: number;
   minimized: boolean;
-  data?: any;
 }
 
 interface WidgetManagerProps {
@@ -23,7 +22,6 @@ interface WidgetManagerProps {
   onAddWidget: (type: string) => void;
   onRemoveWidget: (id: string) => void;
   onMinimizeWidget: (id: string) => void;
-  onUpdateWidget: (id: string, updates: Partial<Widget>) => void;
   systemMetrics: any;
 }
 
@@ -32,10 +30,9 @@ const WidgetManager: React.FC<WidgetManagerProps> = ({
   onAddWidget,
   onRemoveWidget,
   onMinimizeWidget,
-  onUpdateWidget,
   systemMetrics
 }) => {
-  const [selectedWidgetType, setSelectedWidgetType] = useState('');
+
   const [showWidgetPicker, setShowWidgetPicker] = useState(false);
 
   const widgetTypes = [

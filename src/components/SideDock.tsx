@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useMobile } from '../hooks/useMobile';
 
 // Import the character images
 import samanthaImage from '../assets/samantha.png';
@@ -19,6 +20,7 @@ interface SideDockProps {
 
 const SideDock: React.FC<SideDockProps> = ({ onCharacterClick }) => {
   const [hoveredCharacter, setHoveredCharacter] = useState<string | null>(null);
+  const { isMobile } = useMobile();
 
   const characters: Character[] = [
     {
@@ -51,9 +53,19 @@ const SideDock: React.FC<SideDockProps> = ({ onCharacterClick }) => {
   };
 
   return (
-    <div className="fixed left-4 top-1/2 transform -translate-y-1/2 z-40">
-              <div className="bg-black/50 backdrop-blur-xl rounded-2xl border border-red-700/30 p-4">
-        <div className="flex flex-col space-y-4">
+    <div className={`
+      ${isMobile 
+        ? 'mobile-side-dock fixed bottom-20 right-4 z-40' 
+        : 'fixed left-4 top-1/2 transform -translate-y-1/2 z-40'
+      }
+    `}>
+      <div className={`
+        bg-black/50 backdrop-blur-xl rounded-2xl border border-red-700/30 p-4
+        ${isMobile ? 'dock-container' : ''}
+      `}>
+        <div className={`
+          ${isMobile ? 'flex flex-row space-x-3 space-y-0' : 'flex flex-col space-y-4'}
+        `}>
           {characters.map((character) => (
             <div
               key={character.id}
@@ -64,7 +76,8 @@ const SideDock: React.FC<SideDockProps> = ({ onCharacterClick }) => {
             >
               {/* Character Icon */}
               <div className={`
-                relative w-16 h-16 rounded-full overflow-hidden border-2 
+                character-icon relative rounded-full overflow-hidden border-2 
+                ${isMobile ? 'w-12 h-12' : 'w-16 h-16'}
                 ${hoveredCharacter === character.id ? 'border-white/60 scale-110' : 'border-white/30 scale-100'}
                 transition-all duration-300 group-hover:shadow-lg
               `}>
@@ -87,14 +100,32 @@ const SideDock: React.FC<SideDockProps> = ({ onCharacterClick }) => {
 
               {/* Character name tooltip */}
               {hoveredCharacter === character.id && (
-                <div className="absolute left-20 top-1/2 transform -translate-y-1/2 z-50">
+                <div className={`
+                  character-tooltip absolute z-50
+                  ${isMobile 
+                    ? 'bottom-full left-1/2 transform -translate-x-1/2 mb-2' 
+                    : 'left-20 top-1/2 transform -translate-y-1/2'
+                  }
+                `}>
                   <div className="bg-black/90 backdrop-blur-sm rounded-lg px-3 py-2 border border-white/20">
                     <div className="text-white font-semibold text-sm">{character.name}</div>
                     <div className="text-white/70 text-xs">{character.description}</div>
                   </div>
                   {/* Arrow pointing to icon */}
-                  <div className="absolute right-full top-1/2 transform -translate-y-1/2">
-                    <div className="w-0 h-0 border-t-4 border-b-4 border-r-4 border-transparent border-r-black/90"></div>
+                  <div className={`
+                    tooltip-arrow absolute
+                    ${isMobile 
+                      ? 'top-full left-1/2 transform -translate-x-1/2' 
+                      : 'right-full top-1/2 transform -translate-y-1/2'
+                    }
+                  `}>
+                    <div className={`
+                      w-0 h-0 border-transparent
+                      ${isMobile 
+                        ? 'border-l-4 border-r-4 border-t-4 border-t-black/90' 
+                        : 'border-t-4 border-b-4 border-r-4 border-r-black/90'
+                      }
+                    `}></div>
                   </div>
                 </div>
               )}

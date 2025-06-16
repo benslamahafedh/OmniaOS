@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ImageLoader from './ImageLoader';
 
-// Import the GIF
-import loadingGif from '../assets/bcf67b6246b68b1f43a98b219fabe105.gif';
-
 interface PreIntroLoaderProps {
   onComplete: () => void;
 }

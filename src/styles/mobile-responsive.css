@@ -1,0 +1,477 @@
+/* Mobile Responsive Styles for OmniaOS */
+
+/* Base mobile viewport settings */
+@media (max-width: 768px) {
+  html, body, #root {
+    overflow-x: hidden;
+    touch-action: manipulation;
+  }
+
+  /* Prevent horizontal scroll */
+  * {
+    max-width: 100vw;
+  }
+
+  /* Mobile-first typography */
+  body {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  /* Mobile touch targets */
+  button, .clickable {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Mobile scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+}
+
+/* Mobile Taskbar Styles */
+@media (max-width: 768px) {
+  .mobile-taskbar {
+    height: 70px !important;
+    padding: 8px 12px !important;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .mobile-taskbar .taskbar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 32px;
+  }
+
+  .mobile-taskbar .taskbar-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    gap: 8px;
+  }
+
+  .mobile-taskbar button {
+    padding: 6px 8px !important;
+    font-size: 12px !important;
+  }
+
+  .mobile-taskbar button span {
+    display: none; /* Hide text on mobile, show only icons */
+  }
+
+  .mobile-taskbar .show-text span {
+    display: inline; /* Show text for important buttons */
+  }
+
+  .mobile-taskbar svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+}
+
+/* Mobile Side Dock Styles */
+@media (max-width: 768px) {
+  .mobile-side-dock {
+    position: fixed !important;
+    bottom: 80px !important;
+    right: 16px !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    z-index: 50 !important;
+  }
+
+  .mobile-side-dock .dock-container {
+    flex-direction: row !important;
+    space-x: 12px !important;
+    space-y: 0 !important;
+    padding: 12px 16px !important;
+  }
+
+  .mobile-side-dock .character-icon {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  .mobile-side-dock .character-tooltip {
+    position: absolute !important;
+    bottom: 100% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin-bottom: 8px !important;
+  }
+
+  .mobile-side-dock .tooltip-arrow {
+    position: absolute !important;
+    top: 100% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    border-left: 4px solid transparent !important;
+    border-right: 4px solid transparent !important;
+    border-top: 4px solid rgba(0, 0, 0, 0.9) !important;
+    border-bottom: none !important;
+  }
+}
+
+/* Mobile Window Management */
+@media (max-width: 768px) {
+  .mobile-window {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: calc(100vh - 70px) !important;
+    border-radius: 0 !important;
+    border: none !important;
+    z-index: 40 !important;
+  }
+
+  .mobile-window .window-header {
+    height: 50px !important;
+    padding: 0 16px !important;
+  }
+
+  .mobile-window .window-content {
+    height: calc(100% - 50px) !important;
+    overflow-y: auto !important;
+    padding: 16px !important;
+  }
+
+  .mobile-window .window-controls {
+    gap: 12px !important;
+  }
+
+  .mobile-window .window-controls button {
+    width: 36px !important;
+    height: 36px !important;
+  }
+}
+
+/* Mobile Widget System */
+@media (max-width: 768px) {
+  .mobile-widget-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    padding: 16px !important;
+    margin-bottom: 80px !important;
+  }
+
+  .mobile-widget {
+    position: relative !important;
+    transform: none !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 200px !important;
+    border-radius: 12px !important;
+  }
+
+  .mobile-widget.minimized {
+    height: 60px !important;
+    min-height: 60px !important;
+    overflow: hidden !important;
+  }
+
+  .mobile-widget .widget-header {
+    padding: 12px 16px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .mobile-widget .widget-content {
+    padding: 16px !important;
+  }
+}
+
+/* Mobile Command Palette */
+@media (max-width: 768px) {
+  .mobile-command-palette {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 60 !important;
+  }
+
+  .mobile-command-palette .palette-content {
+    width: calc(100vw - 32px) !important;
+    max-width: none !important;
+    margin: 16px !important;
+    max-height: calc(100vh - 32px) !important;
+  }
+
+  .mobile-command-palette .search-input {
+    font-size: 16px !important; /* Prevent zoom on iOS */
+    padding: 16px !important;
+  }
+
+  .mobile-command-palette .command-item {
+    padding: 16px !important;
+    font-size: 14px !important;
+  }
+}
+
+/* Mobile Context Menu */
+@media (max-width: 768px) {
+  .mobile-context-menu {
+    position: fixed !important;
+    bottom: 80px !important;
+    left: 16px !important;
+    right: 16px !important;
+    top: auto !important;
+    transform: none !important;
+    border-radius: 12px !important;
+  }
+
+  .mobile-context-menu .context-item {
+    padding: 16px !important;
+    font-size: 14px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .mobile-context-menu .context-item:last-child {
+    border-bottom: none !important;
+  }
+}
+
+/* Mobile System Metrics */
+@media (max-width: 768px) {
+  .mobile-system-metrics {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .mobile-metric-item {
+    padding: 12px !important;
+    border-radius: 8px !important;
+    text-align: center !important;
+  }
+
+  .mobile-metric-value {
+    font-size: 18px !important;
+    font-weight: bold !important;
+  }
+
+  .mobile-metric-label {
+    font-size: 12px !important;
+    opacity: 0.8 !important;
+  }
+}
+
+/* Mobile Folder View */
+@media (max-width: 768px) {
+  .mobile-folder-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)) !important;
+    gap: 16px !important;
+    padding: 16px !important;
+  }
+
+  .mobile-folder-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 12px !important;
+    border-radius: 12px !important;
+    text-align: center !important;
+  }
+
+  .mobile-folder-item svg {
+    width: 32px !important;
+    height: 32px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .mobile-folder-item .folder-name {
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+  }
+}
+
+/* Mobile Terminal */
+@media (max-width: 768px) {
+  .mobile-terminal {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    padding: 12px !important;
+  }
+
+  .mobile-terminal .terminal-input {
+    font-size: 14px !important; /* Prevent zoom on iOS */
+    padding: 12px !important;
+  }
+
+  .mobile-terminal .terminal-output {
+    max-height: calc(100vh - 200px) !important;
+    overflow-y: auto !important;
+  }
+}
+
+/* Mobile Chat Interface */
+@media (max-width: 768px) {
+  .mobile-chat {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+  }
+
+  .mobile-chat .chat-messages {
+    flex: 1 !important;
+    overflow-y: auto !important;
+    padding: 16px !important;
+  }
+
+  .mobile-chat .chat-input-container {
+    padding: 16px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .mobile-chat .chat-input {
+    font-size: 16px !important; /* Prevent zoom on iOS */
+    padding: 12px 16px !important;
+    border-radius: 24px !important;
+  }
+
+  .mobile-chat .message-bubble {
+    max-width: 85% !important;
+    padding: 12px 16px !important;
+    margin-bottom: 12px !important;
+    border-radius: 18px !important;
+  }
+}
+
+/* Mobile animations optimization */
+@media (max-width: 768px) {
+  .reduce-motion * {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.3s !important;
+  }
+
+  .mobile-slide-up {
+    animation: mobileSlideUp 0.3s ease-out;
+  }
+
+  .mobile-slide-down {
+    animation: mobileSlideDown 0.3s ease-out;
+  }
+
+  .mobile-fade-in {
+    animation: mobileFadeIn 0.3s ease-out;
+  }
+}
+
+@keyframes mobileSlideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes mobileSlideDown {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes mobileFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Mobile landscape optimizations */
+@media (max-width: 768px) and (orientation: landscape) {
+  .mobile-taskbar {
+    height: 60px !important;
+  }
+
+  .mobile-window {
+    height: calc(100vh - 60px) !important;
+  }
+
+  .mobile-side-dock {
+    bottom: 70px !important;
+  }
+}
+
+/* Tablet breakpoint */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .tablet-layout {
+    /* Tablet-specific styles */
+  }
+  
+  .mobile-taskbar {
+    height: 60px !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+  }
+
+  .mobile-taskbar button span {
+    display: inline !important;
+  }
+
+  .mobile-widget-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Ultra-small screens */
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+  }
+
+  .mobile-taskbar {
+    padding: 6px 8px !important;
+  }
+
+  .mobile-widget {
+    min-height: 150px !important;
+  }
+
+  .mobile-folder-grid {
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)) !important;
+    gap: 12px !important;
+  }
+}
+
+/* Dark mode mobile optimizations */
+@media (max-width: 768px) and (prefers-color-scheme: dark) {
+  .mobile-window {
+    background: rgba(0, 0, 0, 0.95) !important;
+  }
+  
+  .mobile-taskbar {
+    background: rgba(0, 0, 0, 0.9) !important;
+  }
+}
+
+/* High DPI mobile displays */
+@media (max-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+  .mobile-taskbar svg,
+  .mobile-side-dock svg,
+  .mobile-folder-item svg {
+    /* Ensure crisp icons on retina displays */
+    image-rendering: -webkit-optimize-contrast;
+  }
+} 

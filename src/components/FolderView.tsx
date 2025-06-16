@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { X, FileText, Folder, Settings, Terminal as TerminalIcon, Code2, Globe, Search, Brain, Activity, Link, Network, Cpu, Database, Zap, ChevronRight, Sparkles, Workflow, Bot, Share2, MessageSquare, Github, Send, Heart, RotateCw } from 'lucide-react';
 import XLogo from './XLogo';
 import ReactMarkdown from 'react-markdown';
-import SystemSettings from './SystemSettings';
-import Terminal from './Terminal';
-import { CodeEditor, Documentation } from './applications';
 import { useNeuralNetwork } from '../hooks/useNeuralNetwork';
 import { useWebInterface } from '../hooks/useWebInterface';
-import { useTheme } from '../contexts/ThemeContext';
+import { useMobile } from '../hooks/useMobile';
+import SystemSettings from './SystemSettings';
+import Terminal from './Terminal';
 
 interface FolderViewProps {
   folderId: string;
@@ -27,9 +26,9 @@ interface FolderContent {
 const FolderView: React.FC<FolderViewProps> = ({ folderId, onClose }) => {
   const [activeFile, setActiveFile] = useState<string | null>(null);
   const [fileContent, setFileContent] = useState<string>('');
-  const [loading, setLoading] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [showTerminal, setShowTerminal] = useState(false);
+  const { isMobile } = useMobile();
 
   const folderContents: Record<string, FolderContent[]> = {
     system: [
@@ -39,7 +38,7 @@ const FolderView: React.FC<FolderViewProps> = ({ folderId, onClose }) => {
         icon: <Settings className="w-6 h-6 text-blue-400" />,
         description: 'Configure system preferences',
         type: 'component',
-        component: <SystemSettings onClose={() => setActiveFile(null)} />
+        component: <SystemSettings onClose={() => {}} />
       },
       {
         id: 'terminal',
@@ -47,7 +46,7 @@ const FolderView: React.FC<FolderViewProps> = ({ folderId, onClose }) => {
         icon: <TerminalIcon className="w-6 h-6 text-green-400" />,
         description: 'Command line interface',
         type: 'component',
-        component: <Terminal onClose={() => setActiveFile(null)} />
+        component: <Terminal onClose={() => {}} />
       }
     ],
     docs: [
@@ -223,7 +222,7 @@ Contributors will be featured in:
         icon: <Code2 className="w-6 h-6 text-blue-400" />,
         description: 'Write and edit code',
         type: 'component',
-        component: <CodeEditor />
+        component: <div>Code Editor Placeholder</div>
       },
       {
         id: 'documentation',
@@ -231,7 +230,7 @@ Contributors will be featured in:
         icon: <FileText className="w-6 h-6 text-purple-400" />,
         description: 'OmniaOS Documentation',
         type: 'component',
-        component: <Documentation />
+        component: <div>Documentation Placeholder</div>
       }
     ],
     web: [
@@ -678,7 +677,7 @@ Contributors will be featured in:
 
               {/* Feed */}
               <div className="flex-1 overflow-y-auto">
-                {mockTweets.map((tweet, index) => (
+                {mockTweets.map((tweet) => (
                   <div key={`${tweet.id}-${refreshKey}`} className="border-b border-gray-800 p-4 hover:bg-gray-900/30 transition-colors">
                     {/* Retweet indicator */}
                     {tweet.type === 'retweet' && (
@@ -1150,9 +1149,85 @@ Contributors will be featured in:
     onClose();
   };
 
+  if (isMobile) {
+    // Mobile Layout
+    return (
+      <div className="fixed inset-0 bg-black/95 backdrop-blur-xl z-50 flex flex-col">
+        {/* Mobile Header */}
+        <div className="flex items-center justify-between p-4 border-b border-red-700/30 bg-gray-900/50">
+          <h2 className="text-xl font-bold text-white flex items-center">
+            <Folder className="w-6 h-6 text-red-300 mr-2" />
+            {folderId.charAt(0).toUpperCase() + folderId.slice(1)}
+          </h2>
+          <button
+            onClick={handleClose}
+            className="text-gray-400 hover:text-white p-2"
+          >
+            <X className="w-6 h-6" />
+          </button>
+        </div>
+
+        {/* Mobile Content */}
+        <div className="flex-1 overflow-y-auto">
+          {!activeFile ? (
+            // File List View
+            <div className="p-4 space-y-3">
+              {folderContents[folderId]?.map((item) => (
+                <div
+                  key={item.id}
+                  onClick={() => handleFileClick(item.id)}
+                  className="flex items-center justify-between p-4 bg-gray-800/50 rounded-xl border border-gray-700/50 active:bg-gray-700/50 transition-colors"
+                >
+                  <div className="flex items-center space-x-3">
+                    {item.icon}
+                    <div>
+                      <div className="text-white font-medium text-sm">{item.name}</div>
+                      <div className="text-gray-400 text-xs">{item.description}</div>
+                    </div>
+                  </div>
+                  <ChevronRight className="w-5 h-5 text-gray-400" />
+                </div>
+              ))}
+            </div>
+          ) : (
+            // Content View
+            <div className="flex flex-col h-full">
+              {/* Back Button */}
+              <div className="p-4 border-b border-gray-700/50">
+                <button
+                  onClick={() => setActiveFile(null)}
+                  className="flex items-center text-red-400 hover:text-red-300"
+                >
+                  <ChevronRight className="w-5 h-5 rotate-180 mr-2" />
+                  Back to {folderId.charAt(0).toUpperCase() + folderId.slice(1)}
+                </button>
+              </div>
+              
+              {/* Content */}
+              <div className="flex-1 p-4 overflow-y-auto">
+                {showSettings && <SystemSettings onClose={() => setActiveFile(null)} />}
+                {showTerminal && <Terminal onClose={() => setActiveFile(null)} />}
+                {!showSettings && !showTerminal && (
+                  folderContents[folderId]?.find(item => item.id === activeFile)?.type === 'component' ? (
+                    folderContents[folderId]?.find(item => item.id === activeFile)?.component
+                  ) : (
+                    <div className="prose prose-invert prose-sm max-w-none">
+                      <ReactMarkdown>{fileContent}</ReactMarkdown>
+                    </div>
+                  )
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  // Desktop Layout
   return (
     <div className="fixed inset-0 bg-black/90 backdrop-blur-xl z-50 flex items-center justify-center p-8">
-              <div className="bg-gradient-to-br from-gray-900/90 to-black/90 rounded-3xl p-8 max-w-6xl w-full h-[80vh] border border-red-700/30 shadow-2xl backdrop-blur-xl overflow-hidden">
+      <div className="bg-gradient-to-br from-gray-900/90 to-black/90 rounded-3xl p-8 max-w-6xl w-full h-[80vh] border border-red-700/30 shadow-2xl backdrop-blur-xl overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-3xl font-bold text-white flex items-center">

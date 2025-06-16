@@ -7,10 +7,9 @@ const OmniaOS: React.FC = () => {
   // Core state management
   const [isBooting, setIsBooting] = useState(true);
   const [bootPhase, setBootPhase] = useState(0);
-  const [currentTime, setCurrentTime] = useState(new Date());
+
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [showSamantha, setShowSamantha] = useState(false);
-  const [activeFolder, setActiveFolder] = useState<string | null>(null);
 
   // Boot sequence animation
   useEffect(() => {
@@ -28,11 +27,7 @@ const OmniaOS: React.FC = () => {
     setTimeout(() => setIsBooting(false), 6000);
   }, []);
 
-  // Time update
-  useEffect(() => {
-    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
-    return () => clearInterval(timer);
-  }, []);
+
 
   // Mouse tracking for interactive effects
   useEffect(() => {
@@ -132,10 +127,13 @@ const OmniaOS: React.FC = () => {
       {renderBackground()}
       {renderParticles}
       
-      <Taskbar currentTime={currentTime} />
-      <Desktop 
+      <Taskbar 
+        onSettingsClick={() => {}}
+        onTerminalClick={() => {}}
+        onFolderClick={() => {}}
         onSamanthaClick={() => setShowSamantha(true)}
       />
+      <Desktop />
 
       {showSamantha && (
         <SamanthaChat onClose={() => setShowSamantha(false)} />

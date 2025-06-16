@@ -1,15 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
+import { useMobile } from '../hooks/useMobile';
 import loadingGif from '../assets/bcf67b6246b68b1f43a98b219fabe105.gif';
 import { 
   Settings, 
   Network, Activity, Wifi, Battery, Volume2, 
-  Calendar, Clock, Sun, Moon, Cpu, HardDrive, 
+  Calendar, Clock, Cpu, 
   MemoryStick, Thermometer, Server, Database, Radio, 
   Sparkles, Grid3X3, Code2, Search, Command, 
-  Maximize2, Minimize2, X, RotateCw, Download,
-  Music, Video, Image, ChevronDown, Plus, Minus,
-  BarChart3, Gauge, Laptop, Smartphone, Tablet,
+  Maximize2, Minimize2, X, RotateCw, Plus,
   Github, Send
 } from 'lucide-react';
 import Taskbar from './Taskbar';
@@ -51,6 +50,7 @@ interface QuickAction {
 
 const Desktop: React.FC = () => {
   const { theme, uiSettings } = useTheme();
+  const { isMobile } = useMobile();
   const [activeWindow, setActiveWindow] = useState<string | null>(null);
   const [showSamantha, setShowSamantha] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -62,6 +62,7 @@ const Desktop: React.FC = () => {
   const [contextMenuPosition, setContextMenuPosition] = useState({ x: 0, y: 0 });
   const [widgets, setWidgets] = useState<Widget[]>([]);
   const [showQuickLaunch, setShowQuickLaunch] = useState(false);
+  // @ts-ignore - Future feature variables
   const [draggedWidget, setDraggedWidget] = useState<string | null>(null);
   const [systemMetrics, setSystemMetrics] = useState({
     cpu: 42,
@@ -73,6 +74,7 @@ const Desktop: React.FC = () => {
     processes: 247
   });
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  // @ts-ignore - Future feature variables
   const [particleSystem, setParticleSystem] = useState<Array<{
     x: number;
     y: number;
@@ -82,7 +84,9 @@ const Desktop: React.FC = () => {
     color: string;
     alpha: number;
   }>>([]);
+  // @ts-ignore - Future feature variables
   const [introStep, setIntroStep] = useState(0);
+  // @ts-ignore - Future feature variables
   const [isBooted, setIsBooted] = useState(false);
   const introCompletedRef = useRef(false);
 
@@ -336,6 +340,11 @@ const Desktop: React.FC = () => {
 
   // Widget management functions
   const addWidget = (type: string) => {
+    // Don't add system monitor widgets on mobile
+    if (isMobile && type === 'system-monitor') {
+      return;
+    }
+    
     const newWidget: Widget = {
       id: `widget-${Date.now()}`,
       name: type === 'system-monitor' ? 'System Monitor' : 'New Widget',
@@ -361,39 +370,54 @@ const Desktop: React.FC = () => {
 
   // Render system monitor widget
   const renderSystemMonitorWidget = () => (
-    <div className="p-4 h-full">
-      <div className="grid grid-cols-2 gap-3 h-full text-sm">
-        <div className="space-y-2">
+    <div className={`p-4 h-full ${isMobile ? 'mobile-system-metrics' : ''}`}>
+      <div className={`
+        ${isMobile 
+          ? 'mobile-system-metrics grid grid-cols-2 gap-3 h-full text-sm' 
+          : 'grid grid-cols-2 gap-3 h-full text-sm'
+        }
+      `}>
+        <div className={`space-y-2 ${isMobile ? 'mobile-metric-item' : ''}`}>
           <div className="flex items-center justify-between">
             <span className="text-red-400/80">CPU</span>
-            <span className="text-white">{systemMetrics.cpu}%</span>
+            <span className={`text-white ${isMobile ? 'mobile-metric-value' : ''}`}>
+              {systemMetrics.cpu}%
+            </span>
           </div>
           <div className="h-1 bg-red-500/20 rounded-full">
             <div className="h-1 bg-red-500 rounded-full" style={{ width: `${systemMetrics.cpu}%` }} />
           </div>
         </div>
-        <div className="space-y-2">
+        <div className={`space-y-2 ${isMobile ? 'mobile-metric-item' : ''}`}>
           <div className="flex items-center justify-between">
             <span className="text-red-400/80">Memory</span>
-            <span className="text-white">{systemMetrics.memory}%</span>
+            <span className={`text-white ${isMobile ? 'mobile-metric-value' : ''}`}>
+              {systemMetrics.memory}%
+            </span>
           </div>
           <div className="h-1 bg-red-500/20 rounded-full">
             <div className="h-1 bg-red-500 rounded-full" style={{ width: `${systemMetrics.memory}%` }} />
           </div>
         </div>
-        <div className="space-y-2">
+        <div className={`space-y-2 ${isMobile ? 'mobile-metric-item' : ''}`}>
           <div className="flex items-center justify-between">
             <span className="text-red-400/80">Disk</span>
-            <span className="text-white">{systemMetrics.diskUsage}%</span>
+            <span className={`text-white ${isMobile ? 'mobile-metric-value' : ''}`}>
+              {systemMetrics.diskUsage}%
+            </span>
           </div>
           <div className="h-1 bg-red-500/20 rounded-full">
             <div className="h-1 bg-red-500 rounded-full" style={{ width: `${systemMetrics.diskUsage}%` }} />
           </div>
         </div>
-        <div className="space-y-2">
+        <div className={`space-y-2 ${isMobile ? 'mobile-metric-item' : ''}`}>
           <div className="flex items-center justify-between">
-            <span className="text-red-400/80">Uptime</span>
-            <span className="text-white text-xs">{systemMetrics.uptime}</span>
+            <span className={`text-red-400/80 ${isMobile ? 'mobile-metric-label' : ''}`}>
+              Uptime
+            </span>
+            <span className={`text-white text-xs ${isMobile ? 'mobile-metric-value' : ''}`}>
+              {systemMetrics.uptime}
+            </span>
           </div>
         </div>
       </div>
@@ -480,84 +504,121 @@ const Desktop: React.FC = () => {
   return (
     <div className="min-h-screen w-full relative overflow-hidden">
       {/* Notification Bar */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-red-500/30">
-        <div className="flex items-center justify-between px-6 py-2">
+      <div className={`
+        fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-red-500/30
+        ${isMobile ? 'h-14' : 'h-auto'}
+      `}>
+        <div className={`
+          flex items-center justify-between px-6 py-2
+          ${isMobile ? 'px-4 py-2' : 'px-6 py-2'}
+        `}>
           <div className="flex items-center space-x-6">
+            <div className={`
+              font-black bg-gradient-to-r from-red-300 via-red-400 to-red-500 bg-clip-text text-transparent
+              ${isMobile ? 'text-lg' : 'text-2xl'}
+            `}>
+              {isMobile ? 'OMNIA' : 'OMNIAOS'}
+            </div>
             
-            <div className="text-2xl font-black bg-gradient-to-r from-red-300 via-red-400 to-red-500 bg-clip-text text-transparent">
-              OMNIAOS
-            </div>
-            {/* Social Media Links */}
-            <div className="flex items-center space-x-3">
-              <a 
-                href="https://github.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-red-700/20 hover:bg-red-700/30 cursor-pointer transition-all duration-300 group"
-              >
-                <Github size={16} className="text-red-300 group-hover:text-red-200" />
-              </a>
-              <a 
-                href="https://x.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-red-700/20 hover:bg-red-700/30 cursor-pointer transition-all duration-300 group"
-              >
-                <XLogo size={16} className="text-red-300 group-hover:text-red-200" />
-              </a>
-              <a 
-                href="https://telegram.org" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-red-700/20 hover:bg-red-700/30 cursor-pointer transition-all duration-300 group"
-              >
-                <Send size={16} className="text-red-300 group-hover:text-red-200" />
-              </a>
-            </div>
+            {/* Social Media Links - Hide on mobile or show simplified */}
+            {!isMobile && (
+              <div className="flex items-center space-x-3">
+                <a 
+                  href="https://github.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg bg-red-700/20 hover:bg-red-700/30 cursor-pointer transition-all duration-300 group"
+                >
+                  <Github size={16} className="text-red-300 group-hover:text-red-200" />
+                </a>
+                <a 
+                  href="https://x.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg bg-red-700/20 hover:bg-red-700/30 cursor-pointer transition-all duration-300 group"
+                >
+                  <XLogo size={16} className="text-red-300 group-hover:text-red-200" />
+                </a>
+                <a 
+                  href="https://telegram.org" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg bg-red-700/20 hover:bg-red-700/30 cursor-pointer transition-all duration-300 group"
+                >
+                  <Send size={16} className="text-red-300 group-hover:text-red-200" />
+                </a>
+              </div>
+            )}
           </div>
 
           <div className="flex items-center space-x-6">
-            {/* System Metrics */}
-            <div className="flex items-center space-x-4">
-                          <div className="flex items-center space-x-2 text-red-300/80">
-              <Cpu size={16} />
-              <span className="text-sm">{systemMetrics.cpu}%</span>
-            </div>
-            <div className="flex items-center space-x-2 text-red-300/80">
-              <MemoryStick size={16} />
-              <span className="text-sm">{systemMetrics.memory}%</span>
-            </div>
-            <div className="flex items-center space-x-2 text-red-300/80">
-              <Network size={16} />
-              <span className="text-sm">{systemMetrics.network}%</span>
-            </div>
-            <div className="flex items-center space-x-2 text-red-300/80">
-              <Thermometer size={16} />
-              <span className="text-sm">{systemMetrics.temperature}°C</span>
-            </div>
-            </div>
+            {/* System Metrics - Simplified on mobile */}
+            {isMobile ? (
+              <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-1 text-red-300/80">
+                  <Cpu size={12} />
+                  <span className="text-xs">{systemMetrics.cpu}%</span>
+                </div>
+                <div className="flex items-center space-x-1 text-red-300/80">
+                  <MemoryStick size={12} />
+                  <span className="text-xs">{systemMetrics.memory}%</span>
+                </div>
+              </div>
+            ) : (
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-2 text-red-300/80">
+                  <Cpu size={16} />
+                  <span className="text-sm">{systemMetrics.cpu}%</span>
+                </div>
+                <div className="flex items-center space-x-2 text-red-300/80">
+                  <MemoryStick size={16} />
+                  <span className="text-sm">{systemMetrics.memory}%</span>
+                </div>
+                <div className="flex items-center space-x-2 text-red-300/80">
+                  <Network size={16} />
+                  <span className="text-sm">{systemMetrics.network}%</span>
+                </div>
+                <div className="flex items-center space-x-2 text-red-300/80">
+                  <Thermometer size={16} />
+                  <span className="text-sm">{systemMetrics.temperature}°C</span>
+                </div>
+              </div>
+            )}
 
-            {/* System Controls */}
-            <div className="flex items-center space-x-3">
-              <div className="p-1.5 rounded-lg bg-red-700/20 hover:bg-red-700/30 cursor-pointer">
-                <Wifi size={16} className="text-red-300" />
+            {/* System Controls - Simplified on mobile */}
+            {!isMobile && (
+              <div className="flex items-center space-x-3">
+                <div className="p-1.5 rounded-lg bg-red-700/20 hover:bg-red-700/30 cursor-pointer">
+                  <Wifi size={16} className="text-red-300" />
+                </div>
+                <div className="p-1.5 rounded-lg bg-red-700/20 hover:bg-red-700/30 cursor-pointer">
+                  <Volume2 size={16} className="text-red-300" />
+                </div>
+                <div className="p-1.5 rounded-lg bg-red-700/20 hover:bg-red-700/30 cursor-pointer">
+                  <Battery size={16} className="text-red-300" />
+                </div>
               </div>
-              <div className="p-1.5 rounded-lg bg-red-700/20 hover:bg-red-700/30 cursor-pointer">
-                <Volume2 size={16} className="text-red-300" />
-              </div>
-              <div className="p-1.5 rounded-lg bg-red-700/20 hover:bg-red-700/30 cursor-pointer">
-                <Battery size={16} className="text-red-300" />
-              </div>
-            </div>
+            )}
 
-            {/* Time and Date */}
-            <div className="flex items-center space-x-2 text-red-400/80">
-              <Calendar size={16} />
-              <span className="text-sm">{currentTime.toLocaleDateString()}</span>
-              <Clock size={16} />
-              <span className="text-sm">{currentTime.toLocaleTimeString()}</span>
+            {/* Time and Date - Mobile friendly */}
+            <div className={`
+              flex items-center space-x-2 text-red-400/80
+              ${isMobile ? 'space-x-1' : 'space-x-2'}
+            `}>
+              {isMobile ? (
+                <>
+                  <Clock size={12} />
+                  <span className="text-xs">{currentTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+                </>
+              ) : (
+                <>
+                  <Calendar size={16} />
+                  <span className="text-sm">{currentTime.toLocaleDateString()}</span>
+                  <Clock size={16} />
+                  <span className="text-sm">{currentTime.toLocaleTimeString()}</span>
+                </>
+              )}
             </div>
-            
           </div>
         </div>
 
@@ -658,63 +719,75 @@ const Desktop: React.FC = () => {
         </div>
       </div>
 
-      {/* Central Clock Widget */}
-      <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-        <div className="relative group">
-          <div className="absolute -inset-4 bg-gradient-to-r from-red-500/20 via-pink-600/20 to-red-500/20 rounded-full blur-xl group-hover:from-red-500/30 group-hover:via-pink-600/30 group-hover:to-red-500/30 transition-all duration-300" />
-          <div className="relative bg-black/50 backdrop-blur-xl rounded-full p-8 border border-red-500/30 group-hover:border-red-500/50 transition-all duration-300">
-            <div className="text-6xl font-bold text-red-400 tabular-nums">
-              {currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-            </div>
-            <div className="text-center text-red-400/70 mt-2">
-              {currentTime.toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric' })}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* System Metrics Widget */}
-      <div className="fixed bottom-24 right-8 z-10">
-        <div className="bg-black/50 backdrop-blur-xl rounded-2xl border border-red-500/30 p-4 w-64">
-          <div className="text-red-400 font-semibold mb-4">System Metrics</div>
-          <div className="space-y-3">
-            {[
-              { icon: Cpu, label: 'CPU Usage', value: systemMetrics.cpu },
-              { icon: MemoryStick, label: 'Memory', value: systemMetrics.memory },
-              { icon: Network, label: 'Network', value: systemMetrics.network },
-              { icon: Thermometer, label: 'Temperature', value: systemMetrics.temperature }
-            ].map(({ icon: Icon, label, value }) => (
-              <div key={label} className="space-y-1">
-                <div className="flex items-center justify-between text-sm">
-                  <div className="flex items-center space-x-2 text-red-400/70">
-                    <Icon size={14} />
-                    <span>{label}</span>
-                  </div>
-                  <span className="text-red-400">{value}%</span>
-                </div>
-                <div className="h-1 bg-red-500/20 rounded-full overflow-hidden">
-                  <div 
-                    className="h-full bg-gradient-to-r from-red-500 to-pink-600 transition-all duration-300"
-                    style={{ width: `${value}%` }}
-                  />
-                </div>
+      {/* Central Clock Widget - Desktop only */}
+      {!isMobile && (
+        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+          <div className="relative group">
+            <div className="absolute -inset-4 bg-gradient-to-r from-red-500/20 via-pink-600/20 to-red-500/20 rounded-full blur-xl group-hover:from-red-500/30 group-hover:via-pink-600/30 group-hover:to-red-500/30 transition-all duration-300" />
+            <div className="relative bg-black/50 backdrop-blur-xl rounded-full p-8 border border-red-500/30 group-hover:border-red-500/50 transition-all duration-300">
+              <div className="text-6xl font-bold text-red-400 tabular-nums">
+                {currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
               </div>
-            ))}
+              <div className="text-center text-red-400/70 mt-2">
+                {currentTime.toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric' })}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      )}
+
+      {/* System Metrics Widget - Desktop only */}
+      {!isMobile && (
+        <div className="fixed bottom-24 right-8 z-10">
+          <div className="bg-black/50 backdrop-blur-xl rounded-2xl border border-red-500/30 p-4 w-64">
+            <div className="text-red-400 font-semibold mb-4">System Metrics</div>
+            <div className="space-y-3">
+              {[
+                { icon: Cpu, label: 'CPU Usage', value: systemMetrics.cpu },
+                { icon: MemoryStick, label: 'Memory', value: systemMetrics.memory },
+                { icon: Network, label: 'Network', value: systemMetrics.network },
+                { icon: Thermometer, label: 'Temperature', value: systemMetrics.temperature }
+              ].map(({ icon: Icon, label, value }) => (
+                <div key={label} className="space-y-1">
+                  <div className="flex items-center justify-between text-sm">
+                    <div className="flex items-center space-x-2 text-red-400/70">
+                      <Icon size={14} />
+                      <span>{label}</span>
+                    </div>
+                    <span className="text-red-400">{value}%</span>
+                  </div>
+                  <div className="h-1 bg-red-500/20 rounded-full overflow-hidden">
+                    <div 
+                      className="h-full bg-gradient-to-r from-red-500 to-pink-600 transition-all duration-300"
+                      style={{ width: `${value}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Content wrapper */}
       <div className={`
-        relative z-10 min-h-screen pt-16 desktop-area
+        relative z-10 min-h-screen desktop-area
+        ${isMobile ? 'pt-14' : 'pt-16'}
         ${uiSettings.blurEffects ? 'theme-blur' : ''}
         ${!uiSettings.animations ? 'reduce-animations' : ''}
         theme-brightness
       `}>
         {/* Desktop Content */}
-        <div className="p-8 pt-20">
+        <div className={`
+          ${isMobile ? 'p-4 pt-8 pb-20' : 'p-8 pt-20'}
+        `}>
           {/* Folder Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+          <div className={`
+            ${isMobile 
+              ? 'mobile-widget-grid grid grid-cols-2 gap-4' 
+              : 'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8'
+            }
+          `}>
             {folders.map((folder, i) => (
               <div
                 key={folder.id}
@@ -850,88 +923,155 @@ const Desktop: React.FC = () => {
         {/* Windows */}
         
         {activeWindow === 'settings' && (
-          <SystemSettings onClose={handleWindowClose} />
+          <div className={isMobile ? 'mobile-window' : ''}>
+            <SystemSettings onClose={handleWindowClose} />
+          </div>
         )}
 
         {activeWindow === 'terminal' && (
-          <Terminal onClose={handleWindowClose} />
+          <div className={isMobile ? 'mobile-window' : ''}>
+            <Terminal onClose={handleWindowClose} />
+          </div>
         )}
 
         {activeWindow?.startsWith('folder-') && (
-          <FolderView 
-            folderId={activeWindow.replace('folder-', '')} 
-            onClose={handleWindowClose} 
-          />
+          <div className={isMobile ? 'mobile-window' : ''}>
+            <FolderView 
+              folderId={activeWindow.replace('folder-', '')} 
+              onClose={handleWindowClose} 
+            />
+          </div>
         )}
 
         {/* Samantha Chat */}
         {showSamantha && (
-          <SamanthaChat onClose={() => setShowSamantha(false)} />
+          <div className={isMobile ? 'mobile-window' : ''}>
+            <SamanthaChat onClose={() => setShowSamantha(false)} />
+          </div>
         )}
 
         {/* Desktop Widgets */}
-        {widgets.map(widget => (
-          <div
-            key={widget.id}
-            className="fixed z-30 bg-black/80 backdrop-blur-xl border border-red-500/30 rounded-2xl overflow-hidden"
-            style={{
-              left: widget.x,
-              top: widget.y,
-              width: widget.width,
-              height: widget.minimized ? 40 : widget.height,
-              transition: 'height 0.3s ease'
-            }}
-            onMouseDown={() => setDraggedWidget(widget.id)}
-          >
-            {/* Widget Header */}
-            <div className="flex items-center justify-between p-3 bg-red-500/10 border-b border-red-500/20">
-              <span className="text-red-400 font-medium text-sm">{widget.name}</span>
-              <div className="flex items-center space-x-2">
-                <button
-                  onClick={() => minimizeWidget(widget.id)}
-                  className="text-red-400/60 hover:text-red-400 transition-colors"
-                >
-                  {widget.minimized ? <Maximize2 size={14} /> : <Minimize2 size={14} />}
-                </button>
-                <button
-                  onClick={() => removeWidget(widget.id)}
-                  className="text-red-400/60 hover:text-red-400 transition-colors"
-                >
-                  <X size={14} />
-                </button>
+        {isMobile ? (
+          /* Mobile Widget Layout - Grid based */
+          <div className="mobile-widget-grid">
+            {widgets.filter(widget => widget.name !== 'System Monitor').map(widget => (
+              <div
+                key={widget.id}
+                className="mobile-widget bg-black/80 backdrop-blur-xl border border-red-500/30 rounded-2xl overflow-hidden"
+              >
+                {/* Widget Header */}
+                <div className="flex items-center justify-between p-3 bg-red-500/10 border-b border-red-500/20">
+                  <span className="text-red-400 font-medium text-sm">{widget.name}</span>
+                  <div className="flex items-center space-x-2">
+                    <button
+                      onClick={() => minimizeWidget(widget.id)}
+                      className="text-red-400/60 hover:text-red-400 transition-colors"
+                    >
+                      {widget.minimized ? <Maximize2 size={16} /> : <Minimize2 size={16} />}
+                    </button>
+                    <button
+                      onClick={() => removeWidget(widget.id)}
+                      className="text-red-400/60 hover:text-red-400 transition-colors"
+                    >
+                      <X size={16} />
+                    </button>
+                  </div>
+                </div>
+                {/* Widget Content */}
+                {!widget.minimized && (
+                  <div className="overflow-hidden">
+                    {widget.component}
+                  </div>
+                )}
               </div>
-            </div>
-            {/* Widget Content */}
-            {!widget.minimized && (
-              <div className="overflow-hidden">
-                {widget.component}
-              </div>
-            )}
+            ))}
           </div>
-        ))}
+        ) : (
+          /* Desktop Widget Layout - Fixed positioning */
+          widgets.map(widget => (
+            <div
+              key={widget.id}
+              className="fixed z-30 bg-black/80 backdrop-blur-xl border border-red-500/30 rounded-2xl overflow-hidden"
+              style={{
+                left: widget.x,
+                top: widget.y,
+                width: widget.width,
+                height: widget.minimized ? 40 : widget.height,
+                transition: 'height 0.3s ease'
+              }}
+              onMouseDown={() => setDraggedWidget(widget.id)}
+            >
+              {/* Widget Header */}
+              <div className="flex items-center justify-between p-3 bg-red-500/10 border-b border-red-500/20">
+                <span className="text-red-400 font-medium text-sm">{widget.name}</span>
+                <div className="flex items-center space-x-2">
+                  <button
+                    onClick={() => minimizeWidget(widget.id)}
+                    className="text-red-400/60 hover:text-red-400 transition-colors"
+                  >
+                    {widget.minimized ? <Maximize2 size={14} /> : <Minimize2 size={14} />}
+                  </button>
+                  <button
+                    onClick={() => removeWidget(widget.id)}
+                    className="text-red-400/60 hover:text-red-400 transition-colors"
+                  >
+                    <X size={14} />
+                  </button>
+                </div>
+              </div>
+              {/* Widget Content */}
+              {!widget.minimized && (
+                <div className="overflow-hidden">
+                  {widget.component}
+                </div>
+              )}
+            </div>
+          ))
+        )}
 
         {/* Command Palette */}
         {showCommandPalette && (
-          <div className="fixed inset-0 z-50 flex items-start justify-center pt-32 bg-black/50 backdrop-blur-sm">
-            <div className="bg-gray-900/95 backdrop-blur-xl rounded-2xl border border-red-500/30 w-full max-w-2xl mx-4 overflow-hidden">
+          <div className={`
+            fixed inset-0 z-50 bg-black/50 backdrop-blur-sm
+            ${isMobile ? 'mobile-command-palette' : 'flex items-start justify-center pt-32'}
+          `}>
+            <div className={`
+              bg-gray-900/95 backdrop-blur-xl rounded-2xl border border-red-500/30 overflow-hidden
+              ${isMobile 
+                ? 'palette-content w-full h-full max-h-none m-0 rounded-none' 
+                : 'w-full max-w-2xl mx-4'
+              }
+            `}>
               {/* Search Header */}
-              <div className="flex items-center p-4 border-b border-red-500/20">
-                <Command className="w-5 h-5 text-red-400 mr-3" />
+              <div className={`
+                flex items-center border-b border-red-500/20
+                ${isMobile ? 'p-4 pt-6' : 'p-4'}
+              `}>
+                <Command className={`text-red-400 mr-3 ${isMobile ? 'w-6 h-6' : 'w-5 h-5'}`} />
                 <input
                   type="text"
-                  placeholder="Search commands, apps, and actions..."
+                  placeholder={isMobile ? "Search..." : "Search commands, apps, and actions..."}
                   value={commandSearch}
                   onChange={(e) => setCommandSearch(e.target.value)}
-                  className="flex-1 bg-transparent text-white placeholder-gray-400 outline-none"
+                  className={`
+                    flex-1 bg-transparent text-white placeholder-gray-400 outline-none
+                    ${isMobile ? 'search-input text-lg' : 'text-base'}
+                  `}
                   autoFocus
                 />
-                <kbd className="ml-3 px-2 py-1 text-xs text-gray-400 bg-gray-800 rounded">ESC</kbd>
+                <kbd className={`
+                  ml-3 px-2 py-1 text-xs text-gray-400 bg-gray-800 rounded
+                  ${isMobile ? 'hidden' : 'block'}
+                `}>ESC</kbd>
               </div>
               
               {/* Results */}
-              <div className="max-h-96 overflow-y-auto">
+              <div className={`
+                overflow-y-auto
+                ${isMobile ? 'max-h-none h-full pb-20' : 'max-h-96'}
+              `}>
                 {filteredActions.length > 0 ? (
-                  <div className="p-2">
+                  <div className={isMobile ? 'p-2' : 'p-2'}>
                     {filteredActions.map(action => (
                       <button
                         key={action.id}
@@ -940,22 +1080,32 @@ const Desktop: React.FC = () => {
                           setShowCommandPalette(false);
                           setCommandSearch('');
                         }}
-                        className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-red-500/10 transition-colors text-left"
+                        className={`
+                          command-item w-full flex items-center gap-3 rounded-xl hover:bg-red-500/10 transition-colors text-left
+                          ${isMobile ? 'p-4' : 'p-3'}
+                        `}
                       >
                         <div className="text-red-400">{action.icon}</div>
                         <div className="flex-1">
-                          <div className="text-white font-medium">{action.name}</div>
-                          <div className="text-gray-400 text-sm">{action.description}</div>
+                          <div className={`text-white font-medium ${isMobile ? 'text-base' : 'text-sm'}`}>
+                            {action.name}
+                          </div>
+                          <div className={`text-gray-400 ${isMobile ? 'text-sm' : 'text-xs'}`}>
+                            {action.description}
+                          </div>
                         </div>
-                        <div className="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded">
+                        <div className={`
+                          text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded
+                          ${isMobile ? 'hidden' : 'block'}
+                        `}>
                           {action.category}
                         </div>
                       </button>
                     ))}
                   </div>
                 ) : (
-                  <div className="p-8 text-center text-gray-400">
-                    <Search className="w-8 h-8 mx-auto mb-2 opacity-50" />
+                  <div className={`text-center text-gray-400 ${isMobile ? 'p-12' : 'p-8'}`}>
+                    <Search className={`mx-auto mb-2 opacity-50 ${isMobile ? 'w-12 h-12' : 'w-8 h-8'}`} />
                     <div>No results found</div>
                   </div>
                 )}
@@ -967,8 +1117,14 @@ const Desktop: React.FC = () => {
         {/* Context Menu */}
         {showContextMenu && (
           <div
-            className="fixed z-50 bg-gray-900/95 backdrop-blur-xl rounded-xl border border-red-500/30 py-2 min-w-48"
-            style={{
+            className={`
+              fixed z-50 bg-gray-900/95 backdrop-blur-xl border border-red-500/30 py-2
+              ${isMobile 
+                ? 'mobile-context-menu rounded-2xl min-w-full' 
+                : 'rounded-xl min-w-48'
+              }
+            `}
+            style={isMobile ? {} : {
               left: contextMenuPosition.x,
               top: contextMenuPosition.y,
             }}
@@ -978,9 +1134,12 @@ const Desktop: React.FC = () => {
                 addWidget('system-monitor');
                 setShowContextMenu(false);
               }}
-              className="w-full px-4 py-2 text-left hover:bg-red-500/10 flex items-center gap-3 text-white"
+              className={`
+                context-item w-full text-left hover:bg-red-500/10 flex items-center gap-3 text-white
+                ${isMobile ? 'px-6 py-4' : 'px-4 py-2'}
+              `}
             >
-              <Plus size={16} className="text-red-400" />
+              <Plus size={isMobile ? 20 : 16} className="text-red-400" />
               Add Widget
             </button>
             <button
@@ -988,9 +1147,12 @@ const Desktop: React.FC = () => {
                 setShowCommandPalette(true);
                 setShowContextMenu(false);
               }}
-              className="w-full px-4 py-2 text-left hover:bg-red-500/10 flex items-center gap-3 text-white"
+              className={`
+                context-item w-full text-left hover:bg-red-500/10 flex items-center gap-3 text-white
+                ${isMobile ? 'px-6 py-4' : 'px-4 py-2'}
+              `}
             >
-              <Command size={16} className="text-red-400" />
+              <Command size={isMobile ? 20 : 16} className="text-red-400" />
               Command Palette
             </button>
             <hr className="my-2 border-red-500/20" />
@@ -999,9 +1161,12 @@ const Desktop: React.FC = () => {
                 handleWindowOpen('settings');
                 setShowContextMenu(false);
               }}
-              className="w-full px-4 py-2 text-left hover:bg-red-500/10 flex items-center gap-3 text-white"
+              className={`
+                context-item w-full text-left hover:bg-red-500/10 flex items-center gap-3 text-white
+                ${isMobile ? 'px-6 py-4' : 'px-4 py-2'}
+              `}
             >
-              <Settings size={16} className="text-red-400" />
+              <Settings size={isMobile ? 20 : 16} className="text-red-400" />
               Settings
             </button>
             <button
@@ -1009,9 +1174,12 @@ const Desktop: React.FC = () => {
                 window.location.reload();
                 setShowContextMenu(false);
               }}
-              className="w-full px-4 py-2 text-left hover:bg-red-500/10 flex items-center gap-3 text-white"
+              className={`
+                context-item w-full text-left hover:bg-red-500/10 flex items-center gap-3 text-white
+                ${isMobile ? 'px-6 py-4 border-b-0' : 'px-4 py-2'}
+              `}
             >
-              <RotateCw size={16} className="text-red-400" />
+              <RotateCw size={isMobile ? 20 : 16} className="text-red-400" />
               Refresh
             </button>
           </div>
@@ -1019,18 +1187,30 @@ const Desktop: React.FC = () => {
 
         {/* Quick Launch Dock */}
         {showQuickLaunch && (
-          <div className="fixed bottom-20 left-1/2 transform -translate-x-1/2 z-40">
+          <div className={`
+            fixed z-40
+            ${isMobile 
+              ? 'bottom-20 left-4 right-4' 
+              : 'bottom-20 left-1/2 transform -translate-x-1/2'
+            }
+          `}>
             <div className="bg-black/90 backdrop-blur-xl rounded-2xl border border-red-500/30 p-4">
-              <div className="flex items-center space-x-4">
+              <div className={`
+                flex items-center
+                ${isMobile ? 'flex-col space-y-4' : 'space-x-4'}
+              `}>
                 <div className="text-red-400 text-sm font-medium">Quick Launch</div>
-                <div className="flex items-center space-x-2">
+                <div className={`
+                  flex items-center
+                  ${isMobile ? 'grid grid-cols-3 gap-3 w-full' : 'space-x-2'}
+                `}>
                   
                   {[
-                    { icon: <Settings size={20} />, action: () => handleWindowOpen('settings'), label: 'Settings' },
-                    { icon: <Code2 size={20} />, action: () => handleWindowOpen('terminal'), label: 'Terminal' },
-                    { icon: <Sparkles size={20} />, action: () => setShowSamantha(true), label: 'Samantha' },
-                    { icon: <Command size={20} />, action: () => setShowCommandPalette(true), label: 'Commands' },
-                    { icon: <Plus size={20} />, action: () => addWidget('system-monitor'), label: 'Add Widget' }
+                    { icon: <Settings size={isMobile ? 24 : 20} />, action: () => handleWindowOpen('settings'), label: 'Settings' },
+                    { icon: <Code2 size={isMobile ? 24 : 20} />, action: () => handleWindowOpen('terminal'), label: 'Terminal' },
+                    { icon: <Sparkles size={isMobile ? 24 : 20} />, action: () => setShowSamantha(true), label: 'Samantha' },
+                    { icon: <Command size={isMobile ? 24 : 20} />, action: () => setShowCommandPalette(true), label: 'Commands' },
+                    { icon: <Plus size={isMobile ? 24 : 20} />, action: () => addWidget('system-monitor'), label: 'Add Widget' }
                   ].map((item, index) => (
                     
                     <button
@@ -1039,13 +1219,24 @@ const Desktop: React.FC = () => {
                         item.action();
                         setShowQuickLaunch(false);
                       }}
-                      className="group relative p-3 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-400 hover:text-red-300 transition-all duration-300 hover:scale-110"
+                      className={`
+                        group relative rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-400 hover:text-red-300 transition-all duration-300
+                        ${isMobile 
+                          ? 'p-4 flex flex-col items-center justify-center' 
+                          : 'p-3 hover:scale-110'
+                        }
+                      `}
                       title={item.label}
                     >
                       {item.icon}
-                      <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                        {item.label}
-                      </div>
+                      {isMobile && (
+                        <span className="text-xs mt-1">{item.label}</span>
+                      )}
+                      {!isMobile && (
+                        <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                          {item.label}
+                        </div>
+                      )}
                     </button>
                   ))}
                 </div>
@@ -1054,12 +1245,14 @@ const Desktop: React.FC = () => {
           </div>
         )}
 
-        {/* Keyboard Shortcuts Help */}
-        <div className="fixed bottom-24 right-80 z-10 bg-black/50 backdrop-blur-xl rounded-xl border border-red-500/20 p-3 text-xs text-red-400/60">
-          <div>⌘K / Ctrl+K - Command Palette</div>
-          <div>Ctrl+Space - Quick Launch</div>
-          <div>Right Click - Context Menu</div>
-        </div>
+        {/* Keyboard Shortcuts Help - Desktop only */}
+        {!isMobile && (
+          <div className="fixed bottom-24 right-80 z-10 bg-black/50 backdrop-blur-xl rounded-xl border border-red-500/20 p-3 text-xs text-red-400/60">
+            <div>⌘K / Ctrl+K - Command Palette</div>
+            <div>Ctrl+Space - Quick Launch</div>
+            <div>Right Click - Context Menu</div>
+          </div>
+        )}
 
         {/* Side Dock */}
         <SideDock onCharacterClick={handleCharacterClick} />

@@ -1,6 +1,18 @@
 import React, { useState } from 'react';
 import { Moon, Sun, Palette, Sliders, Monitor, Layout, Sparkles, Zap } from 'lucide-react';
 import { useTheme, themes } from '../contexts/ThemeContext';
+import { useMobile } from '../hooks/useMobile';
+
+interface UISettings {
+  particleEffects: boolean;
+  animations: boolean;
+  blurEffects: boolean;
+  performanceMode: boolean;
+  particleDensity: number;
+  animationSpeed: number;
+  lightMode: number;
+  darkMode: number;
+}
 
 interface SystemSettingsProps {
   onClose: () => void;
@@ -8,6 +20,7 @@ interface SystemSettingsProps {
 
 const SystemSettings: React.FC<SystemSettingsProps> = ({ onClose }) => {
   const { theme, setTheme, uiSettings, setUiSettings } = useTheme();
+  const { isMobile } = useMobile();
   const [activeTab, setActiveTab] = useState('appearance');
 
   const tabs = [
@@ -24,18 +37,18 @@ const SystemSettings: React.FC<SystemSettingsProps> = ({ onClose }) => {
     }
   };
 
-  const handleSettingToggle = (setting: keyof typeof uiSettings) => {
-    setUiSettings((prev: typeof uiSettings) => ({
-      ...prev,
-      [setting]: !prev[setting]
-    }));
+  const handleSettingToggle = (setting: keyof UISettings) => {
+    setUiSettings({
+      ...uiSettings,
+      [setting]: !uiSettings[setting]
+    });
   };
 
-  const handleSliderChange = (setting: keyof typeof uiSettings, value: number) => {
-    setUiSettings((prev: typeof uiSettings) => ({
-      ...prev,
+  const handleSliderChange = (setting: keyof UISettings, value: number) => {
+    setUiSettings({
+      ...uiSettings,
       [setting]: value
-    }));
+    });
   };
 
   const handleSaveLayout = () => {
@@ -45,25 +58,42 @@ const SystemSettings: React.FC<SystemSettingsProps> = ({ onClose }) => {
   };
 
   return (
-    <div className="bg-gray-900/95 backdrop-blur-xl rounded-3xl border border-red-500/30 p-8 w-full max-w-4xl">
+    <div className={`
+      bg-gray-900/95 backdrop-blur-xl border border-red-500/30 w-full
+      ${isMobile 
+        ? 'mobile-settings rounded-lg p-4 max-w-none' 
+        : 'rounded-3xl p-8 max-w-4xl'
+      }
+    `}>
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
-        <h2 className="text-3xl font-bold text-white flex items-center gap-3">
-          <Sliders className="w-8 h-8 text-red-400" />
-          System Settings
+      <div className={`
+        flex items-center justify-between mb-8
+        ${isMobile ? 'mb-4' : 'mb-8'}
+      `}>
+        <h2 className={`
+          font-bold text-white flex items-center gap-3
+          ${isMobile ? 'text-xl' : 'text-3xl'}
+        `}>
+          <Sliders className={`text-red-400 ${isMobile ? 'w-6 h-6' : 'w-8 h-8'}`} />
+          {isMobile ? 'Settings' : 'System Settings'}
         </h2>
         <div className="flex items-center gap-4">
-          <button
-            onClick={handleSaveLayout}
-            className="bg-red-500/20 hover:bg-red-500/30 text-red-400 px-4 py-2 rounded-xl
-              transition-all duration-300 flex items-center gap-2"
-          >
-            <Layout className="w-4 h-4" />
-            Save Layout
-          </button>
+          {!isMobile && (
+            <button
+              onClick={handleSaveLayout}
+              className="bg-red-500/20 hover:bg-red-500/30 text-red-400 px-4 py-2 rounded-xl
+                transition-all duration-300 flex items-center gap-2"
+            >
+              <Layout className="w-4 h-4" />
+              Save Layout
+            </button>
+          )}
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-white transition-colors duration-300"
+            className={`
+              text-gray-400 hover:text-white transition-colors duration-300
+              ${isMobile ? 'text-2xl' : 'text-lg'}
+            `}
           >
             ✕
           </button>
@@ -71,13 +101,22 @@ const SystemSettings: React.FC<SystemSettingsProps> = ({ onClose }) => {
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-4 mb-8">
+      <div className={`
+        ${isMobile 
+          ? 'settings-tabs flex gap-2 mb-4 overflow-x-auto pb-2' 
+          : 'flex gap-4 mb-8'
+        }
+      `}>
         {tabs.map(tab => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
             className={`
-              flex items-center gap-2 px-4 py-2 rounded-xl transition-all duration-300
+              settings-tab flex items-center gap-2 rounded-xl transition-all duration-300
+              ${isMobile 
+                ? 'flex-shrink-0 px-3 py-2 text-sm' 
+                : 'px-4 py-2'
+              }
               ${activeTab === tab.id 
                 ? 'bg-red-500/20 text-red-400 border border-red-500/30' 
                 : 'text-gray-400 hover:text-white hover:bg-white/5'
@@ -85,17 +124,28 @@ const SystemSettings: React.FC<SystemSettingsProps> = ({ onClose }) => {
             `}
           >
             {tab.icon}
-            {tab.name}
+            {isMobile ? '' : tab.name}
           </button>
         ))}
       </div>
 
       {/* Content */}
-      <div className="space-y-8">
+      <div className={`
+        settings-content space-y-8
+        ${isMobile ? 'space-y-4' : 'space-y-8'}
+      `}>
         {/* Theme Selection */}
         <div className={activeTab === 'appearance' ? 'block' : 'hidden'}>
-          <h3 className="text-xl font-semibold text-white mb-4">Theme Selection</h3>
-          <div className="grid grid-cols-2 gap-4">
+          <h3 className={`
+            font-semibold text-white mb-4
+            ${isMobile ? 'text-lg mb-3' : 'text-xl mb-4'}
+          `}>
+            Theme Selection
+          </h3>
+          <div className={`
+            settings-grid grid gap-4
+            ${isMobile ? 'grid-cols-1' : 'grid-cols-2'}
+          `}>
             {themes.map(t => (
               <div
                 key={t.id}
@@ -142,7 +192,7 @@ const SystemSettings: React.FC<SystemSettingsProps> = ({ onClose }) => {
                     </div>
                   </div>
                   <button
-                    onClick={() => handleSettingToggle(key as keyof typeof uiSettings)}
+                    onClick={() => handleSettingToggle(key as keyof UISettings)}
                     className={`
                       w-12 h-6 rounded-full transition-all duration-300 relative
                       ${value ? 'bg-red-500' : 'bg-gray-700'}
