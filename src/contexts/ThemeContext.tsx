@@ -30,9 +30,9 @@ interface ThemeContextType {
 const defaultTheme: Theme = {
   id: 'default',
   name: 'Samantha Red',
-  primary: 'from-red-500 to-red-700',
-  secondary: 'from-pink-500 to-pink-700',
-  accent: 'text-red-400',
+  primary: 'from-red-700 to-red-900',
+  secondary: 'from-red-800 to-red-950',
+  accent: 'text-red-300',
   background: 'from-gray-900 to-black'
 };
 
@@ -87,9 +87,9 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const body = document.body;
     
     // Apply theme colors
-    root.style.setProperty('--tw-gradient-from', `rgb(239 68 68)`); // red-500
-    root.style.setProperty('--tw-gradient-to', `rgb(185 28 28)`); // red-700
-    root.style.setProperty('--accent-color', 'rgb(248 113 113)'); // red-400
+    root.style.setProperty('--tw-gradient-from', `rgb(185 28 28)`); // red-700
+    root.style.setProperty('--tw-gradient-to', `rgb(127 29 29)`); // red-900
+    root.style.setProperty('--accent-color', 'rgb(252 165 165)'); // red-300
     
     // Apply UI settings
     root.style.setProperty('--animation-speed', `${uiSettings.animationSpeed}%`);

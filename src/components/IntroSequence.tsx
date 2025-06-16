@@ -113,26 +113,26 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
       <div className="relative z-10 w-full max-w-4xl mx-auto px-6 mb-8">
         <div className="text-center mb-12">
           <div className="relative inline-block">
-            <div className="text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-pink-600 to-red-700">
+            <div className="text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-700 via-red-800 to-red-900">
               OMNIA
             </div>
-            <div className="absolute -inset-2 bg-gradient-to-r from-red-500/20 via-pink-600/20 to-red-700/20 blur-xl" />
+            <div className="absolute -inset-2 bg-gradient-to-r from-red-700/20 via-red-800/20 to-red-900/20 blur-xl" />
           </div>
-          <div className="text-red-400 text-xl mt-4 font-light tracking-wider">
+          <div className="text-red-300 text-xl mt-4 font-light tracking-wider">
             ARTIFICIAL GENERAL INTELLIGENCE OS
           </div>
         </div>
 
         {/* Neural Interface Terminal */}
-        <div className="bg-black/50 backdrop-blur-sm rounded-lg border border-red-500/30 overflow-hidden shadow-2xl">
+        <div className="bg-black/50 backdrop-blur-sm rounded-lg border border-red-700/30 overflow-hidden shadow-2xl">
           {/* Terminal Header */}
-          <div className="bg-gradient-to-r from-red-900/50 to-pink-900/50 px-4 py-2 flex items-center gap-2">
+          <div className="bg-gradient-to-r from-red-900/50 to-red-950/50 px-4 py-2 flex items-center gap-2">
             <div className="flex gap-1.5">
-              <div className="w-3 h-3 rounded-full bg-red-500/80" />
-              <div className="w-3 h-3 rounded-full bg-pink-500/80" />
-              <div className="w-3 h-3 rounded-full bg-red-600/80" />
+              <div className="w-3 h-3 rounded-full bg-red-700/80" />
+              <div className="w-3 h-3 rounded-full bg-red-800/80" />
+              <div className="w-3 h-3 rounded-full bg-red-900/80" />
             </div>
-            <div className="text-red-400 text-sm ml-2 font-mono">
+            <div className="text-red-300 text-sm ml-2 font-mono">
               Neural Core Initialization
             </div>
           </div>
@@ -145,11 +145,11 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
                   key={index}
                   className={`
                     flex items-start gap-2
-                    ${index === bootMessages.length - 1 ? 'text-red-400' : 'text-red-400/70'}
+                    ${index === bootMessages.length - 1 ? 'text-red-300' : 'text-red-300/70'}
                   `}
                 >
-                  <span className="text-pink-500">AGI</span>
-                  <span className="text-red-700">{'>'}</span>
+                  <span className="text-red-700">AGI</span>
+                  <span className="text-red-800">{'>'}</span>
                   <span className="flex-1">{message}</span>
                   {index === bootMessages.length - 1 && (
                     <span className="animate-pulse">▊</span>
@@ -203,14 +203,14 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
           ].map(({ icon: Icon, label, value, detail }) => (
             <div 
               key={label}
-              className="bg-black/30 backdrop-blur-sm rounded-lg border border-red-500/30 p-3 hover:border-red-500/50 transition-colors duration-300"
+              className="bg-black/30 backdrop-blur-sm rounded-lg border border-red-700/30 p-3 hover:border-red-700/50 transition-colors duration-300"
             >
               <div className="flex items-center gap-3">
-                <Icon className="w-5 h-5 text-red-400" />
+                <Icon className="w-5 h-5 text-red-300" />
                 <div className="flex-1">
-                  <div className="text-xs text-pink-400">{label}</div>
-                  <div className="text-red-400 font-semibold">{value}</div>
-                  <div className="text-xs text-red-400/60 mt-1">{detail}</div>
+                  <div className="text-xs text-red-400">{label}</div>
+                  <div className="text-red-300 font-semibold">{value}</div>
+                  <div className="text-xs text-red-300/60 mt-1">{detail}</div>
                 </div>
               </div>
             </div>
@@ -220,9 +220,9 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
 
       {/* Progress Bar */}
       <div className="fixed bottom-0 left-0 right-0">
-        <div className="h-1 bg-gradient-to-r from-red-500/20 via-pink-600/20 to-red-700/20">
+        <div className="h-1 bg-gradient-to-r from-red-700/20 via-red-800/20 to-red-900/20">
           <div 
-            className="h-full bg-gradient-to-r from-red-500 via-pink-600 to-red-700"
+            className="h-full bg-gradient-to-r from-red-700 via-red-800 to-red-900"
             style={{
               width: `${(bootMessages.length / bootSequence.length) * 100}%`,
               transition: 'width 0.3s ease-out'
@@ -230,7 +230,7 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
           />
         </div>
         <div className="absolute bottom-2 left-0 right-0 text-center">
-          <span className="text-xs text-red-400/80">
+          <span className="text-xs text-red-300/80">
             Neural Core Initialization: {Math.round((bootMessages.length / bootSequence.length) * 100)}%
           </span>
         </div>

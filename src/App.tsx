@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Desktop from './components/Desktop';
+import PreIntroLoader from './components/PreIntroLoader';
 
 const App: React.FC = () => {
+  const [showPreLoader, setShowPreLoader] = useState(true);
+
+  const handlePreLoaderComplete = () => {
+    setShowPreLoader(false);
+  };
+
   return (
     <ThemeProvider>
-      <Desktop />
+      {showPreLoader ? (
+        <PreIntroLoader onComplete={handlePreLoaderComplete} />
+      ) : (
+        <Desktop />
+      )}
     </ThemeProvider>
   );
 };

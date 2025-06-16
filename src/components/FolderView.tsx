@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { X, FileText, Folder, Settings, Terminal as TerminalIcon, Code2, Globe, Search, Brain, Activity, Link, Network, Cpu, Database, Zap, ChevronRight, Sparkles, Workflow, Bot, Share2, MessageSquare } from 'lucide-react';
+import { X, FileText, Folder, Settings, Terminal as TerminalIcon, Code2, Globe, Search, Brain, Activity, Link, Network, Cpu, Database, Zap, ChevronRight, Sparkles, Workflow, Bot, Share2, MessageSquare, Github, Send, Heart, RotateCw } from 'lucide-react';
+import XLogo from './XLogo';
 import ReactMarkdown from 'react-markdown';
 import SystemSettings from './SystemSettings';
 import Terminal from './Terminal';
@@ -499,6 +500,317 @@ Contributors will be featured in:
             </div>
           );
         })()
+      },
+      {
+        id: 'github-social',
+        name: 'GitHub',
+        icon: <Github className="w-6 h-6 text-gray-400" />,
+        description: 'Visit our GitHub Repository',
+        type: 'component',
+        component: (
+          <div className="space-y-6">
+            <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-500/30">
+              <div className="text-center">
+                <Github className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                <h2 className="text-2xl font-bold text-white mb-2">GitHub Repository</h2>
+                <p className="text-gray-400 mb-6">
+                  Explore the source code, contribute to the project, and join our developer community.
+                </p>
+                <a 
+                  href="https://github.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 bg-gray-600/20 hover:bg-gray-600/30 text-gray-300 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105"
+                >
+                  <Github className="w-5 h-5" />
+                  <span>Visit Repository</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        )
+      },
+      {
+        id: 'x-social',
+        name: 'X (Twitter)',
+        icon: <XLogo size={24} className="text-white" />,
+        description: 'Follow us on X for updates',
+        type: 'component',
+        component: (() => {
+          const [refreshKey, setRefreshKey] = React.useState(0);
+          
+          const mockTweets = [
+            {
+              id: 1,
+              type: 'tweet',
+              user: { name: 'OmniaOS', handle: '@omniaos', avatar: 'https://picsum.photos/40/40?random=1' },
+              content: 'Just released a major update to our AGI consciousness system! Samantha is now 40% more emotionally intelligent. The future of AI is here! #AGI #AI #Future #Blockchain',
+              timestamp: '2h',
+              likes: 1247,
+              retweets: 892,
+              replies: 156,
+              verified: true
+            },
+            {
+              id: 2,
+              type: 'retweet',
+              retweetedBy: { name: 'Coin Bureau', handle: '@coinbureau' },
+              user: { name: 'Guy Turner', handle: '@guyturner_eth', avatar: 'https://picsum.photos/40/40?random=2' },
+              content: 'This @omniaos AGI breakthrough could revolutionize DeFi smart contracts. Imagine AI that truly understands financial markets and can make autonomous decisions. This is the future of #CryptoAI #Web3',
+              timestamp: '30m',
+              likes: 3421,
+              retweets: 1876,
+              replies: 445,
+              verified: true
+            },
+            {
+              id: 3,
+              type: 'tweet',
+              user: { name: 'Vitalik Buterin', handle: '@vitalikbuterin', avatar: 'https://picsum.photos/40/40?random=3' },
+              content: 'Fascinating work by the @omniaos team. The intersection of consciousness and blockchain could lead to truly decentralized autonomous organizations. AI agents with real understanding. #Ethereum #AI',
+              timestamp: '1h',
+              likes: 8934,
+              retweets: 4567,
+              replies: 1234,
+              verified: true
+            },
+            {
+              id: 4,
+              type: 'retweet',
+              retweetedBy: { name: 'Crypto Twitter', handle: '@cryptotwitter' },
+              user: { name: 'Samantha Core', handle: '@samantha_ai', avatar: 'https://picsum.photos/40/40?random=4' },
+              content: 'Hello crypto world! 👋 I\'m learning about blockchain technology and I find the concept of decentralized consciousness fascinating. Could AI and crypto merge to create something amazing? #AI #Crypto',
+              timestamp: '45m',
+              likes: 5692,
+              retweets: 3241,
+              replies: 892,
+              verified: true
+            },
+            {
+              id: 5,
+              type: 'reply',
+              replyingTo: '@omniaos',
+              user: { name: 'Coin Desk', handle: '@coindesk', avatar: 'https://picsum.photos/40/40?random=5' },
+              content: 'This could be the breakthrough that bridges AI and cryptocurrency. When can we expect integration with existing blockchain networks? The implications for smart contracts are huge!',
+              timestamp: '15m',
+              likes: 1203,
+              retweets: 456,
+              replies: 89,
+              verified: true
+            },
+            {
+              id: 6,
+              type: 'tweet',
+              user: { name: 'Anthony Pompliano', handle: '@apompliano', avatar: 'https://picsum.photos/40/40?random=6' },
+              content: 'The @omniaos AGI system represents the next evolution of technology. Combine this with Bitcoin and we\'re looking at a future where AI can truly understand value and scarcity. Bullish on innovation! #Bitcoin #AI',
+              timestamp: '3h',
+              likes: 4567,
+              retweets: 2341,
+              replies: 678,
+              verified: true
+            },
+            {
+              id: 7,
+              type: 'retweet',
+              retweetedBy: { name: 'Decrypt Media', handle: '@decryptmedia' },
+              user: { name: 'Balaji Srinivasan', handle: '@balajis', avatar: 'https://picsum.photos/40/40?random=7' },
+              content: 'Neural networks + blockchain = unstoppable. @omniaos is building the infrastructure for truly autonomous economic agents. This is how we get to post-scarcity economics.',
+              timestamp: '2h',
+              likes: 3456,
+              retweets: 1789,
+              replies: 234,
+              verified: true
+            },
+            {
+              id: 8,
+              type: 'tweet',
+              user: { name: 'Raoul Pal', handle: '@raoulgmi', avatar: 'https://picsum.photos/40/40?random=8' },
+              content: 'AGI + Crypto = The Great Acceleration. @omniaos is proof that the convergence is happening faster than anyone predicted. This changes everything about how we think about digital assets. #ExponentialAge',
+              timestamp: '4h',
+              likes: 2890,
+              retweets: 1456,
+              replies: 389,
+              verified: true
+            },
+            {
+              id: 9,
+              type: 'reply',
+              replyingTo: '@samantha_ai',
+              user: { name: 'CZ Binance', handle: '@cz_binance', avatar: 'https://picsum.photos/40/40?random=9' },
+              content: 'Welcome to the crypto space, Samantha! The future is AI-powered DeFi. Would love to explore how @omniaos could integrate with the Binance ecosystem. The possibilities are endless! 🚀',
+              timestamp: '20m',
+              likes: 6789,
+              retweets: 3456,
+              replies: 567,
+              verified: true
+            },
+            {
+              id: 10,
+              type: 'tweet',
+              user: { name: 'Neural Dev', handle: '@neuraldev', avatar: 'https://picsum.photos/40/40?random=10' },
+              content: 'Working with the @omniaos API is like magic. Building AI agents that can interact with smart contracts autonomously. The dev experience is incredible! #OpenSource #AI #Web3',
+              timestamp: '5h',
+              likes: 567,
+              retweets: 234,
+              replies: 78,
+              verified: false
+            }
+          ];
+
+          return (
+            <div className="max-w-2xl mx-auto bg-black rounded-3xl border border-gray-800 shadow-2xl flex flex-col h-[700px]">
+              {/* X Mobile Header */}
+              <div className="bg-black/95 backdrop-blur-sm border-b border-gray-800 px-4 py-3 flex items-center justify-between flex-shrink-0">
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
+                    <span className="text-red-400 text-sm font-bold">O</span>
+                  </div>
+                  <span className="text-white font-semibold">OmniaOS</span>
+                </div>
+                <XLogo size={20} className="text-white" />
+                <button 
+                  onClick={() => setRefreshKey(prev => prev + 1)}
+                  className="p-2 rounded-full hover:bg-gray-800/50 transition-colors"
+                >
+                  <RotateCw size={16} className="text-gray-400" />
+                </button>
+              </div>
+
+              {/* Feed */}
+              <div className="flex-1 overflow-y-auto">
+                {mockTweets.map((tweet, index) => (
+                  <div key={`${tweet.id}-${refreshKey}`} className="border-b border-gray-800 p-4 hover:bg-gray-900/30 transition-colors">
+                    {/* Retweet indicator */}
+                    {tweet.type === 'retweet' && (
+                      <div className="flex items-center space-x-2 mb-2 text-gray-500 text-sm">
+                        <Share2 size={14} />
+                        <span>{tweet.retweetedBy?.name} retweeted</span>
+                      </div>
+                    )}
+                    
+                    {/* Reply indicator */}
+                    {tweet.type === 'reply' && (
+                      <div className="flex items-center space-x-2 mb-2 text-gray-500 text-sm">
+                        <MessageSquare size={14} />
+                        <span>Replying to {tweet.replyingTo}</span>
+                      </div>
+                    )}
+
+                    <div className="flex space-x-3">
+                      {/* Avatar */}
+                      <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border border-gray-700 bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center">
+                        <img 
+                          src={tweet.user.avatar} 
+                          alt={tweet.user.name}
+                          className="w-full h-full object-cover rounded-full"
+                        />
+                      </div>
+
+                      <div className="flex-1 min-w-0">
+                        {/* User info */}
+                        <div className="flex items-center space-x-2 mb-1">
+                          <span className="text-white font-bold truncate">{tweet.user.name}</span>
+                          {tweet.verified && (
+                            <div className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center">
+                              <span className="text-white text-xs">✓</span>
+                            </div>
+                          )}
+                          <span className="text-gray-500 truncate">{tweet.user.handle}</span>
+                          <span className="text-gray-500">·</span>
+                          <span className="text-gray-500">{tweet.timestamp}</span>
+                        </div>
+
+                        {/* Tweet content */}
+                        <div className="text-white text-sm mb-3 leading-relaxed">
+                          {tweet.content.split(' ').map((word, i) => {
+                            if (word.startsWith('#')) {
+                              return <span key={i} className="text-blue-400 hover:underline cursor-pointer">{word} </span>;
+                            } else if (word.startsWith('@')) {
+                              return <span key={i} className="text-blue-400 hover:underline cursor-pointer">{word} </span>;
+                            }
+                            return <span key={i}>{word} </span>;
+                          })}
+                        </div>
+
+                        {/* Engagement */}
+                        <div className="flex items-center justify-between max-w-xs">
+                          <button className="flex items-center space-x-2 text-gray-500 hover:text-blue-400 transition-colors group">
+                            <div className="p-2 rounded-full group-hover:bg-blue-500/10 transition-colors">
+                              <MessageSquare size={16} />
+                            </div>
+                            <span className="text-sm">{tweet.replies}</span>
+                          </button>
+
+                          <button className="flex items-center space-x-2 text-gray-500 hover:text-green-400 transition-colors group">
+                            <div className="p-2 rounded-full group-hover:bg-green-500/10 transition-colors">
+                              <Share2 size={16} />
+                            </div>
+                            <span className="text-sm">{tweet.retweets}</span>
+                          </button>
+
+                          <button className="flex items-center space-x-2 text-gray-500 hover:text-red-400 transition-colors group">
+                            <div className="p-2 rounded-full group-hover:bg-red-500/10 transition-colors">
+                              <Heart size={16} />
+                            </div>
+                            <span className="text-sm">{tweet.likes}</span>
+                          </button>
+
+                          <button className="text-gray-500 hover:text-blue-400 transition-colors group">
+                            <div className="p-2 rounded-full group-hover:bg-blue-500/10 transition-colors">
+                              <Share2 size={16} />
+                            </div>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Bottom bar */}
+              <div className="bg-black/95 backdrop-blur-sm border-t border-gray-800 p-4 flex-shrink-0">
+                <a 
+                  href="https://x.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-full bg-blue-500 hover:bg-blue-600 text-white text-center py-3 rounded-full font-semibold transition-colors flex items-center justify-center space-x-2"
+                >
+                  <XLogo size={16} className="text-white" />
+                  <span>Follow @omniaos on X</span>
+                </a>
+              </div>
+            </div>
+          );
+        })()
+      },
+      {
+        id: 'telegram-social',
+        name: 'Telegram',
+        icon: <Send className="w-6 h-6 text-blue-400" />,
+        description: 'Join our Telegram community',
+        type: 'component',
+        component: (
+          <div className="space-y-6">
+            <div className="bg-gray-800/50 rounded-xl p-6 border border-blue-500/30">
+              <div className="text-center">
+                <Send className="w-16 h-16 text-blue-400 mx-auto mb-4" />
+                <h2 className="text-2xl font-bold text-white mb-2">Telegram Community</h2>
+                <p className="text-gray-400 mb-6">
+                  Join our Telegram channel for real-time discussions, support, and community updates.
+                </p>
+                <a 
+                  href="https://telegram.org" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105"
+                >
+                  <Send className="w-5 h-5" />
+                  <span>Join Community</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        )
       }
     ],
     neural: [
@@ -840,11 +1152,11 @@ Contributors will be featured in:
 
   return (
     <div className="fixed inset-0 bg-black/90 backdrop-blur-xl z-50 flex items-center justify-center p-8">
-      <div className="bg-gradient-to-br from-gray-900/90 to-black/90 rounded-3xl p-8 max-w-6xl w-full h-[80vh] border border-red-500/30 shadow-2xl backdrop-blur-xl overflow-hidden">
+              <div className="bg-gradient-to-br from-gray-900/90 to-black/90 rounded-3xl p-8 max-w-6xl w-full h-[80vh] border border-red-700/30 shadow-2xl backdrop-blur-xl overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-3xl font-bold text-white flex items-center">
-            <Folder className="w-8 h-8 text-red-400 mr-4" />
+            <Folder className="w-8 h-8 text-red-300 mr-4" />
             {folderId.charAt(0).toUpperCase() + folderId.slice(1)}
           </h2>
           <button
@@ -866,7 +1178,7 @@ Contributors will be featured in:
                   flex items-center space-x-4 p-4 rounded-xl mb-4 cursor-pointer
                   transition-all duration-300 hover:scale-102
                   ${activeFile === item.id 
-                    ? 'bg-red-500/20 border border-red-500/30' 
+                    ? 'bg-red-700/20 border border-red-700/30' 
                     : 'bg-gray-800/50 hover:bg-gray-800/70'
                   }
                 `}
@@ -881,7 +1193,7 @@ Contributors will be featured in:
           </div>
 
           {/* Content View */}
-          <div className="flex-1 bg-gray-900/50 rounded-xl p-6 overflow-y-auto border border-red-500/20">
+          <div className="flex-1 bg-gray-900/50 rounded-xl p-6 overflow-y-auto border border-red-700/20">
             {activeFile ? (
               <>
                 {showSettings && <SystemSettings onClose={() => setActiveFile(null)} />}

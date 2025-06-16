@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
+import loadingGif from '../assets/bcf67b6246b68b1f43a98b219fabe105.gif';
 import { 
-  Settings, Folder, Brain, Globe, Heart, Zap, FileText, 
-  Network, Activity, Bell, Wifi, Battery, Volume2, 
+  Settings, 
+  Network, Activity, Wifi, Battery, Volume2, 
   Calendar, Clock, Sun, Moon, Cpu, HardDrive, 
   MemoryStick, Thermometer, Server, Database, Radio, 
   Sparkles, Grid3X3, Code2, Search, Command, 
   Maximize2, Minimize2, X, RotateCw, Download,
   Music, Video, Image, ChevronDown, Plus, Minus,
-  BarChart3, Gauge, Laptop, Smartphone, Tablet
+  BarChart3, Gauge, Laptop, Smartphone, Tablet,
+  Github, Send
 } from 'lucide-react';
 import Taskbar from './Taskbar';
 import SystemSettings from './SystemSettings';
@@ -16,6 +18,8 @@ import Terminal from './Terminal';
 import FolderView from './FolderView';
 import SamanthaChat from './SamanthaChat';
 import IntroSequence from './IntroSequence';
+import SideDock from './SideDock';
+import XLogo from './XLogo';
 
 interface FolderItem {
   id: string;
@@ -50,8 +54,7 @@ const Desktop: React.FC = () => {
   const [activeWindow, setActiveWindow] = useState<string | null>(null);
   const [showSamantha, setShowSamantha] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [showLoader, setShowLoader] = useState(true);
-  const [showIntro, setShowIntro] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
   const [currentTime, setCurrentTime] = useState(new Date());
   const [showCommandPalette, setShowCommandPalette] = useState(false);
   const [commandSearch, setCommandSearch] = useState('');
@@ -60,11 +63,6 @@ const Desktop: React.FC = () => {
   const [widgets, setWidgets] = useState<Widget[]>([]);
   const [showQuickLaunch, setShowQuickLaunch] = useState(false);
   const [draggedWidget, setDraggedWidget] = useState<string | null>(null);
-  const [notifications, setNotifications] = useState([
-    { id: 1, title: 'AGI Update', message: 'Neural network optimization complete', time: '2m ago', type: 'success' },
-    { id: 2, title: 'System', message: 'Quantum processing cores synchronized', time: '5m ago', type: 'info' },
-    { id: 3, title: 'Security', message: 'Neural firewall updated', time: '10m ago', type: 'warning' }
-  ]);
   const [systemMetrics, setSystemMetrics] = useState({
     cpu: 42,
     memory: 68,
@@ -225,15 +223,7 @@ const Desktop: React.FC = () => {
     };
   }, [mousePosition, uiSettings.particleEffects]);
 
-  // Handle loader completion
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowLoader(false);
-      setShowIntro(true);
-    }, 6000); // 6 second fast infinity loader
-    
-    return () => clearTimeout(timer);
-  }, []);
+
 
   // Handle intro completion
   const handleIntroComplete = () => {
@@ -463,454 +453,25 @@ const Desktop: React.FC = () => {
     setActiveWindow(null);
   };
 
-  // Render loader, intro, or desktop
-  if (showLoader) {
-    return (
-      <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
-        <div className="text-center">
-          {/* Flowing Numbers Infinity */}
-          <div className="mb-12 relative">
-            <div className="infinity-flow-container">
-              <svg width="500" height="200" viewBox="0 0 500 200" className="infinity-svg">
-                <defs>
-                  <path 
-                    id="infinityPath" 
-                    d="M 250,100 C 250,40 180,40 150,80 C 120,120 180,160 180,100 C 180,40 250,40 250,100 C 250,160 320,160 350,120 C 380,80 320,40 320,100 C 320,160 250,160 250,100"
-                  />
-                </defs>
-              </svg>
-              
-              {/* Track 1 - Inner infinity path */}
-              {Array.from({ length: 60 }, (_, i) => {
-                const chars = ['◆', '◇', '●', '○', '■', '□', '▲', '△'];
-                return (
-                  <div 
-                    key={`track1-${i}`}
-                    className="flowing-bit track1"
-                    style={{
-                      animationDelay: `${i * 0.03}s`,
-                      animationDuration: '4s'
-                    }}
-                  >
-                    {chars[Math.floor(Math.random() * chars.length)]}
-                  </div>
-                );
-              })}
-              
-              {/* Track 2 - Middle infinity path */}
-              {Array.from({ length: 60 }, (_, i) => {
-                const chars = ['✦', '✧', '★', '☆', '✪', '✫', '✬', '✭'];
-                return (
-                  <div 
-                    key={`track2-${i}`}
-                    className="flowing-bit track2"
-                    style={{
-                      animationDelay: `${i * 0.03}s`,
-                      animationDuration: '4s'
-                    }}
-                  >
-                    {chars[Math.floor(Math.random() * chars.length)]}
-                  </div>
-                );
-              })}
-              
-              {/* Track 3 - Outer infinity path */}
-              {Array.from({ length: 60 }, (_, i) => {
-                const chars = ['◊', '◈', '◉', '◎', '⬟', '⬢', '⬡', '⟐'];
-                return (
-                  <div 
-                    key={`track3-${i}`}
-                    className="flowing-bit track3"
-                    style={{
-                      animationDelay: `${i * 0.03}s`,
-                      animationDuration: '4s'
-                    }}
-                  >
-                    {chars[Math.floor(Math.random() * chars.length)]}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-          
-          {/* OMNIA Text */}
-          <div className="mb-8">
-            <div className="text-red-400 text-3xl font-mono font-bold tracking-wider omnia-brand">
-              {'OMNIA'.split('').map((char, i) => (
-                <span key={i} style={{animationDelay: `${i * 0.2}s`}} className="letter">
-                  {char}
-                </span>
-              ))}
-            </div>
-            <div className="text-red-400/60 text-sm font-mono mt-2 tracking-widest">
-              NEURAL STREAM INITIALIZING
-            </div>
-          </div>
-          
-          {/* Binary Loading */}
-          <div className="flex items-center justify-center space-x-2">
-            <div className="text-red-400 text-sm font-mono">
-              {'01001100010001'.split('').map((bit, i) => (
-                <span 
-                  key={i} 
-                  className="binary-bit"
-                  style={{animationDelay: `${i * 0.1}s`}}
-                >
-                  {bit}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-        
-        <style>{`
-          .infinity-flow-container {
-            position: relative;
-            width: 500px;
-            height: 200px;
-            margin: 0 auto;
-          }
-          
-          .infinity-svg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-          }
-          
-          .flowing-bit {
-            position: absolute;
-            font-family: 'Arial Unicode MS', sans-serif;
-            font-size: 18px;
-            font-weight: bold;
-            user-select: none;
-          }
-          
-          .flowing-bit.track1 {
-            color: rgba(239, 68, 68, 0.95);
-            text-shadow: 0 0 12px rgba(239, 68, 68, 0.8), 0 0 24px rgba(239, 68, 68, 0.4);
-            animation: infinityTrack1 4s linear infinite;
-          }
-          
-          .flowing-bit.track2 {
-            color: rgba(236, 72, 153, 0.9);
-            text-shadow: 0 0 10px rgba(236, 72, 153, 0.7), 0 0 20px rgba(236, 72, 153, 0.3);
-            animation: infinityTrack2 4s linear infinite;
-          }
-          
-          .flowing-bit.track3 {
-            color: rgba(255, 0, 128, 0.85);
-            text-shadow: 0 0 8px rgba(255, 0, 128, 0.6), 0 0 16px rgba(255, 0, 128, 0.2);
-            animation: infinityTrack3 4s linear infinite;
-          }
-          
-          .omnia-brand .letter {
-            display: inline-block;
-            animation: letterPulse 2s ease-in-out infinite;
-            text-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
-          }
-          
-          .binary-bit {
-            display: inline-block;
-            animation: binaryFlicker 1.5s ease-in-out infinite;
-            color: rgba(239, 68, 68, 0.7);
-          }
-          
-          @keyframes infinityTrack1 {
-            0% {
-              left: 250px;
-              top: 80px;
-              opacity: 0;
-              transform: scale(0.8) rotate(0deg);
-            }
-            2% {
-              opacity: 1;
-              transform: scale(1) rotate(10deg);
-            }
-            8% {
-              left: 220px;
-              top: 60px;
-              transform: scale(1.05) rotate(40deg);
-            }
-            16% {
-              left: 180px;
-              top: 50px;
-              transform: scale(1.1) rotate(80deg);
-            }
-            24% {
-              left: 140px;
-              top: 60px;
-              transform: scale(1.05) rotate(120deg);
-            }
-            32% {
-              left: 120px;
-              top: 80px;
-              transform: scale(1) rotate(160deg);
-            }
-            40% {
-              left: 140px;
-              top: 100px;
-              transform: scale(1.05) rotate(200deg);
-            }
-            48% {
-              left: 180px;
-              top: 110px;
-              transform: scale(1.1) rotate(240deg);
-            }
-            50% {
-              left: 250px;
-              top: 100px;
-              transform: scale(1) rotate(270deg);
-            }
-            52% {
-              left: 280px;
-              top: 80px;
-              transform: scale(1.05) rotate(300deg);
-            }
-            60% {
-              left: 320px;
-              top: 70px;
-              transform: scale(1.1) rotate(340deg);
-            }
-            68% {
-              left: 360px;
-              top: 80px;
-              transform: scale(1.05) rotate(380deg);
-            }
-            76% {
-              left: 380px;
-              top: 100px;
-              transform: scale(1) rotate(420deg);
-            }
-            84% {
-              left: 360px;
-              top: 120px;
-              transform: scale(1.05) rotate(460deg);
-            }
-            92% {
-              left: 320px;
-              top: 130px;
-              transform: scale(1.1) rotate(500deg);
-            }
-            98% {
-              left: 250px;
-              top: 120px;
-              opacity: 1;
-              transform: scale(1) rotate(540deg);
-            }
-            100% {
-              left: 250px;
-              top: 80px;
-              opacity: 0;
-              transform: scale(0.8) rotate(570deg);
-            }
-          }
-          
-          @keyframes infinityTrack2 {
-            0% {
-              left: 250px;
-              top: 100px;
-              opacity: 0;
-              transform: scale(0.8) rotate(0deg);
-            }
-            2% {
-              opacity: 1;
-              transform: scale(1) rotate(15deg);
-            }
-            8% {
-              left: 220px;
-              top: 75px;
-              transform: scale(1.05) rotate(45deg);
-            }
-            16% {
-              left: 180px;
-              top: 60px;
-              transform: scale(1.1) rotate(90deg);
-            }
-            24% {
-              left: 140px;
-              top: 75px;
-              transform: scale(1.05) rotate(135deg);
-            }
-            32% {
-              left: 120px;
-              top: 100px;
-              transform: scale(1) rotate(180deg);
-            }
-            40% {
-              left: 140px;
-              top: 125px;
-              transform: scale(1.05) rotate(225deg);
-            }
-            48% {
-              left: 180px;
-              top: 140px;
-              transform: scale(1.1) rotate(270deg);
-            }
-            50% {
-              left: 250px;
-              top: 100px;
-              transform: scale(1) rotate(300deg);
-            }
-            52% {
-              left: 280px;
-              top: 95px;
-              transform: scale(1.05) rotate(330deg);
-            }
-            60% {
-              left: 320px;
-              top: 85px;
-              transform: scale(1.1) rotate(360deg);
-            }
-            68% {
-              left: 360px;
-              top: 95px;
-              transform: scale(1.05) rotate(405deg);
-            }
-            76% {
-              left: 380px;
-              top: 115px;
-              transform: scale(1) rotate(450deg);
-            }
-            84% {
-              left: 360px;
-              top: 135px;
-              transform: scale(1.05) rotate(495deg);
-            }
-            92% {
-              left: 320px;
-              top: 145px;
-              transform: scale(1.1) rotate(540deg);
-            }
-            98% {
-              left: 250px;
-              top: 130px;
-              opacity: 1;
-              transform: scale(1) rotate(570deg);
-            }
-            100% {
-              left: 250px;
-              top: 100px;
-              opacity: 0;
-              transform: scale(0.8) rotate(600deg);
-            }
-          }
-          
-          @keyframes infinityTrack3 {
-            0% {
-              left: 250px;
-              top: 120px;
-              opacity: 0;
-              transform: scale(0.8) rotate(0deg);
-            }
-            2% {
-              opacity: 1;
-              transform: scale(1) rotate(20deg);
-            }
-            8% {
-              left: 220px;
-              top: 90px;
-              transform: scale(1.05) rotate(50deg);
-            }
-            16% {
-              left: 180px;
-              top: 70px;
-              transform: scale(1.1) rotate(100deg);
-            }
-            24% {
-              left: 140px;
-              top: 90px;
-              transform: scale(1.05) rotate(150deg);
-            }
-            32% {
-              left: 120px;
-              top: 120px;
-              transform: scale(1) rotate(200deg);
-            }
-            40% {
-              left: 140px;
-              top: 150px;
-              transform: scale(1.05) rotate(250deg);
-            }
-            48% {
-              left: 180px;
-              top: 170px;
-              transform: scale(1.1) rotate(300deg);
-            }
-            50% {
-              left: 250px;
-              top: 120px;
-              transform: scale(1) rotate(330deg);
-            }
-            52% {
-              left: 280px;
-              top: 110px;
-              transform: scale(1.05) rotate(360deg);
-            }
-            60% {
-              left: 320px;
-              top: 100px;
-              transform: scale(1.1) rotate(400deg);
-            }
-            68% {
-              left: 360px;
-              top: 110px;
-              transform: scale(1.05) rotate(450deg);
-            }
-            76% {
-              left: 380px;
-              top: 130px;
-              transform: scale(1) rotate(500deg);
-            }
-            84% {
-              left: 360px;
-              top: 150px;
-              transform: scale(1.05) rotate(550deg);
-            }
-            92% {
-              left: 320px;
-              top: 160px;
-              transform: scale(1.1) rotate(600deg);
-            }
-            98% {
-              left: 250px;
-              top: 140px;
-              opacity: 1;
-              transform: scale(1) rotate(630deg);
-            }
-            100% {
-              left: 250px;
-              top: 120px;
-              opacity: 0;
-              transform: scale(0.8) rotate(660deg);
-            }
-          }
-          
-          @keyframes letterPulse {
-            0%, 100% { 
-              transform: translateY(0) scale(1);
-              text-shadow: 0 0 10px rgba(239, 68, 68, 0.6);
-            }
-            50% { 
-              transform: translateY(-3px) scale(1.02);
-              text-shadow: 0 0 20px rgba(239, 68, 68, 0.9);
-            }
-          }
-          
-          @keyframes binaryFlicker {
-            0%, 100% { 
-              opacity: 0.7;
-              text-shadow: 0 0 5px rgba(239, 68, 68, 0.3);
-            }
-            50% { 
-              opacity: 1;
-              text-shadow: 0 0 15px rgba(239, 68, 68, 0.8);
-            }
-          }
-        `}</style>
-      </div>
-    );
-  }
+  const handleCharacterClick = (characterId: string) => {
+    switch (characterId) {
+      case 'samantha':
+        setShowSamantha(true);
+        break;
+      case 'elias':
+        // Future: Open Elias chat/interface
+        console.log('Elias clicked - future feature');
+        break;
+      case 'lyra':
+        // Future: Open Lyra chat/interface
+        console.log('Lyra clicked - future feature');
+        break;
+      default:
+        break;
+    }
+  };
+
+  // Render intro or desktop
 
   if (showIntro) {
     return <IntroSequence onComplete={handleIntroComplete} />;
@@ -922,46 +483,70 @@ const Desktop: React.FC = () => {
       <div className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-red-500/30">
         <div className="flex items-center justify-between px-6 py-2">
           <div className="flex items-center space-x-6">
-            <div className="text-2xl font-black bg-gradient-to-r from-red-400 via-pink-500 to-red-600 bg-clip-text text-transparent">
-              OMNIA
+            
+            <div className="text-2xl font-black bg-gradient-to-r from-red-300 via-red-400 to-red-500 bg-clip-text text-transparent">
+              OMNIAOS
             </div>
-            <div className="flex items-center space-x-2 text-red-400/80">
-              <Bell size={16} />
-              <span className="text-sm">3 notifications</span>
+            {/* Social Media Links */}
+            <div className="flex items-center space-x-3">
+              <a 
+                href="https://github.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-red-700/20 hover:bg-red-700/30 cursor-pointer transition-all duration-300 group"
+              >
+                <Github size={16} className="text-red-300 group-hover:text-red-200" />
+              </a>
+              <a 
+                href="https://x.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-red-700/20 hover:bg-red-700/30 cursor-pointer transition-all duration-300 group"
+              >
+                <XLogo size={16} className="text-red-300 group-hover:text-red-200" />
+              </a>
+              <a 
+                href="https://telegram.org" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-red-700/20 hover:bg-red-700/30 cursor-pointer transition-all duration-300 group"
+              >
+                <Send size={16} className="text-red-300 group-hover:text-red-200" />
+              </a>
             </div>
           </div>
 
           <div className="flex items-center space-x-6">
             {/* System Metrics */}
             <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2 text-red-400/80">
-                <Cpu size={16} />
-                <span className="text-sm">{systemMetrics.cpu}%</span>
-              </div>
-              <div className="flex items-center space-x-2 text-red-400/80">
-                <MemoryStick size={16} />
-                <span className="text-sm">{systemMetrics.memory}%</span>
-              </div>
-              <div className="flex items-center space-x-2 text-red-400/80">
-                <Network size={16} />
-                <span className="text-sm">{systemMetrics.network}%</span>
-              </div>
-              <div className="flex items-center space-x-2 text-red-400/80">
-                <Thermometer size={16} />
-                <span className="text-sm">{systemMetrics.temperature}°C</span>
-              </div>
+                          <div className="flex items-center space-x-2 text-red-300/80">
+              <Cpu size={16} />
+              <span className="text-sm">{systemMetrics.cpu}%</span>
+            </div>
+            <div className="flex items-center space-x-2 text-red-300/80">
+              <MemoryStick size={16} />
+              <span className="text-sm">{systemMetrics.memory}%</span>
+            </div>
+            <div className="flex items-center space-x-2 text-red-300/80">
+              <Network size={16} />
+              <span className="text-sm">{systemMetrics.network}%</span>
+            </div>
+            <div className="flex items-center space-x-2 text-red-300/80">
+              <Thermometer size={16} />
+              <span className="text-sm">{systemMetrics.temperature}°C</span>
+            </div>
             </div>
 
             {/* System Controls */}
             <div className="flex items-center space-x-3">
-              <div className="p-1.5 rounded-lg bg-red-500/20 hover:bg-red-500/30 cursor-pointer">
-                <Wifi size={16} className="text-red-400" />
+              <div className="p-1.5 rounded-lg bg-red-700/20 hover:bg-red-700/30 cursor-pointer">
+                <Wifi size={16} className="text-red-300" />
               </div>
-              <div className="p-1.5 rounded-lg bg-red-500/20 hover:bg-red-500/30 cursor-pointer">
-                <Volume2 size={16} className="text-red-400" />
+              <div className="p-1.5 rounded-lg bg-red-700/20 hover:bg-red-700/30 cursor-pointer">
+                <Volume2 size={16} className="text-red-300" />
               </div>
-              <div className="p-1.5 rounded-lg bg-red-500/20 hover:bg-red-500/30 cursor-pointer">
-                <Battery size={16} className="text-red-400" />
+              <div className="p-1.5 rounded-lg bg-red-700/20 hover:bg-red-700/30 cursor-pointer">
+                <Battery size={16} className="text-red-300" />
               </div>
             </div>
 
@@ -972,26 +557,11 @@ const Desktop: React.FC = () => {
               <Clock size={16} />
               <span className="text-sm">{currentTime.toLocaleTimeString()}</span>
             </div>
+            
           </div>
         </div>
 
-        {/* Notifications Panel */}
-        <div className="max-h-0 overflow-hidden transition-all duration-300 hover:max-h-40">
-          <div className="px-6 py-3 space-y-2">
-            {notifications.map(notification => (
-              <div 
-                key={notification.id}
-                className="flex items-center justify-between p-2 rounded-lg bg-red-500/10 border border-red-500/20"
-              >
-                <div className="flex items-center space-x-3">
-                  <div className="text-red-400 font-medium">{notification.title}</div>
-                  <div className="text-red-400/70 text-sm">{notification.message}</div>
-                </div>
-                <div className="text-red-400/50 text-xs">{notification.time}</div>
-              </div>
-            ))}
-          </div>
-        </div>
+
       </div>
 
       {/* Dynamic Background Canvas */}
@@ -1058,6 +628,34 @@ const Desktop: React.FC = () => {
             animation: 'grid-slide 20s linear infinite'
           }}
         />
+      </div>
+
+      {/* Brand GIF Full Screen Background */}
+      <div className="fixed inset-0 z-5">
+        <div className="w-full h-full opacity-20" style={{
+          willChange: 'transform',
+          backfaceVisibility: 'hidden',
+          perspective: '1000px',
+          transformStyle: 'preserve-3d'
+        }}>
+          <img 
+            src={loadingGif} 
+            alt="OmniaOS Brand"
+            className="w-full h-full object-cover"
+            style={{
+              willChange: 'transform',
+              backfaceVisibility: 'hidden',
+              transform: 'translate3d(0, 0, 0)',
+              imageRendering: 'optimizeSpeed' as any,
+              WebkitTransform: 'translate3d(0, 0, 0)',
+              WebkitBackfaceVisibility: 'hidden',
+              WebkitPerspective: '1000px'
+            }}
+            loading="eager"
+            decoding="async"
+            draggable={false}
+          />
+        </div>
       </div>
 
       {/* Central Clock Widget */}
@@ -1250,6 +848,7 @@ const Desktop: React.FC = () => {
         </div>
 
         {/* Windows */}
+        
         {activeWindow === 'settings' && (
           <SystemSettings onClose={handleWindowClose} />
         )}
@@ -1425,6 +1024,7 @@ const Desktop: React.FC = () => {
               <div className="flex items-center space-x-4">
                 <div className="text-red-400 text-sm font-medium">Quick Launch</div>
                 <div className="flex items-center space-x-2">
+                  
                   {[
                     { icon: <Settings size={20} />, action: () => handleWindowOpen('settings'), label: 'Settings' },
                     { icon: <Code2 size={20} />, action: () => handleWindowOpen('terminal'), label: 'Terminal' },
@@ -1432,6 +1032,7 @@ const Desktop: React.FC = () => {
                     { icon: <Command size={20} />, action: () => setShowCommandPalette(true), label: 'Commands' },
                     { icon: <Plus size={20} />, action: () => addWidget('system-monitor'), label: 'Add Widget' }
                   ].map((item, index) => (
+                    
                     <button
                       key={index}
                       onClick={() => {
@@ -1459,6 +1060,9 @@ const Desktop: React.FC = () => {
           <div>Ctrl+Space - Quick Launch</div>
           <div>Right Click - Context Menu</div>
         </div>
+
+        {/* Side Dock */}
+        <SideDock onCharacterClick={handleCharacterClick} />
 
         {/* Taskbar */}
         <Taskbar 
@@ -1556,6 +1160,120 @@ const Desktop: React.FC = () => {
           50% { opacity: 1; transform: scaleX(1); }
           100% { opacity: 0; transform: scaleX(0); }
         }
+        
+        @keyframes infinityDraw {
+          0% {
+            stroke-dashoffset: 800;
+            opacity: 0.5;
+            transform: scale(0.95);
+          }
+          50% {
+            stroke-dashoffset: 0;
+            opacity: 1;
+            transform: scale(1);
+          }
+          100% {
+            stroke-dashoffset: -800;
+            opacity: 0.5;
+            transform: scale(0.95);
+          }
+        }
+        
+        @keyframes particleFloat {
+          0%, 100% {
+            transform: translateY(0px) scale(0.8);
+            opacity: 0.3;
+          }
+          25% {
+            transform: translateY(-15px) scale(1);
+            opacity: 0.8;
+          }
+          50% {
+            transform: translateY(-25px) scale(1.2);
+            opacity: 1;
+          }
+          75% {
+            transform: translateY(-15px) scale(1);
+            opacity: 0.8;
+          }
+        }
+        
+        @keyframes subtleRotate {
+          0% { transform: translate(-50%, -50%) rotate(0deg); }
+          100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        @keyframes gentleGlow {
+          0%, 100% {
+            filter: drop-shadow(0 0 8px rgba(255, 107, 53, 0.4));
+            opacity: 0.9;
+          }
+          50% {
+            filter: drop-shadow(0 0 12px rgba(255, 107, 53, 0.7));
+            opacity: 1;
+          }
+        }
+        
+        @keyframes dotGlow {
+          0% {
+            opacity: 0.6;
+            transform: scale(1);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1.2);
+          }
+        }
+        
+        @keyframes gentleFloat {
+          0%, 100% {
+            transform: translateY(0px);
+            opacity: 0.3;
+          }
+          50% {
+            transform: translateY(-20px);
+            opacity: 0.6;
+          }
+        }
+        
+        @keyframes subtlePulse {
+          0%, 100% {
+            transform: translate(-50%, -50%) scale(0.95);
+            opacity: 0.3;
+          }
+          50% {
+            transform: translate(-50%, -50%) scale(1.05);
+            opacity: 0.5;
+          }
+        }
+
+        /* GIF Performance Optimizations */
+        img {
+          image-rendering: -webkit-optimize-contrast;
+          image-rendering: -moz-crisp-edges;
+          image-rendering: crisp-edges;
+          image-rendering: optimize-speed;
+        }
+
+        /* Hardware acceleration for all animated elements */
+        .hardware-accelerated {
+          will-change: transform;
+          transform: translate3d(0, 0, 0);
+          backface-visibility: hidden;
+          perspective: 1000px;
+        }
+
+        /* Reduce paint complexity during GIF playback */
+        .desktop-area {
+          contain: layout style paint;
+        }
+
+        /* Optimize particle system performance */
+        canvas {
+          will-change: contents;
+          transform: translate3d(0, 0, 0);
+        }
+
       `}</style>
     </div>
   );
