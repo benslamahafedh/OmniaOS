@@ -16,7 +16,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue = '', onChange }) 
         height="500px"
         defaultLanguage="html"
         defaultValue={initialValue}
-        theme={theme === 'dark' ? 'vs-dark' : 'vs'}
+        theme={theme.id === 'default' ? 'vs-dark' : 'vs'}
         onChange={onChange}
         options={{
           minimap: { enabled: true },

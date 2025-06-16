@@ -6,6 +6,17 @@ interface SystemSettingsProps {
   onClose: () => void;
 }
 
+interface UISettings {
+  particleEffects: boolean;
+  animations: boolean;
+  blurEffects: boolean;
+  performanceMode: boolean;
+  particleDensity: number;
+  animationSpeed: number;
+  lightMode: number;
+  darkMode: number;
+}
+
 const SystemSettings: React.FC<SystemSettingsProps> = ({ onClose }) => {
   const { theme, setTheme, uiSettings, setUiSettings } = useTheme();
   const [activeTab, setActiveTab] = useState('appearance');
@@ -24,18 +35,18 @@ const SystemSettings: React.FC<SystemSettingsProps> = ({ onClose }) => {
     }
   };
 
-  const handleSettingToggle = (setting: keyof typeof uiSettings) => {
-    setUiSettings((prev: typeof uiSettings) => ({
-      ...prev,
-      [setting]: !prev[setting]
-    }));
+  const handleSettingToggle = (setting: keyof UISettings) => {
+    setUiSettings({
+      ...uiSettings,
+      [setting]: !uiSettings[setting]
+    });
   };
 
-  const handleSliderChange = (setting: keyof typeof uiSettings, value: number) => {
-    setUiSettings((prev: typeof uiSettings) => ({
-      ...prev,
+  const handleSliderChange = (setting: keyof UISettings, value: number) => {
+    setUiSettings({
+      ...uiSettings,
       [setting]: value
-    }));
+    });
   };
 
   const handleSaveLayout = () => {
