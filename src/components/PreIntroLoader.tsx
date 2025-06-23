@@ -4,6 +4,60 @@ interface PreIntroLoaderProps {
   onComplete: () => void;
 }
 
+interface TypewriterTextProps {
+  text: string;
+  phase: number;
+  delay?: number;
+}
+
+const TypewriterText: React.FC<TypewriterTextProps> = ({ text, phase, delay = 0 }) => {
+  const [displayText, setDisplayText] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [startTyping, setStartTyping] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setStartTyping(true);
+    }, delay);
+
+    return () => clearTimeout(timer);
+  }, [delay]);
+
+  useEffect(() => {
+    if (!startTyping) return;
+
+    if (currentIndex < text.length) {
+      const timer = setTimeout(() => {
+        setDisplayText(prev => prev + text[currentIndex]);
+        setCurrentIndex(prev => prev + 1);
+      }, 100 + Math.random() * 100); // Variable typing speed
+
+      return () => clearTimeout(timer);
+    }
+  }, [currentIndex, text, startTyping]);
+
+  // Glitch effect for higher phases
+  const glitchChars = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+  const shouldGlitch = phase >= 3 && Math.random() < 0.1;
+  
+  const glitchedText = shouldGlitch 
+    ? displayText.split('').map(char => 
+        Math.random() < 0.3 ? glitchChars[Math.floor(Math.random() * glitchChars.length)] : char
+      ).join('')
+    : displayText;
+
+  return (
+    <span className={`inline-block ${shouldGlitch ? 'animate-pulse' : ''}`}>
+      {glitchedText}
+      {currentIndex < text.length && startTyping && (
+        <span className={`animate-pulse ${
+          phase >= 4 ? 'text-white' : 'text-red-400'
+        }`}>|</span>
+      )}
+    </span>
+  );
+};
+
 const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
   const [phase, setPhase] = useState(0);
@@ -190,11 +244,22 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
 
   return (
     <div className={`fixed inset-0 z-50 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} cursor-pointer select-none`}
+         style={{
+           userSelect: 'none',
+           WebkitUserSelect: 'none',
+           MozUserSelect: 'none',
+           msUserSelect: 'none',
+           WebkitTouchCallout: 'none',
+           WebkitTapHighlightColor: 'transparent',
+           touchAction: 'none'
+         }}
          onMouseDown={handleMouseDown}
          onMouseUp={handleMouseUp}
          onMouseLeave={handleMouseLeave}
          onTouchStart={handleTouchStart}
-         onTouchEnd={handleTouchEnd}>
+         onTouchEnd={handleTouchEnd}
+         onContextMenu={(e: React.MouseEvent) => e.preventDefault()}
+         onDragStart={(e: React.DragEvent) => e.preventDefault()}>
       {/* Dark Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-red-950/20 to-black">
         {/* Dynamic glow overlay that transitions with phases */}
@@ -217,7 +282,7 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
       {/* Portrait Sinusoidal Wave Animation - Vertical */}
       <div className="absolute inset-0">
         <svg viewBox="0 0 100 100" className="w-full h-full" preserveAspectRatio="none">
-          {/* First vertical sinusoidal wave with gradual color transition */}
+          {/* First vertical sinusoidal wave with gradual color transition and flowing animation */}
           <path
             d="M50,0 Q30,12.5 50,25 Q70,37.5 50,50 Q30,62.5 50,75 Q70,87.5 50,100"
             fill="none"
@@ -230,7 +295,7 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
               "rgba(255, 255, 255, 0.95)"                   // Pure white
             }
             strokeWidth="0.4"
-            className="animate-portrait-sine-1"
+            className={isPressed ? "animate-flowing-wave-1" : "animate-portrait-sine-1"}
             style={{
               filter: `drop-shadow(0 0 ${3 + phase}px ${
                 phase === 0 ? 'rgba(220, 38, 38, 0.8)' :
@@ -240,11 +305,13 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
                 phase === 4 ? 'rgba(255, 200, 200, 1)' :
                 'rgba(255, 255, 255, 1)'
               })`,
-              transition: 'all 0.3s ease-in-out'
+              transition: 'all 0.3s ease-in-out',
+              strokeDasharray: isPressed ? '200 50' : 'none',
+              strokeDashoffset: isPressed ? '0' : 'none'
             }}
           />
           
-          {/* Second vertical sinusoidal wave (inverse) with gradual color transition */}
+          {/* Second vertical sinusoidal wave (inverse) with gradual color transition and flowing animation */}
           <path
             d="M50,0 Q70,12.5 50,25 Q30,37.5 50,50 Q70,62.5 50,75 Q30,87.5 50,100"
             fill="none"
@@ -257,7 +324,7 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
               "rgba(255, 255, 255, 0.75)"                   // Pure white
             }
             strokeWidth="0.3"
-            className="animate-portrait-sine-2"
+            className={isPressed ? "animate-flowing-wave-2" : "animate-portrait-sine-2"}
             style={{
               filter: `drop-shadow(0 0 ${2 + phase}px ${
                 phase === 0 ? 'rgba(220, 38, 38, 0.6)' :
@@ -267,9 +334,41 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
                 phase === 4 ? 'rgba(255, 200, 200, 1)' :
                 'rgba(255, 255, 255, 0.9)'
               })`,
-              transition: 'all 0.3s ease-in-out'
+              transition: 'all 0.3s ease-in-out',
+              strokeDasharray: isPressed ? '150 40' : 'none',
+              strokeDashoffset: isPressed ? '-150' : 'none'
             }}
           />
+          
+          {/* Flowing energy particles along the wave - only when pressed */}
+          {isPressed && [...Array(6)].map((_, i) => (
+            <circle
+              key={`wave-particle-${i}`}
+              cx="50"
+              cy={15 + i * 15}
+              r="0.4"
+              fill={
+                phase === 0 ? "rgba(220, 38, 38, 0.9)" :
+                phase === 1 ? "rgba(239, 68, 68, 0.9)" :
+                phase === 2 ? "rgba(248, 113, 113, 1)" :
+                phase === 3 ? "rgba(252, 165, 165, 1)" :
+                phase === 4 ? "rgba(255, 200, 200, 1)" :
+                "rgba(255, 255, 255, 0.9)"
+              }
+              className="animate-wave-particle"
+              style={{
+                animationDelay: `${i * 0.3}s`,
+                filter: `drop-shadow(0 0 2px ${
+                  phase === 0 ? 'rgba(220, 38, 38, 1)' :
+                  phase === 1 ? 'rgba(239, 68, 68, 1)' :
+                  phase === 2 ? 'rgba(248, 113, 113, 1)' :
+                  phase === 3 ? 'rgba(252, 165, 165, 1)' :
+                  phase === 4 ? 'rgba(255, 200, 200, 1)' :
+                  'rgba(255, 255, 255, 1)'
+                })`
+              }}
+            />
+          ))}
           
           {/* Progress indicator line - vertical with dynamic color */}
           <line
@@ -305,15 +404,19 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
 
       {/* Enhanced particle effect with phase-based colors */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(8)].map((_, i) => (
+        {[...Array(isPressed ? 12 : 6)].map((_, i) => (
           <div
             key={i}
-            className={`absolute w-0.5 h-0.5 rounded-full animate-float-minimal transition-all duration-500 ${isPressed ? 'opacity-90' : 'opacity-30'}`}
+            className={`absolute rounded-full transition-all duration-500 ${
+              isPressed ? 'animate-float-minimal opacity-90' : 'animate-float-minimal opacity-30'
+            }`}
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
+              width: isPressed ? `${0.5 + phase * 0.1}px` : '0.5px',
+              height: isPressed ? `${0.5 + phase * 0.1}px` : '0.5px',
               animationDelay: `${Math.random() * 4}s`,
-              animationDuration: `${4 + Math.random() * 2}s`,
+              animationDuration: `${isPressed ? 2 + Math.random() * 2 : 4 + Math.random() * 2}s`,
               backgroundColor: 
                 phase === 0 ? 'rgba(220, 38, 38, 0.8)' :
                 phase === 1 ? 'rgba(239, 68, 68, 0.8)' :
@@ -321,7 +424,7 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
                 phase === 3 ? 'rgba(252, 165, 165, 0.9)' :
                 phase === 4 ? 'rgba(255, 200, 200, 1)' :
                 'rgba(255, 255, 255, 0.9)',
-              boxShadow: `0 0 ${2 + phase}px ${
+              boxShadow: `0 0 ${isPressed ? 4 + phase * 2 : 2}px ${
                 phase === 0 ? 'rgba(220, 38, 38, 0.6)' :
                 phase === 1 ? 'rgba(239, 68, 68, 0.7)' :
                 phase === 2 ? 'rgba(248, 113, 113, 0.8)' :
@@ -332,11 +435,39 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
             }}
           />
         ))}
+        
+        {/* Energy trails - only when pressed and in higher phases */}
+        {isPressed && phase >= 2 && [...Array(4)].map((_, i) => (
+          <div
+            key={`trail-${i}`}
+            className="absolute animate-pulse"
+            style={{
+              left: '50%',
+              top: `${20 + i * 20}%`,
+              width: '2px',
+              height: `${10 + phase * 2}px`,
+              background: `linear-gradient(to bottom, transparent, ${
+                phase === 2 ? 'rgba(248, 113, 113, 0.6)' :
+                phase === 3 ? 'rgba(252, 165, 165, 0.8)' :
+                phase === 4 ? 'rgba(255, 200, 200, 1)' :
+                'rgba(255, 255, 255, 0.9)'
+              }, transparent)`,
+              transform: 'translateX(-50%)',
+              animationDelay: `${i * 0.2}s`,
+              filter: `blur(${0.5 + phase * 0.2}px)`
+            }}
+          />
+        ))}
       </div>
 
       {/* Instructions - at bottom */}
       {showInstructions && (
-        <div className="absolute bottom-16 left-0 right-0 text-center">
+        <div className="absolute bottom-16 left-0 right-0 text-center select-none"
+             style={{ 
+               userSelect: 'none', 
+               WebkitUserSelect: 'none',
+               WebkitTouchCallout: 'none' 
+             }}>
           <div className="animate-pulse">
             <div className="text-white text-lg font-light tracking-wider mb-2">
               Press and Hold to Initialize
@@ -348,11 +479,33 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
         </div>
       )}
 
-      {/* Phase Text - only show when pressed */}
+      {/* Phase Text - only show when pressed with enhanced animations */}
       {!showInstructions && (
-        <div className="absolute bottom-28 left-0 right-0 text-center">
-          <div className={`text-red-200 text-sm font-light tracking-wider transition-all duration-300 ${isPressed ? 'opacity-100' : 'opacity-50'}`}>
-            {getPhaseText()}
+        <div className="absolute bottom-28 left-0 right-0 text-center select-none"
+             style={{ 
+               userSelect: 'none', 
+               WebkitUserSelect: 'none',
+               WebkitTouchCallout: 'none' 
+             }}>
+          <div className={`text-red-200 text-sm font-light tracking-wider transition-all duration-300 ${
+            isPressed ? 'opacity-100 animate-pulse-glow' : 'opacity-50'
+          }`}
+          style={{
+            textShadow: isPressed ? `0 0 ${5 + phase}px ${
+              phase === 0 ? 'rgba(220, 38, 38, 0.8)' :
+              phase === 1 ? 'rgba(239, 68, 68, 0.9)' :
+              phase === 2 ? 'rgba(248, 113, 113, 1)' :
+              phase === 3 ? 'rgba(252, 165, 165, 1)' :
+              phase === 4 ? 'rgba(255, 200, 200, 1)' :
+              'rgba(255, 255, 255, 1)'
+            }` : 'none',
+            color: phase >= 4 ? 'rgba(255, 255, 255, 0.9)' : 'rgba(239, 68, 68, 0.8)'
+          }}>
+            {isPressed ? (
+              <TypewriterText text={getPhaseText()} phase={phase} delay={200} />
+            ) : (
+              getPhaseText()
+            )}
           </div>
         </div>
       )}
@@ -374,13 +527,51 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
         </div>
       )}
 
-      {/* OMNIA Logo */}
-      <div className="absolute top-20 left-0 right-0 text-center">
-        <div className={`text-white text-3xl font-light tracking-[0.3em] animate-fade-in-slow transition-all duration-300 ${isPressed ? 'scale-105' : 'scale-100'}`}>
-          OMNIA
+      {/* OMNIA Logo with enhanced animations */}
+      <div className="absolute top-20 left-0 right-0 text-center select-none"
+           style={{ 
+             userSelect: 'none', 
+             WebkitUserSelect: 'none',
+             WebkitTouchCallout: 'none' 
+           }}>
+        <div className={`text-white text-3xl font-light tracking-[0.3em] transition-all duration-300 ${
+          isPressed ? 'scale-110 animate-pulse-glow' : 'scale-100 animate-fade-in-slow'
+        }`}
+        style={{
+          textShadow: isPressed ? `0 0 ${10 + phase * 2}px ${
+            phase === 0 ? 'rgba(220, 38, 38, 0.8)' :
+            phase === 1 ? 'rgba(239, 68, 68, 0.9)' :
+            phase === 2 ? 'rgba(248, 113, 113, 1)' :
+            phase === 3 ? 'rgba(252, 165, 165, 1)' :
+            phase === 4 ? 'rgba(255, 200, 200, 1)' :
+            'rgba(255, 255, 255, 1)'
+          }` : '0 0 5px rgba(255, 255, 255, 0.3)',
+          color: isPressed && phase >= 4 ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0.9)'
+        }}>
+          {isPressed ? (
+            <TypewriterText text="OMNIA" phase={phase} />
+          ) : (
+            'OMNIA'
+          )}
         </div>
-        <div className="text-red-200/60 text-xs font-light mt-2 tracking-widest">
-          OPERATING SYSTEM
+        <div className={`text-red-200/60 text-xs font-light mt-2 tracking-widest transition-all duration-300 ${
+          isPressed ? 'animate-pulse opacity-80' : 'opacity-60'
+        }`}
+        style={{
+          textShadow: isPressed ? `0 0 5px ${
+            phase === 0 ? 'rgba(220, 38, 38, 0.6)' :
+            phase === 1 ? 'rgba(239, 68, 68, 0.7)' :
+            phase === 2 ? 'rgba(248, 113, 113, 0.8)' :
+            phase === 3 ? 'rgba(252, 165, 165, 0.9)' :
+            phase === 4 ? 'rgba(255, 200, 200, 1)' :
+            'rgba(255, 255, 255, 0.8)'
+          }` : 'none'
+        }}>
+          {isPressed ? (
+            <TypewriterText text="OPERATING SYSTEM" phase={phase} delay={1000} />
+          ) : (
+            'OPERATING SYSTEM'
+          )}
         </div>
       </div>
 
