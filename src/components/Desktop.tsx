@@ -48,7 +48,7 @@ interface QuickAction {
 }
 
 const Desktop: React.FC = () => {
-  const { theme, uiSettings } = useTheme();
+  const { uiSettings } = useTheme();
   const { isMobile } = useMobile();
   const [activeWindow, setActiveWindow] = useState<string | null>(null);
 

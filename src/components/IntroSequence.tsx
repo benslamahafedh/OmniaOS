@@ -7,7 +7,7 @@ interface IntroSequenceProps {
 const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
   const [currentProgress, setCurrentProgress] = useState(0);
   const [bootPhase, setBootPhase] = useState(0);
-  const [debugInfo, setDebugInfo] = useState('Starting...');
+
   const [isCompleted, setIsCompleted] = useState(false);
   const isCompletedRef = useRef(false);
 
@@ -16,17 +16,17 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
     if (isCompleted && !isCompletedRef.current) {
       console.log('IntroSequence: Completion detected, calling onComplete');
       isCompletedRef.current = true;
-      setDebugInfo('Calling onComplete via useEffect');
+
       
       setTimeout(() => {
         try {
           console.log('IntroSequence: Executing onComplete callback');
           onComplete();
           console.log('IntroSequence: onComplete executed successfully');
-          setDebugInfo('onComplete executed successfully');
+
         } catch (error) {
           console.error('IntroSequence: Error in onComplete:', error);
-          setDebugInfo('ERROR: onComplete failed');
+          
         }
       }, 100);
     }
@@ -34,7 +34,7 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
 
   useEffect(() => {
     console.log('IntroSequence: Component mounted, starting boot sequence');
-    setDebugInfo('Component mounted');
+
     
     const totalDuration = 6000; // 6 seconds
     let startTime: number;
@@ -48,7 +48,7 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
       if (!startTime) {
         startTime = timestamp;
         console.log('IntroSequence: Progress animation started at timestamp:', timestamp);
-        setDebugInfo('Animation started');
+
       }
       
       const elapsed = timestamp - startTime;
@@ -57,7 +57,7 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
       // Log every 10 frames to avoid spam
       if (frameCount % 10 === 0) {
         console.log(`IntroSequence: Frame ${frameCount}, Elapsed: ${elapsed}ms, Progress: ${progress.toFixed(1)}%`);
-        setDebugInfo(`Frame ${frameCount}, Progress: ${progress.toFixed(1)}%`);
+
       }
       
       setCurrentProgress(progress);
@@ -70,7 +70,7 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
 
       if (progress >= 100) {
         console.log('IntroSequence: Progress reached 100%, setting completion flag');
-        setDebugInfo('Progress 100% - setting completion flag');
+
         setIsCompleted(true);
         return; // Stop the animation loop
       } else {
