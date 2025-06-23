@@ -15,7 +15,7 @@ import Taskbar from './Taskbar';
 import SystemSettings from './SystemSettings';
 import Terminal from './Terminal';
 import FolderView from './FolderView';
-import SamanthaChat from './SamanthaChat';
+
 import SideDock from './SideDock';
 import XLogo from './XLogo';
 
@@ -51,7 +51,7 @@ const Desktop: React.FC = () => {
   const { theme, uiSettings } = useTheme();
   const { isMobile } = useMobile();
   const [activeWindow, setActiveWindow] = useState<string | null>(null);
-  const [showSamantha, setShowSamantha] = useState(false);
+
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [currentTime, setCurrentTime] = useState(new Date());
   const [showCommandPalette, setShowCommandPalette] = useState(false);
@@ -293,7 +293,7 @@ const Desktop: React.FC = () => {
       name: 'Chat with Samantha',
       description: 'Open AI assistant interface',
       icon: <Sparkles className="w-4 h-4" />,
-      action: () => setShowSamantha(true),
+      action: () => window.open('http://samantha.dzdpbcb7befqfudm.eastus.azurecontainer.io/', '_blank'),
       category: 'AI'
     },
     {
@@ -463,7 +463,7 @@ const Desktop: React.FC = () => {
   const handleCharacterClick = (characterId: string) => {
     switch (characterId) {
       case 'samantha':
-        setShowSamantha(true);
+        window.open('http://samantha.dzdpbcb7befqfudm.eastus.azurecontainer.io/', '_blank');
         break;
       case 'elias':
         // Future: Open Elias chat/interface
@@ -763,7 +763,7 @@ const Desktop: React.FC = () => {
             {folders.map((folder, i) => (
               <div
                 key={folder.id}
-                onClick={() => folder.id === 'samantha' ? setShowSamantha(true) : handleWindowOpen(`folder-${folder.id}`)}
+                onClick={() => folder.id === 'samantha' ? window.open('http://samantha.dzdpbcb7befqfudm.eastus.azurecontainer.io/', '_blank') : handleWindowOpen(`folder-${folder.id}`)}
                 className={`
                   relative group cursor-pointer transition-all duration-500
                   hover:scale-110 hover:-translate-y-2
@@ -915,12 +915,7 @@ const Desktop: React.FC = () => {
           </div>
         )}
 
-        {/* Samantha Chat */}
-        {showSamantha && (
-          <div className={isMobile ? 'mobile-window' : ''}>
-            <SamanthaChat onClose={() => setShowSamantha(false)} />
-          </div>
-        )}
+
 
         {/* Desktop Widgets */}
         {isMobile ? (
@@ -1180,7 +1175,7 @@ const Desktop: React.FC = () => {
                   {[
                     { icon: <Settings size={isMobile ? 24 : 20} />, action: () => handleWindowOpen('settings'), label: 'Settings' },
                     { icon: <Code2 size={isMobile ? 24 : 20} />, action: () => handleWindowOpen('terminal'), label: 'Terminal' },
-                    { icon: <Sparkles size={isMobile ? 24 : 20} />, action: () => setShowSamantha(true), label: 'Samantha' },
+                    { icon: <Sparkles size={isMobile ? 24 : 20} />, action: () => window.open('http://samantha.dzdpbcb7befqfudm.eastus.azurecontainer.io/', '_blank'), label: 'Samantha' },
                     { icon: <Command size={isMobile ? 24 : 20} />, action: () => setShowCommandPalette(true), label: 'Commands' },
                     { icon: <Plus size={isMobile ? 24 : 20} />, action: () => addWidget('system-monitor'), label: 'Add Widget' }
                   ].map((item, index) => (
@@ -1234,7 +1229,7 @@ const Desktop: React.FC = () => {
           onSettingsClick={() => handleWindowOpen('settings')}
           onTerminalClick={() => handleWindowOpen('terminal')}
           onFolderClick={(folderId) => handleWindowOpen(`folder-${folderId}`)}
-          onSamanthaClick={() => setShowSamantha(true)}
+          onSamanthaClick={() => window.open('http://samantha.dzdpbcb7befqfudm.eastus.azurecontainer.io/', '_blank')}
         />
       </div>
 
