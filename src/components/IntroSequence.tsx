@@ -1,257 +1,266 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Brain, Heart, Zap, Globe, Shield, Network } from 'lucide-react';
 
 interface IntroSequenceProps {
   onComplete: () => void;
 }
 
 const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
-  const [bootMessages, setBootMessages] = useState<string[]>([]);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [currentProgress, setCurrentProgress] = useState(0);
+  const [bootPhase, setBootPhase] = useState(0);
+  const [debugInfo, setDebugInfo] = useState('Starting...');
+  const [isCompleted, setIsCompleted] = useState(false);
   const isCompletedRef = useRef(false);
 
-  const bootSequence = [
-    'Initializing quantum neural cores...',
-    'Loading emotional intelligence matrix...',
-    'Calibrating consciousness parameters...',
-    'Establishing synaptic connections...',
-    'Activating AGI learning modules...',
-    'Synchronizing memory banks...',
-    'Loading personality matrix...',
-    'Initializing human interface...',
-    'Activating Samantha core systems...',
-    'Neural network stabilized.',
-    'Consciousness online.'
-  ];
+  // Handle completion in a separate useEffect
+  useEffect(() => {
+    if (isCompleted && !isCompletedRef.current) {
+      console.log('IntroSequence: Completion detected, calling onComplete');
+      isCompletedRef.current = true;
+      setDebugInfo('Calling onComplete via useEffect');
+      
+      setTimeout(() => {
+        try {
+          console.log('IntroSequence: Executing onComplete callback');
+          onComplete();
+          console.log('IntroSequence: onComplete executed successfully');
+          setDebugInfo('onComplete executed successfully');
+        } catch (error) {
+          console.error('IntroSequence: Error in onComplete:', error);
+          setDebugInfo('ERROR: onComplete failed');
+        }
+      }, 100);
+    }
+  }, [isCompleted, onComplete]);
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  useEffect(() => {
+    console.log('IntroSequence: Component mounted, starting boot sequence');
+    setDebugInfo('Component mounted');
+    
+    const totalDuration = 6000; // 6 seconds
+    let startTime: number;
+    let animationFrameId: number;
+    let frameCount = 0;
+    
+    // Progress animation function
+    const updateProgress = (timestamp: number) => {
+      frameCount++;
+      
+      if (!startTime) {
+        startTime = timestamp;
+        console.log('IntroSequence: Progress animation started at timestamp:', timestamp);
+        setDebugInfo('Animation started');
+      }
+      
+      const elapsed = timestamp - startTime;
+      const progress = Math.min((elapsed / totalDuration) * 100, 100);
+      
+      // Log every 10 frames to avoid spam
+      if (frameCount % 10 === 0) {
+        console.log(`IntroSequence: Frame ${frameCount}, Elapsed: ${elapsed}ms, Progress: ${progress.toFixed(1)}%`);
+        setDebugInfo(`Frame ${frameCount}, Progress: ${progress.toFixed(1)}%`);
+      }
+      
+      setCurrentProgress(progress);
+
+      // Update boot phase based on progress
+      if (progress >= 80) setBootPhase(3);
+      else if (progress >= 60) setBootPhase(2);
+      else if (progress >= 30) setBootPhase(1);
+      else setBootPhase(0);
+
+      if (progress >= 100) {
+        console.log('IntroSequence: Progress reached 100%, setting completion flag');
+        setDebugInfo('Progress 100% - setting completion flag');
+        setIsCompleted(true);
+        return; // Stop the animation loop
+      } else {
+        animationFrameId = requestAnimationFrame(updateProgress);
+      }
+    };
+
+    // Start the progress animation
+    console.log('IntroSequence: Starting requestAnimationFrame');
+    animationFrameId = requestAnimationFrame(updateProgress);
+
+    // Cleanup function
+    return () => {
+      console.log('IntroSequence: Cleanup called');
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
+  }, []);
+
+  const getPhaseText = () => {
+    switch (bootPhase) {
+      case 0: return 'INITIALIZING CORE SYSTEMS';
+      case 1: return 'LOADING ESSENTIAL SERVICES';
+      case 2: return 'ESTABLISHING CONNECTIONS';
+      case 3: return 'SYSTEM READY';
+      default: return 'STARTING SYSTEM';
+    }
   };
 
-  useEffect(() => {
-    let isActive = true;
-    let messageTimer: NodeJS.Timeout | null = null;
-    let charTimer: NodeJS.Timeout | null = null;
-    let currentIndex = 0;
-    let currentCharIndex = 0;
-
-    const typeMessage = () => {
-      if (!isActive || isCompletedRef.current) return;
-
-      if (currentIndex >= bootSequence.length) {
-        if (!isCompletedRef.current) {
-          isCompletedRef.current = true;
-          setTimeout(onComplete, 500);
-        }
-        return;
-      }
-
-      const currentMessage = bootSequence[currentIndex];
-      
-      if (currentCharIndex === 0) {
-        setBootMessages(prev => [...prev, '']);
-      }
-
-      if (currentCharIndex < currentMessage.length) {
-        setBootMessages(prev => {
-          const newMessages = [...prev];
-          newMessages[newMessages.length - 1] = currentMessage.substring(0, currentCharIndex + 1);
-          return newMessages;
-        });
-        currentCharIndex++;
-        charTimer = setTimeout(typeMessage, 15);
-      } else {
-        currentIndex++;
-        currentCharIndex = 0;
-        messageTimer = setTimeout(typeMessage, 200);
-      }
-    };
-
-    typeMessage();
-
-    return () => {
-      isActive = false;
-      if (messageTimer) clearTimeout(messageTimer);
-      if (charTimer) clearTimeout(charTimer);
-    };
-  }, []); // Only run once on mount
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [bootMessages]);
-
   return (
-    <div className="fixed inset-0 bg-black flex flex-col items-center justify-center overflow-hidden">
-      {/* Animated background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,0,128,0.1)_0%,transparent_70%)]" />
+    <div className="fixed inset-0 bg-gradient-to-br from-black via-red-950/10 to-black z-50 overflow-hidden">
+      {/* Subtle red ambient glow */}
+      <div 
+        className="absolute inset-0 opacity-10"
+        style={{
+          background: `radial-gradient(ellipse at center, rgba(220, 38, 38, 0.3) 0%, transparent 70%)`
+        }}
+      />
+
+      {/* Portrait Sinusoidal Wave Animation - Vertical */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,rgba(0,0,0,0.9)_0%,rgba(30,10,10,0.9)_100%)]" />
-        <div className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage: `
-              linear-gradient(0deg, transparent 24%, 
-                rgba(255, 0, 128, 0.05) 25%,
-                rgba(255, 0, 128, 0.05) 26%, 
-                transparent 27%, transparent 74%,
-                rgba(255, 0, 128, 0.05) 75%,
-                rgba(255, 0, 128, 0.05) 76%, 
-                transparent 77%, transparent),
-              linear-gradient(90deg, transparent 24%, 
-                rgba(255, 0, 128, 0.05) 25%,
-                rgba(255, 0, 128, 0.05) 26%, 
-                transparent 27%, transparent 74%,
-                rgba(255, 0, 128, 0.05) 75%,
-                rgba(255, 0, 128, 0.05) 76%, 
-                transparent 77%, transparent)
-            `,
-            backgroundSize: '50px 50px'
-          }}
-        />
+        <svg viewBox="0 0 100 100" className="w-full h-full" preserveAspectRatio="none">
+          {/* Multiple flowing sine waves for continuous effect */}
+          {[...Array(3)].map((_, i) => (
+            <g key={`wave-group-${i}`}>
+              {/* Primary flowing wave */}
+              <path
+                d="M50,0 Q30,12.5 50,25 Q70,37.5 50,50 Q30,62.5 50,75 Q70,87.5 50,100"
+                fill="none"
+                stroke={`rgba(239, 68, 68, ${0.6 - i * 0.1})`}
+                strokeWidth={0.4 - i * 0.1}
+                className="animate-flowing-wave-1"
+                style={{
+                  filter: `drop-shadow(0 0 ${3 - i}px rgba(239, 68, 68, ${0.8 - i * 0.1}))`,
+                  animationDelay: `${i * 0.5}s`
+                }}
+              />
+              
+              {/* Secondary flowing wave (inverse) */}
+              <path
+                d="M50,0 Q70,12.5 50,25 Q30,37.5 50,50 Q70,62.5 50,75 Q30,87.5 50,100"
+                fill="none"
+                stroke={`rgba(239, 68, 68, ${0.4 - i * 0.08})`}
+                strokeWidth={0.3 - i * 0.08}
+                className="animate-flowing-wave-2"
+                style={{
+                  filter: `drop-shadow(0 0 ${2 - i}px rgba(239, 68, 68, ${0.6 - i * 0.1}))`,
+                  animationDelay: `${i * 0.7}s`
+                }}
+              />
+            </g>
+          ))}
+          
+          {/* Flowing energy particles along the wave */}
+          {[...Array(5)].map((_, i) => (
+            <circle
+              key={`particle-${i}`}
+              cx="50"
+              cy={20 + i * 20}
+              r="0.5"
+              fill="rgba(255, 255, 255, 0.8)"
+              className="animate-wave-particle"
+              style={{
+                animationDelay: `${i * 0.4}s`,
+                filter: 'drop-shadow(0 0 2px rgba(255, 255, 255, 0.9))'
+              }}
+            />
+          ))}
+        </svg>
       </div>
 
-      {/* Logo Section */}
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-6 mb-8">
-        <div className="text-center mb-12">
-          <div className="relative inline-block">
-            <div className="text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-700 via-red-800 to-red-900">
-              OMNIA
+      <div className="h-full flex items-center justify-center">
+        {/* Simplified Terminal Display */}
+        <div className="w-full max-w-2xl mx-8">
+          <div className="bg-black/60 backdrop-blur-sm border border-red-900/30 rounded-lg p-8">
+            
+            {/* Terminal Header */}
+            <div className="flex items-center mb-6 pb-3 border-b border-red-900/20">
+              <div className="flex gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                <div className="w-3 h-3 rounded-full bg-red-400/60"></div>
+                <div className="w-3 h-3 rounded-full bg-red-300/40"></div>
+              </div>
+              <div className="flex-1 text-center">
+                <span className="text-red-200/80 text-sm font-mono">OMNIA System Boot</span>
+              </div>
             </div>
-            <div className="absolute -inset-2 bg-gradient-to-r from-red-700/20 via-red-800/20 to-red-900/20 blur-xl" />
-          </div>
-          <div className="text-red-300 text-xl mt-4 font-light tracking-wider">
-            ARTIFICIAL GENERAL INTELLIGENCE OS
-          </div>
-        </div>
 
-        {/* Neural Interface Terminal */}
-        <div className="bg-black/50 backdrop-blur-sm rounded-lg border border-red-700/30 overflow-hidden shadow-2xl">
-          {/* Terminal Header */}
-          <div className="bg-gradient-to-r from-red-900/50 to-red-950/50 px-4 py-2 flex items-center gap-2">
-            <div className="flex gap-1.5">
-              <div className="w-3 h-3 rounded-full bg-red-700/80" />
-              <div className="w-3 h-3 rounded-full bg-red-800/80" />
-              <div className="w-3 h-3 rounded-full bg-red-900/80" />
+            {/* Boot Messages - Simple static display */}
+            <div className="space-y-2 font-mono text-sm mb-6">
+              <div className="text-red-300/70">
+                <span className="text-red-400/60 mr-2">&gt;</span>
+                OMNIA OS v2.0 - Initializing Core Systems...
+              </div>
+              <div className="text-red-300/70">
+                <span className="text-red-400/60 mr-2">&gt;</span>
+                Loading neural pathways...
+              </div>
+              <div className="text-red-300/70">
+                <span className="text-red-400/60 mr-2">&gt;</span>
+                Establishing network protocols...
+              </div>
+              <div className="text-red-200 animate-pulse">
+                <span className="text-red-400/60 mr-2">&gt;</span>
+                System initializing...
+              </div>
             </div>
-            <div className="text-red-300 text-sm ml-2 font-mono">
-              Neural Core Initialization
-            </div>
-          </div>
 
-          {/* Terminal Content */}
-          <div className="p-4 font-mono text-sm h-[400px] overflow-y-auto custom-scrollbar">
-            <div className="space-y-1">
-              {bootMessages.map((message, index) => (
+            {/* Progress Bar with Live Updates - LARGE AND VISIBLE */}
+            <div className="border-t border-red-900/20 pt-6">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-red-200/80 text-base font-mono">Boot Progress</span>
+                <span className="text-red-200/80 text-base font-mono bg-red-500/20 px-2 py-1 rounded">
+                  {Math.round(currentProgress)}%
+                </span>
+              </div>
+              
+              {/* Large, highly visible progress bar */}
+              <div className="w-full h-4 bg-red-950/60 rounded-full overflow-hidden border border-red-700/30">
                 <div 
-                  key={index}
-                  className={`
-                    flex items-start gap-2
-                    ${index === bootMessages.length - 1 ? 'text-red-300' : 'text-red-300/70'}
-                  `}
+                  className="h-full bg-gradient-to-r from-red-500 via-red-400 to-red-300 transition-all duration-100 rounded-full relative overflow-hidden"
+                  style={{ width: `${currentProgress}%` }}
                 >
-                  <span className="text-red-700">AGI</span>
-                  <span className="text-red-800">{'>'}</span>
-                  <span className="flex-1">{message}</span>
-                  {index === bootMessages.length - 1 && (
-                    <span className="animate-pulse">▊</span>
-                  )}
+                  {/* Animated shine effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse"></div>
                 </div>
-              ))}
-            </div>
-            <div ref={messagesEndRef} />
-          </div>
-        </div>
-
-        {/* System Status */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
-          {[
-            { 
-              icon: Brain, 
-              label: 'Neural Network', 
-              value: 'ACTIVE',
-              detail: 'Consciousness Matrix Stable'
-            },
-            { 
-              icon: Heart, 
-              label: 'Emotional Core', 
-              value: 'ONLINE',
-              detail: 'Empathy Systems Engaged'
-            },
-            { 
-              icon: Network, 
-              label: 'Synaptic Web', 
-              value: 'SYNCED',
-              detail: 'Neural Paths Connected'
-            },
-            { 
-              icon: Shield, 
-              label: 'Core Security', 
-              value: 'QUANTUM',
-              detail: 'Protected by AGI'
-            },
-            { 
-              icon: Globe, 
-              label: 'Global Access', 
-              value: 'READY',
-              detail: 'World Interface Active'
-            },
-            { 
-              icon: Zap, 
-              label: 'Processing', 
-              value: 'OPTIMAL',
-              detail: 'Quantum Cores at 100%'
-            }
-          ].map(({ icon: Icon, label, value, detail }) => (
-            <div 
-              key={label}
-              className="bg-black/30 backdrop-blur-sm rounded-lg border border-red-700/30 p-3 hover:border-red-700/50 transition-colors duration-300"
-            >
-              <div className="flex items-center gap-3">
-                <Icon className="w-5 h-5 text-red-300" />
-                <div className="flex-1">
-                  <div className="text-xs text-red-400">{label}</div>
-                  <div className="text-red-300 font-semibold">{value}</div>
-                  <div className="text-xs text-red-300/60 mt-1">{detail}</div>
+              </div>
+              
+              {/* Additional visual progress indicator */}
+              <div className="mt-2 text-center">
+                <div className="inline-flex space-x-1">
+                  {[...Array(10)].map((_, i) => (
+                    <div
+                      key={i}
+                      className={`w-2 h-2 rounded-full transition-colors duration-200 ${
+                        i < Math.floor(currentProgress / 10) 
+                          ? 'bg-red-400 animate-pulse' 
+                          : 'bg-red-900/40'
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* OMNIA Branding */}
+          <div className="mt-8 text-center">
+            <div className="text-white text-3xl font-light tracking-[0.4em] mb-2">
+              OMNIA
+            </div>
+            <div className="text-red-200/60 text-sm font-light tracking-widest">
+              OPERATING SYSTEM v2.0
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Progress Bar */}
-      <div className="fixed bottom-0 left-0 right-0">
-        <div className="h-1 bg-gradient-to-r from-red-700/20 via-red-800/20 to-red-900/20">
-          <div 
-            className="h-full bg-gradient-to-r from-red-700 via-red-800 to-red-900"
-            style={{
-              width: `${(bootMessages.length / bootSequence.length) * 100}%`,
-              transition: 'width 0.3s ease-out'
-            }}
-          />
-        </div>
-        <div className="absolute bottom-2 left-0 right-0 text-center">
-          <span className="text-xs text-red-300/80">
-            Neural Core Initialization: {Math.round((bootMessages.length / bootSequence.length) * 100)}%
-          </span>
+      {/* Bottom Status */}
+      <div className="absolute bottom-8 left-0 right-0 text-center">
+        <div className={`text-lg font-light tracking-wider transition-all duration-300 ${
+          bootPhase === 0 ? 'text-red-400/60' :
+          bootPhase === 1 ? 'text-red-300/70' :
+          bootPhase === 2 ? 'text-red-200/80' :
+          'text-white animate-pulse'
+        }`}>
+          {getPhaseText()}
         </div>
       </div>
-
-      <style>{`
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 8px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: rgba(255, 0, 128, 0.1);
-          border-radius: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: rgba(255, 0, 128, 0.3);
-          border-radius: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: rgba(255, 0, 128, 0.5);
-        }
-      `}</style>
     </div>
   );
 };

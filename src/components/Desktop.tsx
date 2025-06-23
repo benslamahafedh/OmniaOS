@@ -16,7 +16,6 @@ import SystemSettings from './SystemSettings';
 import Terminal from './Terminal';
 import FolderView from './FolderView';
 import SamanthaChat from './SamanthaChat';
-import IntroSequence from './IntroSequence';
 import SideDock from './SideDock';
 import XLogo from './XLogo';
 
@@ -54,7 +53,6 @@ const Desktop: React.FC = () => {
   const [activeWindow, setActiveWindow] = useState<string | null>(null);
   const [showSamantha, setShowSamantha] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [showIntro, setShowIntro] = useState(true);
   const [currentTime, setCurrentTime] = useState(new Date());
   const [showCommandPalette, setShowCommandPalette] = useState(false);
   const [commandSearch, setCommandSearch] = useState('');
@@ -84,11 +82,6 @@ const Desktop: React.FC = () => {
     color: string;
     alpha: number;
   }>>([]);
-  // @ts-ignore - Future feature variables
-  const [introStep, setIntroStep] = useState(0);
-  // @ts-ignore - Future feature variables
-  const [isBooted, setIsBooted] = useState(false);
-  const introCompletedRef = useRef(false);
 
   // Update time
   useEffect(() => {
@@ -226,16 +219,6 @@ const Desktop: React.FC = () => {
       cancelAnimationFrame(animationFrameId);
     };
   }, [mousePosition, uiSettings.particleEffects]);
-
-
-
-  // Handle intro completion
-  const handleIntroComplete = () => {
-    if (introCompletedRef.current) return;
-    introCompletedRef.current = true;
-    setShowIntro(false);
-    setTimeout(() => setIsBooted(true), 500);
-  };
 
   // Keyboard shortcuts
   useEffect(() => {
@@ -429,28 +412,28 @@ const Desktop: React.FC = () => {
       id: 'system',
       name: 'System Core',
       icon: <Server className="w-6 h-6" />,
-      color: 'from-red-600 to-red-800',
+      color: 'from-red-700 to-red-900',
       description: 'Core system files and settings'
     },
     {
       id: 'docs',
       name: 'Documentation',
       icon: <Database className="w-6 h-6" />,
-      color: 'from-pink-500 to-red-600',
+      color: 'from-red-500 to-red-700',
       description: 'System documentation and guides'
     },
     {
       id: 'neural',
       name: 'Neural Network',
       icon: <Activity className="w-6 h-6" />,
-      color: 'from-rose-500 to-pink-700',
+      color: 'from-red-600 to-red-800',
       description: 'AI processing modules'
     },
     {
       id: 'web',
       name: 'Web Interface',
       icon: <Radio className="w-6 h-6" />,
-      color: 'from-red-400 to-pink-600',
+      color: 'from-red-400 to-red-600',
       description: 'Internet connectivity'
     },
     {
@@ -464,7 +447,7 @@ const Desktop: React.FC = () => {
       id: 'apps',
       name: 'Applications',
       icon: <Grid3X3 className="w-6 h-6" />,
-      color: 'from-pink-600 to-red-700',
+      color: 'from-red-600 to-red-800',
       description: 'Installed applications'
     }
   ];
@@ -495,26 +478,20 @@ const Desktop: React.FC = () => {
     }
   };
 
-  // Render intro or desktop
-
-  if (showIntro) {
-    return <IntroSequence onComplete={handleIntroComplete} />;
-  }
-
   return (
     <div className="min-h-screen w-full relative overflow-hidden">
       {/* Notification Bar */}
       <div className={`
-        fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-red-500/30
+        fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-xl border-b border-red-500/20
         ${isMobile ? 'h-14' : 'h-auto'}
       `}>
         <div className={`
           flex items-center justify-between px-6 py-2
-          ${isMobile ? 'px-4 py-2' : 'px-6 py-2'}
+          ${isMobile ? 'px-4 py-2' : 'px-6 py-3'}
         `}>
           <div className="flex items-center space-x-6">
             <div className={`
-              font-black bg-gradient-to-r from-red-300 via-red-400 to-red-500 bg-clip-text text-transparent
+              font-light bg-gradient-to-r from-red-200 via-red-300 to-red-400 bg-clip-text text-transparent tracking-[0.3em]
               ${isMobile ? 'text-lg' : 'text-2xl'}
             `}>
               {isMobile ? 'OMNIA' : 'OMNIAOS'}
@@ -527,7 +504,7 @@ const Desktop: React.FC = () => {
                   href="https://github.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-red-700/20 hover:bg-red-700/30 cursor-pointer transition-all duration-300 group"
+                  className="p-2 rounded-lg bg-red-700/10 hover:bg-red-700/20 cursor-pointer transition-all duration-300 group border border-red-500/20"
                 >
                   <Github size={16} className="text-red-300 group-hover:text-red-200" />
                 </a>
@@ -535,7 +512,7 @@ const Desktop: React.FC = () => {
                   href="https://x.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-red-700/20 hover:bg-red-700/30 cursor-pointer transition-all duration-300 group"
+                  className="p-2 rounded-lg bg-red-700/10 hover:bg-red-700/20 cursor-pointer transition-all duration-300 group border border-red-500/20"
                 >
                   <XLogo size={16} className="text-red-300 group-hover:text-red-200" />
                 </a>
@@ -543,7 +520,7 @@ const Desktop: React.FC = () => {
                   href="https://telegram.org" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-red-700/20 hover:bg-red-700/30 cursor-pointer transition-all duration-300 group"
+                  className="p-2 rounded-lg bg-red-700/10 hover:bg-red-700/20 cursor-pointer transition-all duration-300 group border border-red-500/20"
                 >
                   <Send size={16} className="text-red-300 group-hover:text-red-200" />
                 </a>
@@ -557,30 +534,30 @@ const Desktop: React.FC = () => {
               <div className="flex items-center space-x-2">
                 <div className="flex items-center space-x-1 text-red-300/80">
                   <Cpu size={12} />
-                  <span className="text-xs">{systemMetrics.cpu}%</span>
+                  <span className="text-xs font-light">{systemMetrics.cpu}%</span>
                 </div>
                 <div className="flex items-center space-x-1 text-red-300/80">
                   <MemoryStick size={12} />
-                  <span className="text-xs">{systemMetrics.memory}%</span>
+                  <span className="text-xs font-light">{systemMetrics.memory}%</span>
                 </div>
               </div>
             ) : (
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-6">
                 <div className="flex items-center space-x-2 text-red-300/80">
-                  <Cpu size={16} />
-                  <span className="text-sm">{systemMetrics.cpu}%</span>
+                  <Cpu size={16} className="text-red-400/60" />
+                  <span className="text-sm font-light tracking-wide">{systemMetrics.cpu}%</span>
                 </div>
                 <div className="flex items-center space-x-2 text-red-300/80">
-                  <MemoryStick size={16} />
-                  <span className="text-sm">{systemMetrics.memory}%</span>
+                  <MemoryStick size={16} className="text-red-400/60" />
+                  <span className="text-sm font-light tracking-wide">{systemMetrics.memory}%</span>
                 </div>
                 <div className="flex items-center space-x-2 text-red-300/80">
-                  <Network size={16} />
-                  <span className="text-sm">{systemMetrics.network}%</span>
+                  <Network size={16} className="text-red-400/60" />
+                  <span className="text-sm font-light tracking-wide">{systemMetrics.network}%</span>
                 </div>
                 <div className="flex items-center space-x-2 text-red-300/80">
-                  <Thermometer size={16} />
-                  <span className="text-sm">{systemMetrics.temperature}°C</span>
+                  <Thermometer size={16} className="text-red-400/60" />
+                  <span className="text-sm font-light tracking-wide">{systemMetrics.temperature}°C</span>
                 </div>
               </div>
             )}
@@ -588,13 +565,13 @@ const Desktop: React.FC = () => {
             {/* System Controls - Simplified on mobile */}
             {!isMobile && (
               <div className="flex items-center space-x-3">
-                <div className="p-1.5 rounded-lg bg-red-700/20 hover:bg-red-700/30 cursor-pointer">
+                <div className="p-1.5 rounded-lg bg-red-700/10 hover:bg-red-700/20 cursor-pointer border border-red-500/20 transition-all duration-300">
                   <Wifi size={16} className="text-red-300" />
                 </div>
-                <div className="p-1.5 rounded-lg bg-red-700/20 hover:bg-red-700/30 cursor-pointer">
+                <div className="p-1.5 rounded-lg bg-red-700/10 hover:bg-red-700/20 cursor-pointer border border-red-500/20 transition-all duration-300">
                   <Volume2 size={16} className="text-red-300" />
                 </div>
-                <div className="p-1.5 rounded-lg bg-red-700/20 hover:bg-red-700/30 cursor-pointer">
+                <div className="p-1.5 rounded-lg bg-red-700/10 hover:bg-red-700/20 cursor-pointer border border-red-500/20 transition-all duration-300">
                   <Battery size={16} className="text-red-300" />
                 </div>
               </div>
@@ -602,27 +579,25 @@ const Desktop: React.FC = () => {
 
             {/* Time and Date - Mobile friendly */}
             <div className={`
-              flex items-center space-x-2 text-red-400/80
+              flex items-center space-x-2 text-red-200/80 font-light
               ${isMobile ? 'space-x-1' : 'space-x-2'}
             `}>
               {isMobile ? (
                 <>
                   <Clock size={12} />
-                  <span className="text-xs">{currentTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+                  <span className="text-xs tracking-wide">{currentTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
                 </>
               ) : (
                 <>
-                  <Calendar size={16} />
-                  <span className="text-sm">{currentTime.toLocaleDateString()}</span>
-                  <Clock size={16} />
-                  <span className="text-sm">{currentTime.toLocaleTimeString()}</span>
+                  <Calendar size={16} className="text-red-400/60" />
+                  <span className="text-sm tracking-wide">{currentTime.toLocaleDateString()}</span>
+                  <Clock size={16} className="text-red-400/60" />
+                  <span className="text-sm tracking-wide">{currentTime.toLocaleTimeString()}</span>
                 </>
               )}
             </div>
           </div>
         </div>
-
-
       </div>
 
       {/* Dynamic Background Canvas */}
@@ -634,59 +609,56 @@ const Desktop: React.FC = () => {
 
       {/* Background Gradients */}
       <div className="fixed inset-0 z-0">
-        {/* Base gradient */}
+        {/* Base gradient - enhanced red theme */}
         <div 
-          className={`
-            absolute inset-0 bg-gradient-to-br ${theme.background}
-            opacity-80 transition-colors duration-500
-          `}
+          className="absolute inset-0 bg-gradient-to-br from-black via-red-950/20 to-black opacity-90 transition-colors duration-500"
         />
 
-        {/* Dynamic spotlight following cursor */}
+        {/* Dynamic spotlight following cursor - refined */}
         <div 
-          className="absolute inset-0 opacity-50 transition-opacity duration-300"
+          className="absolute inset-0 opacity-30 transition-opacity duration-300"
           style={{
-            background: `radial-gradient(circle 600px at ${mousePosition.x}px ${mousePosition.y}px, 
-              rgba(255,0,128,0.15), 
-              rgba(121,40,202,0.15), 
+            background: `radial-gradient(circle 800px at ${mousePosition.x}px ${mousePosition.y}px, 
+              rgba(239,68,68,0.15), 
+              rgba(185,28,28,0.12), 
               transparent)`
           }}
         />
 
-        {/* Animated gradient overlay */}
+        {/* Subtle flowing gradient overlay */}
         <div 
-          className="absolute inset-0 opacity-30"
+          className="absolute inset-0 opacity-20"
           style={{
             background: `
               repeating-linear-gradient(
                 45deg,
                 transparent,
-                transparent 100px,
-                rgba(255,0,128,0.1) 200px,
-                transparent 300px
+                transparent 120px,
+                rgba(239,68,68,0.08) 240px,
+                transparent 360px
               ),
               repeating-linear-gradient(
                 -45deg,
                 transparent,
-                transparent 100px,
-                rgba(121,40,202,0.1) 200px,
-                transparent 300px
+                transparent 120px,
+                rgba(185,28,28,0.06) 240px,
+                transparent 360px
               )
             `,
-            animation: 'slide 60s linear infinite'
+            animation: 'slide 80s linear infinite'
           }}
         />
 
-        {/* Grid overlay */}
+        {/* Refined grid overlay */}
         <div 
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 opacity-10"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+              linear-gradient(rgba(239,68,68,0.2) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(239,68,68,0.2) 1px, transparent 1px)
             `,
-            backgroundSize: '100px 100px',
-            animation: 'grid-slide 20s linear infinite'
+            backgroundSize: '120px 120px',
+            animation: 'grid-slide 30s linear infinite'
           }}
         />
       </div>
@@ -723,12 +695,12 @@ const Desktop: React.FC = () => {
       {!isMobile && (
         <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
           <div className="relative group">
-            <div className="absolute -inset-4 bg-gradient-to-r from-red-500/20 via-pink-600/20 to-red-500/20 rounded-full blur-xl group-hover:from-red-500/30 group-hover:via-pink-600/30 group-hover:to-red-500/30 transition-all duration-300" />
-            <div className="relative bg-black/50 backdrop-blur-xl rounded-full p-8 border border-red-500/30 group-hover:border-red-500/50 transition-all duration-300">
-              <div className="text-6xl font-bold text-red-400 tabular-nums">
+            <div className="absolute -inset-6 bg-gradient-to-r from-red-500/20 via-red-400/20 to-red-300/20 rounded-full blur-xl group-hover:from-red-500/30 group-hover:via-red-400/30 group-hover:to-red-300/30 transition-all duration-500" />
+            <div className="relative bg-black/60 backdrop-blur-xl rounded-full p-10 border border-red-500/20 group-hover:border-red-400/40 transition-all duration-500">
+              <div className="text-7xl font-light text-red-200 tabular-nums tracking-wider">
                 {currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
               </div>
-              <div className="text-center text-red-400/70 mt-2">
+              <div className="text-center text-red-300/70 mt-3 font-light tracking-[0.2em] text-sm">
                 {currentTime.toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric' })}
               </div>
             </div>
@@ -739,26 +711,26 @@ const Desktop: React.FC = () => {
       {/* System Metrics Widget - Desktop only */}
       {!isMobile && (
         <div className="fixed bottom-24 right-8 z-10">
-          <div className="bg-black/50 backdrop-blur-xl rounded-2xl border border-red-500/30 p-4 w-64">
-            <div className="text-red-400 font-semibold mb-4">System Metrics</div>
-            <div className="space-y-3">
+          <div className="bg-black/60 backdrop-blur-xl rounded-2xl border border-red-500/20 p-6 w-72">
+            <div className="text-red-300 font-light text-lg mb-6 tracking-wide">System Metrics</div>
+            <div className="space-y-4">
               {[
                 { icon: Cpu, label: 'CPU Usage', value: systemMetrics.cpu },
                 { icon: MemoryStick, label: 'Memory', value: systemMetrics.memory },
                 { icon: Network, label: 'Network', value: systemMetrics.network },
                 { icon: Thermometer, label: 'Temperature', value: systemMetrics.temperature }
               ].map(({ icon: Icon, label, value }) => (
-                <div key={label} className="space-y-1">
+                <div key={label} className="space-y-2">
                   <div className="flex items-center justify-between text-sm">
-                    <div className="flex items-center space-x-2 text-red-400/70">
-                      <Icon size={14} />
-                      <span>{label}</span>
+                    <div className="flex items-center space-x-3 text-red-300/70">
+                      <Icon size={16} className="text-red-400/60" />
+                      <span className="font-light tracking-wide">{label}</span>
                     </div>
-                    <span className="text-red-400">{value}%</span>
+                    <span className="text-red-200 font-light">{value}%</span>
                   </div>
-                  <div className="h-1 bg-red-500/20 rounded-full overflow-hidden">
+                  <div className="h-1.5 bg-red-950/30 rounded-full overflow-hidden">
                     <div 
-                      className="h-full bg-gradient-to-r from-red-500 to-pink-600 transition-all duration-300"
+                      className="h-full bg-gradient-to-r from-red-500 to-red-400 transition-all duration-500 rounded-full"
                       style={{ width: `${value}%` }}
                     />
                   </div>
