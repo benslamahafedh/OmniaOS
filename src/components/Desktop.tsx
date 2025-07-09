@@ -463,7 +463,7 @@ const Desktop: React.FC = () => {
   const handleCharacterClick = (characterId: string) => {
     switch (characterId) {
       case 'samantha':
-        window.open('http://samantha.dzdpbcb7befqfudm.eastus.azurecontainer.io/', '_blank');
+        window.open('https://samantha-os-1-production.up.railway.app/', '_blank');
         break;
       case 'elias':
         // Future: Open Elias chat/interface
@@ -763,7 +763,7 @@ const Desktop: React.FC = () => {
             {folders.map((folder, i) => (
               <div
                 key={folder.id}
-                onClick={() => folder.id === 'samantha' ? window.open('http://samantha.dzdpbcb7befqfudm.eastus.azurecontainer.io/', '_blank') : handleWindowOpen(`folder-${folder.id}`)}
+                onClick={() => folder.id === 'samantha' ? window.open('https://samantha-os-1-production.up.railway.app/', '_blank') : handleWindowOpen(`folder-${folder.id}`)}
                 className={`
                   relative group cursor-pointer transition-all duration-500
                   hover:scale-110 hover:-translate-y-2
@@ -1175,7 +1175,7 @@ const Desktop: React.FC = () => {
                   {[
                     { icon: <Settings size={isMobile ? 24 : 20} />, action: () => handleWindowOpen('settings'), label: 'Settings' },
                     { icon: <Code2 size={isMobile ? 24 : 20} />, action: () => handleWindowOpen('terminal'), label: 'Terminal' },
-                    { icon: <Sparkles size={isMobile ? 24 : 20} />, action: () => window.open('http://samantha.dzdpbcb7befqfudm.eastus.azurecontainer.io/', '_blank'), label: 'Samantha' },
+                    { icon: <Sparkles size={isMobile ? 24 : 20} />, action: () => window.open('https://samantha-os-1-production.up.railway.app/', '_blank'), label: 'Samantha' },
                     { icon: <Command size={isMobile ? 24 : 20} />, action: () => setShowCommandPalette(true), label: 'Commands' },
                     { icon: <Plus size={isMobile ? 24 : 20} />, action: () => addWidget('system-monitor'), label: 'Add Widget' }
                   ].map((item, index) => (
@@ -1229,7 +1229,7 @@ const Desktop: React.FC = () => {
           onSettingsClick={() => handleWindowOpen('settings')}
           onTerminalClick={() => handleWindowOpen('terminal')}
           onFolderClick={(folderId) => handleWindowOpen(`folder-${folderId}`)}
-          onSamanthaClick={() => window.open('http://samantha.dzdpbcb7befqfudm.eastus.azurecontainer.io/', '_blank')}
+          onSamanthaClick={() => window.open('https://samantha-os-1-production.up.railway.app/', '_blank')}
         />
       </div>
 
