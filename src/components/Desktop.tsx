@@ -293,7 +293,7 @@ const Desktop: React.FC = () => {
       name: 'Chat with Samantha',
       description: 'Open AI assistant interface',
       icon: <Sparkles className="w-4 h-4" />,
-      action: () => window.open('http://samantha.dzdpbcb7befqfudm.eastus.azurecontainer.io/', '_blank'),
+      action: () => window.open('https://samantha-os-1-production.up.railway.app/', '_blank'),
       category: 'AI'
     },
     {
