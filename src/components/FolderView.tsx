@@ -7,6 +7,7 @@ import { useWebInterface } from '../hooks/useWebInterface';
 import { useMobile } from '../hooks/useMobile';
 import SystemSettings from './SystemSettings';
 import Terminal from './Terminal';
+import { CodeEditor, Documentation } from './applications';
 
 interface FolderViewProps {
   folderId: string;
@@ -222,7 +223,7 @@ Contributors will be featured in:
         icon: <Code2 className="w-6 h-6 text-blue-400" />,
         description: 'Write and edit code',
         type: 'component',
-        component: <div>Code Editor Placeholder</div>
+        component: <CodeEditor />
       },
       {
         id: 'documentation',
@@ -230,7 +231,7 @@ Contributors will be featured in:
         icon: <FileText className="w-6 h-6 text-purple-400" />,
         description: 'OmniaOS Documentation',
         type: 'component',
-        component: <div>Documentation Placeholder</div>
+        component: <Documentation />
       }
     ],
     web: [

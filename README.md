@@ -46,11 +46,21 @@ omniaos/
 ├── src/
 │   ├── components/      # React components
 │   ├── contexts/        # Context providers
+│   ├── docs/           # Documentation
 │   ├── styles/          # Global styles
 │   └── types/          # TypeScript definitions
 ├── public/             # Static assets
 └── package.json        # Dependencies
 ```
+
+## 📚 Documentation
+
+For detailed information about OmniaOS, please refer to our documentation:
+
+- **[Documentation Index](./src/docs/README.md)** - Complete documentation overview
+- **[Features](./src/docs/features.md)** - System features and capabilities
+- **[Architecture](./src/docs/architecture.md)** - Technical architecture
+- **[Payment System](./src/docs/payment.md)** - Payment process and SOL transactions
 
 ## 🤝 Contributing
 

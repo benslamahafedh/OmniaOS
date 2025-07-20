@@ -279,128 +279,152 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
         />
       </div>
 
-      {/* Portrait Sinusoidal Wave Animation - Vertical */}
-      <div className="absolute inset-0">
-        <svg viewBox="0 0 100 100" className="w-full h-full" preserveAspectRatio="none">
-          {/* First vertical sinusoidal wave with gradual color transition and flowing animation */}
-          <path
-            d="M50,0 Q30,12.5 50,25 Q70,37.5 50,50 Q30,62.5 50,75 Q70,87.5 50,100"
-            fill="none"
-            stroke={
-              phase === 0 ? "rgba(220, 38, 38, 0.7)" :      // Dark red
-              phase === 1 ? "rgba(239, 68, 68, 0.8)" :      // Medium red
-              phase === 2 ? "rgba(248, 113, 113, 0.9)" :    // Light red
-              phase === 3 ? "rgba(252, 165, 165, 1)" :      // Very light red
-              phase === 4 ? "rgba(255, 200, 200, 1)" :      // Pink-white transition
-              "rgba(255, 255, 255, 0.95)"                   // Pure white
-            }
-            strokeWidth="0.4"
-            className={isPressed ? "animate-flowing-wave-1" : "animate-portrait-sine-1"}
-            style={{
-              filter: `drop-shadow(0 0 ${3 + phase}px ${
-                phase === 0 ? 'rgba(220, 38, 38, 0.8)' :
-                phase === 1 ? 'rgba(239, 68, 68, 0.9)' :
-                phase === 2 ? 'rgba(248, 113, 113, 1)' :
-                phase === 3 ? 'rgba(252, 165, 165, 1)' :
-                phase === 4 ? 'rgba(255, 200, 200, 1)' :
-                'rgba(255, 255, 255, 1)'
-              })`,
-              transition: 'all 0.3s ease-in-out',
-              strokeDasharray: isPressed ? '200 50' : 'none',
-              strokeDashoffset: isPressed ? '0' : 'none'
-            }}
-          />
-          
-          {/* Second vertical sinusoidal wave (inverse) with gradual color transition and flowing animation */}
-          <path
-            d="M50,0 Q70,12.5 50,25 Q30,37.5 50,50 Q70,62.5 50,75 Q30,87.5 50,100"
-            fill="none"
-            stroke={
-              phase === 0 ? "rgba(220, 38, 38, 0.5)" :      // Dark red
-              phase === 1 ? "rgba(239, 68, 68, 0.6)" :      // Medium red
-              phase === 2 ? "rgba(248, 113, 113, 0.7)" :    // Light red
-              phase === 3 ? "rgba(252, 165, 165, 0.8)" :    // Very light red
-              phase === 4 ? "rgba(255, 200, 200, 0.9)" :    // Pink-white transition
-              "rgba(255, 255, 255, 0.75)"                   // Pure white
-            }
-            strokeWidth="0.3"
-            className={isPressed ? "animate-flowing-wave-2" : "animate-portrait-sine-2"}
-            style={{
-              filter: `drop-shadow(0 0 ${2 + phase}px ${
-                phase === 0 ? 'rgba(220, 38, 38, 0.6)' :
-                phase === 1 ? 'rgba(239, 68, 68, 0.7)' :
-                phase === 2 ? 'rgba(248, 113, 113, 0.8)' :
-                phase === 3 ? 'rgba(252, 165, 165, 0.9)' :
-                phase === 4 ? 'rgba(255, 200, 200, 1)' :
-                'rgba(255, 255, 255, 0.9)'
-              })`,
-              transition: 'all 0.3s ease-in-out',
-              strokeDasharray: isPressed ? '150 40' : 'none',
-              strokeDashoffset: isPressed ? '-150' : 'none'
-            }}
-          />
-          
-          {/* Flowing energy particles along the wave - only when pressed */}
-          {isPressed && [...Array(6)].map((_, i) => (
-            <circle
-              key={`wave-particle-${i}`}
-              cx="50"
-              cy={15 + i * 15}
-              r="0.4"
-              fill={
-                phase === 0 ? "rgba(220, 38, 38, 0.9)" :
-                phase === 1 ? "rgba(239, 68, 68, 0.9)" :
-                phase === 2 ? "rgba(248, 113, 113, 1)" :
-                phase === 3 ? "rgba(252, 165, 165, 1)" :
-                phase === 4 ? "rgba(255, 200, 200, 1)" :
-                "rgba(255, 255, 255, 0.9)"
+      {/* Portrait Sinusoidal Wave Animation - Vertical - Only show when pressed */}
+      {isPressed && (
+        <div className="absolute inset-0">
+          <svg viewBox="0 0 100 100" className="w-full h-full" preserveAspectRatio="none">
+            {/* First vertical sinusoidal wave with gradual color transition and flowing animation */}
+            <path
+              d="M50,0 Q30,12.5 50,25 Q70,37.5 50,50 Q30,62.5 50,75 Q70,87.5 50,100"
+              fill="none"
+              stroke={
+                phase === 0 ? "rgba(220, 38, 38, 0.7)" :      // Dark red
+                phase === 1 ? "rgba(239, 68, 68, 0.8)" :      // Medium red
+                phase === 2 ? "rgba(248, 113, 113, 0.9)" :    // Light red
+                phase === 3 ? "rgba(252, 165, 165, 1)" :      // Very light red
+                phase === 4 ? "rgba(255, 200, 200, 1)" :      // Pink-white transition
+                "rgba(255, 255, 255, 0.95)"                   // Pure white
               }
-              className="animate-wave-particle"
+              strokeWidth="0.4"
+              className="animate-flowing-wave-1"
               style={{
-                animationDelay: `${i * 0.3}s`,
-                filter: `drop-shadow(0 0 2px ${
-                  phase === 0 ? 'rgba(220, 38, 38, 1)' :
-                  phase === 1 ? 'rgba(239, 68, 68, 1)' :
+                filter: `drop-shadow(0 0 ${3 + phase}px ${
+                  phase === 0 ? 'rgba(220, 38, 38, 0.8)' :
+                  phase === 1 ? 'rgba(239, 68, 68, 0.9)' :
                   phase === 2 ? 'rgba(248, 113, 113, 1)' :
                   phase === 3 ? 'rgba(252, 165, 165, 1)' :
                   phase === 4 ? 'rgba(255, 200, 200, 1)' :
                   'rgba(255, 255, 255, 1)'
+                })`,
+                transition: 'all 0.3s ease-in-out',
+                strokeDasharray: '200 50',
+                strokeDashoffset: '0'
+              }}
+            />
+            
+            {/* Second vertical sinusoidal wave (inverse) with gradual color transition and flowing animation */}
+            <path
+              d="M50,0 Q70,12.5 50,25 Q30,37.5 50,50 Q70,62.5 50,75 Q30,87.5 50,100"
+              fill="none"
+              stroke={
+                phase === 0 ? "rgba(220, 38, 38, 0.5)" :      // Dark red
+                phase === 1 ? "rgba(239, 68, 68, 0.6)" :      // Medium red
+                phase === 2 ? "rgba(248, 113, 113, 0.7)" :    // Light red
+                phase === 3 ? "rgba(252, 165, 165, 0.8)" :    // Very light red
+                phase === 4 ? "rgba(255, 200, 200, 0.9)" :    // Pink-white transition
+                "rgba(255, 255, 255, 0.75)"                   // Pure white
+              }
+              strokeWidth="0.3"
+              className="animate-flowing-wave-2"
+              style={{
+                filter: `drop-shadow(0 0 ${2 + phase}px ${
+                  phase === 0 ? 'rgba(220, 38, 38, 0.6)' :
+                  phase === 1 ? 'rgba(239, 68, 68, 0.7)' :
+                  phase === 2 ? 'rgba(248, 113, 113, 0.8)' :
+                  phase === 3 ? 'rgba(252, 165, 165, 0.9)' :
+                  phase === 4 ? 'rgba(255, 200, 200, 1)' :
+                  'rgba(255, 255, 255, 0.9)'
+                })`,
+                transition: 'all 0.3s ease-in-out',
+                strokeDasharray: '150 40',
+                strokeDashoffset: '-150'
+              }}
+            />
+            
+            {/* Flowing energy particles along the wave - only when pressed */}
+            {[...Array(6)].map((_, i) => (
+              <circle
+                key={`wave-particle-${i}`}
+                cx="50"
+                cy={15 + i * 15}
+                r="0.4"
+                fill={
+                  phase === 0 ? "rgba(220, 38, 38, 0.9)" :
+                  phase === 1 ? "rgba(239, 68, 68, 0.9)" :
+                  phase === 2 ? "rgba(248, 113, 113, 1)" :
+                  phase === 3 ? "rgba(252, 165, 165, 1)" :
+                  phase === 4 ? "rgba(255, 200, 200, 1)" :
+                  "rgba(255, 255, 255, 0.9)"
+                }
+                className="animate-wave-particle"
+                style={{
+                  animationDelay: `${i * 0.3}s`,
+                  filter: `drop-shadow(0 0 2px ${
+                    phase === 0 ? 'rgba(220, 38, 38, 1)' :
+                    phase === 1 ? 'rgba(239, 68, 68, 1)' :
+                    phase === 2 ? 'rgba(248, 113, 113, 1)' :
+                    phase === 3 ? 'rgba(252, 165, 165, 1)' :
+                    phase === 4 ? 'rgba(255, 200, 200, 1)' :
+                    'rgba(255, 255, 255, 1)'
+                  })`
+                }}
+              />
+            ))}
+            
+            {/* Progress indicator line - vertical with dynamic color */}
+            <line
+              x1="50"
+              y1="0"
+              x2="50"
+              y2="100"
+              stroke={
+                phase === 0 ? "rgba(220, 38, 38, 0.3)" :
+                phase === 1 ? "rgba(239, 68, 68, 0.4)" :
+                phase === 2 ? "rgba(248, 113, 113, 0.5)" :
+                phase === 3 ? "rgba(252, 165, 165, 0.6)" :
+                phase === 4 ? "rgba(255, 200, 200, 0.8)" :
+                "rgba(255, 255, 255, 0.9)"
+              }
+              strokeWidth="0.15"
+              strokeDasharray="100"
+              strokeDashoffset={100 - progress}
+              className="transition-all duration-300"
+              style={{
+                filter: `drop-shadow(0 0 1px ${
+                  phase === 0 ? 'rgba(220, 38, 38, 0.5)' :
+                  phase === 1 ? 'rgba(239, 68, 68, 0.6)' :
+                  phase === 2 ? 'rgba(248, 113, 113, 0.7)' :
+                  phase === 3 ? 'rgba(252, 165, 165, 0.8)' :
+                  phase === 4 ? 'rgba(255, 200, 200, 0.9)' :
+                  'rgba(255, 255, 255, 1)'
                 })`
               }}
             />
-          ))}
-          
-          {/* Progress indicator line - vertical with dynamic color */}
-          <line
-            x1="50"
-            y1="0"
-            x2="50"
-            y2="100"
-            stroke={
-              phase === 0 ? "rgba(220, 38, 38, 0.3)" :
-              phase === 1 ? "rgba(239, 68, 68, 0.4)" :
-              phase === 2 ? "rgba(248, 113, 113, 0.5)" :
-              phase === 3 ? "rgba(252, 165, 165, 0.6)" :
-              phase === 4 ? "rgba(255, 200, 200, 0.8)" :
-              "rgba(255, 255, 255, 0.9)"
-            }
-            strokeWidth="0.15"
-            strokeDasharray="100"
-            strokeDashoffset={100 - progress}
-            className="transition-all duration-300"
-            style={{
-              filter: `drop-shadow(0 0 1px ${
-                phase === 0 ? 'rgba(220, 38, 38, 0.5)' :
-                phase === 1 ? 'rgba(239, 68, 68, 0.6)' :
-                phase === 2 ? 'rgba(248, 113, 113, 0.7)' :
-                phase === 3 ? 'rgba(252, 165, 165, 0.8)' :
-                phase === 4 ? 'rgba(255, 200, 200, 0.9)' :
-                'rgba(255, 255, 255, 1)'
-              })`
-            }}
-          />
-        </svg>
-         </div>
+          </svg>
+        </div>
+      )}
+
+      {/* Glowing OMNIA OS Text - Show when not pressed */}
+      {!isPressed && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center">
+            <div className="text-white text-6xl font-light tracking-[0.2em] animate-pulse-glow"
+                 style={{
+                   textShadow: '0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.4)',
+                   filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))'
+                 }}>
+              OMNIA
+            </div>
+            <div className="text-red-300/80 text-xl font-light mt-4 tracking-[0.3em] animate-pulse"
+                 style={{
+                   textShadow: '0 0 15px rgba(239, 68, 68, 0.6), 0 0 30px rgba(239, 68, 68, 0.4)',
+                   filter: 'drop-shadow(0 0 8px rgba(239, 68, 68, 0.3))'
+                 }}>
+              OPERATING SYSTEM
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Enhanced particle effect with phase-based colors */}
       <div className="absolute inset-0 overflow-hidden">
