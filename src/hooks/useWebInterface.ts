@@ -76,7 +76,7 @@ export const useWebInterface = () => {
       {
         id: '1',
         title: 'Quantum Computing Breakthroughs',
-        url: 'https://quantum.research.ai/breakthroughs',
+        url: '#',
         description: 'Latest developments in quantum computing and their implications for AI.',
         relevance: 0.95,
         aiEnhanced: true,
@@ -85,7 +85,7 @@ export const useWebInterface = () => {
       {
         id: '2',
         title: 'Neural Network Architectures',
-        url: 'https://ai.science.org/neural-nets',
+        url: '#',
         description: 'Advanced neural network architectures for modern AI systems.',
         relevance: 0.88,
         aiEnhanced: true,
@@ -94,7 +94,7 @@ export const useWebInterface = () => {
       {
         id: '3',
         title: 'AGI Development Progress',
-        url: 'https://agi.research.org/progress',
+        url: '#',
         description: 'Current state of AGI development and future prospects.',
         relevance: 0.92,
         aiEnhanced: true,
@@ -194,7 +194,7 @@ export const useWebInterface = () => {
     const newResult: SearchResult = {
       id: Date.now().toString(),
       title: `New Research ${Date.now()}`,
-      url: `https://research.ai/${Date.now()}`,
+      url: '#',
       description: 'Latest research findings in AI and quantum computing.',
       relevance: 0.7 + Math.random() * 0.3,
       aiEnhanced: Math.random() > 0.3,
