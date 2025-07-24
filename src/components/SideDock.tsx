@@ -27,21 +27,21 @@ const SideDock: React.FC<SideDockProps> = ({ onCharacterClick }) => {
       id: 'samantha',
       name: 'Samantha',
       image: samanthaImage,
-      description: 'AI Assistant',
+      description: 'The waifu',
       color: 'from-red-700 to-red-800'
     },
     {
       id: 'elias',
       name: 'Elias',
       image: brotherImage,
-      description: 'The Brother',
+      description: 'The Rizzler',
       color: 'from-blue-500 to-cyan-500'
     },
     {
       id: 'lyra',
       name: 'Lyra', 
       image: sisterImage,
-      description: 'The Sister',
+      description: 'The Love Oracle',
       color: 'from-purple-500 to-pink-500'
     }
   ];
@@ -143,10 +143,12 @@ const SideDock: React.FC<SideDockProps> = ({ onCharacterClick }) => {
         {/* Dock title */}
         <div className="mt-4 pt-4 border-t border-white/10">
           <div className="text-white/60 text-xs text-center font-semibold">
-            AI Family
+            AI Companion
           </div>
         </div>
       </div>
+
+
     </div>
   );
 };

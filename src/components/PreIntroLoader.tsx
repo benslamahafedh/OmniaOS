@@ -281,127 +281,127 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
 
       {/* Portrait Sinusoidal Wave Animation - Vertical - Only show when pressed */}
       {isPressed && (
-        <div className="absolute inset-0">
-          <svg viewBox="0 0 100 100" className="w-full h-full" preserveAspectRatio="none">
-            {/* First vertical sinusoidal wave with gradual color transition and flowing animation */}
-            <path
-              d="M50,0 Q30,12.5 50,25 Q70,37.5 50,50 Q30,62.5 50,75 Q70,87.5 50,100"
-              fill="none"
-              stroke={
-                phase === 0 ? "rgba(220, 38, 38, 0.7)" :      // Dark red
-                phase === 1 ? "rgba(239, 68, 68, 0.8)" :      // Medium red
-                phase === 2 ? "rgba(248, 113, 113, 0.9)" :    // Light red
-                phase === 3 ? "rgba(252, 165, 165, 1)" :      // Very light red
-                phase === 4 ? "rgba(255, 200, 200, 1)" :      // Pink-white transition
-                "rgba(255, 255, 255, 0.95)"                   // Pure white
-              }
-              strokeWidth="0.4"
+      <div className="absolute inset-0">
+        <svg viewBox="0 0 100 100" className="w-full h-full" preserveAspectRatio="none">
+          {/* First vertical sinusoidal wave with gradual color transition and flowing animation */}
+          <path
+            d="M50,0 Q30,12.5 50,25 Q70,37.5 50,50 Q30,62.5 50,75 Q70,87.5 50,100"
+            fill="none"
+            stroke={
+              phase === 0 ? "rgba(220, 38, 38, 0.7)" :      // Dark red
+              phase === 1 ? "rgba(239, 68, 68, 0.8)" :      // Medium red
+              phase === 2 ? "rgba(248, 113, 113, 0.9)" :    // Light red
+              phase === 3 ? "rgba(252, 165, 165, 1)" :      // Very light red
+              phase === 4 ? "rgba(255, 200, 200, 1)" :      // Pink-white transition
+              "rgba(255, 255, 255, 0.95)"                   // Pure white
+            }
+            strokeWidth="0.4"
               className="animate-flowing-wave-1"
+            style={{
+              filter: `drop-shadow(0 0 ${3 + phase}px ${
+                phase === 0 ? 'rgba(220, 38, 38, 0.8)' :
+                phase === 1 ? 'rgba(239, 68, 68, 0.9)' :
+                phase === 2 ? 'rgba(248, 113, 113, 1)' :
+                phase === 3 ? 'rgba(252, 165, 165, 1)' :
+                phase === 4 ? 'rgba(255, 200, 200, 1)' :
+                'rgba(255, 255, 255, 1)'
+              })`,
+              transition: 'all 0.3s ease-in-out',
+                strokeDasharray: '200 50',
+                strokeDashoffset: '0'
+            }}
+          />
+          
+          {/* Second vertical sinusoidal wave (inverse) with gradual color transition and flowing animation */}
+          <path
+            d="M50,0 Q70,12.5 50,25 Q30,37.5 50,50 Q70,62.5 50,75 Q30,87.5 50,100"
+            fill="none"
+            stroke={
+              phase === 0 ? "rgba(220, 38, 38, 0.5)" :      // Dark red
+              phase === 1 ? "rgba(239, 68, 68, 0.6)" :      // Medium red
+              phase === 2 ? "rgba(248, 113, 113, 0.7)" :    // Light red
+              phase === 3 ? "rgba(252, 165, 165, 0.8)" :    // Very light red
+              phase === 4 ? "rgba(255, 200, 200, 0.9)" :    // Pink-white transition
+              "rgba(255, 255, 255, 0.75)"                   // Pure white
+            }
+            strokeWidth="0.3"
+              className="animate-flowing-wave-2"
+            style={{
+              filter: `drop-shadow(0 0 ${2 + phase}px ${
+                phase === 0 ? 'rgba(220, 38, 38, 0.6)' :
+                phase === 1 ? 'rgba(239, 68, 68, 0.7)' :
+                phase === 2 ? 'rgba(248, 113, 113, 0.8)' :
+                phase === 3 ? 'rgba(252, 165, 165, 0.9)' :
+                phase === 4 ? 'rgba(255, 200, 200, 1)' :
+                'rgba(255, 255, 255, 0.9)'
+              })`,
+              transition: 'all 0.3s ease-in-out',
+                strokeDasharray: '150 40',
+                strokeDashoffset: '-150'
+            }}
+          />
+          
+          {/* Flowing energy particles along the wave - only when pressed */}
+            {[...Array(6)].map((_, i) => (
+            <circle
+              key={`wave-particle-${i}`}
+              cx="50"
+              cy={15 + i * 15}
+              r="0.4"
+              fill={
+                phase === 0 ? "rgba(220, 38, 38, 0.9)" :
+                phase === 1 ? "rgba(239, 68, 68, 0.9)" :
+                phase === 2 ? "rgba(248, 113, 113, 1)" :
+                phase === 3 ? "rgba(252, 165, 165, 1)" :
+                phase === 4 ? "rgba(255, 200, 200, 1)" :
+                "rgba(255, 255, 255, 0.9)"
+              }
+              className="animate-wave-particle"
               style={{
-                filter: `drop-shadow(0 0 ${3 + phase}px ${
-                  phase === 0 ? 'rgba(220, 38, 38, 0.8)' :
-                  phase === 1 ? 'rgba(239, 68, 68, 0.9)' :
+                animationDelay: `${i * 0.3}s`,
+                filter: `drop-shadow(0 0 2px ${
+                  phase === 0 ? 'rgba(220, 38, 38, 1)' :
+                  phase === 1 ? 'rgba(239, 68, 68, 1)' :
                   phase === 2 ? 'rgba(248, 113, 113, 1)' :
                   phase === 3 ? 'rgba(252, 165, 165, 1)' :
                   phase === 4 ? 'rgba(255, 200, 200, 1)' :
                   'rgba(255, 255, 255, 1)'
-                })`,
-                transition: 'all 0.3s ease-in-out',
-                strokeDasharray: '200 50',
-                strokeDashoffset: '0'
-              }}
-            />
-            
-            {/* Second vertical sinusoidal wave (inverse) with gradual color transition and flowing animation */}
-            <path
-              d="M50,0 Q70,12.5 50,25 Q30,37.5 50,50 Q70,62.5 50,75 Q30,87.5 50,100"
-              fill="none"
-              stroke={
-                phase === 0 ? "rgba(220, 38, 38, 0.5)" :      // Dark red
-                phase === 1 ? "rgba(239, 68, 68, 0.6)" :      // Medium red
-                phase === 2 ? "rgba(248, 113, 113, 0.7)" :    // Light red
-                phase === 3 ? "rgba(252, 165, 165, 0.8)" :    // Very light red
-                phase === 4 ? "rgba(255, 200, 200, 0.9)" :    // Pink-white transition
-                "rgba(255, 255, 255, 0.75)"                   // Pure white
-              }
-              strokeWidth="0.3"
-              className="animate-flowing-wave-2"
-              style={{
-                filter: `drop-shadow(0 0 ${2 + phase}px ${
-                  phase === 0 ? 'rgba(220, 38, 38, 0.6)' :
-                  phase === 1 ? 'rgba(239, 68, 68, 0.7)' :
-                  phase === 2 ? 'rgba(248, 113, 113, 0.8)' :
-                  phase === 3 ? 'rgba(252, 165, 165, 0.9)' :
-                  phase === 4 ? 'rgba(255, 200, 200, 1)' :
-                  'rgba(255, 255, 255, 0.9)'
-                })`,
-                transition: 'all 0.3s ease-in-out',
-                strokeDasharray: '150 40',
-                strokeDashoffset: '-150'
-              }}
-            />
-            
-            {/* Flowing energy particles along the wave - only when pressed */}
-            {[...Array(6)].map((_, i) => (
-              <circle
-                key={`wave-particle-${i}`}
-                cx="50"
-                cy={15 + i * 15}
-                r="0.4"
-                fill={
-                  phase === 0 ? "rgba(220, 38, 38, 0.9)" :
-                  phase === 1 ? "rgba(239, 68, 68, 0.9)" :
-                  phase === 2 ? "rgba(248, 113, 113, 1)" :
-                  phase === 3 ? "rgba(252, 165, 165, 1)" :
-                  phase === 4 ? "rgba(255, 200, 200, 1)" :
-                  "rgba(255, 255, 255, 0.9)"
-                }
-                className="animate-wave-particle"
-                style={{
-                  animationDelay: `${i * 0.3}s`,
-                  filter: `drop-shadow(0 0 2px ${
-                    phase === 0 ? 'rgba(220, 38, 38, 1)' :
-                    phase === 1 ? 'rgba(239, 68, 68, 1)' :
-                    phase === 2 ? 'rgba(248, 113, 113, 1)' :
-                    phase === 3 ? 'rgba(252, 165, 165, 1)' :
-                    phase === 4 ? 'rgba(255, 200, 200, 1)' :
-                    'rgba(255, 255, 255, 1)'
-                  })`
-                }}
-              />
-            ))}
-            
-            {/* Progress indicator line - vertical with dynamic color */}
-            <line
-              x1="50"
-              y1="0"
-              x2="50"
-              y2="100"
-              stroke={
-                phase === 0 ? "rgba(220, 38, 38, 0.3)" :
-                phase === 1 ? "rgba(239, 68, 68, 0.4)" :
-                phase === 2 ? "rgba(248, 113, 113, 0.5)" :
-                phase === 3 ? "rgba(252, 165, 165, 0.6)" :
-                phase === 4 ? "rgba(255, 200, 200, 0.8)" :
-                "rgba(255, 255, 255, 0.9)"
-              }
-              strokeWidth="0.15"
-              strokeDasharray="100"
-              strokeDashoffset={100 - progress}
-              className="transition-all duration-300"
-              style={{
-                filter: `drop-shadow(0 0 1px ${
-                  phase === 0 ? 'rgba(220, 38, 38, 0.5)' :
-                  phase === 1 ? 'rgba(239, 68, 68, 0.6)' :
-                  phase === 2 ? 'rgba(248, 113, 113, 0.7)' :
-                  phase === 3 ? 'rgba(252, 165, 165, 0.8)' :
-                  phase === 4 ? 'rgba(255, 200, 200, 0.9)' :
-                  'rgba(255, 255, 255, 1)'
                 })`
               }}
             />
-          </svg>
-        </div>
+          ))}
+          
+          {/* Progress indicator line - vertical with dynamic color */}
+          <line
+            x1="50"
+            y1="0"
+            x2="50"
+            y2="100"
+            stroke={
+              phase === 0 ? "rgba(220, 38, 38, 0.3)" :
+              phase === 1 ? "rgba(239, 68, 68, 0.4)" :
+              phase === 2 ? "rgba(248, 113, 113, 0.5)" :
+              phase === 3 ? "rgba(252, 165, 165, 0.6)" :
+              phase === 4 ? "rgba(255, 200, 200, 0.8)" :
+              "rgba(255, 255, 255, 0.9)"
+            }
+            strokeWidth="0.15"
+            strokeDasharray="100"
+            strokeDashoffset={100 - progress}
+            className="transition-all duration-300"
+            style={{
+              filter: `drop-shadow(0 0 1px ${
+                phase === 0 ? 'rgba(220, 38, 38, 0.5)' :
+                phase === 1 ? 'rgba(239, 68, 68, 0.6)' :
+                phase === 2 ? 'rgba(248, 113, 113, 0.7)' :
+                phase === 3 ? 'rgba(252, 165, 165, 0.8)' :
+                phase === 4 ? 'rgba(255, 200, 200, 0.9)' :
+                'rgba(255, 255, 255, 1)'
+              })`
+            }}
+          />
+        </svg>
+         </div>
       )}
 
       {/* Glowing OMNIA OS Text - Show when not pressed */}

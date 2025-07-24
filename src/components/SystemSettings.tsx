@@ -59,16 +59,15 @@ const SystemSettings: React.FC<SystemSettingsProps> = ({ onClose }) => {
 
   return (
     <div className={`
-      bg-gray-900/95 backdrop-blur-xl border border-red-500/30 w-full
       ${isMobile 
-        ? 'mobile-settings rounded-lg p-4 max-w-none' 
-        : 'rounded-3xl p-8 max-w-4xl'
+        ? 'w-full min-h-0 flex flex-col mobile-settings-container' 
+        : 'bg-gray-900/95 backdrop-blur-xl border border-red-500/30 w-full rounded-3xl p-8 max-w-4xl'
       }
     `}>
       {/* Header */}
       <div className={`
         flex items-center justify-between mb-8
-        ${isMobile ? 'mb-4' : 'mb-8'}
+        ${isMobile ? 'mb-4 pb-4 border-b border-red-500/20' : 'mb-8'}
       `}>
         <h2 className={`
           font-bold text-white flex items-center gap-3
@@ -91,48 +90,48 @@ const SystemSettings: React.FC<SystemSettingsProps> = ({ onClose }) => {
           <button
             onClick={onClose}
             className={`
-              text-gray-400 hover:text-white transition-colors duration-300
-              ${isMobile ? 'text-2xl' : 'text-lg'}
+              ${isMobile 
+                ? 'flex items-center justify-center w-10 h-10 bg-red-500/20 hover:bg-red-500/30 text-red-400 hover:text-red-300 rounded-full border border-red-500/30 transition-all duration-300 active:scale-95'
+                : 'text-gray-400 hover:text-white transition-colors duration-300 text-lg'
+              }
             `}
           >
-            ✕
+            {isMobile ? <span className="text-lg">✕</span> : '✕'}
           </button>
         </div>
       </div>
 
-      {/* Tabs */}
+      {/* Navigation Tabs */}
       <div className={`
+        flex mb-6
         ${isMobile 
-          ? 'settings-tabs flex gap-2 mb-4 overflow-x-auto pb-2' 
-          : 'flex gap-4 mb-8'
+          ? 'settings-tabs overflow-x-auto gap-2 pb-2' 
+          : 'justify-center space-x-4'
         }
       `}>
-        {tabs.map(tab => (
+        {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
             className={`
-              settings-tab flex items-center gap-2 rounded-xl transition-all duration-300
-              ${isMobile 
-                ? 'flex-shrink-0 px-3 py-2 text-sm' 
-                : 'px-4 py-2'
-              }
-              ${activeTab === tab.id 
-                ? 'bg-red-500/20 text-red-400 border border-red-500/30' 
-                : 'text-gray-400 hover:text-white hover:bg-white/5'
+              flex items-center gap-2 px-4 py-2 rounded-xl transition-all duration-300
+              ${isMobile ? 'flex-shrink-0 min-h-[44px]' : ''}
+              ${activeTab === tab.id
+                ? 'bg-red-500/20 text-red-400 border border-red-500/30'
+                : 'bg-gray-800/50 text-gray-400 hover:bg-gray-800/70 hover:text-gray-300'
               }
             `}
           >
             {tab.icon}
-            {isMobile ? '' : tab.name}
+            <span className={`${isMobile ? 'text-sm' : ''}`}>{tab.name}</span>
           </button>
         ))}
       </div>
 
-      {/* Content */}
+      {/* Content Area */}
       <div className={`
-        settings-content space-y-8
-        ${isMobile ? 'space-y-4' : 'space-y-8'}
+        settings-content
+        ${isMobile ? 'flex-1 overflow-y-auto' : ''}
       `}>
         {/* Theme Selection */}
         <div className={activeTab === 'appearance' ? 'block' : 'hidden'}>

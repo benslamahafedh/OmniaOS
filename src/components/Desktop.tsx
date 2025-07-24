@@ -14,6 +14,7 @@ import {
 import Taskbar from './Taskbar';
 import SystemSettings from './SystemSettings';
 import Terminal from './Terminal';
+import AICompanionView from './AICompanionView';
 import FolderView from './FolderView';
 
 import SideDock from './SideDock';
@@ -463,11 +464,12 @@ const Desktop: React.FC = () => {
   const handleCharacterClick = (characterId: string) => {
     switch (characterId) {
       case 'samantha':
-        window.open('https://samantha-me-git-main-benslamahafedhs-projects.vercel.app/', '_blank');
+        handleWindowOpen('ai-companion');
         break;
       case 'elias':
         // Future: Open Elias chat/interface
         console.log('Elias clicked - future feature');
+        handleWindowOpen('ai-companion');
         break;
       case 'lyra':
         // Future: Open Lyra chat/interface
@@ -751,12 +753,12 @@ const Desktop: React.FC = () => {
       `}>
         {/* Desktop Content */}
         <div className={`
-          ${isMobile ? 'p-4 pt-8 pb-20' : 'p-8 pt-20'}
+          ${isMobile ? 'p-2 pt-16 pb-16' : 'p-8 pt-20'}
         `}>
           {/* Folder Grid */}
           <div className={`
             ${isMobile 
-              ? 'mobile-widget-grid grid grid-cols-2 gap-4' 
+              ? 'mobile-widget-grid grid grid-cols-3 gap-2' 
               : 'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8'
             }
           `}>
@@ -913,6 +915,10 @@ const Desktop: React.FC = () => {
               onClose={handleWindowClose} 
             />
           </div>
+        )}
+
+        {activeWindow === 'ai-companion' && (
+          <AICompanionView onClose={handleWindowClose} />
         )}
 
 

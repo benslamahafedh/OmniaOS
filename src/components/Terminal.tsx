@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Terminal as TerminalIcon, X, Maximize2, Minimize2 } from 'lucide-react';
+import { useMobile } from '../hooks/useMobile';
 
 interface TerminalProps {
   onClose: () => void;
@@ -17,6 +18,7 @@ const Terminal: React.FC<TerminalProps> = ({ onClose }) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const terminalRef = useRef<HTMLDivElement>(null);
+  const { isMobile } = useMobile();
 
   useEffect(() => {
     if (inputRef.current) {
@@ -121,31 +123,43 @@ Storage: 1TB Quantum Drive
   return (
     <div 
       className={`
-        bg-gray-900/95 backdrop-blur-xl text-green-400 font-mono
+        text-green-400 font-mono
         ${isFullscreen 
-          ? 'fixed inset-0 z-50' 
-          : 'w-full max-w-4xl rounded-3xl border border-green-500/30'
+          ? 'fixed inset-0 z-50 bg-gray-900/95 backdrop-blur-xl' 
+          : isMobile 
+            ? 'w-full min-h-0 flex flex-col mobile-terminal-container' 
+            : 'bg-gray-900/95 backdrop-blur-xl w-full max-w-4xl rounded-3xl border border-green-500/30'
         }
       `}
     >
       {/* Terminal Header */}
-      <div className="flex items-center justify-between px-4 py-2 bg-black/50 border-b border-green-500/30">
+      <div className={`
+        flex items-center justify-between px-4 py-2 bg-black/50 border-b border-green-500/30
+        ${isMobile ? 'min-h-[60px]' : ''}
+      `}>
         <div className="flex items-center gap-2">
-          <TerminalIcon className="w-4 h-4" />
-          <span className="text-sm">OmniaOS Terminal</span>
+          <TerminalIcon className={`${isMobile ? 'w-5 h-5' : 'w-4 h-4'}`} />
+          <span className={`${isMobile ? 'text-base font-medium' : 'text-sm'}`}>OmniaOS Terminal</span>
         </div>
         <div className="flex items-center gap-2">
-          <button
-            onClick={() => setIsFullscreen(!isFullscreen)}
-            className="p-1 hover:bg-white/10 rounded transition-colors duration-300"
-          >
-            {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
-          </button>
+          {!isMobile && (
+            <button
+              onClick={() => setIsFullscreen(!isFullscreen)}
+              className="p-1 hover:bg-white/10 rounded transition-colors duration-300"
+            >
+              {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
+            </button>
+          )}
           <button
             onClick={onClose}
-            className="p-1 hover:bg-white/10 rounded transition-colors duration-300"
+            className={`
+              ${isMobile 
+                ? 'flex items-center justify-center w-10 h-10 bg-red-500/20 hover:bg-red-500/30 text-red-400 hover:text-red-300 rounded-full border border-red-500/30 transition-all duration-300 active:scale-95'
+                : 'p-1 hover:bg-white/10 rounded transition-colors duration-300'
+              }
+            `}
           >
-            <X className="w-4 h-4" />
+            <X className={`${isMobile ? 'w-5 h-5' : 'w-4 h-4'}`} />
           </button>
         </div>
       </div>
@@ -153,7 +167,13 @@ Storage: 1TB Quantum Drive
       {/* Terminal Content */}
       <div 
         ref={terminalRef}
-        className="p-4 h-[500px] overflow-y-auto space-y-2"
+        className={`
+          p-4 overflow-y-auto space-y-2
+          ${isMobile 
+            ? 'flex-1 text-sm mobile-terminal' 
+            : 'h-[500px]'
+          }
+        `}
         onClick={() => inputRef.current?.focus()}
       >
         {/* Welcome Message */}
@@ -190,7 +210,10 @@ Storage: 1TB Quantum Drive
             value={currentInput}
             onChange={e => setCurrentInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            className="flex-1 bg-transparent border-none outline-none text-white"
+            className={`
+              flex-1 bg-transparent border-none outline-none text-white
+              ${isMobile ? 'text-base' : ''}
+            `}
             spellCheck={false}
             autoComplete="off"
           />
@@ -198,8 +221,14 @@ Storage: 1TB Quantum Drive
       </div>
 
       {/* Terminal Footer */}
-      <div className="px-4 py-2 border-t border-green-500/30 bg-black/50 text-xs text-gray-400">
-        Press Ctrl+L to clear terminal • Type 'help' for commands
+      <div className={`
+        px-4 py-2 border-t border-green-500/30 bg-black/50 text-xs text-gray-400
+        ${isMobile ? 'text-xs pb-4' : ''}
+      `}>
+        {isMobile 
+          ? "Type 'help' for commands • Tap to focus" 
+          : "Press Ctrl+L to clear terminal • Type 'help' for commands"
+        }
       </div>
     </div>
   );

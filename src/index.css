@@ -242,21 +242,26 @@ body {
     top: 0 !important;
     left: 0 !important;
     width: 100vw !important;
-    height: calc(100vh - 70px) !important;
+    height: 100vh !important;
     border-radius: 0 !important;
     border: none !important;
     z-index: 40 !important;
+    overflow: hidden !important;
   }
 
   .mobile-window .window-header {
-    height: 50px !important;
+    height: 60px !important;
     padding: 0 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    min-height: 60px !important;
   }
 
   .mobile-window .window-content {
-    height: calc(100% - 50px) !important;
+    height: calc(100vh - 60px) !important;
     overflow-y: auto !important;
-    padding: 16px !important;
+    padding: 0 !important;
   }
 
   /* Mobile Widget System */

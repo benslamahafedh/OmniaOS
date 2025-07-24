@@ -65,7 +65,7 @@ OmniaOS is a revolutionary web-based operating system that combines cutting-edge
 
 ### Key Features
 
-1. **Samantha AI Assistant**
+1. **Samantha AI Companion**
    - Natural language interaction
    - Contextual awareness
    - Personalized responses
@@ -1151,75 +1151,85 @@ Contributors will be featured in:
   };
 
   if (isMobile) {
-    // Mobile Layout
+    // Mobile Layout - Fully Responsive Modal
     return (
-      <div className="fixed inset-0 bg-black/95 backdrop-blur-xl z-50 flex flex-col">
-        {/* Mobile Header */}
-        <div className="flex items-center justify-between p-4 border-b border-red-700/30 bg-gray-900/50">
-          <h2 className="text-xl font-bold text-white flex items-center">
-            <Folder className="w-6 h-6 text-red-300 mr-2" />
-            {folderId.charAt(0).toUpperCase() + folderId.slice(1)}
-          </h2>
-          <button
-            onClick={handleClose}
-            className="text-gray-400 hover:text-white p-2"
-          >
-            <X className="w-6 h-6" />
-          </button>
-        </div>
+      <div className="fixed inset-0 bg-black/90 backdrop-blur-xl z-50 flex items-center justify-center p-2">
+        <div className="bg-gradient-to-br from-gray-900/95 to-black/95 rounded-2xl w-[96%] max-w-2xl max-h-[95vh] border border-red-700/30 shadow-2xl backdrop-blur-xl overflow-hidden flex flex-col mobile-folder-wrapper">
+          {/* Mobile Header - Fixed height */}
+          <div className="flex items-center justify-between p-3 border-b border-red-700/30 bg-gray-900/50 h-13 flex-shrink-0">
+            <h2 className="text-base font-semibold text-white flex items-center truncate">
+              <Folder className="w-4 h-4 text-red-300 mr-2 flex-shrink-0" />
+              <span className="truncate text-sm">{folderId.charAt(0).toUpperCase() + folderId.slice(1)}</span>
+            </h2>
+            <button
+              onClick={handleClose}
+              className="flex items-center justify-center w-8 h-8 bg-red-500/20 hover:bg-red-500/30 text-red-400 hover:text-red-300 rounded-full border border-red-500/30 transition-all duration-300 active:scale-95 flex-shrink-0"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
 
-        {/* Mobile Content */}
-        <div className="flex-1 overflow-y-auto">
-          {!activeFile ? (
-            // File List View
-            <div className="p-4 space-y-3">
-              {folderContents[folderId]?.map((item) => (
-                <div
-                  key={item.id}
-                  onClick={() => handleFileClick(item.id)}
-                  className="flex items-center justify-between p-4 bg-gray-800/50 rounded-xl border border-gray-700/50 active:bg-gray-700/50 transition-colors"
-                >
-                  <div className="flex items-center space-x-3">
-                    {item.icon}
-                    <div>
-                      <div className="text-white font-medium text-sm">{item.name}</div>
-                      <div className="text-gray-400 text-xs">{item.description}</div>
+          {/* Mobile Content - Flexible height with proper scrolling */}
+          <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
+            {!activeFile ? (
+              // File List View - Proper scroll container
+              <div className="flex-1 overflow-y-auto p-3">
+                <div className="space-y-2">
+                  {folderContents[folderId]?.map((item) => (
+                    <div
+                      key={item.id}
+                      onClick={() => handleFileClick(item.id)}
+                      className="flex items-center justify-between p-2.5 bg-gray-800/50 rounded-lg border border-gray-700/50 active:bg-gray-700/50 transition-all duration-200 min-h-[50px]"
+                    >
+                      <div className="flex items-center space-x-2.5 flex-1 min-w-0">
+                        <div className="flex-shrink-0">
+                          {React.cloneElement(item.icon as React.ReactElement, { className: "w-4 h-4 text-current" })}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-white font-medium text-xs truncate">{item.name}</div>
+                          <div className="text-gray-400 text-[10px] truncate">{item.description}</div>
+                        </div>
+                      </div>
+                      <ChevronRight className="w-3.5 h-3.5 text-gray-400 flex-shrink-0" />
                     </div>
-                  </div>
-                  <ChevronRight className="w-5 h-5 text-gray-400" />
+                  ))}
                 </div>
-              ))}
-            </div>
-          ) : (
-            // Content View
-            <div className="flex flex-col h-full">
-              {/* Back Button */}
-              <div className="p-4 border-b border-gray-700/50">
-                <button
-                  onClick={() => setActiveFile(null)}
-                  className="flex items-center text-red-400 hover:text-red-300"
-                >
-                  <ChevronRight className="w-5 h-5 rotate-180 mr-2" />
-                  Back to {folderId.charAt(0).toUpperCase() + folderId.slice(1)}
-                </button>
               </div>
-              
-              {/* Content */}
-              <div className="flex-1 p-4 overflow-y-auto">
-                {showSettings && <SystemSettings onClose={() => setActiveFile(null)} />}
-                {showTerminal && <Terminal onClose={() => setActiveFile(null)} />}
-                {!showSettings && !showTerminal && (
-                  folderContents[folderId]?.find(item => item.id === activeFile)?.type === 'component' ? (
-                    folderContents[folderId]?.find(item => item.id === activeFile)?.component
-                  ) : (
-                    <div className="prose prose-invert prose-sm max-w-none">
-                      <ReactMarkdown>{fileContent}</ReactMarkdown>
-                    </div>
-                  )
-                )}
+            ) : (
+              // Content View - Proper scroll container
+              <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
+                {/* Back Button */}
+                <div className="p-2.5 border-b border-gray-700/50 bg-gray-900/30 flex-shrink-0">
+                  <button
+                    onClick={() => setActiveFile(null)}
+                    className="flex items-center text-red-400 hover:text-red-300 bg-red-500/10 hover:bg-red-500/20 px-2.5 py-1.5 rounded-md transition-all duration-200 min-h-[36px]"
+                  >
+                    <ChevronRight className="w-3.5 h-3.5 rotate-180 mr-1.5 flex-shrink-0" />
+                    <span className="text-xs truncate">Back to {folderId.charAt(0).toUpperCase() + folderId.slice(1)}</span>
+                  </button>
+                </div>
+                
+                {/* Content - Proper scroll container with padding */}
+                <div className="flex-1 overflow-y-auto p-3">
+                  <div className="mobile-content-wrapper">
+                    {showSettings && <SystemSettings onClose={() => setActiveFile(null)} />}
+                    {showTerminal && <Terminal onClose={() => setActiveFile(null)} />}
+                    {!showSettings && !showTerminal && (
+                      folderContents[folderId]?.find(item => item.id === activeFile)?.type === 'component' ? (
+                        <div className="mobile-component-container">
+                          {folderContents[folderId]?.find(item => item.id === activeFile)?.component}
+                        </div>
+                      ) : (
+                        <div className="prose prose-invert prose-sm max-w-none mobile-prose">
+                          <ReactMarkdown>{fileContent}</ReactMarkdown>
+                        </div>
+                      )
+                    )}
+                  </div>
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     );
