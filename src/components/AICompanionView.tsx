@@ -20,7 +20,7 @@ const companions = [
     abilities: ['Emotional Analysis', 'Creative Writing', 'Personal Counseling', 'Adaptive Learning'],
     video: samanthaVideo,
     unlocked: true,
-    url: 'https://samantha-me-git-main-benslamahafedhs-projects.vercel.app/',
+    url: 'https://wwww.omniasamantha.fun',
     colors: {
       primary: 'from-red-500 to-pink-600',
       accent: 'red-300',
