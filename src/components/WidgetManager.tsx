@@ -86,7 +86,7 @@ const WidgetManager: React.FC<WidgetManagerProps> = ({
       case 'quick-stats':
         return <QuickStatsWidget systemMetrics={systemMetrics} />;
       default:
-        return <div className="p-4 text-red-400">Unknown widget type</div>;
+        return <div className="p-4 text-pink-400">Unknown widget type</div>;
     }
   };
 
@@ -95,7 +95,7 @@ const WidgetManager: React.FC<WidgetManagerProps> = ({
       {/* Widget Picker Modal */}
       {showWidgetPicker && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-          <div className="bg-gray-900/95 backdrop-blur-xl rounded-2xl border border-red-500/30 p-6 w-full max-w-2xl mx-4">
+          <div className="bg-gray-900/95 backdrop-blur-xl rounded-2xl border border-pink-500/30 p-6 w-full max-w-2xl mx-4">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold text-white">Add Widget</h3>
               <button
@@ -114,10 +114,10 @@ const WidgetManager: React.FC<WidgetManagerProps> = ({
                     onAddWidget(widgetType.type);
                     setShowWidgetPicker(false);
                   }}
-                  className="p-4 rounded-xl border border-red-500/20 hover:border-red-500/40 bg-red-500/5 hover:bg-red-500/10 transition-all text-left"
+                  className="p-4 rounded-xl border border-pink-500/20 hover:border-pink-500/40 bg-pink-500/5 hover:bg-pink-500/10 transition-all text-left"
                 >
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="text-red-400">{widgetType.icon}</div>
+                    <div className="text-pink-400">{widgetType.icon}</div>
                     <div className="text-white font-medium">{widgetType.name}</div>
                   </div>
                   <div className="text-gray-400 text-sm">{widgetType.description}</div>
@@ -131,7 +131,7 @@ const WidgetManager: React.FC<WidgetManagerProps> = ({
       {/* Add Widget Button */}
       <button
         onClick={() => setShowWidgetPicker(true)}
-        className="fixed top-20 right-8 z-20 bg-red-500/20 hover:bg-red-500/30 text-red-400 p-3 rounded-xl border border-red-500/30 transition-all duration-300 hover:scale-105"
+        className="fixed top-20 right-8 z-20 bg-pink-500/20 hover:bg-pink-500/30 text-pink-400 p-3 rounded-xl border border-pink-500/30 transition-all duration-300 hover:scale-105"
         title="Add Widget"
       >
         <Plus size={20} />
@@ -141,7 +141,7 @@ const WidgetManager: React.FC<WidgetManagerProps> = ({
       {widgets.map(widget => (
         <div
           key={widget.id}
-          className="fixed z-30 bg-black/90 backdrop-blur-xl border border-red-500/30 rounded-2xl overflow-hidden shadow-xl"
+          className="fixed z-30 bg-black/90 backdrop-blur-xl border border-pink-500/30 rounded-2xl overflow-hidden shadow-xl"
           style={{
             left: widget.x,
             top: widget.y,
@@ -152,22 +152,22 @@ const WidgetManager: React.FC<WidgetManagerProps> = ({
           }}
         >
           {/* Widget Header */}
-          <div className="flex items-center justify-between p-3 bg-red-500/10 border-b border-red-500/20 cursor-move">
-            <span className="text-red-400 font-medium text-sm flex items-center gap-2">
+                      <div className="flex items-center justify-between p-3 bg-pink-500/10 border-b border-pink-500/20 cursor-move">
+              <span className="text-pink-400 font-medium text-sm flex items-center gap-2">
               {widgetTypes.find(wt => wt.type === widget.type)?.icon}
               {widget.name}
             </span>
             <div className="flex items-center space-x-2">
               <button
                 onClick={() => onMinimizeWidget(widget.id)}
-                className="text-red-400/60 hover:text-red-400 transition-colors p-1 rounded hover:bg-red-500/10"
+                className="text-pink-400/60 hover:text-pink-400 transition-colors p-1 rounded hover:bg-pink-500/10"
                 title={widget.minimized ? "Maximize" : "Minimize"}
               >
                 {widget.minimized ? <Maximize2 size={14} /> : <Minimize2 size={14} />}
               </button>
               <button
                 onClick={() => onRemoveWidget(widget.id)}
-                className="text-red-400/60 hover:text-red-400 transition-colors p-1 rounded hover:bg-red-500/10"
+                className="text-pink-400/60 hover:text-pink-400 transition-colors p-1 rounded hover:bg-pink-500/10"
                 title="Close"
               >
                 <X size={14} />
@@ -199,15 +199,15 @@ const SystemMonitorWidget: React.FC<{ systemMetrics: any }> = ({ systemMetrics }
       ].map(metric => (
         <div key={metric.label} className="space-y-2">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 text-red-400/80">
+            <div className="flex items-center gap-2 text-pink-400/80">
               {metric.icon}
               <span>{metric.label}</span>
             </div>
             <span className="text-white">{metric.value}%</span>
           </div>
-          <div className="h-2 bg-red-500/20 rounded-full">
+          <div className="h-2 bg-pink-500/20 rounded-full">
             <div 
-              className="h-2 bg-gradient-to-r from-red-500 to-pink-600 rounded-full transition-all duration-500"
+              className="h-2 bg-gradient-to-r from-pink-500 to-rose-600 rounded-full transition-all duration-500"
               style={{ width: `${metric.value}%` }}
             />
           </div>
@@ -227,10 +227,10 @@ const ClockWidget: React.FC = () => {
 
   return (
     <div className="p-4 text-center h-full flex flex-col justify-center">
-      <div className="text-3xl font-bold text-red-400 tabular-nums mb-2">
+      <div className="text-3xl font-bold text-pink-400 tabular-nums mb-2">
         {time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
       </div>
-      <div className="text-red-400/70 text-sm">
+      <div className="text-pink-400/70 text-sm">
         {time.toLocaleDateString([], { weekday: 'long', month: 'short', day: 'numeric' })}
       </div>
     </div>
@@ -251,11 +251,11 @@ const CalendarWidget: React.FC = () => {
   return (
     <div className="p-4 h-full">
       <div className="text-center mb-4">
-        <div className="text-red-400 font-semibold">{months[currentMonth]} {currentYear}</div>
+        <div className="text-pink-400 font-semibold">{months[currentMonth]} {currentYear}</div>
       </div>
       <div className="grid grid-cols-7 gap-1 text-xs">
         {days.map(day => (
-          <div key={day} className="text-center text-red-400/60 font-medium p-1">
+          <div key={day} className="text-center text-pink-400/60 font-medium p-1">
             {day[0]}
           </div>
         ))}
@@ -267,8 +267,8 @@ const CalendarWidget: React.FC = () => {
             key={i + 1}
             className={`text-center p-1 rounded ${
               i + 1 === today.getDate() 
-                ? 'bg-red-500 text-white' 
-                : 'text-red-400/80 hover:bg-red-500/10'
+                ? 'bg-pink-500 text-white' 
+                : 'text-pink-400/80 hover:bg-pink-500/10'
             }`}
           >
             {i + 1}
@@ -297,19 +297,19 @@ const PerformanceChartWidget: React.FC<{ systemMetrics: any }> = ({ systemMetric
   return (
     <div className="p-4 h-full">
       <div className="flex justify-between items-center mb-3">
-        <div className="text-red-400 font-medium text-sm">Performance History</div>
+        <div className="text-pink-400 font-medium text-sm">Performance History</div>
         <div className="flex gap-3 text-xs">
           <div className="flex items-center gap-1">
-            <div className="w-2 h-2 bg-red-500 rounded"></div>
-            <span className="text-red-400/80">CPU</span>
+            <div className="w-2 h-2 bg-pink-500 rounded"></div>
+            <span className="text-pink-400/80">CPU</span>
           </div>
           <div className="flex items-center gap-1">
             <div className="w-2 h-2 bg-pink-500 rounded"></div>
-            <span className="text-red-400/80">Memory</span>
+            <span className="text-pink-400/80">Memory</span>
           </div>
         </div>
       </div>
-      <div className="h-32 bg-red-500/5 rounded-lg relative overflow-hidden">
+      <div className="h-32 bg-pink-500/5 rounded-lg relative overflow-hidden">
         <svg className="w-full h-full">
           {history.length > 1 && (
             <>
@@ -345,24 +345,24 @@ const QuickStatsWidget: React.FC<{ systemMetrics: any }> = ({ systemMetrics }) =
   <div className="p-4 h-full">
     <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <div className="text-red-400/80 text-sm">System Status</div>
+        <div className="text-pink-400/80 text-sm">System Status</div>
         <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
       </div>
       <div className="grid grid-cols-2 gap-2 text-xs">
         <div>
-          <div className="text-red-400/60">CPU</div>
+          <div className="text-pink-400/60">CPU</div>
           <div className="text-white font-medium">{systemMetrics.cpu}%</div>
         </div>
         <div>
-          <div className="text-red-400/60">RAM</div>
+          <div className="text-pink-400/60">RAM</div>
           <div className="text-white font-medium">{systemMetrics.memory}%</div>
         </div>
         <div>
-          <div className="text-red-400/60">Temp</div>
+          <div className="text-pink-400/60">Temp</div>
           <div className="text-white font-medium">{systemMetrics.temperature}°C</div>
         </div>
         <div>
-          <div className="text-red-400/60">Uptime</div>
+          <div className="text-pink-400/60">Uptime</div>
           <div className="text-white font-medium">{systemMetrics.uptime}</div>
         </div>
       </div>

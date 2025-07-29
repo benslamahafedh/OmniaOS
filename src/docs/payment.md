@@ -1,107 +1,133 @@
-# OmniaOS Payment System
+# OmniaOS Access & Premium Features
 
 ## Overview
-OmniaOS offers a freemium model where users can experience the core system for free, with premium companions available through a secure SOL-based payment system. Each companion is paid for separately, providing users with flexibility in their experience.
+OmniaOS operates on a freemium model designed to make AI companion assistance accessible to everyone. Users get daily free access to all companions, with premium features available for enhanced experiences and extended usage.
 
-## Payment Process
+## Access Model
 
-### 1. Free Demo Experience
-- **Duration**: 3 minutes of unrestricted access
-- **Purpose**: Test the application and explore core features
-- **Access**: Full system functionality during demo period
-- **No Registration Required**: Immediate access upon loading
+### 1. Free Access
+- **Daily Limit**: 5 minutes of free access to all companions
+- **Full Functionality**: Complete chat and coaching capabilities
+- **All Companions**: Access to Samantha, Elias, and Lyra
+- **No Registration**: Immediate access upon loading
+- **Privacy Protected**: Secure, private conversations
 
-### 2. Companion Access
-After the demo period expires, users can access premium companions through the payment system:
+### 2. Premium Features (Coming Soon)
+Premium features will enhance your experience with extended access and advanced capabilities:
 
-#### Available Companions
-- **Samantha**: AI assistant with emotional intelligence
-- **Additional companions**: [List other companions as they become available]
+#### Enhanced Access
+- **Unlimited Time**: No daily time restrictions
+- **Extended Sessions**: Longer, more in-depth conversations
+- **Priority Access**: Skip queues during peak usage
+- **Offline Mode**: Access companions without internet connection
 
-#### Individual Pricing
-- Each companion is priced separately
-- No subscription model - one-time payment per companion
-- Transparent pricing displayed before purchase
+#### Advanced Capabilities
+- **Conversation Screenshots**: Upload chat screenshots for personalized coaching from Elias
+- **Photo Texting**: Send photos to Lyra for intuitive relationship insights
+- **Custom Companions**: Build your very own virtual partner
+- **Advanced Analytics**: Track your romantic skill progress over time
 
-### 3. Payment Method
+#### Premium Support
+- **Priority Customer Service**: Faster response times
+- **Personalized Coaching**: One-on-one guidance sessions
+- **Progress Tracking**: Detailed analytics and improvement metrics
+- **Exclusive Content**: Access to premium relationship advice
 
-#### SOL Cryptocurrency
-- **Currency**: Solana (SOL) blockchain
-- **Benefits**: Fast transactions, low fees, secure
-- **No Wallet Connection**: Enhanced privacy and security
+## Current Free Features
 
-#### Payment Flow
-1. **Generate Address**: System creates a unique SOL address for each transaction
-2. **Display Amount**: Exact SOL amount clearly shown to user
-3. **Send Payment**: User sends exact amount to generated address
-4. **Verification**: Automatic blockchain verification (few seconds)
-5. **Access Granted**: Immediate access to purchased companion
+### Available Now
+- **Samantha**: Warm, supportive companion for communication practice
+- **Elias**: Dating coach and "rizz" expert for confidence building
+- **Lyra**: Mystical love oracle (basic features available)
+- **Safe Environment**: Judgment-free space for romantic skill development
+- **Privacy Protection**: Secure, confidential conversations
 
-### 4. Security Features
+### Daily Usage
+- **5 Minutes**: Free access to all companions each day
+- **Reset Time**: Access refreshes every 24 hours
+- **No Restrictions**: Full functionality during free time
+- **Multiple Companions**: Switch between companions freely
 
-#### Privacy Protection
-- **No Wallet Connection**: Users never connect their wallets to the application
-- **Generated Addresses**: Each transaction uses a unique, temporary address
-- **No Personal Data**: Payment system doesn't collect personal information
+## Future Premium Implementation
 
-#### Transaction Security
-- **Blockchain Verification**: All payments verified on Solana blockchain
-- **Unique Addresses**: Prevents transaction conflicts
-- **Automatic Processing**: No manual intervention required
+### Payment Options (Planned)
+- **Subscription Model**: Monthly/yearly premium access
+- **Pay-per-Feature**: Individual premium feature purchases
+- **Bundle Deals**: Discounted access to multiple premium features
+- **Loyalty Rewards**: Benefits for long-term users
 
-### 5. User Experience
+### Security & Privacy
+- **Enhanced Privacy**: Additional security measures for premium users
+- **Data Protection**: Advanced encryption for all conversations
+- **Anonymous Access**: Option for completely anonymous usage
+- **Secure Payments**: Multiple secure payment methods
 
-#### Before Payment
-- Clear pricing information
-- Companion preview and description
-- Demo functionality to test features
+## User Experience
 
-#### During Payment
-- Step-by-step instructions
-- Real-time transaction status
-- Clear SOL amount display
+### Getting Started
+1. **Immediate Access**: No registration required
+2. **Choose Companion**: Select from Samantha, Elias, or Lyra
+3. **Start Chatting**: Begin your 5-minute free session
+4. **Practice Skills**: Build confidence in romantic communication
+5. **Return Daily**: Come back each day for more practice
 
-#### After Payment
-- Immediate access activation
-- No additional setup required
-- Permanent access to purchased companion
+### Premium Upgrade (Future)
+1. **Choose Plan**: Select premium features that fit your needs
+2. **Secure Payment**: Multiple payment options available
+3. **Instant Access**: Immediate activation of premium features
+4. **Enhanced Experience**: Enjoy unlimited access and advanced capabilities
 
 ## Technical Implementation
 
-### Payment Gateway
-- **Blockchain Integration**: Direct Solana blockchain integration
-- **Address Generation**: Secure, unique address creation
-- **Transaction Monitoring**: Real-time payment verification
-- **Access Management**: Automated permission granting
+### Current System
+- **Web-Based**: Accessible on all modern browsers
+- **Responsive Design**: Optimized for desktop and mobile
+- **Real-Time Chat**: Instant messaging with AI companions
+- **Secure Infrastructure**: Privacy-focused architecture
 
-### User Interface
-- **Payment Modal**: Clean, intuitive payment interface
-- **Status Indicators**: Clear transaction progress display
-- **Error Handling**: User-friendly error messages
-- **Success Confirmation**: Clear access confirmation
+### Future Enhancements
+- **Mobile App**: Dedicated mobile application
+- **Voice Integration**: Talk with your companions
+- **Video Calls**: Face-to-face conversations
+- **Advanced AI**: Enhanced conversation capabilities
 
-## Support and Troubleshooting
+## Support and Help
 
-### Common Issues
-- **Transaction Delays**: Normal blockchain processing time (few seconds)
-- **Incorrect Amount**: Ensure exact SOL amount is sent
-- **Wrong Address**: Double-check the generated address
-
-### Support Channels
+### Free Support
 - **Documentation**: Comprehensive guides and FAQs
 - **Community**: User forums and discussion boards
-- **Technical Support**: Direct support for payment issues
+- **Basic Support**: Help with free features
 
-## Future Enhancements
+### Premium Support (Future)
+- **Priority Support**: Faster response times
+- **Personal Assistance**: One-on-one help sessions
+- **Advanced Troubleshooting**: Technical support for premium features
+- **Exclusive Resources**: Premium-only help content
 
-### Planned Features
-- **Multiple Payment Methods**: Additional cryptocurrency options
-- **Subscription Model**: Optional recurring payment plans
-- **Bundle Deals**: Discounted companion packages
-- **Loyalty Program**: Rewards for returning users
+## Privacy Commitment
 
-### Development Roadmap
-- **Enhanced Security**: Additional security measures
-- **Mobile Payments**: Mobile-optimized payment flow
-- **Analytics**: Payment analytics and insights
-- **Integration**: Third-party payment processor support 
+### Data Protection
+- **Private Conversations**: All chats are confidential
+- **No Data Sharing**: Your conversations stay private
+- **Secure Storage**: Advanced encryption for all data
+- **User Control**: Full control over your data and privacy
+
+### Emotional Safety
+- **Judgment-Free Zone**: Safe space for honest discussions
+- **Emotional Support**: Designed to protect your well-being
+- **Professional Standards**: Ethical AI companion behavior
+- **User Empowerment**: Tools to manage your emotional health
+
+## Future Roadmap
+
+### Short Term
+- **Enhanced Free Features**: Improved daily access experience
+- **Better UI/UX**: More intuitive interface design
+- **Performance Optimization**: Faster, smoother interactions
+
+### Long Term
+- **Premium Launch**: Full premium feature implementation
+- **Mobile App**: Dedicated mobile application
+- **Advanced AI**: More sophisticated companion capabilities
+- **Community Features**: Connect with other users
+- **Custom Companions**: Build your own AI partners 

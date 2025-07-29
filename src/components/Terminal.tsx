@@ -76,8 +76,8 @@ samantha.ai
 
       case 'system':
         newCommand.output = `
-OmniaOS v1.0.0
-Running on Neural Core v2.1
+OmniaOS 
+Running on Neural Core 
 Memory: 16GB / 32GB
 CPU: Quantum Processor 9000
 GPU: Neural Engine X
@@ -154,7 +154,7 @@ Storage: 1TB Quantum Drive
             onClick={onClose}
             className={`
               ${isMobile 
-                ? 'flex items-center justify-center w-10 h-10 bg-red-500/20 hover:bg-red-500/30 text-red-400 hover:text-red-300 rounded-full border border-red-500/30 transition-all duration-300 active:scale-95'
+                ? 'flex items-center justify-center w-10 h-10 bg-pink-500/20 hover:bg-pink-500/30 text-pink-400 hover:text-pink-300 rounded-full border border-pink-500/30 transition-all duration-300 active:scale-95'
                 : 'p-1 hover:bg-white/10 rounded transition-colors duration-300'
               }
             `}
@@ -178,7 +178,7 @@ Storage: 1TB Quantum Drive
       >
         {/* Welcome Message */}
         <div className="text-green-400 mb-4">
-          Welcome to OmniaOS Terminal v1.0.0
+          Welcome to OmniaOS Terminal
           <br />
           Type 'help' for available commands.
           <br />

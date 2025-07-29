@@ -15,7 +15,7 @@ body {
 
 :root {
   --primary-gradient: linear-gradient(to right, var(--tw-gradient-from), var(--tw-gradient-to));
-  --accent-color: rgb(248 113 113); /* red-400 */
+  --accent-color: rgb(236 72 153); /* pink-500 */
   --animation-speed: 100%;
   --particle-density: 50;
   --blur-amount: 1;
@@ -70,7 +70,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-red-500/50 rounded-full hover:bg-red-500/70 transition-colors;
+  @apply bg-pink-500/50 rounded-full hover:bg-pink-500/70 transition-colors;
 }
 
 /* Animation keyframes */

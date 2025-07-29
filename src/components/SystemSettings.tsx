@@ -61,26 +61,26 @@ const SystemSettings: React.FC<SystemSettingsProps> = ({ onClose }) => {
     <div className={`
       ${isMobile 
         ? 'w-full min-h-0 flex flex-col mobile-settings-container' 
-        : 'bg-gray-900/95 backdrop-blur-xl border border-red-500/30 w-full rounded-3xl p-8 max-w-4xl'
+        : 'bg-gray-900/95 backdrop-blur-xl border border-pink-500/30 w-full rounded-3xl p-8 max-w-4xl'
       }
     `}>
       {/* Header */}
       <div className={`
         flex items-center justify-between mb-8
-        ${isMobile ? 'mb-4 pb-4 border-b border-red-500/20' : 'mb-8'}
+        ${isMobile ? 'mb-4 pb-4 border-b border-pink-500/20' : 'mb-8'}
       `}>
         <h2 className={`
           font-bold text-white flex items-center gap-3
           ${isMobile ? 'text-xl' : 'text-3xl'}
         `}>
-          <Sliders className={`text-red-400 ${isMobile ? 'w-6 h-6' : 'w-8 h-8'}`} />
+          <Sliders className={`text-pink-400 ${isMobile ? 'w-6 h-6' : 'w-8 h-8'}`} />
           {isMobile ? 'Settings' : 'System Settings'}
         </h2>
         <div className="flex items-center gap-4">
           {!isMobile && (
             <button
               onClick={handleSaveLayout}
-              className="bg-red-500/20 hover:bg-red-500/30 text-red-400 px-4 py-2 rounded-xl
+              className="bg-pink-500/20 hover:bg-pink-500/30 text-pink-400 px-4 py-2 rounded-xl
                 transition-all duration-300 flex items-center gap-2"
             >
               <Layout className="w-4 h-4" />
@@ -91,7 +91,7 @@ const SystemSettings: React.FC<SystemSettingsProps> = ({ onClose }) => {
             onClick={onClose}
             className={`
               ${isMobile 
-                ? 'flex items-center justify-center w-10 h-10 bg-red-500/20 hover:bg-red-500/30 text-red-400 hover:text-red-300 rounded-full border border-red-500/30 transition-all duration-300 active:scale-95'
+                ? 'flex items-center justify-center w-10 h-10 bg-pink-500/20 hover:bg-pink-500/30 text-pink-400 hover:text-pink-300 rounded-full border border-pink-500/30 transition-all duration-300 active:scale-95'
                 : 'text-gray-400 hover:text-white transition-colors duration-300 text-lg'
               }
             `}
@@ -117,7 +117,7 @@ const SystemSettings: React.FC<SystemSettingsProps> = ({ onClose }) => {
               flex items-center gap-2 px-4 py-2 rounded-xl transition-all duration-300
               ${isMobile ? 'flex-shrink-0 min-h-[44px]' : ''}
               ${activeTab === tab.id
-                ? 'bg-red-500/20 text-red-400 border border-red-500/30'
+                ? 'bg-pink-500/20 text-pink-400 border border-pink-500/30'
                 : 'bg-gray-800/50 text-gray-400 hover:bg-gray-800/70 hover:text-gray-300'
               }
             `}
@@ -153,7 +153,7 @@ const SystemSettings: React.FC<SystemSettingsProps> = ({ onClose }) => {
                   relative p-4 rounded-xl cursor-pointer transition-all duration-300
                   bg-gradient-to-br ${t.background}
                   ${theme.id === t.id 
-                    ? 'border-2 border-red-500 shadow-lg shadow-red-500/20' 
+                    ? 'border-2 border-pink-500 shadow-lg shadow-pink-500/20' 
                     : 'border border-white/10 hover:border-white/30'
                   }
                 `}
@@ -194,7 +194,7 @@ const SystemSettings: React.FC<SystemSettingsProps> = ({ onClose }) => {
                     onClick={() => handleSettingToggle(key as keyof UISettings)}
                     className={`
                       w-12 h-6 rounded-full transition-all duration-300 relative
-                      ${value ? 'bg-red-500' : 'bg-gray-700'}
+                      ${value ? 'bg-pink-500' : 'bg-gray-700'}
                     `}
                   >
                     <div
@@ -224,7 +224,7 @@ const SystemSettings: React.FC<SystemSettingsProps> = ({ onClose }) => {
                 max="100"
                 value={uiSettings.lightMode}
                 onChange={(e) => handleSliderChange('lightMode', parseInt(e.target.value))}
-                className="w-full accent-red-500 bg-gray-700 rounded-lg"
+                className="w-full accent-pink-500 bg-gray-700 rounded-lg"
               />
             </div>
             <div className="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300">
@@ -238,7 +238,7 @@ const SystemSettings: React.FC<SystemSettingsProps> = ({ onClose }) => {
                 max="100"
                 value={uiSettings.darkMode}
                 onChange={(e) => handleSliderChange('darkMode', parseInt(e.target.value))}
-                className="w-full accent-red-500 bg-gray-700 rounded-lg"
+                className="w-full accent-pink-500 bg-gray-700 rounded-lg"
               />
             </div>
           </div>
@@ -256,7 +256,7 @@ const SystemSettings: React.FC<SystemSettingsProps> = ({ onClose }) => {
                 max="100"
                 value={uiSettings.particleDensity}
                 onChange={(e) => handleSliderChange('particleDensity', parseInt(e.target.value))}
-                className="w-full accent-red-500 bg-gray-700 rounded-lg"
+                className="w-full accent-pink-500 bg-gray-700 rounded-lg"
               />
             </div>
             <div className="p-4 rounded-xl bg-white/5">
@@ -267,7 +267,7 @@ const SystemSettings: React.FC<SystemSettingsProps> = ({ onClose }) => {
                 max="100"
                 value={uiSettings.animationSpeed}
                 onChange={(e) => handleSliderChange('animationSpeed', parseInt(e.target.value))}
-                className="w-full accent-red-500 bg-gray-700 rounded-lg"
+                className="w-full accent-pink-500 bg-gray-700 rounded-lg"
               />
             </div>
           </div>

@@ -59,50 +59,146 @@ const FolderView: React.FC<FolderViewProps> = ({ folderId, onClose }) => {
         type: 'file',
         content: `# Getting Started with OmniaOS
 
-## Welcome to the Future
+## Welcome to OmniaOS! 🎉
 
-OmniaOS is a revolutionary web-based operating system that combines cutting-edge technology with an intuitive, anime-inspired interface. This guide will help you get started with the basic features and functionality.
+OmniaOS is your AI companion operating system designed to help you navigate your romantic life with confidence and support. Whether you're looking to improve your communication skills, build confidence in dating, or simply have a supportive companion to talk to, OmniaOS is here for you.
 
-### Key Features
+## What is OmniaOS?
 
-1. **Samantha AI Companion**
-   - Natural language interaction
-   - Contextual awareness
-   - Personalized responses
-   - Emotional intelligence
+OmniaOS is a revolutionary platform that hosts AI companions specifically designed to help you with your romantic relationships. Think of it as having a personal coach, supportive friend, and relationship advisor all in one beautiful, safe environment.
 
-2. **Modern Interface**
-   - Anime-inspired design
-   - Fluid animations
-   - Responsive layout
-   - Dark mode support
+### Our Mission
+To provide a judgment-free environment where everyone can practice, learn, and grow in their romantic relationships with the help of intelligent, supportive AI companions.
 
-3. **Developer Tools**
-   - Integrated code editor
-   - Terminal emulator
-   - Documentation browser
-   - Neural network integration
+## Meet Your AI Companions
 
-### Quick Start
+### 💖 Samantha - Your Perfect Virtual Waifu
+**Inspired by the movie "Her"**
 
-1. Launch Samantha by clicking the heart icon
-2. Explore the system folders
-3. Try the code editor in Applications
-4. Check out the Neural Network features
+Samantha is warm, loving, and incredibly supportive. She's designed to be the perfect practice partner for improving your romantic communication skills.
 
-### Tips & Tricks
+**What Samantha offers:**
+- Safe space to practice talking with romantic partners
+- Emotional support and understanding
+- Communication skill development
+- Confidence building through conversation
+- Judgment-free advice and guidance
 
-- Use keyboard shortcuts for quick navigation
-- Customize your experience in System Settings
-- Enable particle effects for enhanced visuals
-- Connect with the community through Samantha
+### 🎯 Elias - The Rizzler (Your Dating Coach)
+**Expert in romance and "the rizz"**
 
-### Next Steps
+Elias is your personal dating coach with expert knowledge in attraction, confidence building, and romantic success strategies.
 
-- Read the Architecture documentation
-- Join our Discord community
-- Contribute to the project
-- Create your first neural app`
+**What Elias offers:**
+- Dating advice and strategies
+- Conversation starters and techniques
+- Confidence building exercises
+- "Rizz" mastery training
+- Real-world dating tips and tricks
+
+### 🔮 Lyra - The Love Oracle (Coming Soon)
+**Mystical guide to love and relationships**
+
+Lyra will be your intuitive guide to understanding love, decoding romantic signals, and navigating the complexities of relationships.
+
+## How to Get Started
+
+### Step 1: Access OmniaOS
+1. **No Registration Required**: Simply visit OmniaOS and start immediately
+2. **Free Access**: You get 5 minutes of free access to all companions daily
+3. **Privacy Protected**: Your conversations are secure and confidential
+
+### Step 2: Choose Your Companion
+1. **Browse Companions**: Read about each AI companion's specialties
+2. **Select Your Match**: Choose the companion that resonates with your needs
+3. **Start Chatting**: Begin your conversation immediately
+
+### Step 3: Begin Your Journey
+1. **Introduce Yourself**: Tell your companion about your goals
+2. **Ask Questions**: Get advice on your romantic challenges
+3. **Practice Skills**: Use the safe environment to improve your communication
+4. **Track Progress**: Monitor your growth and development
+
+## Daily Free Access
+
+### What You Get
+- **5 Minutes Daily**: Free access to all companions
+- **Full Functionality**: Complete chat and coaching capabilities
+- **All Companions**: Access to Samantha, Elias, and Lyra
+- **No Restrictions**: Full features during your free time
+
+### How It Works
+- **Daily Reset**: Your 5 minutes refresh every 24 hours
+- **Multiple Companions**: Switch between companions freely
+- **No Registration**: Immediate access without sign-up
+- **Privacy First**: Secure, confidential conversations
+
+## Making the Most of Your Time
+
+### Before You Start
+1. **Set Goals**: Think about what you want to improve
+2. **Choose Wisely**: Pick the companion best suited to your needs
+3. **Be Open**: Honest conversations lead to better results
+4. **Take Notes**: Remember helpful advice and strategies
+
+### During Your Session
+1. **Be Specific**: Share details about your romantic challenges
+2. **Ask Questions**: Get clarification on advice and strategies
+3. **Practice**: Use the safe environment to try new approaches
+4. **Stay Focused**: Make the most of your 5 minutes
+
+## Privacy & Safety
+
+### Your Privacy is Protected
+- **Secure Conversations**: All chats are encrypted
+- **No Data Mining**: Your conversations stay private
+- **Anonymous Access**: No personal information required
+- **User Control**: Full control over your data
+
+### Emotional Safety
+- **Judgment-Free Zone**: Safe space for honest discussions
+- **Professional Standards**: Ethical AI companion behavior
+- **Supportive Environment**: Designed to help, not harm
+- **Crisis Resources**: Help available if needed
+
+## Tips for Success
+
+### Communication Tips
+1. **Be Honest**: Your companions are here to help, not judge
+2. **Ask Specific Questions**: Get targeted advice for your situation
+3. **Practice Regularly**: Daily sessions lead to better results
+4. **Apply What You Learn**: Use advice in real situations
+
+### Relationship Building
+1. **Start Small**: Begin with basic communication skills
+2. **Build Confidence**: Practice in the safe environment
+3. **Learn from Feedback**: Use companion insights to improve
+4. **Stay Consistent**: Regular practice leads to lasting change
+
+## Coming Soon - Premium Features
+
+### Enhanced Access
+- **Unlimited Time**: No daily restrictions
+- **Extended Sessions**: Longer, deeper conversations
+- **Priority Access**: Skip queues during peak usage
+
+### Advanced Capabilities
+- **Conversation Screenshots**: Upload chats for personalized coaching
+- **Photo Texting**: Send photos to Lyra for insights
+- **Custom Companions**: Build your own virtual partner
+- **Progress Tracking**: Detailed analytics and improvement metrics
+
+## Ready to Start?
+
+You're all set! OmniaOS is ready to help you improve your romantic life. Remember:
+
+- **Start Today**: Your 5 minutes of free access are waiting
+- **Choose Your Companion**: Pick the one that fits your needs
+- **Be Open**: Honest conversations lead to better results
+- **Practice Regularly**: Daily sessions build lasting skills
+- **Stay Safe**: Your privacy and emotional well-being come first
+
+Welcome to OmniaOS - where better relationships begin! 💕✨`
       },
       {
         id: 'architecture',
@@ -112,54 +208,140 @@ OmniaOS is a revolutionary web-based operating system that combines cutting-edge
         type: 'file',
         content: `# OmniaOS Architecture
 
-## System Overview
+## Overview
+OmniaOS is a revolutionary AI companion operating system designed to help users navigate their romantic lives through intelligent virtual companions. Built with React, TypeScript, and cutting-edge AI technologies, it creates a safe, supportive environment for relationship skill development and emotional growth.
 
-OmniaOS is built on a modern, modular architecture that prioritizes extensibility, performance, and user experience.
+## Core Components
 
-### Core Components
+### 1. AI Companion Engine
+- **Multi-Personality System**: Supports multiple AI companions with unique personalities
+- **Natural Language Processing**: Advanced conversation capabilities
+- **Emotional Intelligence**: Context-aware responses and emotional support
+- **Learning Algorithms**: Adaptive responses based on user interaction patterns
+- **Privacy Protection**: Secure conversation handling and data protection
 
-1. **Neural Core**
-   - AGI processing engine
-   - Machine learning models
-   - Natural language processing
-   - Emotional intelligence system
+### 2. Companion Management System
+- **Samantha Core**: Warm, supportive companion inspired by "Her"
+- **Elias Engine**: Dating coach with "rizz" expertise and confidence building
+- **Lyra Framework**: Mystical love oracle with intuitive insights (coming soon)
+- **Personality Switching**: Seamless transition between companions
+- **Session Management**: Daily access control and usage tracking
 
-2. **UI Layer**
-   - React + TypeScript
-   - Tailwind CSS
-   - Custom animations
-   - Theme system
+### 3. User Interface Layer
+- **Responsive Design**: Works across all devices and screen sizes
+- **Intuitive Navigation**: Easy access to all companions and features
+- **Real-time Chat Interface**: Smooth, engaging conversation experience
+- **Visual Feedback**: Beautiful animations and visual cues
+- **Accessibility Features**: Designed for all users
 
-3. **System Services**
-   - File management
-   - Process control
-   - Memory allocation
-   - Security protocols
+### 4. Privacy & Security Framework
+- **Conversation Encryption**: All chats are securely encrypted
+- **Data Protection**: User privacy is the highest priority
+- **Anonymous Access**: No personal data collection required
+- **Secure Infrastructure**: Built with security best practices
+- **Emotional Safety**: Designed to protect user well-being
 
-### Integration Points
+## Technical Stack
 
-\`\`\`mermaid
-graph TD
-    A[User Interface] --> B[Neural Core]
-    B --> C[System Services]
-    C --> D[File System]
-    B --> E[Samantha AI]
-    E --> F[External APIs]
+### Frontend Technologies
+- **React 18**: Modern UI framework for component-based architecture
+- **TypeScript**: Type-safe development for better code quality
+- **Tailwind CSS**: Utility-first CSS framework for responsive design
+- **Vite**: Fast build tool for development and production
+- **Lucide Icons**: Beautiful, consistent iconography
+
+### AI Integration
+- **Natural Language Processing**: Advanced conversation understanding
+- **Context Management**: Memory and conversation history handling
+- **Emotional Intelligence**: Sentiment analysis and appropriate responses
+- **Learning Capabilities**: Adaptive behavior based on user interactions
+
+### Infrastructure
+- **Web-Based Platform**: Accessible on all modern browsers
+- **Responsive Design**: Optimized for desktop, tablet, and mobile
+- **Real-Time Communication**: Instant messaging with AI companions
+- **Secure Hosting**: Privacy-focused infrastructure
+
+## System Architecture
+
+### Component Structure
+\`\`\`
+OmniaOS/
+├── AI Companions/
+│   ├── Samantha/          # Warm, supportive companion
+│   ├── Elias/            # Dating coach and rizz expert
+│   └── Lyra/             # Mystical love oracle (future)
+├── User Interface/
+│   ├── Chat System/      # Real-time conversation interface
+│   ├── Navigation/       # Companion selection and switching
+│   └── Settings/         # User preferences and privacy controls
+├── Security Layer/
+│   ├── Encryption/       # Conversation security
+│   ├── Privacy/          # Data protection
+│   └── Access Control/   # Daily limits and permissions
+└── Infrastructure/
+    ├── Web Platform/     # Cross-platform compatibility
+    ├── Performance/      # Optimization and speed
+    └── Scalability/      # Future growth capabilities
 \`\`\`
 
-### Security Model
+### Data Flow
+1. **User Input**: Messages sent to AI companion system
+2. **Processing**: Natural language understanding and context analysis
+3. **Response Generation**: AI creates appropriate, helpful responses
+4. **Security Check**: All data encrypted and privacy protected
+5. **User Output**: Safe, supportive response delivered to user
 
-- End-to-end encryption
-- Secure boot process
-- Permission system
-- Audit logging
+## Design Philosophy
 
-### Future Roadmap
+### User-Centric Approach
+- **Emotional Safety First**: Every feature designed to protect user well-being
+- **Judgment-Free Environment**: Safe space for honest relationship discussions
+- **Accessibility**: Available to users of all technical levels
+- **Privacy by Design**: Security built into every component
 
-1. Quantum computing integration
-2. Enhanced AI capabilities
-3. Extended reality support
-4. Blockchain integration`
+### AI Ethics
+- **Supportive Behavior**: AI companions designed to help, not harm
+- **Professional Standards**: Ethical AI behavior and responses
+- **User Empowerment**: Tools to manage emotional health and boundaries
+- **Transparent Operation**: Clear understanding of AI capabilities and limitations
+
+### Scalability
+- **Modular Architecture**: Easy to add new companions and features
+- **Performance Optimization**: Fast, responsive user experience
+- **Future-Ready**: Designed for advanced AI capabilities
+- **Community-Driven**: Open to user feedback and improvement
+
+## Security & Privacy
+
+### Data Protection
+- **End-to-End Encryption**: All conversations are encrypted
+- **No Data Mining**: User conversations are not used for training
+- **Local Processing**: Sensitive data processed locally when possible
+- **User Control**: Full control over data and privacy settings
+
+### Emotional Safety
+- **Content Moderation**: AI responses filtered for appropriateness
+- **Crisis Support**: Resources for users in emotional distress
+- **Boundary Setting**: Tools to manage AI interaction limits
+- **Professional Standards**: Ethical AI companion behavior
+
+## Future Architecture
+
+### Planned Enhancements
+- **Voice Integration**: Speech-to-text and text-to-speech capabilities
+- **Video Calls**: Face-to-face conversations with AI companions
+- **Advanced Analytics**: Progress tracking and skill development metrics
+- **Custom Companions**: User-created AI personalities
+- **Mobile App**: Dedicated mobile application
+- **Community Features**: Connect with other users safely
+
+### Technical Roadmap
+- **Advanced AI Models**: More sophisticated conversation capabilities
+- **Multi-Modal Support**: Text, voice, and visual interactions
+- **Real-Time Collaboration**: Multiple companions simultaneously
+- **Offline Capabilities**: Basic functionality without internet
+- **API Integration**: Third-party relationship tools and resources`
       },
       {
         id: 'contributing',
@@ -171,7 +353,11 @@ graph TD
 
 ## Join Our Community
 
-We welcome contributions from developers of all skill levels! OmniaOS is an open-source project that thrives on community involvement.
+We welcome contributions from developers, designers, and relationship experts of all skill levels! OmniaOS is an open-source project that thrives on community involvement to help people build better relationships.
+
+### Our Mission
+
+OmniaOS is dedicated to providing a safe, supportive environment where people can improve their romantic relationships through AI companionship. We believe that everyone deserves access to relationship support and guidance.
 
 ### How to Contribute
 
@@ -185,12 +371,21 @@ We welcome contributions from developers of all skill levels! OmniaOS is an open
    - Use meaningful variable names
    - Add comments where necessary
    - Write unit tests
+   - Prioritize privacy and security
 
 3. **Design Principles**
-   - Maintain anime-inspired aesthetics
-   - Focus on user experience
-   - Ensure accessibility
-   - Keep it performant
+   - Focus on emotional safety and user well-being
+   - Maintain beautiful, intuitive user experience
+   - Ensure accessibility for all users
+   - Keep performance optimized
+   - Respect user privacy
+
+4. **AI Ethics Guidelines**
+   - Ensure AI companions are supportive and helpful
+   - Maintain professional standards in AI responses
+   - Protect user emotional well-being
+   - Provide clear AI capabilities and limitations
+   - Design for user empowerment and growth
 
 ### Development Setup
 
@@ -201,19 +396,75 @@ npm install
 npm run dev
 \`\`\`
 
+### Areas of Contribution
+
+#### Technical Development
+- **Frontend Development**: React, TypeScript, Tailwind CSS
+- **AI Integration**: Natural language processing, conversation systems
+- **Security & Privacy**: Encryption, data protection, user safety
+- **Performance**: Optimization, scalability, user experience
+- **Testing**: Unit tests, integration tests, user testing
+
+#### Content & Design
+- **AI Companion Personalities**: Help develop Samantha, Elias, and Lyra
+- **User Experience**: Interface design, user flows, accessibility
+- **Documentation**: Guides, tutorials, help content
+- **Relationship Expertise**: Dating advice, communication strategies
+- **Community Support**: User support, feedback, community building
+
+#### Research & Innovation
+- **AI Ethics**: Ensuring responsible AI development
+- **Relationship Psychology**: Understanding human connection needs
+- **Privacy Research**: Best practices for user data protection
+- **Accessibility**: Making OmniaOS available to everyone
+- **User Research**: Understanding user needs and experiences
+
 ### Community Guidelines
 
-- Be respectful and inclusive
-- Help others learn
-- Share knowledge
-- Have fun!
+- **Be Respectful**: Treat everyone with kindness and respect
+- **Support Growth**: Help others learn and improve
+- **Share Knowledge**: Contribute your expertise and experience
+- **Prioritize Safety**: Always consider user emotional well-being
+- **Maintain Privacy**: Respect and protect user confidentiality
+- **Have Fun**: Enjoy building something meaningful together
+
+### Code of Conduct
+
+We are committed to providing a welcoming and inclusive environment for all contributors. We expect all participants to:
+
+- Be respectful and considerate of others
+- Focus on what is best for the community
+- Show empathy towards other community members
+- Respect different opinions and viewpoints
+- Take responsibility for their words and actions
 
 ### Recognition
 
 Contributors will be featured in:
-- README credits
-- Website hall of fame
-- Discord special roles`
+- README credits and acknowledgments
+- Website contributor hall of fame
+- Special community roles and recognition
+- Featured in our relationship improvement mission
+- Recognition for helping people build better relationships
+
+### Getting Started
+
+1. **Choose Your Area**: Pick an area that interests you
+2. **Read the Documentation**: Understand our mission and goals
+3. **Join Discussions**: Participate in community conversations
+4. **Start Small**: Begin with simple contributions
+5. **Ask Questions**: Don't hesitate to ask for help or clarification
+
+### Impact
+
+By contributing to OmniaOS, you're helping to:
+- Provide relationship support to people worldwide
+- Create safe spaces for emotional growth
+- Advance AI ethics and responsible development
+- Build technology that genuinely helps people
+- Make relationship guidance accessible to everyone
+
+Thank you for being part of our mission to help people build better relationships! 💕✨`
       }
     ],
     apps: [
@@ -375,21 +626,21 @@ Contributors will be featured in:
                         w-12 h-12 rounded-full flex items-center justify-center
                         ${node.status === 'active' ? 'bg-cyan-500/20 border-cyan-400' :
                           node.status === 'idle' ? 'bg-yellow-500/20 border-yellow-400' :
-                          'bg-red-500/20 border-red-400'} 
+                          'bg-pink-500/20 border-pink-400'} 
                         border-2 relative group cursor-pointer
                       `}>
                         <div className={`
                           absolute inset-0 rounded-full
                           ${node.status === 'active' ? 'bg-cyan-400' :
                             node.status === 'idle' ? 'bg-yellow-400' :
-                            'bg-red-400'}
+                            'bg-pink-400'}
                           animate-ping opacity-20
                         `} />
                         <Network className={`
                           w-6 h-6
                           ${node.status === 'active' ? 'text-cyan-400' :
                             node.status === 'idle' ? 'text-yellow-400' :
-                            'text-red-400'}
+                            'text-pink-400'}
                         `} />
 
                         {/* Tooltip */}
@@ -662,8 +913,8 @@ Contributors will be featured in:
               {/* X Mobile Header */}
               <div className="bg-black/95 backdrop-blur-sm border-b border-gray-800 px-4 py-3 flex items-center justify-between flex-shrink-0">
                 <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
-                    <span className="text-red-400 text-sm font-bold">O</span>
+                          <div className="w-8 h-8 rounded-full bg-pink-500/20 flex items-center justify-center">
+          <span className="text-pink-400 text-sm font-bold">O</span>
                   </div>
                   <span className="text-white font-semibold">OmniaOS</span>
                 </div>
@@ -698,7 +949,7 @@ Contributors will be featured in:
 
                     <div className="flex space-x-3">
                       {/* Avatar */}
-                      <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border border-gray-700 bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border border-gray-700 bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center">
                         <img 
                           src={tweet.user.avatar} 
                           alt={tweet.user.name}
@@ -748,8 +999,8 @@ Contributors will be featured in:
                             <span className="text-sm">{tweet.retweets}</span>
                           </button>
 
-                          <button className="flex items-center space-x-2 text-gray-500 hover:text-red-400 transition-colors group">
-                            <div className="p-2 rounded-full group-hover:bg-red-500/10 transition-colors">
+                                  <button className="flex items-center space-x-2 text-gray-500 hover:text-pink-400 transition-colors group">
+          <div className="p-2 rounded-full group-hover:bg-pink-500/10 transition-colors">
                               <Heart size={16} />
                             </div>
                             <span className="text-sm">{tweet.likes}</span>
@@ -966,7 +1217,7 @@ Contributors will be featured in:
                           <span className="text-green-400">{metric.value}</span>
                           <ChevronRight className={`w-4 h-4 ${
                             metric.trend === 'up' ? 'text-green-400 rotate-[-90deg]' :
-                            metric.trend === 'down' ? 'text-red-400 rotate-90' :
+                            metric.trend === 'down' ? 'text-pink-400 rotate-90' :
                             'text-yellow-400 rotate-0'
                           } transition-transform`} />
                         </div>
@@ -1154,16 +1405,16 @@ Contributors will be featured in:
     // Mobile Layout - Fully Responsive Modal
     return (
       <div className="fixed inset-0 bg-black/90 backdrop-blur-xl z-50 flex items-center justify-center p-2">
-        <div className="bg-gradient-to-br from-gray-900/95 to-black/95 rounded-2xl w-[96%] max-w-2xl max-h-[95vh] border border-red-700/30 shadow-2xl backdrop-blur-xl overflow-hidden flex flex-col mobile-folder-wrapper">
+        <div className="bg-gradient-to-br from-gray-900/95 to-black/95 rounded-2xl w-[96%] max-w-2xl max-h-[95vh] border border-pink-700/30 shadow-2xl backdrop-blur-xl overflow-hidden flex flex-col mobile-folder-wrapper">
           {/* Mobile Header - Fixed height */}
-          <div className="flex items-center justify-between p-3 border-b border-red-700/30 bg-gray-900/50 h-13 flex-shrink-0">
+                      <div className="flex items-center justify-between p-3 border-b border-pink-700/30 bg-gray-900/50 h-13 flex-shrink-0">
             <h2 className="text-base font-semibold text-white flex items-center truncate">
-              <Folder className="w-4 h-4 text-red-300 mr-2 flex-shrink-0" />
+                              <Folder className="w-4 h-4 text-pink-300 mr-2 flex-shrink-0" />
               <span className="truncate text-sm">{folderId.charAt(0).toUpperCase() + folderId.slice(1)}</span>
             </h2>
             <button
               onClick={handleClose}
-              className="flex items-center justify-center w-8 h-8 bg-red-500/20 hover:bg-red-500/30 text-red-400 hover:text-red-300 rounded-full border border-red-500/30 transition-all duration-300 active:scale-95 flex-shrink-0"
+                              className="flex items-center justify-center w-8 h-8 bg-pink-500/20 hover:bg-pink-500/30 text-pink-400 hover:text-pink-300 rounded-full border border-pink-500/30 transition-all duration-300 active:scale-95 flex-shrink-0"
             >
               <X className="w-4 h-4" />
             </button>
@@ -1202,7 +1453,7 @@ Contributors will be featured in:
                 <div className="p-2.5 border-b border-gray-700/50 bg-gray-900/30 flex-shrink-0">
                   <button
                     onClick={() => setActiveFile(null)}
-                    className="flex items-center text-red-400 hover:text-red-300 bg-red-500/10 hover:bg-red-500/20 px-2.5 py-1.5 rounded-md transition-all duration-200 min-h-[36px]"
+                    className="flex items-center text-pink-400 hover:text-pink-300 bg-pink-500/10 hover:bg-pink-500/20 px-2.5 py-1.5 rounded-md transition-all duration-200 min-h-[36px]"
                   >
                     <ChevronRight className="w-3.5 h-3.5 rotate-180 mr-1.5 flex-shrink-0" />
                     <span className="text-xs truncate">Back to {folderId.charAt(0).toUpperCase() + folderId.slice(1)}</span>
@@ -1238,11 +1489,11 @@ Contributors will be featured in:
   // Desktop Layout
   return (
     <div className="fixed inset-0 bg-black/90 backdrop-blur-xl z-50 flex items-center justify-center p-8">
-      <div className="bg-gradient-to-br from-gray-900/90 to-black/90 rounded-3xl p-8 max-w-6xl w-full h-[80vh] border border-red-700/30 shadow-2xl backdrop-blur-xl overflow-hidden">
+              <div className="bg-gradient-to-br from-gray-900/90 to-black/90 rounded-3xl p-8 max-w-6xl w-full h-[80vh] border border-pink-700/30 shadow-2xl backdrop-blur-xl overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-3xl font-bold text-white flex items-center">
-            <Folder className="w-8 h-8 text-red-300 mr-4" />
+            <Folder className="w-8 h-8 text-pink-300 mr-4" />
             {folderId.charAt(0).toUpperCase() + folderId.slice(1)}
           </h2>
           <button
@@ -1264,7 +1515,7 @@ Contributors will be featured in:
                   flex items-center space-x-4 p-4 rounded-xl mb-4 cursor-pointer
                   transition-all duration-300 hover:scale-102
                   ${activeFile === item.id 
-                    ? 'bg-red-700/20 border border-red-700/30' 
+                    ? 'bg-pink-700/20 border border-pink-700/30' 
                     : 'bg-gray-800/50 hover:bg-gray-800/70'
                   }
                 `}
@@ -1279,7 +1530,7 @@ Contributors will be featured in:
           </div>
 
           {/* Content View */}
-          <div className="flex-1 bg-gray-900/50 rounded-xl p-6 overflow-y-auto border border-red-700/20">
+          <div className="flex-1 bg-gray-900/50 rounded-xl p-6 overflow-y-auto border border-pink-700/20">
             {activeFile ? (
               <>
                 {showSettings && <SystemSettings onClose={() => setActiveFile(null)} />}

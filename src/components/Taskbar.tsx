@@ -1,5 +1,5 @@
 import React from 'react';
-import { Settings, Terminal as TerminalIcon, Folder, Heart } from 'lucide-react';
+import { Settings, Terminal as TerminalIcon, Folder } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 import { useMobile } from '../hooks/useMobile';
 
@@ -7,14 +7,12 @@ interface TaskbarProps {
   onSettingsClick: () => void;
   onTerminalClick: () => void;
   onFolderClick: (folderId: string) => void;
-  onSamanthaClick: () => void;
 }
 
 const Taskbar: React.FC<TaskbarProps> = ({
   onSettingsClick,
   onTerminalClick,
-  onFolderClick,
-  onSamanthaClick
+  onFolderClick
 }) => {
   const { theme } = useTheme();
   const { isMobile } = useMobile();
@@ -63,17 +61,7 @@ const Taskbar: React.FC<TaskbarProps> = ({
             <Folder className="w-4 h-4" />
           </button>
 
-          <button
-            onClick={onSamanthaClick}
-            className="p-2 hover:bg-white/10 rounded-lg transition-colors duration-300
-              flex items-center gap-1 text-white group relative show-text"
-          >
-            <Heart className="w-4 h-4 group-hover:text-red-400 transition-colors duration-300" />
-            <span className="text-xs group-hover:text-red-400 transition-colors duration-300">
-              Samantha
-            </span>
-            <div className="absolute -inset-1 bg-red-500/20 rounded-lg blur animate-pulse" />
-          </button>
+
         </div>
       </div>
     );
@@ -123,20 +111,7 @@ const Taskbar: React.FC<TaskbarProps> = ({
         ))}
       </div>
 
-      {/* Right Section - Samantha */}
-      <button
-        onClick={onSamanthaClick}
-        className="p-2 hover:bg-white/10 rounded-lg transition-colors duration-300
-          flex items-center gap-2 text-white group relative"
-      >
-        <Heart className="w-5 h-5 group-hover:text-red-400 transition-colors duration-300" />
-        <span className="text-sm group-hover:text-red-400 transition-colors duration-300">
-          Samantha
-        </span>
-        
-        {/* Pulse effect */}
-        <div className="absolute -inset-1 bg-red-500/20 rounded-lg blur animate-pulse" />
-      </button>
+
     </div>
   );
 };

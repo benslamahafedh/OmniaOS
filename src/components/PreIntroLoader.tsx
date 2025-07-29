@@ -51,7 +51,7 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({ text, phase, delay = 0 
       {glitchedText}
       {currentIndex < text.length && startTyping && (
         <span className={`animate-pulse ${
-          phase >= 4 ? 'text-white' : 'text-red-400'
+          phase >= 4 ? 'text-white' : 'text-pink-400'
         }`}>|</span>
       )}
     </span>
@@ -93,11 +93,11 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
             } else {
               // Update phase based on progress with more granular transitions
               if (newProgress >= 90) setPhase(5);      // Final white phase
-              else if (newProgress >= 75) setPhase(4); // Bright red-white transition
-              else if (newProgress >= 60) setPhase(3); // Intense red
-              else if (newProgress >= 40) setPhase(2); // Medium red
-              else if (newProgress >= 20) setPhase(1); // Light red
-              else setPhase(0);                        // Initial dark red
+              else if (newProgress >= 75) setPhase(4); // Bright pink-white transition
+              else if (newProgress >= 60) setPhase(3); // Intense pink
+              else if (newProgress >= 40) setPhase(2); // Medium pink
+              else if (newProgress >= 20) setPhase(1); // Light pink
+              else setPhase(0);                        // Initial dark pink
             }
             return newProgress;
           });
@@ -141,11 +141,11 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
 
         // Update phase based on progress with more granular transitions
         if (newProgress >= 90) setPhase(5);      // Final white phase
-        else if (newProgress >= 75) setPhase(4); // Bright red-white transition
-        else if (newProgress >= 60) setPhase(3); // Intense red
-        else if (newProgress >= 40) setPhase(2); // Medium red
-        else if (newProgress >= 20) setPhase(1); // Light red
-        else setPhase(0);                        // Initial dark red
+        else if (newProgress >= 75) setPhase(4); // Bright pink-white transition
+        else if (newProgress >= 60) setPhase(3); // Intense pink
+        else if (newProgress >= 40) setPhase(2); // Medium pink
+        else if (newProgress >= 20) setPhase(1); // Light pink
+        else setPhase(0);                        // Initial dark pink
 
         if (newProgress >= 100) {
           console.log('PreIntroLoader: Completed via press-and-hold');
@@ -261,7 +261,7 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
          onContextMenu={(e: React.MouseEvent) => e.preventDefault()}
          onDragStart={(e: React.DragEvent) => e.preventDefault()}>
       {/* Dark Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-red-950/20 to-black">
+              <div className="absolute inset-0 bg-gradient-to-br from-black via-pink-950/20 to-black">
         {/* Dynamic glow overlay that transitions with phases */}
         <div 
           className="absolute inset-0 transition-all duration-500"
@@ -415,10 +415,10 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
                  }}>
               OMNIA
             </div>
-            <div className="text-red-300/80 text-xl font-light mt-4 tracking-[0.3em] animate-pulse"
+            <div className="text-pink-300/80 text-xl font-light mt-4 tracking-[0.3em] animate-pulse"
                  style={{
-                   textShadow: '0 0 15px rgba(239, 68, 68, 0.6), 0 0 30px rgba(239, 68, 68, 0.4)',
-                   filter: 'drop-shadow(0 0 8px rgba(239, 68, 68, 0.3))'
+                   textShadow: '0 0 15px rgba(236, 72, 153, 0.6), 0 0 30px rgba(236, 72, 153, 0.4)',
+                   filter: 'drop-shadow(0 0 8px rgba(236, 72, 153, 0.3))'
                  }}>
               OPERATING SYSTEM
             </div>
@@ -496,7 +496,7 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
             <div className="text-white text-lg font-light tracking-wider mb-2">
               Press and Hold to Initialize
             </div>
-            <div className="text-red-300/70 text-sm font-light tracking-wide">
+            <div className="text-pink-300/70 text-sm font-light tracking-wide">
               Hold down to activate OMNIA OS
             </div>
           </div>
@@ -511,7 +511,7 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
                WebkitUserSelect: 'none',
                WebkitTouchCallout: 'none' 
              }}>
-          <div className={`text-red-200 text-sm font-light tracking-wider transition-all duration-300 ${
+          <div className={`text-pink-200 text-sm font-light tracking-wider transition-all duration-300 ${
             isPressed ? 'opacity-100 animate-pulse-glow' : 'opacity-50'
           }`}
           style={{
@@ -537,14 +537,14 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
       {/* Progress Bar - only show when pressed */}
       {!showInstructions && (
         <div className="absolute bottom-16 left-0 right-0 px-20">
-          <div className="w-full h-px bg-red-900/40 rounded-full overflow-hidden">
-            <div 
-              className={`h-full transition-all duration-100 rounded-full bg-gradient-to-r from-red-500 to-red-300 ${isPressed ? 'opacity-100' : 'opacity-50'}`}
+                  <div className="w-full h-px bg-pink-900/40 rounded-full overflow-hidden">
+          <div 
+            className={`h-full transition-all duration-100 rounded-full bg-gradient-to-r from-pink-500 to-pink-300 ${isPressed ? 'opacity-100' : 'opacity-50'}`}
               style={{ width: `${progress}%` }}
             />
           </div>
           <div className="text-center mt-4">
-            <span className={`text-red-300/60 text-xs font-light transition-opacity duration-300 ${isPressed ? 'opacity-100' : 'opacity-50'}`}>
+            <span className={`text-pink-300/60 text-xs font-light transition-opacity duration-300 ${isPressed ? 'opacity-100' : 'opacity-50'}`}>
               {Math.round(progress)}%
             </span>
           </div>
@@ -563,11 +563,11 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
         }`}
         style={{
           textShadow: isPressed ? `0 0 ${10 + phase * 2}px ${
-            phase === 0 ? 'rgba(220, 38, 38, 0.8)' :
-            phase === 1 ? 'rgba(239, 68, 68, 0.9)' :
-            phase === 2 ? 'rgba(248, 113, 113, 1)' :
-            phase === 3 ? 'rgba(252, 165, 165, 1)' :
-            phase === 4 ? 'rgba(255, 200, 200, 1)' :
+            phase === 0 ? 'rgba(190, 24, 93, 0.8)' :
+            phase === 1 ? 'rgba(219, 39, 119, 0.9)' :
+            phase === 2 ? 'rgba(236, 72, 153, 1)' :
+            phase === 3 ? 'rgba(244, 114, 182, 1)' :
+            phase === 4 ? 'rgba(251, 182, 209, 1)' :
             'rgba(255, 255, 255, 1)'
           }` : '0 0 5px rgba(255, 255, 255, 0.3)',
           color: isPressed && phase >= 4 ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0.9)'
@@ -578,18 +578,18 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
             'OMNIA'
           )}
         </div>
-        <div className={`text-red-200/60 text-xs font-light mt-2 tracking-widest transition-all duration-300 ${
+        <div className={`text-pink-200/60 text-xs font-light mt-2 tracking-widest transition-all duration-300 ${
           isPressed ? 'animate-pulse opacity-80' : 'opacity-60'
         }`}
         style={{
-          textShadow: isPressed ? `0 0 5px ${
-            phase === 0 ? 'rgba(220, 38, 38, 0.6)' :
-            phase === 1 ? 'rgba(239, 68, 68, 0.7)' :
-            phase === 2 ? 'rgba(248, 113, 113, 0.8)' :
-            phase === 3 ? 'rgba(252, 165, 165, 0.9)' :
-            phase === 4 ? 'rgba(255, 200, 200, 1)' :
-            'rgba(255, 255, 255, 0.8)'
-          }` : 'none'
+                  textShadow: isPressed ? `0 0 5px ${
+          phase === 0 ? 'rgba(190, 24, 93, 0.6)' :
+          phase === 1 ? 'rgba(219, 39, 119, 0.7)' :
+          phase === 2 ? 'rgba(236, 72, 153, 0.8)' :
+          phase === 3 ? 'rgba(244, 114, 182, 0.9)' :
+          phase === 4 ? 'rgba(251, 182, 209, 1)' :
+          'rgba(255, 255, 255, 0.8)'
+        }` : 'none'
         }}>
           {isPressed ? (
             <TypewriterText text="OPERATING SYSTEM" phase={phase} delay={1000} />
@@ -601,7 +601,7 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
 
       {/* Press feedback overlay */}
       {isPressed && (
-        <div className="absolute inset-0 bg-red-500/5 animate-pulse pointer-events-none" />
+        <div className="absolute inset-0 bg-pink-500/5 animate-pulse pointer-events-none" />
       )}
     </div>
   );

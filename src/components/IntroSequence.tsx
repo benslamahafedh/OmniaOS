@@ -102,12 +102,12 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-black via-red-950/10 to-black z-50 overflow-hidden">
-      {/* Subtle red ambient glow */}
+    <div className="fixed inset-0 bg-gradient-to-br from-black via-pink-950/10 to-black z-50 overflow-hidden">
+      {/* Subtle pink ambient glow */}
       <div 
         className="absolute inset-0 opacity-10"
         style={{
-          background: `radial-gradient(ellipse at center, rgba(220, 38, 38, 0.3) 0%, transparent 70%)`
+          background: `radial-gradient(ellipse at center, rgba(236, 72, 153, 0.3) 0%, transparent 70%)`
         }}
       />
 
@@ -166,53 +166,53 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
       <div className="h-full flex items-center justify-center">
         {/* Simplified Terminal Display */}
         <div className="w-full max-w-2xl mx-8">
-          <div className="bg-black/60 backdrop-blur-sm border border-red-900/30 rounded-lg p-8">
+          <div className="bg-black/60 backdrop-blur-sm border border-pink-900/30 rounded-lg p-8">
             
             {/* Terminal Header */}
-            <div className="flex items-center mb-6 pb-3 border-b border-red-900/20">
+            <div className="flex items-center mb-6 pb-3 border-b border-pink-900/20">
               <div className="flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                <div className="w-3 h-3 rounded-full bg-red-400/60"></div>
-                <div className="w-3 h-3 rounded-full bg-red-300/40"></div>
+                <div className="w-3 h-3 rounded-full bg-pink-500"></div>
+                <div className="w-3 h-3 rounded-full bg-pink-400/60"></div>
+                <div className="w-3 h-3 rounded-full bg-pink-300/40"></div>
               </div>
               <div className="flex-1 text-center">
-                <span className="text-red-200/80 text-sm font-mono">OMNIA System Boot</span>
+                <span className="text-pink-200/80 text-sm font-mono">OMNIA System Boot</span>
               </div>
             </div>
 
             {/* Boot Messages - Simple static display */}
             <div className="space-y-2 font-mono text-sm mb-6">
-              <div className="text-red-300/70">
-                <span className="text-red-400/60 mr-2">&gt;</span>
-                OMNIA OS v2.0 - Initializing Core Systems...
+              <div className="text-pink-300/70">
+                <span className="text-pink-400/60 mr-2">&gt;</span>
+                OMNIA OS - Initializing Core Systems...
               </div>
-              <div className="text-red-300/70">
-                <span className="text-red-400/60 mr-2">&gt;</span>
+              <div className="text-pink-300/70">
+                <span className="text-pink-400/60 mr-2">&gt;</span>
                 Loading neural pathways...
               </div>
-              <div className="text-red-300/70">
-                <span className="text-red-400/60 mr-2">&gt;</span>
+              <div className="text-pink-300/70">
+                <span className="text-pink-400/60 mr-2">&gt;</span>
                 Establishing network protocols...
               </div>
-              <div className="text-red-200 animate-pulse">
-                <span className="text-red-400/60 mr-2">&gt;</span>
+              <div className="text-pink-200 animate-pulse">
+                <span className="text-pink-400/60 mr-2">&gt;</span>
                 System initializing...
               </div>
             </div>
 
             {/* Progress Bar with Live Updates - LARGE AND VISIBLE */}
-            <div className="border-t border-red-900/20 pt-6">
+            <div className="border-t border-pink-900/20 pt-6">
               <div className="flex items-center justify-between mb-4">
-                <span className="text-red-200/80 text-base font-mono">Boot Progress</span>
-                <span className="text-red-200/80 text-base font-mono bg-red-500/20 px-2 py-1 rounded">
+                <span className="text-pink-200/80 text-base font-mono">Boot Progress</span>
+                <span className="text-pink-200/80 text-base font-mono bg-pink-500/20 px-2 py-1 rounded">
                   {Math.round(currentProgress)}%
                 </span>
               </div>
               
               {/* Large, highly visible progress bar */}
-              <div className="w-full h-4 bg-red-950/60 rounded-full overflow-hidden border border-red-700/30">
-                <div 
-                  className="h-full bg-gradient-to-r from-red-500 via-red-400 to-red-300 transition-all duration-100 rounded-full relative overflow-hidden"
+                          <div className="w-full h-4 bg-pink-950/60 rounded-full overflow-hidden border border-pink-700/30">
+              <div 
+                className="h-full bg-gradient-to-r from-pink-500 via-pink-400 to-pink-300 transition-all duration-100 rounded-full relative overflow-hidden"
                   style={{ width: `${currentProgress}%` }}
                 >
                   {/* Animated shine effect */}
@@ -228,8 +228,8 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
                       key={i}
                       className={`w-2 h-2 rounded-full transition-colors duration-200 ${
                         i < Math.floor(currentProgress / 10) 
-                          ? 'bg-red-400 animate-pulse' 
-                          : 'bg-red-900/40'
+                          ? 'bg-pink-400 animate-pulse' 
+                          : 'bg-pink-900/40'
                       }`}
                     />
                   ))}
@@ -243,8 +243,8 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
             <div className="text-white text-3xl font-light tracking-[0.4em] mb-2">
               OMNIA
             </div>
-            <div className="text-red-200/60 text-sm font-light tracking-widest">
-              OPERATING SYSTEM v2.0
+            <div className="text-pink-200/60 text-sm font-light tracking-widest">
+              OPERATING SYSTEM 
             </div>
           </div>
         </div>
@@ -253,9 +253,9 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
       {/* Bottom Status */}
       <div className="absolute bottom-8 left-0 right-0 text-center">
         <div className={`text-lg font-light tracking-wider transition-all duration-300 ${
-          bootPhase === 0 ? 'text-red-400/60' :
-          bootPhase === 1 ? 'text-red-300/70' :
-          bootPhase === 2 ? 'text-red-200/80' :
+          bootPhase === 0 ? 'text-pink-400/60' :
+          bootPhase === 1 ? 'text-pink-300/70' :
+          bootPhase === 2 ? 'text-pink-200/80' :
           'text-white animate-pulse'
         }`}>
           {getPhaseText()}

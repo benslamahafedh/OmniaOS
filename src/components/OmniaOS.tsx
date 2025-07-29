@@ -47,7 +47,7 @@ const OmniaOS: React.FC = () => {
         return (
           <div
             key={i}
-            className="absolute bg-red-500/30 rounded-full animate-float"
+            className="absolute bg-pink-500/30 rounded-full animate-float"
             style={{
               width: `${size}px`,
               height: `${size}px`,
@@ -70,8 +70,8 @@ const OmniaOS: React.FC = () => {
         background: `
           radial-gradient(
             circle at ${mousePosition.x}px ${mousePosition.y}px,
-            rgba(239, 68, 68, 0.15) 0%,
-            rgba(236, 72, 153, 0.1) 25%,
+            rgba(236, 72, 153, 0.15) 0%,
+            rgba(219, 39, 119, 0.1) 25%,
             transparent 50%
           ),
           linear-gradient(
@@ -91,13 +91,13 @@ const OmniaOS: React.FC = () => {
       <div className="text-center">
         <div className="relative mb-8">
           <h1 
-            className={`text-8xl font-black bg-gradient-to-r from-red-500 via-red-600 to-red-700 
+            className={`text-8xl font-black bg-gradient-to-r from-pink-500 via-pink-600 to-pink-700 
               bg-clip-text text-transparent animate-pulse tracking-wider transition-all duration-1000
               ${bootPhase >= 2 ? 'scale-110' : 'scale-90 opacity-50'}`}
           >
             OMNIA OS
           </h1>
-          <div className="mt-4 text-red-500 text-xl font-light">
+          <div className="mt-4 text-pink-500 text-xl font-light">
             {bootPhase >= 1 && "Initializing core systems..."}
             {bootPhase >= 2 && <div className="mt-2">Loading neural interface...</div>}
             {bootPhase >= 3 && <div className="mt-2">Connecting to Samantha...</div>}
@@ -109,8 +109,8 @@ const OmniaOS: React.FC = () => {
               key={i}
               className={`w-3 h-3 rounded-full transition-all duration-500
                 ${i + 1 <= bootPhase 
-                  ? 'bg-red-500 scale-100' 
-                  : 'bg-red-900 scale-75'}`}
+                  ? 'bg-pink-500 scale-100' 
+                  : 'bg-pink-900 scale-75'}`}
             />
           ))}
         </div>
@@ -131,7 +131,7 @@ const OmniaOS: React.FC = () => {
         onSettingsClick={() => {}}
         onTerminalClick={() => {}}
         onFolderClick={() => {}}
-        onSamanthaClick={() => setShowSamantha(true)}
+
       />
       <Desktop />
 

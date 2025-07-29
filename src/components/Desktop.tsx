@@ -363,40 +363,40 @@ const Desktop: React.FC = () => {
       `}>
         <div className={`space-y-2 ${isMobile ? 'mobile-metric-item' : ''}`}>
           <div className="flex items-center justify-between">
-            <span className="text-red-400/80">CPU</span>
+            <span className="text-pink-400/80">CPU</span>
             <span className={`text-white ${isMobile ? 'mobile-metric-value' : ''}`}>
               {systemMetrics.cpu}%
             </span>
           </div>
-          <div className="h-1 bg-red-500/20 rounded-full">
-            <div className="h-1 bg-red-500 rounded-full" style={{ width: `${systemMetrics.cpu}%` }} />
+                      <div className="h-1 bg-pink-500/20 rounded-full">
+              <div className="h-1 bg-pink-500 rounded-full" style={{ width: `${systemMetrics.cpu}%` }} />
           </div>
         </div>
         <div className={`space-y-2 ${isMobile ? 'mobile-metric-item' : ''}`}>
           <div className="flex items-center justify-between">
-            <span className="text-red-400/80">Memory</span>
+            <span className="text-pink-400/80">Memory</span>
             <span className={`text-white ${isMobile ? 'mobile-metric-value' : ''}`}>
               {systemMetrics.memory}%
             </span>
           </div>
-          <div className="h-1 bg-red-500/20 rounded-full">
-            <div className="h-1 bg-red-500 rounded-full" style={{ width: `${systemMetrics.memory}%` }} />
+                      <div className="h-1 bg-pink-500/20 rounded-full">
+              <div className="h-1 bg-pink-500 rounded-full" style={{ width: `${systemMetrics.memory}%` }} />
           </div>
         </div>
         <div className={`space-y-2 ${isMobile ? 'mobile-metric-item' : ''}`}>
           <div className="flex items-center justify-between">
-            <span className="text-red-400/80">Disk</span>
+            <span className="text-pink-400/80">Disk</span>
             <span className={`text-white ${isMobile ? 'mobile-metric-value' : ''}`}>
               {systemMetrics.diskUsage}%
             </span>
           </div>
-          <div className="h-1 bg-red-500/20 rounded-full">
-            <div className="h-1 bg-red-500 rounded-full" style={{ width: `${systemMetrics.diskUsage}%` }} />
+                      <div className="h-1 bg-pink-500/20 rounded-full">
+              <div className="h-1 bg-pink-500 rounded-full" style={{ width: `${systemMetrics.diskUsage}%` }} />
           </div>
         </div>
         <div className={`space-y-2 ${isMobile ? 'mobile-metric-item' : ''}`}>
           <div className="flex items-center justify-between">
-            <span className={`text-red-400/80 ${isMobile ? 'mobile-metric-label' : ''}`}>
+            <span className={`text-pink-400/80 ${isMobile ? 'mobile-metric-label' : ''}`}>
               Uptime
             </span>
             <span className={`text-white text-xs ${isMobile ? 'mobile-metric-value' : ''}`}>
@@ -413,42 +413,42 @@ const Desktop: React.FC = () => {
       id: 'system',
       name: 'System Core',
       icon: <Server className="w-6 h-6" />,
-      color: 'from-red-700 to-red-900',
+      color: 'from-pink-700 to-pink-900',
       description: 'Core system files and settings'
     },
     {
       id: 'docs',
-      name: 'Documentation',
-      icon: <Database className="w-6 h-6" />,
-      color: 'from-red-500 to-red-700',
+              name: 'Documentation',
+        icon: <Database className="w-6 h-6" />,
+        color: 'from-pink-500 to-pink-700',
       description: 'System documentation and guides'
     },
     {
       id: 'neural',
       name: 'Neural Network',
       icon: <Activity className="w-6 h-6" />,
-      color: 'from-red-600 to-red-800',
+      color: 'from-pink-600 to-pink-800',
       description: 'AI processing modules'
     },
     {
       id: 'web',
       name: 'Web Interface',
       icon: <Radio className="w-6 h-6" />,
-      color: 'from-red-400 to-red-600',
+      color: 'from-pink-400 to-pink-600',
       description: 'Internet connectivity'
     },
-    {
-      id: 'samantha',
-      name: 'Samantha Core',
-      icon: <Sparkles className="w-6 h-6" />,
-      color: 'from-red-500 to-red-700',
-      description: 'AGI consciousness module'
-    },
+    // {
+    //   id: 'samantha',
+    //   name: 'Samantha Core',
+    //   icon: <Sparkles className="w-6 h-6" />,
+    //   color: 'from-pink-500 to-pink-700',
+    //   description: 'AGI consciousness module'
+    // },
     {
       id: 'apps',
       name: 'Applications',
       icon: <Grid3X3 className="w-6 h-6" />,
-      color: 'from-red-600 to-red-800',
+      color: 'from-pink-600 to-pink-800',
       description: 'Installed applications'
     }
   ];
@@ -484,7 +484,7 @@ const Desktop: React.FC = () => {
     <div className="min-h-screen w-full relative overflow-hidden">
       {/* Notification Bar */}
       <div className={`
-        fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-xl border-b border-red-500/20
+        fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-xl border-b border-pink-500/20
         ${isMobile ? 'h-14' : 'h-auto'}
       `}>
         <div className={`
@@ -493,7 +493,7 @@ const Desktop: React.FC = () => {
         `}>
           <div className="flex items-center space-x-6">
             <div className={`
-              font-light bg-gradient-to-r from-red-200 via-red-300 to-red-400 bg-clip-text text-transparent tracking-[0.3em]
+              font-light bg-gradient-to-r from-pink-200 via-pink-300 to-pink-400 bg-clip-text text-transparent tracking-[0.3em]
               ${isMobile ? 'text-lg' : 'text-2xl'}
             `}>
               {isMobile ? 'OMNIA' : 'OMNIAOS'}
@@ -506,25 +506,25 @@ const Desktop: React.FC = () => {
                   href="https://github.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-red-700/10 hover:bg-red-700/20 cursor-pointer transition-all duration-300 group border border-red-500/20"
+                  className="p-2 rounded-lg bg-pink-700/10 hover:bg-pink-700/20 cursor-pointer transition-all duration-300 group border border-pink-500/20"
                 >
-                  <Github size={16} className="text-red-300 group-hover:text-red-200" />
+                  <Github size={16} className="text-pink-300 group-hover:text-pink-200" />
                 </a>
                 <a 
                   href="https://x.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-red-700/10 hover:bg-red-700/20 cursor-pointer transition-all duration-300 group border border-red-500/20"
+                  className="p-2 rounded-lg bg-pink-700/10 hover:bg-pink-700/20 cursor-pointer transition-all duration-300 group border border-pink-500/20"
                 >
-                  <XLogo size={16} className="text-red-300 group-hover:text-red-200" />
+                  <XLogo size={16} className="text-pink-300 group-hover:text-pink-200" />
                 </a>
                 <a 
                   href="https://telegram.org" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-red-700/10 hover:bg-red-700/20 cursor-pointer transition-all duration-300 group border border-red-500/20"
+                  className="p-2 rounded-lg bg-pink-700/10 hover:bg-pink-700/20 cursor-pointer transition-all duration-300 group border border-pink-500/20"
                 >
-                  <Send size={16} className="text-red-300 group-hover:text-red-200" />
+                  <Send size={16} className="text-pink-300 group-hover:text-pink-200" />
                 </a>
               </div>
             )}
@@ -534,31 +534,31 @@ const Desktop: React.FC = () => {
             {/* System Metrics - Simplified on mobile */}
             {isMobile ? (
               <div className="flex items-center space-x-2">
-                <div className="flex items-center space-x-1 text-red-300/80">
+                <div className="flex items-center space-x-1 text-pink-300/80">
                   <Cpu size={12} />
                   <span className="text-xs font-light">{systemMetrics.cpu}%</span>
                 </div>
-                <div className="flex items-center space-x-1 text-red-300/80">
+                <div className="flex items-center space-x-1 text-pink-300/80">
                   <MemoryStick size={12} />
                   <span className="text-xs font-light">{systemMetrics.memory}%</span>
                 </div>
               </div>
             ) : (
               <div className="flex items-center space-x-6">
-                <div className="flex items-center space-x-2 text-red-300/80">
-                  <Cpu size={16} className="text-red-400/60" />
+                <div className="flex items-center space-x-2 text-pink-300/80">
+                  <Cpu size={16} className="text-pink-400/60" />
                   <span className="text-sm font-light tracking-wide">{systemMetrics.cpu}%</span>
                 </div>
-                <div className="flex items-center space-x-2 text-red-300/80">
-                  <MemoryStick size={16} className="text-red-400/60" />
+                <div className="flex items-center space-x-2 text-pink-300/80">
+                  <MemoryStick size={16} className="text-pink-400/60" />
                   <span className="text-sm font-light tracking-wide">{systemMetrics.memory}%</span>
                 </div>
-                <div className="flex items-center space-x-2 text-red-300/80">
-                  <Network size={16} className="text-red-400/60" />
+                <div className="flex items-center space-x-2 text-pink-300/80">
+                  <Network size={16} className="text-pink-400/60" />
                   <span className="text-sm font-light tracking-wide">{systemMetrics.network}%</span>
                 </div>
-                <div className="flex items-center space-x-2 text-red-300/80">
-                  <Thermometer size={16} className="text-red-400/60" />
+                <div className="flex items-center space-x-2 text-pink-300/80">
+                  <Thermometer size={16} className="text-pink-400/60" />
                   <span className="text-sm font-light tracking-wide">{systemMetrics.temperature}°C</span>
                 </div>
               </div>
@@ -567,21 +567,21 @@ const Desktop: React.FC = () => {
             {/* System Controls - Simplified on mobile */}
             {!isMobile && (
               <div className="flex items-center space-x-3">
-                <div className="p-1.5 rounded-lg bg-red-700/10 hover:bg-red-700/20 cursor-pointer border border-red-500/20 transition-all duration-300">
-                  <Wifi size={16} className="text-red-300" />
+                <div className="p-1.5 rounded-lg bg-pink-700/10 hover:bg-pink-700/20 cursor-pointer border border-pink-500/20 transition-all duration-300">
+                  <Wifi size={16} className="text-pink-300" />
                 </div>
-                <div className="p-1.5 rounded-lg bg-red-700/10 hover:bg-red-700/20 cursor-pointer border border-red-500/20 transition-all duration-300">
-                  <Volume2 size={16} className="text-red-300" />
+                <div className="p-1.5 rounded-lg bg-pink-700/10 hover:bg-pink-700/20 cursor-pointer border border-pink-500/20 transition-all duration-300">
+                  <Volume2 size={16} className="text-pink-300" />
                 </div>
-                <div className="p-1.5 rounded-lg bg-red-700/10 hover:bg-red-700/20 cursor-pointer border border-red-500/20 transition-all duration-300">
-                  <Battery size={16} className="text-red-300" />
+                <div className="p-1.5 rounded-lg bg-pink-700/10 hover:bg-pink-700/20 cursor-pointer border border-pink-500/20 transition-all duration-300">
+                  <Battery size={16} className="text-pink-300" />
                 </div>
               </div>
             )}
 
             {/* Time and Date - Mobile friendly */}
             <div className={`
-              flex items-center space-x-2 text-red-200/80 font-light
+              flex items-center space-x-2 text-pink-200/80 font-light
               ${isMobile ? 'space-x-1' : 'space-x-2'}
             `}>
               {isMobile ? (
@@ -591,9 +591,9 @@ const Desktop: React.FC = () => {
                 </>
               ) : (
                 <>
-                  <Calendar size={16} className="text-red-400/60" />
+                  <Calendar size={16} className="text-pink-400/60" />
                   <span className="text-sm tracking-wide">{currentTime.toLocaleDateString()}</span>
-                  <Clock size={16} className="text-red-400/60" />
+                  <Clock size={16} className="text-pink-400/60" />
                   <span className="text-sm tracking-wide">{currentTime.toLocaleTimeString()}</span>
                 </>
               )}
@@ -611,9 +611,9 @@ const Desktop: React.FC = () => {
 
       {/* Background Gradients */}
       <div className="fixed inset-0 z-0">
-        {/* Base gradient - enhanced red theme */}
+        {/* Base gradient - enhanced pink theme */}
         <div 
-          className="absolute inset-0 bg-gradient-to-br from-black via-red-950/20 to-black opacity-90 transition-colors duration-500"
+          className="absolute inset-0 bg-gradient-to-br from-black via-pink-950/20 to-black opacity-90 transition-colors duration-500"
         />
 
         {/* Dynamic spotlight following cursor - refined */}
@@ -621,8 +621,8 @@ const Desktop: React.FC = () => {
           className="absolute inset-0 opacity-30 transition-opacity duration-300"
           style={{
             background: `radial-gradient(circle 800px at ${mousePosition.x}px ${mousePosition.y}px, 
-              rgba(239,68,68,0.15), 
-              rgba(185,28,28,0.12), 
+              rgba(236,72,153,0.15), 
+              rgba(190,24,93,0.12), 
               transparent)`
           }}
         />
@@ -636,14 +636,14 @@ const Desktop: React.FC = () => {
                 45deg,
                 transparent,
                 transparent 120px,
-                rgba(239,68,68,0.08) 240px,
+                rgba(236,72,153,0.08) 240px,
                 transparent 360px
               ),
               repeating-linear-gradient(
                 -45deg,
                 transparent,
                 transparent 120px,
-                rgba(185,28,28,0.06) 240px,
+                rgba(190,24,93,0.06) 240px,
                 transparent 360px
               )
             `,
@@ -697,12 +697,12 @@ const Desktop: React.FC = () => {
       {!isMobile && (
         <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
           <div className="relative group">
-            <div className="absolute -inset-6 bg-gradient-to-r from-red-500/20 via-red-400/20 to-red-300/20 rounded-full blur-xl group-hover:from-red-500/30 group-hover:via-red-400/30 group-hover:to-red-300/30 transition-all duration-500" />
-            <div className="relative bg-black/60 backdrop-blur-xl rounded-full p-10 border border-red-500/20 group-hover:border-red-400/40 transition-all duration-500">
-              <div className="text-7xl font-light text-red-200 tabular-nums tracking-wider">
+                    <div className="absolute -inset-6 bg-gradient-to-r from-pink-500/20 via-pink-400/20 to-pink-300/20 rounded-full blur-xl group-hover:from-pink-500/30 group-hover:via-pink-400/30 group-hover:to-pink-300/30 transition-all duration-500" />
+        <div className="relative bg-black/60 backdrop-blur-xl rounded-full p-10 border border-pink-500/20 group-hover:border-pink-400/40 transition-all duration-500">
+          <div className="text-7xl font-light text-pink-200 tabular-nums tracking-wider">
                 {currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
               </div>
-              <div className="text-center text-red-300/70 mt-3 font-light tracking-[0.2em] text-sm">
+              <div className="text-center text-pink-300/70 mt-3 font-light tracking-[0.2em] text-sm">
                 {currentTime.toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric' })}
               </div>
             </div>
@@ -713,8 +713,8 @@ const Desktop: React.FC = () => {
       {/* System Metrics Widget - Desktop only */}
       {!isMobile && (
         <div className="fixed bottom-24 right-8 z-10">
-          <div className="bg-black/60 backdrop-blur-xl rounded-2xl border border-red-500/20 p-6 w-72">
-            <div className="text-red-300 font-light text-lg mb-6 tracking-wide">System Metrics</div>
+                  <div className="bg-black/60 backdrop-blur-xl rounded-2xl border border-pink-500/20 p-6 w-72">
+          <div className="text-pink-300 font-light text-lg mb-6 tracking-wide">System Metrics</div>
             <div className="space-y-4">
               {[
                 { icon: Cpu, label: 'CPU Usage', value: systemMetrics.cpu },
@@ -724,15 +724,15 @@ const Desktop: React.FC = () => {
               ].map(({ icon: Icon, label, value }) => (
                 <div key={label} className="space-y-2">
                   <div className="flex items-center justify-between text-sm">
-                    <div className="flex items-center space-x-3 text-red-300/70">
-                      <Icon size={16} className="text-red-400/60" />
+                    <div className="flex items-center space-x-3 text-pink-300/70">
+                      <Icon size={16} className="text-pink-400/60" />
                       <span className="font-light tracking-wide">{label}</span>
                     </div>
-                    <span className="text-red-200 font-light">{value}%</span>
+                    <span className="text-pink-200 font-light">{value}%</span>
                   </div>
-                  <div className="h-1.5 bg-red-950/30 rounded-full overflow-hidden">
+                  <div className="h-1.5 bg-pink-950/30 rounded-full overflow-hidden">
                     <div 
-                      className="h-full bg-gradient-to-r from-red-500 to-red-400 transition-all duration-500 rounded-full"
+                      className="h-full bg-gradient-to-r from-pink-500 to-pink-400 transition-all duration-500 rounded-full"
                       style={{ width: `${value}%` }}
                     />
                   </div>
@@ -789,9 +789,9 @@ const Desktop: React.FC = () => {
                   {/* Special effects for Samantha folder */}
                   {folder.id === 'samantha' && (
                     <>
-                      <div className="absolute -inset-1 bg-gradient-to-r from-red-400/40 to-pink-600/40 rounded-2xl blur-md animate-pulse" />
-                      <div className="absolute -inset-2 bg-gradient-to-r from-red-400/20 to-pink-600/20 rounded-2xl blur-lg animate-ping" />
-                      <div className="absolute inset-0 bg-gradient-to-r from-red-400/30 to-pink-600/30 rounded-2xl animate-spin" style={{
+                      <div className="absolute -inset-1 bg-gradient-to-r from-pink-400/40 to-rose-600/40 rounded-2xl blur-md animate-pulse" />
+                      <div className="absolute -inset-2 bg-gradient-to-r from-pink-400/20 to-rose-600/20 rounded-2xl blur-lg animate-ping" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-pink-400/30 to-rose-600/30 rounded-2xl animate-spin" style={{
                         animation: 'sparkle 2s ease-in-out infinite alternate'
                       }} />
                     </>
@@ -853,7 +853,7 @@ const Desktop: React.FC = () => {
                 </div>
                 
                 <div className="text-center transform transition-transform duration-300 group-hover:scale-105">
-                  <div className="text-white text-sm font-semibold group-hover:text-red-400 transition-colors duration-300">
+                  <div className="text-white text-sm font-semibold group-hover:text-pink-400 transition-colors duration-300">
                     {folder.name}
                   </div>
                   <div className="text-gray-400 text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -930,21 +930,21 @@ const Desktop: React.FC = () => {
             {widgets.filter(widget => widget.name !== 'System Monitor').map(widget => (
               <div
                 key={widget.id}
-                className="mobile-widget bg-black/80 backdrop-blur-xl border border-red-500/30 rounded-2xl overflow-hidden"
+                className="mobile-widget bg-black/80 backdrop-blur-xl border border-pink-500/30 rounded-2xl overflow-hidden"
               >
                 {/* Widget Header */}
-                <div className="flex items-center justify-between p-3 bg-red-500/10 border-b border-red-500/20">
-                  <span className="text-red-400 font-medium text-sm">{widget.name}</span>
+                <div className="flex items-center justify-between p-3 bg-pink-500/10 border-b border-pink-500/20">
+                  <span className="text-pink-400 font-medium text-sm">{widget.name}</span>
                   <div className="flex items-center space-x-2">
                     <button
                       onClick={() => minimizeWidget(widget.id)}
-                      className="text-red-400/60 hover:text-red-400 transition-colors"
+                      className="text-pink-400/60 hover:text-pink-400 transition-colors"
                     >
                       {widget.minimized ? <Maximize2 size={16} /> : <Minimize2 size={16} />}
                     </button>
                     <button
                       onClick={() => removeWidget(widget.id)}
-                      className="text-red-400/60 hover:text-red-400 transition-colors"
+                      className="text-pink-400/60 hover:text-pink-400 transition-colors"
                     >
                       <X size={16} />
                     </button>
@@ -964,7 +964,7 @@ const Desktop: React.FC = () => {
           widgets.map(widget => (
             <div
               key={widget.id}
-              className="fixed z-30 bg-black/80 backdrop-blur-xl border border-red-500/30 rounded-2xl overflow-hidden"
+              className="fixed z-30 bg-black/80 backdrop-blur-xl border border-pink-500/30 rounded-2xl overflow-hidden"
               style={{
                 left: widget.x,
                 top: widget.y,
@@ -975,18 +975,18 @@ const Desktop: React.FC = () => {
               onMouseDown={() => setDraggedWidget(widget.id)}
             >
               {/* Widget Header */}
-              <div className="flex items-center justify-between p-3 bg-red-500/10 border-b border-red-500/20">
-                <span className="text-red-400 font-medium text-sm">{widget.name}</span>
+              <div className="flex items-center justify-between p-3 bg-pink-500/10 border-b border-pink-500/20">
+                <span className="text-pink-400 font-medium text-sm">{widget.name}</span>
                 <div className="flex items-center space-x-2">
                   <button
                     onClick={() => minimizeWidget(widget.id)}
-                    className="text-red-400/60 hover:text-red-400 transition-colors"
+                    className="text-pink-400/60 hover:text-pink-400 transition-colors"
                   >
                     {widget.minimized ? <Maximize2 size={14} /> : <Minimize2 size={14} />}
                   </button>
                   <button
                     onClick={() => removeWidget(widget.id)}
-                    className="text-red-400/60 hover:text-red-400 transition-colors"
+                    className="text-pink-400/60 hover:text-pink-400 transition-colors"
                   >
                     <X size={14} />
                   </button>
@@ -1009,7 +1009,7 @@ const Desktop: React.FC = () => {
             ${isMobile ? 'mobile-command-palette' : 'flex items-start justify-center pt-32'}
           `}>
             <div className={`
-              bg-gray-900/95 backdrop-blur-xl rounded-2xl border border-red-500/30 overflow-hidden
+              bg-gray-900/95 backdrop-blur-xl rounded-2xl border border-pink-500/30 overflow-hidden
               ${isMobile 
                 ? 'palette-content w-full h-full max-h-none m-0 rounded-none' 
                 : 'w-full max-w-2xl mx-4'
@@ -1017,10 +1017,10 @@ const Desktop: React.FC = () => {
             `}>
               {/* Search Header */}
               <div className={`
-                flex items-center border-b border-red-500/20
+                flex items-center border-b border-pink-500/20
                 ${isMobile ? 'p-4 pt-6' : 'p-4'}
               `}>
-                <Command className={`text-red-400 mr-3 ${isMobile ? 'w-6 h-6' : 'w-5 h-5'}`} />
+                <Command className={`text-pink-400 mr-3 ${isMobile ? 'w-6 h-6' : 'w-5 h-5'}`} />
                 <input
                   type="text"
                   placeholder={isMobile ? "Search..." : "Search commands, apps, and actions..."}
@@ -1054,11 +1054,11 @@ const Desktop: React.FC = () => {
                           setCommandSearch('');
                         }}
                         className={`
-                          command-item w-full flex items-center gap-3 rounded-xl hover:bg-red-500/10 transition-colors text-left
+                          command-item w-full flex items-center gap-3 rounded-xl hover:bg-pink-500/10 transition-colors text-left
                           ${isMobile ? 'p-4' : 'p-3'}
                         `}
                       >
-                        <div className="text-red-400">{action.icon}</div>
+                        <div className="text-pink-400">{action.icon}</div>
                         <div className="flex-1">
                           <div className={`text-white font-medium ${isMobile ? 'text-base' : 'text-sm'}`}>
                             {action.name}
@@ -1091,7 +1091,7 @@ const Desktop: React.FC = () => {
         {showContextMenu && (
           <div
             className={`
-              fixed z-50 bg-gray-900/95 backdrop-blur-xl border border-red-500/30 py-2
+              fixed z-50 bg-gray-900/95 backdrop-blur-xl border border-pink-500/30 py-2
               ${isMobile 
                 ? 'mobile-context-menu rounded-2xl min-w-full' 
                 : 'rounded-xl min-w-48'
@@ -1108,11 +1108,11 @@ const Desktop: React.FC = () => {
                 setShowContextMenu(false);
               }}
               className={`
-                context-item w-full text-left hover:bg-red-500/10 flex items-center gap-3 text-white
+                context-item w-full text-left hover:bg-pink-500/10 flex items-center gap-3 text-white
                 ${isMobile ? 'px-6 py-4' : 'px-4 py-2'}
               `}
             >
-              <Plus size={isMobile ? 20 : 16} className="text-red-400" />
+              <Plus size={isMobile ? 20 : 16} className="text-pink-400" />
               Add Widget
             </button>
             <button
@@ -1121,25 +1121,25 @@ const Desktop: React.FC = () => {
                 setShowContextMenu(false);
               }}
               className={`
-                context-item w-full text-left hover:bg-red-500/10 flex items-center gap-3 text-white
+                context-item w-full text-left hover:bg-pink-500/10 flex items-center gap-3 text-white
                 ${isMobile ? 'px-6 py-4' : 'px-4 py-2'}
               `}
             >
-              <Command size={isMobile ? 20 : 16} className="text-red-400" />
+              <Command size={isMobile ? 20 : 16} className="text-pink-400" />
               Command Palette
             </button>
-            <hr className="my-2 border-red-500/20" />
+            <hr className="my-2 border-pink-500/20" />
             <button
               onClick={() => {
                 handleWindowOpen('settings');
                 setShowContextMenu(false);
               }}
               className={`
-                context-item w-full text-left hover:bg-red-500/10 flex items-center gap-3 text-white
+                context-item w-full text-left hover:bg-pink-500/10 flex items-center gap-3 text-white
                 ${isMobile ? 'px-6 py-4' : 'px-4 py-2'}
               `}
             >
-              <Settings size={isMobile ? 20 : 16} className="text-red-400" />
+              <Settings size={isMobile ? 20 : 16} className="text-pink-400" />
               Settings
             </button>
             <button
@@ -1148,11 +1148,11 @@ const Desktop: React.FC = () => {
                 setShowContextMenu(false);
               }}
               className={`
-                context-item w-full text-left hover:bg-red-500/10 flex items-center gap-3 text-white
+                context-item w-full text-left hover:bg-pink-500/10 flex items-center gap-3 text-white
                 ${isMobile ? 'px-6 py-4 border-b-0' : 'px-4 py-2'}
               `}
             >
-              <RotateCw size={isMobile ? 20 : 16} className="text-red-400" />
+              <RotateCw size={isMobile ? 20 : 16} className="text-pink-400" />
               Refresh
             </button>
           </div>
@@ -1167,12 +1167,12 @@ const Desktop: React.FC = () => {
               : 'bottom-20 left-1/2 transform -translate-x-1/2'
             }
           `}>
-            <div className="bg-black/90 backdrop-blur-xl rounded-2xl border border-red-500/30 p-4">
+            <div className="bg-black/90 backdrop-blur-xl rounded-2xl border border-pink-500/30 p-4">
               <div className={`
                 flex items-center
                 ${isMobile ? 'flex-col space-y-4' : 'space-x-4'}
               `}>
-                <div className="text-red-400 text-sm font-medium">Quick Launch</div>
+                <div className="text-pink-400 text-sm font-medium">Quick Launch</div>
                 <div className={`
                   flex items-center
                   ${isMobile ? 'grid grid-cols-3 gap-3 w-full' : 'space-x-2'}
@@ -1193,7 +1193,7 @@ const Desktop: React.FC = () => {
                         setShowQuickLaunch(false);
                       }}
                       className={`
-                        group relative rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-400 hover:text-red-300 transition-all duration-300
+                        group relative rounded-xl bg-pink-500/10 hover:bg-pink-500/20 text-pink-400 hover:text-pink-300 transition-all duration-300
                         ${isMobile 
                           ? 'p-4 flex flex-col items-center justify-center' 
                           : 'p-3 hover:scale-110'
@@ -1220,7 +1220,7 @@ const Desktop: React.FC = () => {
 
         {/* Keyboard Shortcuts Help - Desktop only */}
         {!isMobile && (
-          <div className="fixed bottom-24 right-80 z-10 bg-black/50 backdrop-blur-xl rounded-xl border border-red-500/20 p-3 text-xs text-red-400/60">
+          <div className="fixed bottom-24 right-80 z-10 bg-black/50 backdrop-blur-xl rounded-xl border border-pink-500/20 p-3 text-xs text-pink-400/60">
             <div>⌘K / Ctrl+K - Command Palette</div>
             <div>Ctrl+Space - Quick Launch</div>
             <div>Right Click - Context Menu</div>
@@ -1235,7 +1235,7 @@ const Desktop: React.FC = () => {
           onSettingsClick={() => handleWindowOpen('settings')}
           onTerminalClick={() => handleWindowOpen('terminal')}
           onFolderClick={(folderId) => handleWindowOpen(`folder-${folderId}`)}
-          onSamanthaClick={() => window.open('https://samantha-me-git-main-benslamahafedhs-projects.vercel.app/', '_blank')}
+
         />
       </div>
 

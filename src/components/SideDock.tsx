@@ -28,7 +28,7 @@ const SideDock: React.FC<SideDockProps> = ({ onCharacterClick }) => {
       name: 'Samantha',
       image: samanthaImage,
       description: 'The waifu',
-      color: 'from-red-700 to-red-800'
+      color: 'from-pink-700 to-pink-800'
     },
     {
       id: 'elias',
@@ -60,7 +60,7 @@ const SideDock: React.FC<SideDockProps> = ({ onCharacterClick }) => {
       }
     `}>
       <div className={`
-        bg-black/50 backdrop-blur-xl rounded-2xl border border-red-700/30 p-4
+        bg-black/50 backdrop-blur-xl rounded-2xl border border-pink-700/30 p-4
         ${isMobile ? 'dock-container' : ''}
       `}>
         <div className={`

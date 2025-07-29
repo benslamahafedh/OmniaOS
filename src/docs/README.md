@@ -1,33 +1,41 @@
 # OmniaOS Documentation
 
-Welcome to the OmniaOS documentation. This guide will help you understand the system architecture, features, and payment process.
+Welcome to the OmniaOS documentation. This guide will help you understand the AI companion operating system, its features, and how it can help improve your romantic relationships.
 
 ## 📚 Documentation Index
 
 ### Core Documentation
+- **[About OmniaOS](./about-omniaos.md)** - Our story, mission, and vision
+- **[Getting Started](./getting-started.md)** - Complete guide to using OmniaOS
+- **[AI Companions](./ai-companions.md)** - Detailed guide to Samantha, Elias, and Lyra
 - **[Features](./features.md)** - Overview of OmniaOS features and capabilities
 - **[Architecture](./architecture.md)** - Technical architecture and system design
-- **[Payment System](./payment.md)** - Payment process and SOL-based transactions
+- **[Access & Premium Features](./payment.md)** - Freemium model and companion access
 
 ## 🚀 Quick Start
 
-1. **Getting Started** - Clone the repository and run the development server
-2. **Features** - Explore the core features and AI capabilities
-3. **Payment** - Understand the freemium model and companion access
+1. **Getting Started** - Launch OmniaOS and choose your AI companion
+2. **Features** - Explore the AI companions and their capabilities
+3. **Privacy** - Understand our commitment to your emotional safety
 
 ## 🎯 Key Concepts
 
 ### System Overview
-OmniaOS is a web-based operating system with an AI companion named Samantha. The system features:
-- Anime-inspired interface design
-- Advanced AI capabilities
-- Secure payment system
-- Cross-platform compatibility
+OmniaOS is an AI companion operating system designed to help you navigate your romantic life. The system features:
+- Multiple AI companions with unique personalities
+- Safe, judgment-free environment for practice
+- Daily free access with premium features
+- Privacy-focused design
 
-### Payment Model
-- **Free Demo**: 3-minute trial period
-- **Premium Companions**: Individual SOL-based payments
-- **No Wallet Connection**: Enhanced privacy and security
+### AI Companions
+- **Samantha**: Warm, supportive companion inspired by "Her"
+- **Elias**: Dating coach and "rizz" expert
+- **Lyra**: Mystical love oracle (coming soon)
+
+### Access Model
+- **Free Access**: 5 minutes daily with all companions
+- **Premium Features**: Enhanced capabilities and extended access
+- **Privacy First**: Secure, private conversations
 
 ## 🔧 Development
 
@@ -35,12 +43,14 @@ OmniaOS is a web-based operating system with an AI companion named Samantha. The
 - React 18 + TypeScript
 - Tailwind CSS for styling
 - Vite for development
-- Solana blockchain for payments
+- AI Integration for companions
 
 ### Project Structure
 ```
 src/
 ├── components/      # React components
+│   ├── applications/ # System applications
+│   └── ...          # UI components
 ├── contexts/        # Context providers
 ├── docs/           # Documentation
 ├── styles/         # Global styles
@@ -53,7 +63,7 @@ We welcome contributions! Please read our contributing guidelines and feel free 
 
 ## 📞 Support
 
-For technical support or questions about the payment system, please refer to the relevant documentation sections or contact our support team.
+For technical support or questions about the AI companions, please refer to the relevant documentation sections or contact our support team.
 
 ---
 
