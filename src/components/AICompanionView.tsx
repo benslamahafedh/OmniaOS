@@ -36,7 +36,7 @@ const companions = [
     abilities: ['Dating Psychology', 'Confidence Building', 'Strategic Planning', 'Social Dynamics'],
     video: eliasVideo,
     unlocked: true,
-    url: 'https://rizzler-cyan.vercel.app/',
+    url: 'https://omnia-rizzler.fun/',
     colors: {
       primary: 'from-blue-500 to-cyan-600',
       accent: 'blue-300',
