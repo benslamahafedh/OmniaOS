@@ -12,7 +12,7 @@ const OmniaLogo: React.FC<OmniaLogoProps> = ({ size = 32, className = '' }) => {
       style={{ width: size, height: size }}
     >
       <img 
-        src="/omnia-logo.png" 
+        src="/image.png" 
         alt="Omnia Logo" 
         className="w-full h-full object-contain"
         style={{ width: size, height: size }}
