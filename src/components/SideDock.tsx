@@ -60,7 +60,7 @@ const SideDock: React.FC<SideDockProps> = ({ onCharacterClick }) => {
       }
     `}>
       <div className={`
-        bg-black/50 backdrop-blur-xl rounded-2xl border border-pink-700/30 p-4
+        bg-black/50 backdrop-blur-xl rounded-2xl border border-pink-800/30 p-4
         ${isMobile ? 'dock-container' : ''}
       `}>
         <div className={`

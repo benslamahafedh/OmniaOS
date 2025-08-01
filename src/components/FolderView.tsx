@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, FileText, Folder, Settings, Terminal as TerminalIcon, Code2, Globe, Search, Brain, Activity, Link, Network, Cpu, Database, Zap, ChevronRight, Sparkles, Workflow, Bot, Share2, MessageSquare, Github, Send, Heart, RotateCw } from 'lucide-react';
+import { X, FileText, Folder, Settings, Terminal as TerminalIcon, Globe, Search, Brain, Activity, Link, Network, Cpu, Database, Zap, ChevronRight, Sparkles, Workflow, Bot, Share2, MessageSquare, Github, Send, Heart, RotateCw } from 'lucide-react';
 import XLogo from './XLogo';
 import OmniaLogo from './OmniaLogo';
 import ReactMarkdown from 'react-markdown';
@@ -9,7 +9,7 @@ import { useMobile } from '../hooks/useMobile';
 import { useTwitterFeed } from '../hooks/useTwitterFeed';
 import SystemSettings from './SystemSettings';
 import Terminal from './Terminal';
-import { CodeEditor, Documentation } from './applications';
+import { Documentation } from './applications';
 import AICompanionView from './AICompanionView';
 
 interface FolderViewProps {
@@ -477,7 +477,7 @@ Thank you for being part of our mission to help people build better relationship
         icon: <Sparkles className="w-6 h-6 text-pink-300" />,
         description: 'Meet Samantha, Elias, and Lyra',
         type: 'component',
-        component: <AICompanionView onClose={() => {}} />
+        component: <AICompanionView onClose={() => setActiveFile(null)} />
       },
       {
         id: 'documentation',

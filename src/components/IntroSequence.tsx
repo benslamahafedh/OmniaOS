@@ -182,20 +182,20 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
 
             {/* Boot Messages - Simple static display */}
             <div className="space-y-2 font-mono text-sm mb-6">
-              <div className="text-pink-300/70">
-                <span className="text-pink-400/60 mr-2">&gt;</span>
+              <div className="text-white">
+                <span className="text-white/60 mr-2">&gt;</span>
                 OMNIA OS - Initializing Core Systems...
               </div>
-              <div className="text-pink-300/70">
-                <span className="text-pink-400/60 mr-2">&gt;</span>
+              <div className="text-white">
+                <span className="text-white/60 mr-2">&gt;</span>
                 Loading neural pathways...
               </div>
-              <div className="text-pink-300/70">
-                <span className="text-pink-400/60 mr-2">&gt;</span>
+              <div className="text-white">
+                <span className="text-white/60 mr-2">&gt;</span>
                 Establishing network protocols...
               </div>
-              <div className="text-pink-200 animate-pulse">
-                <span className="text-pink-400/60 mr-2">&gt;</span>
+              <div className="text-white animate-pulse">
+                <span className="text-white/60 mr-2">&gt;</span>
                 System initializing...
               </div>
             </div>

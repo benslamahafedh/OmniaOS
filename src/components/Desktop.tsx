@@ -465,16 +465,13 @@ const Desktop: React.FC = () => {
   const handleCharacterClick = (characterId: string) => {
     switch (characterId) {
       case 'samantha':
-        handleWindowOpen('ai-companion');
+        handleWindowOpen('ai-companion-samantha');
         break;
       case 'elias':
-        // Future: Open Elias chat/interface
-        console.log('Elias clicked - future feature');
-        handleWindowOpen('ai-companion');
+        handleWindowOpen('ai-companion-elias');
         break;
       case 'lyra':
-        // Future: Open Lyra chat/interface
-        console.log('Lyra clicked - future feature');
+        handleWindowOpen('ai-companion-lyra');
         break;
       default:
         break;
@@ -921,8 +918,11 @@ const Desktop: React.FC = () => {
           </div>
         )}
 
-        {activeWindow === 'ai-companion' && (
-          <AICompanionView onClose={handleWindowClose} />
+        {(activeWindow === 'ai-companion' || activeWindow?.startsWith('ai-companion-')) && (
+          <AICompanionView 
+            onClose={handleWindowClose} 
+            initialCompanion={activeWindow?.startsWith('ai-companion-') ? activeWindow.replace('ai-companion-', '') : undefined}
+          />
         )}
 
 

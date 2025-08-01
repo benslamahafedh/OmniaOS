@@ -8,6 +8,7 @@ import eliasVideo from '../assets/elias.mp4';
 
 interface AICompanionViewProps {
   onClose: () => void;
+  initialCompanion?: string;
 }
 
 // Companion data
@@ -43,12 +44,38 @@ const companions = [
       border: 'blue-700/30',
       bg: 'from-blue-500/30 to-cyan-600/30'
     }
+  },
+  {
+    id: 'lyra',
+    name: 'Lyra',
+    subtitle: 'The Love Oracle',
+    description: 'Mystical AI with deep insights into relationships and love. Lyra provides spiritual guidance and helps you understand the deeper meaning of connections.',
+    abilities: ['Mystical Insights', 'Relationship Guidance', 'Spiritual Counseling', 'Intuitive Analysis'],
+    video: samanthaVideo, // Using Samantha video as placeholder
+    unlocked: false,
+    url: 'https://omnia-lyra.fun/',
+    colors: {
+      primary: 'from-purple-500 to-pink-500',
+      accent: 'purple-300',
+      border: 'purple-700/30',
+      bg: 'from-purple-500/30 to-pink-500/30'
+    }
   }
 ];
 
-const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose }) => {
+const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose, initialCompanion }) => {
   const { isMobile } = useMobile();
-  const [selectedCompanion, setSelectedCompanion] = useState(0);
+  
+  // Set initial companion based on prop or default to first
+  const getInitialCompanionIndex = () => {
+    if (initialCompanion) {
+      const index = companions.findIndex(c => c.id === initialCompanion);
+      return index >= 0 ? index : 0;
+    }
+    return 0;
+  };
+  
+  const [selectedCompanion, setSelectedCompanion] = useState(getInitialCompanionIndex());
   const [videoError, setVideoError] = useState(false);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -239,11 +266,12 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose }) => {
                   <button
                     key={index}
                     onClick={() => setSelectedCompanion(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                      index === selectedCompanion 
-                        ? currentCompanion.id === 'samantha' ? 'bg-pink-400' : 'bg-blue-400'
-                        : 'bg-gray-600'
-                    }`}
+                                         className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                       index === selectedCompanion 
+                         ? currentCompanion.id === 'samantha' ? 'bg-pink-400' : 
+                           currentCompanion.id === 'elias' ? 'bg-blue-400' : 'bg-purple-400'
+                         : 'bg-gray-600'
+                     }`}
                   />
                 ))}
               </div>
@@ -263,7 +291,9 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose }) => {
                 <div className={`absolute inset-0 flex items-center justify-center ${
                   currentCompanion.id === 'samantha' 
                     ? 'bg-gradient-to-br from-pink-500/30 to-rose-600/30' 
-                    : 'bg-gradient-to-br from-blue-500/30 to-cyan-600/30'
+                    : currentCompanion.id === 'elias'
+                    ? 'bg-gradient-to-br from-blue-500/30 to-cyan-600/30'
+                    : 'bg-gradient-to-br from-purple-500/30 to-pink-500/30'
                 }`}>
                   <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
                 </div>
@@ -293,7 +323,9 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose }) => {
                 <div className={`absolute inset-0 flex items-center justify-center ${
                   currentCompanion.id === 'samantha' 
                     ? 'bg-gradient-to-br from-pink-500/30 to-rose-600/30' 
-                    : 'bg-gradient-to-br from-blue-500/30 to-cyan-600/30'
+                    : currentCompanion.id === 'elias'
+                    ? 'bg-gradient-to-br from-blue-500/30 to-cyan-600/30'
+                    : 'bg-gradient-to-br from-purple-500/30 to-pink-500/30'
                 }`}>
                   <div className="text-center">
                     <Lock className="w-6 h-6 text-white mx-auto mb-1" />
@@ -306,16 +338,19 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose }) => {
               <div className={`absolute inset-0 ${
                 currentCompanion.id === 'samantha' 
                   ? 'bg-gradient-to-br from-pink-500/30 to-rose-600/30' 
-                  : 'bg-gradient-to-br from-blue-500/30 to-cyan-600/30'
+                  : currentCompanion.id === 'elias'
+                  ? 'bg-gradient-to-br from-blue-500/30 to-cyan-600/30'
+                  : 'bg-gradient-to-br from-purple-500/30 to-pink-500/30'
               }`} />
             </div>
 
             {/* Companion Info */}
             <div className="text-center">
               <h3 className="text-xl font-bold text-white mb-2">{currentCompanion.name}</h3>
-              <p className={`text-sm mb-3 ${
-                currentCompanion.id === 'samantha' ? 'text-gray-200' : 'text-blue-300'
-              }`}>{currentCompanion.subtitle}</p>
+                             <p className={`text-sm mb-3 ${
+                 currentCompanion.id === 'samantha' ? 'text-gray-200' : 
+                 currentCompanion.id === 'elias' ? 'text-blue-300' : 'text-purple-300'
+               }`}>{currentCompanion.subtitle}</p>
               
               <p className="text-gray-300 text-sm mb-4 leading-relaxed">
                 {currentCompanion.description}
@@ -326,11 +361,13 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose }) => {
                 {currentCompanion.abilities.slice(0, 3).map((ability, index) => (
                   <span
                     key={index}
-                    className={`px-3 py-1 rounded-full text-xs border ${
-                      currentCompanion.id === 'samantha' 
-                        ? 'bg-pink-700/20 text-gray-200 border-pink-700/30'
-                        : 'bg-blue-500/20 text-blue-300 border-blue-500/30'
-                    }`}
+                                         className={`px-3 py-1 rounded-full text-xs border ${
+                       currentCompanion.id === 'samantha' 
+                         ? 'bg-pink-700/20 text-gray-200 border-pink-700/30'
+                         : currentCompanion.id === 'elias'
+                         ? 'bg-blue-500/20 text-blue-300 border-blue-500/30'
+                         : 'bg-purple-500/20 text-purple-300 border-purple-500/30'
+                     }`}
                   >
                     {ability}
                   </span>
@@ -342,9 +379,11 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose }) => {
                 className={`w-full px-4 py-3 text-white font-bold rounded-lg transition-all duration-300 ${
                   !currentCompanion.unlocked 
                     ? 'opacity-50 cursor-not-allowed bg-gray-600' 
-                    : currentCompanion.id === 'samantha'
-                      ? 'bg-gradient-to-r from-pink-700 to-pink-900 hover:from-pink-800 hover:to-pink-950 active:scale-95'
-                      : 'bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 active:scale-95'
+                                         : currentCompanion.id === 'samantha'
+                       ? 'bg-gradient-to-r from-pink-700 to-pink-900 hover:from-pink-800 hover:to-pink-950 active:scale-95'
+                       : currentCompanion.id === 'elias'
+                       ? 'bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 active:scale-95'
+                       : 'bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 active:scale-95'
                 }`}
                 disabled={!currentCompanion.unlocked}
               >
@@ -391,9 +430,11 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose }) => {
                 onClick={() => setSelectedCompanion(index)}
                 className={`px-4 py-2 rounded-full transition-all duration-300 ${
                   index === selectedCompanion 
-                    ? currentCompanion.id === 'samantha'
-                      ? 'bg-gradient-to-r from-pink-700 to-pink-900 text-white'
-                      : 'bg-gradient-to-r from-blue-500 to-cyan-600 text-white'
+                                         ? currentCompanion.id === 'samantha'
+                       ? 'bg-gradient-to-r from-pink-700 to-pink-900 text-white'
+                       : currentCompanion.id === 'elias'
+                       ? 'bg-gradient-to-r from-blue-500 to-cyan-600 text-white'
+                       : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white'
                     : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                 }`}
               >
@@ -416,8 +457,9 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose }) => {
           <div className="w-1/3 space-y-6">
             <div className="bg-gray-800/50 rounded-xl p-6 border border-pink-800/20">
               <h3 className="text-2xl font-bold text-white mb-2">{currentCompanion.name}</h3>
-                              <p className={`text-lg mb-4 ${
-                  currentCompanion.id === 'samantha' ? 'text-gray-200' : 'text-blue-300'
+                                                              <p className={`text-lg mb-4 ${
+                  currentCompanion.id === 'samantha' ? 'text-gray-200' : 
+                  currentCompanion.id === 'elias' ? 'text-blue-300' : 'text-purple-300'
                 }`}>{currentCompanion.subtitle}</p>
               <p className="text-gray-300 mb-6">
                 {currentCompanion.description}
@@ -429,11 +471,13 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose }) => {
                   {currentCompanion.abilities.map((ability) => (
                     <div
                       key={ability}
-                      className={`px-3 py-2 rounded-lg text-sm border ${
-                        currentCompanion.id === 'samantha'
-                          ? 'bg-pink-700/20 text-gray-200 border-pink-700/30'
-                          : 'bg-blue-500/20 text-blue-300 border-blue-500/30'
-                      }`}
+                                             className={`px-3 py-2 rounded-lg text-sm border ${
+                         currentCompanion.id === 'samantha'
+                           ? 'bg-pink-700/20 text-gray-200 border-pink-700/30'
+                           : currentCompanion.id === 'elias'
+                           ? 'bg-blue-500/20 text-blue-300 border-blue-500/30'
+                           : 'bg-purple-500/20 text-purple-300 border-purple-500/30'
+                       }`}
                     >
                       {ability}
                     </div>
@@ -446,9 +490,11 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose }) => {
                 className={`w-full px-6 py-3 text-white font-bold rounded-xl transition-all duration-300 ${
                   !currentCompanion.unlocked 
                     ? 'opacity-50 cursor-not-allowed bg-gray-600' 
-                    : currentCompanion.id === 'samantha'
-                      ? 'bg-gradient-to-r from-pink-700 to-pink-900 hover:scale-105'
-                      : 'bg-gradient-to-r from-blue-500 to-cyan-600 hover:scale-105'
+                                         : currentCompanion.id === 'samantha'
+                       ? 'bg-gradient-to-r from-pink-700 to-pink-900 hover:scale-105'
+                       : currentCompanion.id === 'elias'
+                       ? 'bg-gradient-to-r from-blue-500 to-cyan-600 hover:scale-105'
+                       : 'bg-gradient-to-r from-purple-500 to-pink-500 hover:scale-105'
                 }`}
                 disabled={!currentCompanion.unlocked}
               >
@@ -462,9 +508,10 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose }) => {
             {/* Loading indicator */}
             {!isVideoLoaded && !videoError && currentCompanion.unlocked && (
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className={`animate-spin rounded-full h-16 w-16 border-b-2 ${
-                  currentCompanion.id === 'samantha' ? 'border-pink-400' : 'border-blue-400'
-                }`}></div>
+                                 <div className={`animate-spin rounded-full h-16 w-16 border-b-2 ${
+                   currentCompanion.id === 'samantha' ? 'border-pink-400' : 
+                   currentCompanion.id === 'elias' ? 'border-blue-400' : 'border-purple-400'
+                 }`}></div>
               </div>
             )}
             
@@ -497,7 +544,9 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose }) => {
               <div className={`absolute inset-0 flex items-center justify-center ${
                 currentCompanion.id === 'samantha' 
                   ? 'bg-gradient-to-br from-pink-500/30 to-rose-600/30' 
-                  : 'bg-gradient-to-br from-blue-500/30 to-cyan-600/30'
+                  : currentCompanion.id === 'elias'
+                  ? 'bg-gradient-to-br from-blue-500/30 to-cyan-600/30'
+                  : 'bg-gradient-to-br from-purple-500/30 to-pink-500/30'
               }`}>
                 <div className="text-center">
                   <Lock className="w-24 h-24 text-white mx-auto mb-6" />
@@ -511,7 +560,9 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose }) => {
             <div className={`absolute inset-0 ${
               currentCompanion.id === 'samantha' 
                 ? 'bg-gradient-to-br from-pink-500/30 to-rose-600/30' 
-                : 'bg-gradient-to-br from-blue-500/30 to-cyan-600/30'
+                : currentCompanion.id === 'elias'
+                ? 'bg-gradient-to-br from-blue-500/30 to-cyan-600/30'
+                : 'bg-gradient-to-br from-purple-500/30 to-pink-500/30'
             }`} />
             <div className="absolute inset-0 bg-black/40" />
             
