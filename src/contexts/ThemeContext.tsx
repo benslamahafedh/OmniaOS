@@ -30,8 +30,8 @@ interface ThemeContextType {
 const defaultTheme: Theme = {
   id: 'default',
   name: 'Samantha Pink',
-  primary: 'from-pink-700 to-pink-900',
-  secondary: 'from-pink-800 to-pink-950',
+  primary: 'from-pink-800 to-pink-950',
+  secondary: 'from-pink-900 to-black',
   accent: 'text-pink-300',
   background: 'from-gray-900 to-black'
 };
@@ -93,9 +93,9 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const body = document.body;
     
     // Apply theme colors
-    root.style.setProperty('--tw-gradient-from', `rgb(190 24 93)`); // pink-700
-    root.style.setProperty('--tw-gradient-to', `rgb(131 24 67)`); // pink-900
-    root.style.setProperty('--accent-color', 'rgb(244 114 182)'); // pink-300
+    root.style.setProperty('--tw-gradient-from', `rgb(157 23 77)`); // pink-800
+    root.style.setProperty('--tw-gradient-to', `rgb(88 28 135)`); // purple-900 (darker)
+    root.style.setProperty('--accent-color', 'rgb(190 24 93)'); // pink-700 (darker)
     
     // Apply UI settings
     root.style.setProperty('--animation-speed', `${uiSettings.animationSpeed}%`);
@@ -148,8 +148,8 @@ export const themes: Theme[] = [
   {
     id: 'sunset',
     name: 'Sunset Vibes',
-    primary: 'from-pink-500 to-pink-700',
-    secondary: 'from-rose-500 to-pink-700',
+    primary: 'from-pink-700 to-pink-900',
+    secondary: 'from-pink-800 to-pink-950',
     accent: 'text-pink-400',
     background: 'from-slate-900 to-black'
   }

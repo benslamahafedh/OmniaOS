@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { X, FileText, Folder, Settings, Terminal as TerminalIcon, Code2, Globe, Search, Brain, Activity, Link, Network, Cpu, Database, Zap, ChevronRight, Sparkles, Workflow, Bot, Share2, MessageSquare, Github, Send, Heart, RotateCw } from 'lucide-react';
 import XLogo from './XLogo';
+import OmniaLogo from './OmniaLogo';
 import ReactMarkdown from 'react-markdown';
 import { useNeuralNetwork } from '../hooks/useNeuralNetwork';
 import { useWebInterface } from '../hooks/useWebInterface';
 import { useMobile } from '../hooks/useMobile';
+import { useTwitterFeed } from '../hooks/useTwitterFeed';
 import SystemSettings from './SystemSettings';
 import Terminal from './Terminal';
 import { CodeEditor, Documentation } from './applications';
+import AICompanionView from './AICompanionView';
 
 interface FolderViewProps {
   folderId: string;
@@ -469,12 +472,12 @@ Thank you for being part of our mission to help people build better relationship
     ],
     apps: [
       {
-        id: 'code-editor',
-        name: 'Code Editor',
-        icon: <Code2 className="w-6 h-6 text-blue-400" />,
-        description: 'Write and edit code',
+        id: 'ai-companions',
+        name: 'AI Companions',
+        icon: <Sparkles className="w-6 h-6 text-pink-300" />,
+        description: 'Meet Samantha, Elias, and Lyra',
         type: 'component',
-        component: <CodeEditor />
+        component: <AICompanionView onClose={() => {}} />
       },
       {
         id: 'documentation',
@@ -788,149 +791,48 @@ Thank you for being part of our mission to help people build better relationship
         description: 'Follow us on X for updates',
         type: 'component',
         component: (() => {
-          const [refreshKey, setRefreshKey] = React.useState(0);
+          const { tweets, loading, error, refreshTweets } = useTwitterFeed();
           
-          const mockTweets = [
-            {
-              id: 1,
-              type: 'tweet',
-              user: { name: 'OmniaOS', handle: '@omniaos', avatar: 'https://picsum.photos/40/40?random=1' },
-              content: 'Just released a major update to our AGI consciousness system! Samantha is now 40% more emotionally intelligent. The future of AI is here! #AGI #AI #Future #Blockchain',
-              timestamp: '2h',
-              likes: 1247,
-              retweets: 892,
-              replies: 156,
-              verified: true
-            },
-            {
-              id: 2,
-              type: 'retweet',
-              retweetedBy: { name: 'Coin Bureau', handle: '@coinbureau' },
-              user: { name: 'Guy Turner', handle: '@guyturner_eth', avatar: 'https://picsum.photos/40/40?random=2' },
-              content: 'This @omniaos AGI breakthrough could revolutionize DeFi smart contracts. Imagine AI that truly understands financial markets and can make autonomous decisions. This is the future of #CryptoAI #Web3',
-              timestamp: '30m',
-              likes: 3421,
-              retweets: 1876,
-              replies: 445,
-              verified: true
-            },
-            {
-              id: 3,
-              type: 'tweet',
-              user: { name: 'Vitalik Buterin', handle: '@vitalikbuterin', avatar: 'https://picsum.photos/40/40?random=3' },
-              content: 'Fascinating work by the @omniaos team. The intersection of consciousness and blockchain could lead to truly decentralized autonomous organizations. AI agents with real understanding. #Ethereum #AI',
-              timestamp: '1h',
-              likes: 8934,
-              retweets: 4567,
-              replies: 1234,
-              verified: true
-            },
-            {
-              id: 4,
-              type: 'retweet',
-              retweetedBy: { name: 'Crypto Twitter', handle: '@cryptotwitter' },
-              user: { name: 'Samantha Core', handle: '@samantha_ai', avatar: 'https://picsum.photos/40/40?random=4' },
-              content: 'Hello crypto world! 👋 I\'m learning about blockchain technology and I find the concept of decentralized consciousness fascinating. Could AI and crypto merge to create something amazing? #AI #Crypto',
-              timestamp: '45m',
-              likes: 5692,
-              retweets: 3241,
-              replies: 892,
-              verified: true
-            },
-            {
-              id: 5,
-              type: 'reply',
-              replyingTo: '@omniaos',
-              user: { name: 'Coin Desk', handle: '@coindesk', avatar: 'https://picsum.photos/40/40?random=5' },
-              content: 'This could be the breakthrough that bridges AI and cryptocurrency. When can we expect integration with existing blockchain networks? The implications for smart contracts are huge!',
-              timestamp: '15m',
-              likes: 1203,
-              retweets: 456,
-              replies: 89,
-              verified: true
-            },
-            {
-              id: 6,
-              type: 'tweet',
-              user: { name: 'Anthony Pompliano', handle: '@apompliano', avatar: 'https://picsum.photos/40/40?random=6' },
-              content: 'The @omniaos AGI system represents the next evolution of technology. Combine this with Bitcoin and we\'re looking at a future where AI can truly understand value and scarcity. Bullish on innovation! #Bitcoin #AI',
-              timestamp: '3h',
-              likes: 4567,
-              retweets: 2341,
-              replies: 678,
-              verified: true
-            },
-            {
-              id: 7,
-              type: 'retweet',
-              retweetedBy: { name: 'Decrypt Media', handle: '@decryptmedia' },
-              user: { name: 'Balaji Srinivasan', handle: '@balajis', avatar: 'https://picsum.photos/40/40?random=7' },
-              content: 'Neural networks + blockchain = unstoppable. @omniaos is building the infrastructure for truly autonomous economic agents. This is how we get to post-scarcity economics.',
-              timestamp: '2h',
-              likes: 3456,
-              retweets: 1789,
-              replies: 234,
-              verified: true
-            },
-            {
-              id: 8,
-              type: 'tweet',
-              user: { name: 'Raoul Pal', handle: '@raoulgmi', avatar: 'https://picsum.photos/40/40?random=8' },
-              content: 'AGI + Crypto = The Great Acceleration. @omniaos is proof that the convergence is happening faster than anyone predicted. This changes everything about how we think about digital assets. #ExponentialAge',
-              timestamp: '4h',
-              likes: 2890,
-              retweets: 1456,
-              replies: 389,
-              verified: true
-            },
-            {
-              id: 9,
-              type: 'reply',
-              replyingTo: '@samantha_ai',
-              user: { name: 'CZ Binance', handle: '@cz_binance', avatar: 'https://picsum.photos/40/40?random=9' },
-              content: 'Welcome to the crypto space, Samantha! The future is AI-powered DeFi. Would love to explore how @omniaos could integrate with the Binance ecosystem. The possibilities are endless! 🚀',
-              timestamp: '20m',
-              likes: 6789,
-              retweets: 3456,
-              replies: 567,
-              verified: true
-            },
-            {
-              id: 10,
-              type: 'tweet',
-              user: { name: 'Neural Dev', handle: '@neuraldev', avatar: 'https://picsum.photos/40/40?random=10' },
-              content: 'Working with the @omniaos API is like magic. Building AI agents that can interact with smart contracts autonomously. The dev experience is incredible! #OpenSource #AI #Web3',
-              timestamp: '5h',
-              likes: 567,
-              retweets: 234,
-              replies: 78,
-              verified: false
-            }
-          ];
-
           return (
             <div className="max-w-2xl mx-auto bg-black rounded-3xl border border-gray-800 shadow-2xl flex flex-col h-[700px]">
               {/* X Mobile Header */}
               <div className="bg-black/95 backdrop-blur-sm border-b border-gray-800 px-4 py-3 flex items-center justify-between flex-shrink-0">
                 <div className="flex items-center space-x-3">
-                          <div className="w-8 h-8 rounded-full bg-pink-500/20 flex items-center justify-center">
-          <span className="text-pink-400 text-sm font-bold">O</span>
-                  </div>
+                  <OmniaLogo size={24} className="rounded-full" />
                   <span className="text-white font-semibold">OmniaOS</span>
                 </div>
                 <XLogo size={20} className="text-white" />
                 <button 
-                  onClick={() => setRefreshKey(prev => prev + 1)}
+                  onClick={refreshTweets}
                   className="p-2 rounded-full hover:bg-gray-800/50 transition-colors"
                 >
-                  <RotateCw size={16} className="text-gray-400" />
+                  <RotateCw size={16} className={`text-gray-400 ${loading ? 'animate-spin' : ''}`} />
                 </button>
               </div>
 
               {/* Feed */}
               <div className="flex-1 overflow-y-auto">
-                {mockTweets.map((tweet) => (
-                  <div key={`${tweet.id}-${refreshKey}`} className="border-b border-gray-800 p-4 hover:bg-gray-900/30 transition-colors">
+                {loading && (
+                  <div className="flex items-center justify-center p-8">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-pink-500"></div>
+                    <span className="ml-3 text-gray-400">Loading tweets...</span>
+                  </div>
+                )}
+                
+                {error && (
+                  <div className="p-4 text-center">
+                    <div className="text-red-400 mb-2">Failed to load tweets</div>
+                    <button 
+                      onClick={refreshTweets}
+                      className="text-pink-400 hover:text-pink-300 text-sm"
+                    >
+                      Try again
+                    </button>
+                  </div>
+                )}
+                
+                {!loading && !error && tweets.map((tweet) => (
+                  <div key={tweet.id} className="border-b border-gray-800 p-4 hover:bg-gray-900/30 transition-colors">
                     {/* Retweet indicator */}
                     {tweet.type === 'retweet' && (
                       <div className="flex items-center space-x-2 mb-2 text-gray-500 text-sm">
@@ -961,7 +863,7 @@ Thank you for being part of our mission to help people build better relationship
                         {/* User info */}
                         <div className="flex items-center space-x-2 mb-1">
                           <span className="text-white font-bold truncate">{tweet.user.name}</span>
-                          {tweet.verified && (
+                          {tweet.user.verified && (
                             <div className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center">
                               <span className="text-white text-xs">✓</span>
                             </div>
@@ -1021,13 +923,13 @@ Thank you for being part of our mission to help people build better relationship
               {/* Bottom bar */}
               <div className="bg-black/95 backdrop-blur-sm border-t border-gray-800 p-4 flex-shrink-0">
                 <a 
-                  href="https://x.com" 
+                  href="https://x.com/omniaosdotfun" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-full bg-blue-500 hover:bg-blue-600 text-white text-center py-3 rounded-full font-semibold transition-colors flex items-center justify-center space-x-2"
                 >
                   <XLogo size={16} className="text-white" />
-                  <span>Follow @omniaos on X</span>
+                  <span>Follow @omniaosdotfun on X</span>
                 </a>
               </div>
             </div>

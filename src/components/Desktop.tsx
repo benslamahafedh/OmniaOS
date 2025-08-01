@@ -19,6 +19,7 @@ import FolderView from './FolderView';
 
 import SideDock from './SideDock';
 import XLogo from './XLogo';
+import OmniaLogo from './OmniaLogo';
 
 interface FolderItem {
   id: string;
@@ -363,7 +364,7 @@ const Desktop: React.FC = () => {
       `}>
         <div className={`space-y-2 ${isMobile ? 'mobile-metric-item' : ''}`}>
           <div className="flex items-center justify-between">
-            <span className="text-pink-400/80">CPU</span>
+                            <span className="text-pink-500/80">CPU</span>
             <span className={`text-white ${isMobile ? 'mobile-metric-value' : ''}`}>
               {systemMetrics.cpu}%
             </span>
@@ -413,28 +414,28 @@ const Desktop: React.FC = () => {
       id: 'system',
       name: 'System Core',
       icon: <Server className="w-6 h-6" />,
-      color: 'from-pink-700 to-pink-900',
+      color: 'from-pink-800 to-pink-950',
       description: 'Core system files and settings'
     },
     {
       id: 'docs',
               name: 'Documentation',
         icon: <Database className="w-6 h-6" />,
-        color: 'from-pink-500 to-pink-700',
+        color: 'from-pink-700 to-pink-900',
       description: 'System documentation and guides'
     },
     {
       id: 'neural',
       name: 'Neural Network',
       icon: <Activity className="w-6 h-6" />,
-      color: 'from-pink-600 to-pink-800',
+      color: 'from-pink-800 to-pink-950',
       description: 'AI processing modules'
     },
     {
       id: 'web',
       name: 'Web Interface',
       icon: <Radio className="w-6 h-6" />,
-      color: 'from-pink-400 to-pink-600',
+      color: 'from-pink-700 to-pink-900',
       description: 'Internet connectivity'
     },
     // {
@@ -448,7 +449,7 @@ const Desktop: React.FC = () => {
       id: 'apps',
       name: 'Applications',
       icon: <Grid3X3 className="w-6 h-6" />,
-      color: 'from-pink-600 to-pink-800',
+      color: 'from-pink-800 to-pink-950',
       description: 'Installed applications'
     }
   ];
@@ -484,7 +485,7 @@ const Desktop: React.FC = () => {
     <div className="min-h-screen w-full relative overflow-hidden">
       {/* Notification Bar */}
       <div className={`
-        fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-xl border-b border-pink-500/20
+        fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-xl border-b border-pink-700/20
         ${isMobile ? 'h-14' : 'h-auto'}
       `}>
         <div className={`
@@ -492,11 +493,14 @@ const Desktop: React.FC = () => {
           ${isMobile ? 'px-4 py-2' : 'px-6 py-3'}
         `}>
           <div className="flex items-center space-x-6">
-            <div className={`
-              font-light bg-gradient-to-r from-pink-200 via-pink-300 to-pink-400 bg-clip-text text-transparent tracking-[0.3em]
-              ${isMobile ? 'text-lg' : 'text-2xl'}
-            `}>
-              {isMobile ? 'OMNIA' : 'OMNIAOS'}
+            <div className="flex items-center space-x-3">
+              <OmniaLogo size={isMobile ? 20 : 28} className="rounded-full" />
+              <div className={`
+                font-light text-gray-200 tracking-[0.3em]
+                ${isMobile ? 'text-lg' : 'text-2xl'}
+              `}>
+                {isMobile ? 'OMNIA' : 'OMNIAOS'}
+              </div>
             </div>
             
             {/* Social Media Links - Hide on mobile or show simplified */}
@@ -506,25 +510,25 @@ const Desktop: React.FC = () => {
                   href="https://github.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-pink-700/10 hover:bg-pink-700/20 cursor-pointer transition-all duration-300 group border border-pink-500/20"
+                  className="p-2 rounded-lg bg-pink-800/10 hover:bg-pink-800/20 cursor-pointer transition-all duration-300 group border border-pink-700/20"
                 >
-                  <Github size={16} className="text-pink-300 group-hover:text-pink-200" />
+                  <Github size={16} className="text-gray-200 group-hover:text-white" />
                 </a>
                 <a 
                   href="https://x.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-pink-700/10 hover:bg-pink-700/20 cursor-pointer transition-all duration-300 group border border-pink-500/20"
+                  className="p-2 rounded-lg bg-pink-800/10 hover:bg-pink-800/20 cursor-pointer transition-all duration-300 group border border-pink-700/20"
                 >
-                  <XLogo size={16} className="text-pink-300 group-hover:text-pink-200" />
+                  <XLogo size={16} className="text-gray-200 group-hover:text-white" />
                 </a>
                 <a 
                   href="https://telegram.org" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-pink-700/10 hover:bg-pink-700/20 cursor-pointer transition-all duration-300 group border border-pink-500/20"
+                  className="p-2 rounded-lg bg-pink-800/10 hover:bg-pink-800/20 cursor-pointer transition-all duration-300 group border border-pink-700/20"
                 >
-                  <Send size={16} className="text-pink-300 group-hover:text-pink-200" />
+                  <Send size={16} className="text-gray-200 group-hover:text-white" />
                 </a>
               </div>
             )}
@@ -853,7 +857,7 @@ const Desktop: React.FC = () => {
                 </div>
                 
                 <div className="text-center transform transition-transform duration-300 group-hover:scale-105">
-                  <div className="text-white text-sm font-semibold group-hover:text-pink-400 transition-colors duration-300">
+                  <div className="text-gray-200 text-sm font-semibold group-hover:text-pink-300 transition-colors duration-300">
                     {folder.name}
                   </div>
                   <div className="text-gray-400 text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -930,21 +934,21 @@ const Desktop: React.FC = () => {
             {widgets.filter(widget => widget.name !== 'System Monitor').map(widget => (
               <div
                 key={widget.id}
-                className="mobile-widget bg-black/80 backdrop-blur-xl border border-pink-500/30 rounded-2xl overflow-hidden"
+                className="mobile-widget bg-black/80 backdrop-blur-xl border border-pink-700/30 rounded-2xl overflow-hidden"
               >
                 {/* Widget Header */}
-                <div className="flex items-center justify-between p-3 bg-pink-500/10 border-b border-pink-500/20">
-                  <span className="text-pink-400 font-medium text-sm">{widget.name}</span>
+                <div className="flex items-center justify-between p-3 bg-pink-700/10 border-b border-pink-700/20">
+                  <span className="text-gray-200 font-medium text-sm">{widget.name}</span>
                   <div className="flex items-center space-x-2">
                     <button
                       onClick={() => minimizeWidget(widget.id)}
-                      className="text-pink-400/60 hover:text-pink-400 transition-colors"
+                      className="text-gray-300/60 hover:text-gray-200 transition-colors"
                     >
                       {widget.minimized ? <Maximize2 size={16} /> : <Minimize2 size={16} />}
                     </button>
                     <button
                       onClick={() => removeWidget(widget.id)}
-                      className="text-pink-400/60 hover:text-pink-400 transition-colors"
+                      className="text-gray-300/60 hover:text-gray-200 transition-colors"
                     >
                       <X size={16} />
                     </button>
@@ -964,7 +968,7 @@ const Desktop: React.FC = () => {
           widgets.map(widget => (
             <div
               key={widget.id}
-              className="fixed z-30 bg-black/80 backdrop-blur-xl border border-pink-500/30 rounded-2xl overflow-hidden"
+              className="fixed z-30 bg-black/80 backdrop-blur-xl border border-pink-700/30 rounded-2xl overflow-hidden"
               style={{
                 left: widget.x,
                 top: widget.y,
@@ -975,18 +979,18 @@ const Desktop: React.FC = () => {
               onMouseDown={() => setDraggedWidget(widget.id)}
             >
               {/* Widget Header */}
-              <div className="flex items-center justify-between p-3 bg-pink-500/10 border-b border-pink-500/20">
-                <span className="text-pink-400 font-medium text-sm">{widget.name}</span>
+                              <div className="flex items-center justify-between p-3 bg-pink-700/10 border-b border-pink-700/20">
+                  <span className="text-gray-200 font-medium text-sm">{widget.name}</span>
                 <div className="flex items-center space-x-2">
                   <button
                     onClick={() => minimizeWidget(widget.id)}
-                    className="text-pink-400/60 hover:text-pink-400 transition-colors"
+                    className="text-gray-300/60 hover:text-gray-200 transition-colors"
                   >
                     {widget.minimized ? <Maximize2 size={14} /> : <Minimize2 size={14} />}
                   </button>
                   <button
                     onClick={() => removeWidget(widget.id)}
-                    className="text-pink-400/60 hover:text-pink-400 transition-colors"
+                    className="text-gray-300/60 hover:text-gray-200 transition-colors"
                   >
                     <X size={14} />
                   </button>

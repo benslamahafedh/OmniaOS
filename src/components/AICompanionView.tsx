@@ -208,16 +208,16 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose }) => {
     return (
       <div className="fixed inset-0 bg-black/90 backdrop-blur-xl z-50 flex items-center justify-center p-4">
         {/* Compact Mobile Modal - 800px height */}
-        <div className="bg-gradient-to-br from-gray-900/95 to-black/95 rounded-2xl w-full max-w-sm h-[800px] border border-pink-700/30 shadow-2xl backdrop-blur-xl overflow-hidden flex flex-col">
+                  <div className="bg-gradient-to-br from-gray-900/95 to-black/95 rounded-2xl w-full max-w-sm h-[800px] border border-pink-800/30 shadow-2xl backdrop-blur-xl overflow-hidden flex flex-col">
           {/* Mobile Header - Fixed and Always Visible */}
-                      <div className="flex items-center justify-between p-3 border-b border-pink-700/30 bg-gray-900/50 flex-shrink-0 h-14">
+                      <div className="flex items-center justify-between p-3 border-b border-pink-800/30 bg-gray-900/50 flex-shrink-0 h-14">
             <h2 className="text-base font-bold text-white flex items-center">
-                              <Sparkles className="w-4 h-4 text-pink-300 mr-2" />
+                              <Sparkles className="w-4 h-4 text-gray-200 mr-2" />
               AI Companion
             </h2>
             <button
               onClick={onClose}
-                              className="flex items-center justify-center w-8 h-8 bg-pink-500/30 hover:bg-pink-500/50 text-pink-300 hover:text-white rounded-full border border-pink-500/40 transition-all duration-300 active:scale-95 z-10"
+                              className="flex items-center justify-center w-8 h-8 bg-pink-700/30 hover:bg-pink-700/50 text-gray-200 hover:text-white rounded-full border border-pink-700/40 transition-all duration-300 active:scale-95 z-10"
             >
               <X className="w-4 h-4" />
             </button>
@@ -314,7 +314,7 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose }) => {
             <div className="text-center">
               <h3 className="text-xl font-bold text-white mb-2">{currentCompanion.name}</h3>
               <p className={`text-sm mb-3 ${
-                currentCompanion.id === 'samantha' ? 'text-pink-300' : 'text-blue-300'
+                currentCompanion.id === 'samantha' ? 'text-gray-200' : 'text-blue-300'
               }`}>{currentCompanion.subtitle}</p>
               
               <p className="text-gray-300 text-sm mb-4 leading-relaxed">
@@ -328,7 +328,7 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose }) => {
                     key={index}
                     className={`px-3 py-1 rounded-full text-xs border ${
                       currentCompanion.id === 'samantha' 
-                        ? 'bg-pink-500/20 text-pink-300 border-pink-500/30'
+                        ? 'bg-pink-700/20 text-gray-200 border-pink-700/30'
                         : 'bg-blue-500/20 text-blue-300 border-blue-500/30'
                     }`}
                   >
@@ -343,7 +343,7 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose }) => {
                   !currentCompanion.unlocked 
                     ? 'opacity-50 cursor-not-allowed bg-gray-600' 
                     : currentCompanion.id === 'samantha'
-                      ? 'bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 active:scale-95'
+                      ? 'bg-gradient-to-r from-pink-700 to-pink-900 hover:from-pink-800 hover:to-pink-950 active:scale-95'
                       : 'bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 active:scale-95'
                 }`}
                 disabled={!currentCompanion.unlocked}
@@ -360,11 +360,11 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose }) => {
   // Desktop Layout
   return (
     <div className="fixed inset-0 bg-black/90 backdrop-blur-xl z-50 flex items-center justify-center p-8">
-              <div className="bg-gradient-to-br from-gray-900/90 to-black/90 rounded-3xl p-8 max-w-6xl w-full h-[80vh] border border-pink-700/30 shadow-2xl backdrop-blur-xl overflow-hidden">
+              <div className="bg-gradient-to-br from-gray-900/90 to-black/90 rounded-3xl p-8 max-w-6xl w-full h-[80vh] border border-pink-800/30 shadow-2xl backdrop-blur-xl overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-3xl font-bold text-white flex items-center">
-            <Sparkles className="w-8 h-8 text-pink-300 mr-4" />
+            <Sparkles className="w-8 h-8 text-gray-200 mr-4" />
             AI Companion
           </h2>
           <button
@@ -392,7 +392,7 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose }) => {
                 className={`px-4 py-2 rounded-full transition-all duration-300 ${
                   index === selectedCompanion 
                     ? currentCompanion.id === 'samantha'
-                      ? 'bg-gradient-to-r from-pink-500 to-rose-600 text-white'
+                      ? 'bg-gradient-to-r from-pink-700 to-pink-900 text-white'
                       : 'bg-gradient-to-r from-blue-500 to-cyan-600 text-white'
                     : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                 }`}
@@ -414,10 +414,10 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose }) => {
         <div className="flex h-[calc(100%-10rem)] gap-6">
           {/* Left Panel - Companion Info */}
           <div className="w-1/3 space-y-6">
-            <div className="bg-gray-800/50 rounded-xl p-6 border border-pink-700/20">
+            <div className="bg-gray-800/50 rounded-xl p-6 border border-pink-800/20">
               <h3 className="text-2xl font-bold text-white mb-2">{currentCompanion.name}</h3>
                               <p className={`text-lg mb-4 ${
-                  currentCompanion.id === 'samantha' ? 'text-pink-300' : 'text-blue-300'
+                  currentCompanion.id === 'samantha' ? 'text-gray-200' : 'text-blue-300'
                 }`}>{currentCompanion.subtitle}</p>
               <p className="text-gray-300 mb-6">
                 {currentCompanion.description}
@@ -431,7 +431,7 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose }) => {
                       key={ability}
                       className={`px-3 py-2 rounded-lg text-sm border ${
                         currentCompanion.id === 'samantha'
-                          ? 'bg-pink-500/20 text-pink-300 border-pink-500/30'
+                          ? 'bg-pink-700/20 text-gray-200 border-pink-700/30'
                           : 'bg-blue-500/20 text-blue-300 border-blue-500/30'
                       }`}
                     >
@@ -447,7 +447,7 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose }) => {
                   !currentCompanion.unlocked 
                     ? 'opacity-50 cursor-not-allowed bg-gray-600' 
                     : currentCompanion.id === 'samantha'
-                      ? 'bg-gradient-to-r from-pink-500 to-rose-600 hover:scale-105'
+                      ? 'bg-gradient-to-r from-pink-700 to-pink-900 hover:scale-105'
                       : 'bg-gradient-to-r from-blue-500 to-cyan-600 hover:scale-105'
                 }`}
                 disabled={!currentCompanion.unlocked}
@@ -458,7 +458,7 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose }) => {
           </div>
 
           {/* Right Panel - Video */}
-          <div className="flex-1 bg-gray-900/50 rounded-xl overflow-hidden border border-pink-700/20 relative">
+          <div className="flex-1 bg-gray-900/50 rounded-xl overflow-hidden border border-pink-800/20 relative">
             {/* Loading indicator */}
             {!isVideoLoaded && !videoError && currentCompanion.unlocked && (
               <div className="absolute inset-0 flex items-center justify-center">
