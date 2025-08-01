@@ -9,7 +9,7 @@ import {
   MemoryStick, Thermometer, Server, Database, Radio, 
   Sparkles, Grid3X3, Code2, Search, Command, 
   Maximize2, Minimize2, X, RotateCw, Plus,
-  Github, Send
+  Send
 } from 'lucide-react';
 import Taskbar from './Taskbar';
 import SystemSettings from './SystemSettings';
@@ -504,26 +504,29 @@ const Desktop: React.FC = () => {
             {!isMobile && (
               <div className="flex items-center space-x-3">
                 <a 
-                  href="https://github.com" 
+                  href="https://x.com/omniaosdotfun" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="p-2 rounded-lg bg-pink-800/10 hover:bg-pink-800/20 cursor-pointer transition-all duration-300 group border border-pink-700/20"
-                >
-                  <Github size={16} className="text-gray-200 group-hover:text-white" />
-                </a>
-                <a 
-                  href="https://x.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-pink-800/10 hover:bg-pink-800/20 cursor-pointer transition-all duration-300 group border border-pink-700/20"
+                  title="OmniaOS X"
                 >
                   <XLogo size={16} className="text-gray-200 group-hover:text-white" />
                 </a>
                 <a 
-                  href="https://telegram.org" 
+                  href="https://x.com/0xomniaosdotfun" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="p-2 rounded-lg bg-pink-800/10 hover:bg-pink-800/20 cursor-pointer transition-all duration-300 group border border-pink-700/20"
+                  title="OmniaOS X (Alt)"
+                >
+                  <XLogo size={16} className="text-gray-200 group-hover:text-white" />
+                </a>
+                <a 
+                  href="https://t.me/TheOmniaProtocol" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg bg-pink-800/10 hover:bg-pink-800/20 cursor-pointer transition-all duration-300 group border border-pink-700/20"
+                  title="OmniaOS Telegram"
                 >
                   <Send size={16} className="text-gray-200 group-hover:text-white" />
                 </a>

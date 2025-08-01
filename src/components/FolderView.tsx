@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, FileText, Folder, Settings, Terminal as TerminalIcon, Globe, Search, Brain, Activity, Link, Network, Cpu, Database, Zap, ChevronRight, Sparkles, Workflow, Bot, Share2, MessageSquare, Github, Send, Heart, RotateCw } from 'lucide-react';
+import { X, FileText, Folder, Settings, Terminal as TerminalIcon, Globe, Search, Brain, Activity, Link, Network, Cpu, Database, Zap, ChevronRight, Sparkles, Workflow, Bot, Share2, MessageSquare, Send, Heart, RotateCw } from 'lucide-react';
 import XLogo from './XLogo';
 import OmniaLogo from './OmniaLogo';
 import ReactMarkdown from 'react-markdown';
@@ -756,29 +756,40 @@ Thank you for being part of our mission to help people build better relationship
         })()
       },
       {
-        id: 'github-social',
-        name: 'GitHub',
-        icon: <Github className="w-6 h-6 text-gray-400" />,
-        description: 'Visit our GitHub Repository',
+        id: 'omnia-support',
+        name: 'Omnia OS Support',
+        icon: <MessageSquare className="w-6 h-6 text-pink-400" />,
+        description: 'Get support and join our community',
         type: 'component',
         component: (
           <div className="space-y-6">
-            <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-500/30">
+            <div className="bg-gray-800/50 rounded-xl p-6 border border-pink-500/30">
               <div className="text-center">
-                <Github className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <h2 className="text-2xl font-bold text-white mb-2">GitHub Repository</h2>
+                <MessageSquare className="w-16 h-16 text-pink-400 mx-auto mb-4" />
+                <h2 className="text-2xl font-bold text-white mb-2">Omnia OS Support</h2>
                 <p className="text-gray-400 mb-6">
-                  Explore the source code, contribute to the project, and join our developer community.
+                  Join our community, get support, and stay updated with the latest Omnia OS developments.
                 </p>
-                <a 
-                  href="https://github.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 bg-gray-600/20 hover:bg-gray-600/30 text-gray-300 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105"
-                >
-                  <Github className="w-5 h-5" />
-                  <span>Visit Repository</span>
-                </a>
+                <div className="flex flex-col space-y-3">
+                  <a 
+                    href="https://t.me/TheOmniaProtocol" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center space-x-2 bg-blue-500/20 hover:bg-blue-500/30 text-blue-300 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 border border-blue-500/30"
+                  >
+                    <Send className="w-5 h-5" />
+                    <span>Join Telegram Community</span>
+                  </a>
+                  <a 
+                    href="https://x.com/0xomniaosdotfun" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center space-x-2 bg-gray-600/20 hover:bg-gray-600/30 text-gray-300 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 border border-gray-500/30"
+                  >
+                    <XLogo size={20} className="text-white" />
+                    <span>Follow on X</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
