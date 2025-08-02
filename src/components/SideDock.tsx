@@ -143,7 +143,7 @@ const SideDock: React.FC<SideDockProps> = ({ onCharacterClick }) => {
         {/* Dock title */}
         <div className="mt-4 pt-4 border-t border-white/10">
           <div className="text-white/60 text-xs text-center font-semibold">
-            AI Companion
+            AI Companions
           </div>
         </div>
       </div>
