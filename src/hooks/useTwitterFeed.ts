@@ -175,7 +175,7 @@ export const useTwitterFeed = () => {
                  id: 'omniaosdotfun',
                  name: 'OmniaOS',
                  username: 'omniaosdotfun',
-                 profile_image_url: '/image.png',
+                 profile_image_url: '/omnia-logo.png',
                  verified: true
                }
              ]
@@ -214,7 +214,7 @@ export const useTwitterFeed = () => {
                         user: {
                name: 'Omnia Os',
                handle: '@omniaosdotfun',
-               avatar: '/image.png',
+               avatar: '/omnia-logo.png',
                verified: true
              },
            content: 'Ai dating assistant \n\nSay goodbye to feeling tongue tied !\n\nLOVE',

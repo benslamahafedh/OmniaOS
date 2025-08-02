@@ -1,5 +1,5 @@
 import React from 'react';
-
+import logo from '../assets/image.png';
 interface OmniaLogoProps {
   size?: number;
   className?: string;
@@ -12,7 +12,7 @@ const OmniaLogo: React.FC<OmniaLogoProps> = ({ size = 32, className = '' }) => {
       style={{ width: size, height: size }}
     >
       <img 
-        src="/image.png" 
+        src={logo} 
         alt="Omnia Logo" 
         className="w-full h-full object-contain"
         style={{ width: size, height: size }}

@@ -1296,6 +1296,10 @@ Thank you for being part of our mission to help people build better relationship
       } else if (fileId === 'terminal') {
         setShowTerminal(true);
         setShowSettings(false);
+      } else if (fileId === 'ai-companions') {
+        // Don't set any internal states for AI companions - let it render independently
+        setShowSettings(false);
+        setShowTerminal(false);
       } else {
         setShowSettings(false);
         setShowTerminal(false);
@@ -1315,6 +1319,13 @@ Thank you for being part of our mission to help people build better relationship
   };
 
   if (isMobile) {
+    // Special handling for AI companions - render them full screen
+    if (activeFile === 'ai-companions') {
+      return (
+        <AICompanionView onClose={() => setActiveFile(null)} />
+      );
+    }
+    
     // Mobile Layout - Fully Responsive Modal
     return (
       <div className="fixed inset-0 bg-black/90 backdrop-blur-xl z-50 flex items-center justify-center p-2">
@@ -1378,7 +1389,7 @@ Thank you for being part of our mission to help people build better relationship
                   <div className="mobile-content-wrapper">
                     {showSettings && <SystemSettings onClose={() => setActiveFile(null)} />}
                     {showTerminal && <Terminal onClose={() => setActiveFile(null)} />}
-                    {!showSettings && !showTerminal && (
+                    {!showSettings && !showTerminal && activeFile !== 'ai-companions' && (
                       folderContents[folderId]?.find(item => item.id === activeFile)?.type === 'component' ? (
                         <div className="mobile-component-container">
                           {folderContents[folderId]?.find(item => item.id === activeFile)?.component}
@@ -1396,6 +1407,13 @@ Thank you for being part of our mission to help people build better relationship
           </div>
         </div>
       </div>
+    );
+  }
+
+  // Special handling for AI companions on desktop - render them full screen
+  if (activeFile === 'ai-companions') {
+    return (
+      <AICompanionView onClose={() => setActiveFile(null)} />
     );
   }
 
@@ -1448,7 +1466,7 @@ Thank you for being part of our mission to help people build better relationship
               <>
                 {showSettings && <SystemSettings onClose={() => setActiveFile(null)} />}
                 {showTerminal && <Terminal onClose={() => setActiveFile(null)} />}
-                {!showSettings && !showTerminal && (
+                {!showSettings && !showTerminal && activeFile !== 'ai-companions' && (
                   folderContents[folderId]?.find(item => item.id === activeFile)?.type === 'component' ? (
                     folderContents[folderId]?.find(item => item.id === activeFile)?.component
                   ) : (

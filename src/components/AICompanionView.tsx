@@ -233,9 +233,9 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose, initialCompa
 
   if (shouldUseMobileLayout) {
     return (
-      <div className="fixed inset-0 bg-black/90 backdrop-blur-xl z-50 flex items-center justify-center p-4">
-        {/* Compact Mobile Modal - 800px height */}
-                  <div className="bg-gradient-to-br from-gray-900/95 to-black/95 rounded-2xl w-full max-w-sm h-[800px] border border-pink-800/30 shadow-2xl backdrop-blur-xl overflow-hidden flex flex-col">
+      <div className="fixed inset-0 bg-black/90 backdrop-blur-xl z-[9999] flex items-center justify-center">
+        {/* Compact Mobile Modal - Responsive height */}
+                  <div className="bg-gradient-to-br from-gray-900/95 to-black/95 rounded-2xl w-full h-screen border border-pink-800/30 shadow-2xl backdrop-blur-xl overflow-hidden flex flex-col">
           {/* Mobile Header - Fixed and Always Visible */}
                       <div className="flex items-center justify-between p-3 border-b border-pink-800/30 bg-gray-900/50 flex-shrink-0 h-14">
             <h2 className="text-base font-bold text-white flex items-center">
