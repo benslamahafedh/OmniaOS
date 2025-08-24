@@ -805,7 +805,7 @@ Thank you for being part of our mission to help people build better relationship
           const { tweets, loading, error, refreshTweets } = useTwitterFeed();
           
           return (
-            <div className="max-w-2xl mx-auto bg-black rounded-3xl border border-gray-800 shadow-2xl flex flex-col h-[700px]">
+            <div className="max-w-2xl mx-auto bg-black rounded-3xl border border-gray-800 shadow-2xl flex flex-col h-auto">
               {/* X Mobile Header */}
               <div className="bg-black/95 backdrop-blur-sm border-b border-gray-800 px-4 py-3 flex items-center justify-between flex-shrink-0">
                 <div className="flex items-center space-x-3">
@@ -963,7 +963,7 @@ Thank you for being part of our mission to help people build better relationship
                   Join our Telegram channel for real-time discussions, support, and community updates.
                 </p>
                 <a 
-                  href="https://telegram.org" 
+                  href="https://t.me/TheOmniaProtocol" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105"

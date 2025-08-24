@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import logo from '../assets/image.png';
 
 interface TwitterUser {
   name: string;
@@ -175,7 +176,7 @@ export const useTwitterFeed = () => {
                  id: 'omniaosdotfun',
                  name: 'OmniaOS',
                  username: 'omniaosdotfun',
-                 profile_image_url: '/omnia-logo.png',
+                 profile_image_url: logo,
                  verified: true
                }
              ]
@@ -214,7 +215,7 @@ export const useTwitterFeed = () => {
                         user: {
                name: 'Omnia Os',
                handle: '@omniaosdotfun',
-               avatar: '/omnia-logo.png',
+               avatar: logo,
                verified: true
              },
            content: 'Ai dating assistant \n\nSay goodbye to feeling tongue tied !\n\nLOVE',
