@@ -795,157 +795,186 @@ Thank you for being part of our mission to help people build better relationship
           </div>
         )
       },
-      {
-        id: 'x-social',
-        name: 'X (Twitter)',
-        icon: <XLogo size={24} className="text-white" />,
-        description: 'Follow us on X for updates',
-        type: 'component',
-        component: (() => {
-          const { tweets, loading, error, refreshTweets } = useTwitterFeed();
+      // {
+      //   id: 'x-social',
+      //   name: 'X (Twitter)',
+      //   icon: <XLogo size={24} className="text-white" />,
+      //   description: 'Follow us on X for updates',
+      //   type: 'component',
+      //   component: (() => {
+      //     const { tweets, loading, error, refreshTweets } = useTwitterFeed();
           
-          return (
-            <div className="max-w-2xl mx-auto bg-black rounded-3xl border border-gray-800 shadow-2xl flex flex-col h-auto">
-              {/* X Mobile Header */}
-              <div className="bg-black/95 backdrop-blur-sm border-b border-gray-800 px-4 py-3 flex items-center justify-between flex-shrink-0">
-                <div className="flex items-center space-x-3">
-                  <OmniaLogo size={24} className="rounded-full" />
-                  <span className="text-white font-semibold">OmniaOS</span>
-                </div>
-                <XLogo size={20} className="text-white" />
-                <button 
-                  onClick={refreshTweets}
-                  className="p-2 rounded-full hover:bg-gray-800/50 transition-colors"
-                >
-                  <RotateCw size={16} className={`text-gray-400 ${loading ? 'animate-spin' : ''}`} />
-                </button>
-              </div>
+      //     return (
+      //       <div className="max-w-2xl mx-auto bg-black rounded-3xl border border-gray-800 shadow-2xl flex flex-col h-auto">
+      //         {/* X Mobile Header */}
+      //         <div className="bg-black/95 backdrop-blur-sm border-b border-gray-800 px-4 py-3 flex items-center justify-between flex-shrink-0">
+      //           <div className="flex items-center space-x-3">
+      //             <OmniaLogo size={24} className="rounded-full" />
+      //             <span className="text-white font-semibold">OmniaOS</span>
+      //           </div>
+      //           <XLogo size={20} className="text-white" />
+      //           <button 
+      //             onClick={refreshTweets}
+      //             className="p-2 rounded-full hover:bg-gray-800/50 transition-colors"
+      //           >
+      //             <RotateCw size={16} className={`text-gray-400 ${loading ? 'animate-spin' : ''}`} />
+      //           </button>
+      //         </div>
 
-              {/* Feed */}
-              <div className="flex-1 overflow-y-auto">
-                {loading && (
-                  <div className="flex items-center justify-center p-8">
-                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-pink-500"></div>
-                    <span className="ml-3 text-gray-400">Loading tweets...</span>
-                  </div>
-                )}
+      //         {/* Feed */}
+      //         <div className="flex-1 overflow-y-auto">
+      //           {loading && (
+      //             <div className="flex items-center justify-center p-8">
+      //               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-pink-500"></div>
+      //               <span className="ml-3 text-gray-400">Loading tweets...</span>
+      //             </div>
+      //           )}
                 
-                {error && (
-                  <div className="p-4 text-center">
-                    <div className="text-red-400 mb-2">Failed to load tweets</div>
-                    <button 
-                      onClick={refreshTweets}
-                      className="text-pink-400 hover:text-pink-300 text-sm"
-                    >
-                      Try again
-                    </button>
-                  </div>
-                )}
+      //           {error && (
+      //             <div className="p-4 text-center">
+      //               <div className="text-red-400 mb-2">Failed to load tweets</div>
+      //               <button 
+      //                 onClick={refreshTweets}
+      //                 className="text-pink-400 hover:text-pink-300 text-sm"
+      //               >
+      //                 Try again
+      //               </button>
+      //             </div>
+      //           )}
                 
-                {!loading && !error && tweets.map((tweet) => (
-                  <div key={tweet.id} className="border-b border-gray-800 p-4 hover:bg-gray-900/30 transition-colors">
-                    {/* Retweet indicator */}
-                    {tweet.type === 'retweet' && (
-                      <div className="flex items-center space-x-2 mb-2 text-gray-500 text-sm">
-                        <Share2 size={14} />
-                        <span>{tweet.retweetedBy?.name} retweeted</span>
-                      </div>
-                    )}
+      //           {!loading && !error && tweets.map((tweet) => (
+      //             <div key={tweet.id} className="border-b border-gray-800 p-4 hover:bg-gray-900/30 transition-colors">
+      //               {/* Retweet indicator */}
+      //               {tweet.type === 'retweet' && (
+      //                 <div className="flex items-center space-x-2 mb-2 text-gray-500 text-sm">
+      //                   <Share2 size={14} />
+      //                   <span>{tweet.retweetedBy?.name} retweeted</span>
+      //                 </div>
+      //               )}
                     
-                    {/* Reply indicator */}
-                    {tweet.type === 'reply' && (
-                      <div className="flex items-center space-x-2 mb-2 text-gray-500 text-sm">
-                        <MessageSquare size={14} />
-                        <span>Replying to {tweet.replyingTo}</span>
-                      </div>
-                    )}
+      //               {/* Reply indicator */}
+      //               {tweet.type === 'reply' && (
+      //                 <div className="flex items-center space-x-2 mb-2 text-gray-500 text-sm">
+      //                   <MessageSquare size={14} />
+      //                   <span>Replying to {tweet.replyingTo}</span>
+      //                 </div>
+      //               )}
 
-                    <div className="flex space-x-3">
-                      {/* Avatar */}
-                      <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border border-gray-700 bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center">
-                        <img 
-                          src={tweet.user.avatar} 
-                          alt={tweet.user.name}
-                          className="w-full h-full object-cover rounded-full"
-                        />
-                      </div>
+      //               <div className="flex space-x-3">
+      //                 {/* Avatar */}
+      //                 <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border border-gray-700 bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center">
+      //                   <img 
+      //                     src={tweet.user.avatar} 
+      //                     alt={tweet.user.name}
+      //                     className="w-full h-full object-cover rounded-full"
+      //                   />
+      //                 </div>
 
-                      <div className="flex-1 min-w-0">
-                        {/* User info */}
-                        <div className="flex items-center space-x-2 mb-1">
-                          <span className="text-white font-bold truncate">{tweet.user.name}</span>
-                          {tweet.user.verified && (
-                            <div className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center">
-                              <span className="text-white text-xs">✓</span>
-                            </div>
-                          )}
-                          <span className="text-gray-500 truncate">{tweet.user.handle}</span>
-                          <span className="text-gray-500">·</span>
-                          <span className="text-gray-500">{tweet.timestamp}</span>
-                        </div>
+      //                 <div className="flex-1 min-w-0">
+      //                   {/* User info */}
+      //                   <div className="flex items-center space-x-2 mb-1">
+      //                     <span className="text-white font-bold truncate">{tweet.user.name}</span>
+      //                     {tweet.user.verified && (
+      //                       <div className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center">
+      //                         <span className="text-white text-xs">✓</span>
+      //                       </div>
+      //                     )}
+      //                     <span className="text-gray-500 truncate">{tweet.user.handle}</span>
+      //                     <span className="text-gray-500">·</span>
+      //                     <span className="text-gray-500">{tweet.timestamp}</span>
+      //                   </div>
 
-                        {/* Tweet content */}
-                        <div className="text-white text-sm mb-3 leading-relaxed">
-                          {tweet.content.split(' ').map((word, i) => {
-                            if (word.startsWith('#')) {
-                              return <span key={i} className="text-blue-400 hover:underline cursor-pointer">{word} </span>;
-                            } else if (word.startsWith('@')) {
-                              return <span key={i} className="text-blue-400 hover:underline cursor-pointer">{word} </span>;
-                            }
-                            return <span key={i}>{word} </span>;
-                          })}
-                        </div>
+      //                   {/* Tweet content */}
+      //                   <div className="text-white text-sm mb-3 leading-relaxed">
+      //                     {tweet.content.split(' ').map((word, i) => {
+      //                       if (word.startsWith('#')) {
+      //                         return <span key={i} className="text-blue-400 hover:underline cursor-pointer">{word} </span>;
+      //                       } else if (word.startsWith('@')) {
+      //                         return <span key={i} className="text-blue-400 hover:underline cursor-pointer">{word} </span>;
+      //                       }
+      //                       return <span key={i}>{word} </span>;
+      //                     })}
+      //                   </div>
 
-                        {/* Engagement */}
-                        <div className="flex items-center justify-between max-w-xs">
-                          <button className="flex items-center space-x-2 text-gray-500 hover:text-blue-400 transition-colors group">
-                            <div className="p-2 rounded-full group-hover:bg-blue-500/10 transition-colors">
-                              <MessageSquare size={16} />
-                            </div>
-                            <span className="text-sm">{tweet.replies}</span>
-                          </button>
+      //                   {/* Engagement */}
+      //                   <div className="flex items-center justify-between max-w-xs">
+      //                     <button className="flex items-center space-x-2 text-gray-500 hover:text-blue-400 transition-colors group">
+      //                       <div className="p-2 rounded-full group-hover:bg-blue-500/10 transition-colors">
+      //                         <MessageSquare size={16} />
+      //                       </div>
+      //                       <span className="text-sm">{tweet.replies}</span>
+      //                     </button>
 
-                          <button className="flex items-center space-x-2 text-gray-500 hover:text-green-400 transition-colors group">
-                            <div className="p-2 rounded-full group-hover:bg-green-500/10 transition-colors">
-                              <Share2 size={16} />
-                            </div>
-                            <span className="text-sm">{tweet.retweets}</span>
-                          </button>
+      //                     <button className="flex items-center space-x-2 text-gray-500 hover:text-green-400 transition-colors group">
+      //                       <div className="p-2 rounded-full group-hover:bg-green-500/10 transition-colors">
+      //                         <Share2 size={16} />
+      //                       </div>
+      //                       <span className="text-sm">{tweet.retweets}</span>
+      //                     </button>
 
-                                  <button className="flex items-center space-x-2 text-gray-500 hover:text-pink-400 transition-colors group">
-          <div className="p-2 rounded-full group-hover:bg-pink-500/10 transition-colors">
-                              <Heart size={16} />
-                            </div>
-                            <span className="text-sm">{tweet.likes}</span>
-                          </button>
+      //                             <button className="flex items-center space-x-2 text-gray-500 hover:text-pink-400 transition-colors group">
+      //     <div className="p-2 rounded-full group-hover:bg-pink-500/10 transition-colors">
+      //                         <Heart size={16} />
+      //                       </div>
+      //                       <span className="text-sm">{tweet.likes}</span>
+      //                     </button>
 
-                          <button className="text-gray-500 hover:text-blue-400 transition-colors group">
-                            <div className="p-2 rounded-full group-hover:bg-blue-500/10 transition-colors">
-                              <Share2 size={16} />
-                            </div>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+      //                     <button className="text-gray-500 hover:text-blue-400 transition-colors group">
+      //                       <div className="p-2 rounded-full group-hover:bg-blue-500/10 transition-colors">
+      //                         <Share2 size={16} />
+      //                       </div>
+      //                     </button>
+      //                   </div>
+      //                 </div>
+      //               </div>
+      //             </div>
+      //           ))}
+      //         </div>
 
-              {/* Bottom bar */}
-              <div className="bg-black/95 backdrop-blur-sm border-t border-gray-800 p-4 flex-shrink-0">
+      //         {/* Bottom bar */}
+      //         <div className="bg-black/95 backdrop-blur-sm border-t border-gray-800 p-4 flex-shrink-0">
+      //           <a 
+      //             href="https://x.com/omniaosdotfun" 
+      //             target="_blank" 
+      //             rel="noopener noreferrer"
+      //             className="w-full bg-blue-500 hover:bg-blue-600 text-white text-center py-3 rounded-full font-semibold transition-colors flex items-center justify-center space-x-2"
+      //           >
+      //             <XLogo size={16} className="text-white" />
+      //             <span>Follow @omniaosdotfun on X</span>
+      //           </a>
+      //         </div>
+      //       </div>
+      //     );
+      //   })()
+      // },
+      {
+        id: 'X-social',
+        name: 'X (Twitter)',
+        icon: <XLogo size={16} className="text-white" />,
+        description: 'Join our X for updates and news',
+        type: 'component',
+        component: (
+          <div className="space-y-6">
+            <div className="bg-gray-800/50 rounded-xl p-6 border border-blue-500/30">
+              <div className="text-center">
+                <XLogo className="w-16 h-16 text-blue-400 mx-auto mb-4" />
+                <h2 className="text-2xl font-bold text-white mb-2">Follow us on X</h2>
+                <p className="text-gray-400 mb-6">
+                  Follow us on X for updates and news.
+                </p>
                 <a 
                   href="https://x.com/omniaosdotfun" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-full bg-blue-500 hover:bg-blue-600 text-white text-center py-3 rounded-full font-semibold transition-colors flex items-center justify-center space-x-2"
+                  className="inline-flex items-center space-x-2 bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105"
                 >
                   <XLogo size={16} className="text-white" />
                   <span>Follow @omniaosdotfun on X</span>
                 </a>
               </div>
             </div>
-          );
-        })()
+          </div>
+        )
       },
       {
         id: 'telegram-social',
