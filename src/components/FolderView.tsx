@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { X, FileText, Folder, Settings, Terminal as TerminalIcon, Globe, Search, Brain, Activity, Link, Network, Cpu, Database, Zap, ChevronRight, Sparkles, Workflow, Bot, Share2, MessageSquare, Send, Heart, RotateCw } from 'lucide-react';
+import { X, FileText, Folder, Settings, Terminal as TerminalIcon, Globe, Search, Brain, Activity, Link, Network, Cpu, Database, Zap, ChevronRight, Sparkles, Workflow, Bot, Share2, MessageSquare, Send } from 'lucide-react';
 import XLogo from './XLogo';
-import OmniaLogo from './OmniaLogo';
 import ReactMarkdown from 'react-markdown';
 import { useNeuralNetwork } from '../hooks/useNeuralNetwork';
 import { useWebInterface } from '../hooks/useWebInterface';
 import { useMobile } from '../hooks/useMobile';
-import { useTwitterFeed } from '../hooks/useTwitterFeed';
 import SystemSettings from './SystemSettings';
 import Terminal from './Terminal';
 import { Documentation } from './applications';
