@@ -295,7 +295,7 @@ const Desktop: React.FC = () => {
       name: 'Chat with Samantha',
       description: 'Open AI assistant interface',
       icon: <Sparkles className="w-4 h-4" />,
-      action: () => window.open('https://samantha-me-git-main-benslamahafedhs-projects.vercel.app/', '_blank'),
+      action: () => window.open('https://www.omniasamantha.fun/', '_blank'),
       category: 'AI'
     },
     {
@@ -780,7 +780,7 @@ const Desktop: React.FC = () => {
             {folders.map((folder, i) => (
               <div
                 key={folder.id}
-                onClick={() => folder.id === 'samantha' ? window.open('https://samantha-me-git-main-benslamahafedhs-projects.vercel.app/', '_blank') : handleWindowOpen(`folder-${folder.id}`)}
+                onClick={() => folder.id === 'samantha' ? window.open('https://www.omniasamantha.fun/', '_blank') : handleWindowOpen(`folder-${folder.id}`)}
                 className={`
                   relative group cursor-pointer transition-all duration-500
                   hover:scale-110 hover:-translate-y-2
@@ -1199,7 +1199,7 @@ const Desktop: React.FC = () => {
                   {[
                     { icon: <Settings size={isMobile ? 24 : 20} />, action: () => handleWindowOpen('settings'), label: 'Settings' },
                     { icon: <Code2 size={isMobile ? 24 : 20} />, action: () => handleWindowOpen('terminal'), label: 'Terminal' },
-                    { icon: <Sparkles size={isMobile ? 24 : 20} />, action: () => window.open('https://samantha-me-git-main-benslamahafedhs-projects.vercel.app/', '_blank'), label: 'Samantha' },
+                    { icon: <Sparkles size={isMobile ? 24 : 20} />, action: () => window.open('https://www.omniasamantha.fun/', '_blank'), label: 'Samantha' },
                     { icon: <Command size={isMobile ? 24 : 20} />, action: () => setShowCommandPalette(true), label: 'Commands' },
                     { icon: <Plus size={isMobile ? 24 : 20} />, action: () => addWidget('system-monitor'), label: 'Add Widget' }
                   ].map((item, index) => (
