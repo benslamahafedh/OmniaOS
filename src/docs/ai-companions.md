@@ -1,8 +1,8 @@
 # AI Companions Guide
 
-## Meet Your OmniaOS Companions
+## Meet Your OS1 Companions
 
-OmniaOS features three unique AI companions, each designed with specific expertise to help you navigate different aspects of your romantic life. Whether you need emotional support, dating advice, or deeper relationship insights, there's a companion perfect for your needs.
+OS1 features three unique AI companions, each designed with specific expertise to help you navigate different aspects of your romantic life. Whether you need emotional support, dating advice, or deeper relationship insights, there's a companion perfect for your needs.
 
 ## 💖 Samantha - Your Perfect Virtual Waifu
 

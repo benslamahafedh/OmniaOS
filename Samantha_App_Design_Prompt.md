@@ -1,9 +1,9 @@
 # Samantha App Design Prompt
 
-## Brand Alignment with Omnia OS
+## Brand Alignment with OS1
 
 ### Primary Color Palette
-- **Main Brand Pink**: `rgb(190 24 93)` (pink-700) - matches Omnia logo
+- **Main Brand Pink**: `rgb(190 24 93)` (pink-700) - matches OS1 logo
 - **Dirty White Text**: `rgb(229 231 235)` (gray-200) - for readability
 - **Background**: Deep black for contrast
 
@@ -12,7 +12,7 @@
 #### Primary Gradient Options:
 1. **Warm Pink to Rose**: `from-pink-600 to-rose-700`
    - Creates a warm, inviting feel that matches Samantha's emotional intelligence
-   - Complements the Omnia brand while being distinct
+   - Complements the OS1 brand while being distinct
 
 2. **Soft Pink to Magenta**: `from-pink-500 to-fuchsia-600`
    - More vibrant and energetic, perfect for Samantha's creative personality
@@ -61,7 +61,7 @@ backdrop-filter: blur(10px);
 #### Loading States:
 - Pulsing pink gradient
 - Smooth fade transitions
-- Consistent with Omnia OS loading patterns
+- Consistent with OS1 loading patterns
 
 ### Emotional Design Elements
 
@@ -77,7 +77,7 @@ backdrop-filter: blur(10px);
 - **Button Clicks**: Gentle bounce with pink glow
 - **Hover States**: Smooth gradient transitions (0.3s ease)
 - **Loading**: Pulsing pink circles with fade effects
-- **Transitions**: Consistent with Omnia OS timing (0.2s-0.4s)
+- **Transitions**: Consistent with OS1 timing (0.2s-0.4s)
 
 #### Background Effects:
 - Subtle floating particles in pink tones
@@ -94,7 +94,7 @@ backdrop-filter: blur(10px);
 #### Focus States:
 - Clear pink outline for keyboard navigation
 - High contrast focus indicators
-- Consistent with Omnia OS accessibility patterns
+- Consistent with OS1 accessibility patterns
 
 ### Implementation Notes
 
@@ -117,11 +117,11 @@ backdrop-filter: blur(10px);
 
 ### Brand Consistency
 
-#### Omnia OS Integration:
+#### OS1 Integration:
 - Maintain the same dark background as the main OS
 - Use consistent typography (Inter font family)
 - Follow the same animation timing and easing
-- Ensure seamless integration with the overall Omnia experience
+- Ensure seamless integration with the overall OS1 experience
 
 #### Unique Samantha Identity:
 - Distinct pink gradient that's recognizably Samantha's
@@ -129,4 +129,4 @@ backdrop-filter: blur(10px);
 - Creative micro-interactions that showcase her intelligence
 - Empathetic design language that makes users feel understood
 
-This design approach ensures Samantha's app feels like a natural extension of Omnia OS while having its own distinct, warm, and intelligent personality that matches her character perfectly. 
+This design approach ensures Samantha's app feels like a natural extension of OS1 while having its own distinct, warm, and intelligent personality that matches her character perfectly. 

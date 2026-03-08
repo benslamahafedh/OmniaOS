@@ -1,4 +1,4 @@
-# OmniaOS Features
+# OS1 Features
 
 ## Core Features
 

@@ -1,17 +1,17 @@
-# Twitter API Setup Guide for OmniaOS
+# Twitter API Setup Guide for OS1
 
 ## Overview
-This guide explains how to set up real Twitter API integration to fetch tweets from @omniaosdotfun instead of using mock data.
+This guide explains how to set up real Twitter API integration to fetch tweets from @OS1dotfun instead of using mock data.
 
 ## Current Implementation
-The Twitter feed currently uses mock data that simulates real tweets from the @omniaosdotfun account. This provides a realistic preview while avoiding API rate limits and authentication complexity.
+The Twitter feed currently uses mock data that simulates real tweets from the @OS1dotfun account. This provides a realistic preview while avoiding API rate limits and authentication complexity.
 
 ## Setting Up Real Twitter API
 
 ### 1. Twitter API Access
 1. Go to [Twitter Developer Portal](https://developer.twitter.com/)
 2. Apply for a Twitter Developer Account
-3. Create a new app for OmniaOS
+3. Create a new app for OS1
 4. Get your Bearer Token
 
 ### 2. Environment Variables
@@ -93,7 +93,7 @@ const fetchTweets = async () => {
     setError(null);
 
     // Replace mock data with real API call
-    const response = await fetch('/api/twitter/omniaosdotfun');
+    const response = await fetch('/api/twitter/OS1dotfun');
     
     if (!response.ok) {
       throw new Error('Failed to fetch tweets');
@@ -159,7 +159,7 @@ The current implementation includes:
 
 ## Current Mock Data
 The mock data includes realistic tweets about:
-- OmniaOS launch announcement
+- OS1 launch announcement
 - AI companion introductions (Samantha, Elias, Lyra)
 - Privacy and safety features
 - Premium features coming soon

@@ -21,46 +21,46 @@ const companions = [
     abilities: ['Emotional Analysis', 'Creative Writing', 'Personal Counseling', 'Adaptive Learning'],
     video: samanthaVideo,
     unlocked: true,
-    url: 'https://omniasamantha.fun',
+    url: 'https://OS1samantha.fun',
     colors: {
-              primary: 'from-pink-500 to-rose-600',
-              accent: 'pink-300',
-        border: 'pink-700/30',
-        bg: 'from-pink-500/30 to-rose-600/30'
+              primary: 'from-orange-500 to-rose-600',
+              accent: 'orange-300',
+        border: 'orange-700/30',
+        bg: 'from-orange-500/30 to-rose-600/30'
     }
   },
-  {
-    id: 'elias',
-    name: 'Elias (Rizzler)',
-    subtitle: 'The Strategic Mind',
-    description: 'Elite Dating Coach with expert psychology, proven techniques, and legendary confidence building. Transform your dating game with strategic thinking.',
-    abilities: ['Dating Psychology', 'Confidence Building', 'Strategic Planning', 'Social Dynamics'],
-    video: eliasVideo,
-    unlocked: true,
-    url: 'https://omnia-rizzler.fun/',
-    colors: {
-      primary: 'from-blue-500 to-cyan-600',
-      accent: 'blue-300',
-      border: 'blue-700/30',
-      bg: 'from-blue-500/30 to-cyan-600/30'
-    }
-  },
-  {
-    id: 'lyra',
-    name: 'Lyra',
-    subtitle: 'The Love Oracle',
-    description: 'Mystical AI with deep insights into relationships and love. Lyra provides spiritual guidance and helps you understand the deeper meaning of connections.',
-    abilities: ['Mystical Insights', 'Relationship Guidance', 'Spiritual Counseling', 'Intuitive Analysis'],
-    video: samanthaVideo, // Using Samantha video as placeholder
-    unlocked: false,
-    url: 'https://omnia-lyra.fun/',
-    colors: {
-      primary: 'from-purple-500 to-pink-500',
-      accent: 'purple-300',
-      border: 'purple-700/30',
-      bg: 'from-purple-500/30 to-pink-500/30'
-    }
-  }
+  // {
+  //   id: 'elias',
+  //   name: 'Elias (Rizzler)',
+  //   subtitle: 'The Strategic Mind',
+  //   description: 'Elite Dating Coach with expert psychology, proven techniques, and legendary confidence building. Transform your dating game with strategic thinking.',
+  //   abilities: ['Dating Psychology', 'Confidence Building', 'Strategic Planning', 'Social Dynamics'],
+  //   video: eliasVideo,
+  //   unlocked: true,
+  //   url: 'https://OS1-rizzler.fun/',
+  //   colors: {
+  //     primary: 'from-blue-500 to-cyan-600',
+  //     accent: 'blue-300',
+  //     border: 'blue-700/30',
+  //     bg: 'from-blue-500/30 to-cyan-600/30'
+  //   }
+  // },
+  // {
+  //   id: 'lyra',
+  //   name: 'Lyra',
+  //   subtitle: 'The Love Oracle',
+  //   description: 'Mystical AI with deep insights into relationships and love. Lyra provides spiritual guidance and helps you understand the deeper meaning of connections.',
+  //   abilities: ['Mystical Insights', 'Relationship Guidance', 'Spiritual Counseling', 'Intuitive Analysis'],
+  //   video: samanthaVideo, // Using Samantha video as placeholder
+  //   unlocked: false,
+  //   url: 'https://OS1-lyra.fun/',
+  //   colors: {
+  //     primary: 'from-purple-500 to-orange-500',
+  //     accent: 'purple-300',
+  //     border: 'purple-700/30',
+  //     bg: 'from-purple-500/30 to-orange-500/30'
+  //   }
+  // }
 ];
 
 const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose, initialCompanion }) => {
@@ -235,16 +235,16 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose, initialCompa
     return (
       <div className="fixed inset-0 bg-black/90 backdrop-blur-xl z-[9999] flex items-center justify-center">
         {/* Compact Mobile Modal - Responsive height */}
-                  <div className="bg-gradient-to-br from-gray-900/95 to-black/95 rounded-2xl w-full h-screen border border-pink-800/30 shadow-2xl backdrop-blur-xl overflow-hidden flex flex-col">
+                  <div className="bg-gradient-to-br from-gray-900/95 to-black/95 rounded-2xl w-full h-screen border border-orange-800/30 shadow-2xl backdrop-blur-xl overflow-hidden flex flex-col">
           {/* Mobile Header - Fixed and Always Visible */}
-                      <div className="flex items-center justify-between p-3 border-b border-pink-800/30 bg-gray-900/50 flex-shrink-0 h-14">
+                      <div className="flex items-center justify-between p-3 border-b border-orange-800/30 bg-gray-900/50 flex-shrink-0 h-14">
             <h2 className="text-base font-bold text-white flex items-center">
                               <Sparkles className="w-4 h-4 text-gray-200 mr-2" />
               AI Companion
             </h2>
             <button
               onClick={onClose}
-                              className="flex items-center justify-center w-8 h-8 bg-pink-700/30 hover:bg-pink-700/50 text-gray-200 hover:text-white rounded-full border border-pink-700/40 transition-all duration-300 active:scale-95 z-10"
+                              className="flex items-center justify-center w-8 h-8 bg-orange-700/30 hover:bg-orange-700/50 text-gray-200 hover:text-white rounded-full border border-orange-700/40 transition-all duration-300 active:scale-95 z-10"
             >
               <X className="w-4 h-4" />
             </button>
@@ -268,7 +268,7 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose, initialCompa
                     onClick={() => setSelectedCompanion(index)}
                                          className={`w-3 h-3 rounded-full transition-all duration-200 ${
                        index === selectedCompanion 
-                         ? currentCompanion.id === 'samantha' ? 'bg-pink-400' : 
+                         ? currentCompanion.id === 'samantha' ? 'bg-orange-400' : 
                            currentCompanion.id === 'elias' ? 'bg-blue-400' : 'bg-purple-400'
                          : 'bg-gray-600'
                      }`}
@@ -290,10 +290,10 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose, initialCompa
               {!isVideoLoaded && !videoError && (
                 <div className={`absolute inset-0 flex items-center justify-center ${
                   currentCompanion.id === 'samantha' 
-                    ? 'bg-gradient-to-br from-pink-500/30 to-rose-600/30' 
+                    ? 'bg-gradient-to-br from-orange-500/30 to-rose-600/30' 
                     : currentCompanion.id === 'elias'
                     ? 'bg-gradient-to-br from-blue-500/30 to-cyan-600/30'
-                    : 'bg-gradient-to-br from-purple-500/30 to-pink-500/30'
+                    : 'bg-gradient-to-br from-purple-500/30 to-orange-500/30'
                 }`}>
                   <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
                 </div>
@@ -322,10 +322,10 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose, initialCompa
               {!currentCompanion.unlocked && (
                 <div className={`absolute inset-0 flex items-center justify-center ${
                   currentCompanion.id === 'samantha' 
-                    ? 'bg-gradient-to-br from-pink-500/30 to-rose-600/30' 
+                    ? 'bg-gradient-to-br from-orange-500/30 to-rose-600/30' 
                     : currentCompanion.id === 'elias'
                     ? 'bg-gradient-to-br from-blue-500/30 to-cyan-600/30'
-                    : 'bg-gradient-to-br from-purple-500/30 to-pink-500/30'
+                    : 'bg-gradient-to-br from-purple-500/30 to-orange-500/30'
                 }`}>
                   <div className="text-center">
                     <Lock className="w-6 h-6 text-white mx-auto mb-1" />
@@ -337,10 +337,10 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose, initialCompa
               {/* Fallback gradient */}
               <div className={`absolute inset-0 ${
                 currentCompanion.id === 'samantha' 
-                  ? 'bg-gradient-to-br from-pink-500/30 to-rose-600/30' 
+                  ? 'bg-gradient-to-br from-orange-500/30 to-rose-600/30' 
                   : currentCompanion.id === 'elias'
                   ? 'bg-gradient-to-br from-blue-500/30 to-cyan-600/30'
-                  : 'bg-gradient-to-br from-purple-500/30 to-pink-500/30'
+                  : 'bg-gradient-to-br from-purple-500/30 to-orange-500/30'
               }`} />
             </div>
 
@@ -363,7 +363,7 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose, initialCompa
                     key={index}
                                          className={`px-3 py-1 rounded-full text-xs border ${
                        currentCompanion.id === 'samantha' 
-                         ? 'bg-pink-700/20 text-gray-200 border-pink-700/30'
+                         ? 'bg-orange-700/20 text-gray-200 border-orange-700/30'
                          : currentCompanion.id === 'elias'
                          ? 'bg-blue-500/20 text-blue-300 border-blue-500/30'
                          : 'bg-purple-500/20 text-purple-300 border-purple-500/30'
@@ -380,10 +380,10 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose, initialCompa
                   !currentCompanion.unlocked 
                     ? 'opacity-50 cursor-not-allowed bg-gray-600' 
                                          : currentCompanion.id === 'samantha'
-                       ? 'bg-gradient-to-r from-pink-700 to-pink-900 hover:from-pink-800 hover:to-pink-950 active:scale-95'
+                       ? 'bg-gradient-to-r from-orange-700 to-orange-900 hover:from-orange-800 hover:to-orange-950 active:scale-95'
                        : currentCompanion.id === 'elias'
                        ? 'bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 active:scale-95'
-                       : 'bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 active:scale-95'
+                       : 'bg-gradient-to-r from-purple-500 to-orange-500 hover:from-purple-600 hover:to-orange-600 active:scale-95'
                 }`}
                 disabled={!currentCompanion.unlocked}
               >
@@ -399,7 +399,7 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose, initialCompa
   // Desktop Layout
   return (
     <div className="fixed inset-0 bg-black/90 backdrop-blur-xl z-50 flex items-center justify-center p-8">
-              <div className="bg-gradient-to-br from-gray-900/90 to-black/90 rounded-3xl p-8 max-w-6xl w-full h-[80vh] border border-pink-800/30 shadow-2xl backdrop-blur-xl overflow-hidden">
+              <div className="bg-gradient-to-br from-gray-900/90 to-black/90 rounded-3xl p-8 max-w-6xl w-full h-[80vh] border border-orange-800/30 shadow-2xl backdrop-blur-xl overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-3xl font-bold text-white flex items-center">
@@ -431,10 +431,10 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose, initialCompa
                 className={`px-4 py-2 rounded-full transition-all duration-300 ${
                   index === selectedCompanion 
                                          ? currentCompanion.id === 'samantha'
-                       ? 'bg-gradient-to-r from-pink-700 to-pink-900 text-white'
+                       ? 'bg-gradient-to-r from-orange-700 to-orange-900 text-white'
                        : currentCompanion.id === 'elias'
                        ? 'bg-gradient-to-r from-blue-500 to-cyan-600 text-white'
-                       : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white'
+                       : 'bg-gradient-to-r from-purple-500 to-orange-500 text-white'
                     : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                 }`}
               >
@@ -455,7 +455,7 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose, initialCompa
         <div className="flex h-[calc(100%-10rem)] gap-6">
           {/* Left Panel - Companion Info */}
           <div className="w-1/3 space-y-6">
-            <div className="bg-gray-800/50 rounded-xl p-6 border border-pink-800/20">
+            <div className="bg-gray-800/50 rounded-xl p-6 border border-orange-800/20">
               <h3 className="text-2xl font-bold text-white mb-2">{currentCompanion.name}</h3>
                                                               <p className={`text-lg mb-4 ${
                   currentCompanion.id === 'samantha' ? 'text-gray-200' : 
@@ -473,7 +473,7 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose, initialCompa
                       key={ability}
                                              className={`px-3 py-2 rounded-lg text-sm border ${
                          currentCompanion.id === 'samantha'
-                           ? 'bg-pink-700/20 text-gray-200 border-pink-700/30'
+                           ? 'bg-orange-700/20 text-gray-200 border-orange-700/30'
                            : currentCompanion.id === 'elias'
                            ? 'bg-blue-500/20 text-blue-300 border-blue-500/30'
                            : 'bg-purple-500/20 text-purple-300 border-purple-500/30'
@@ -491,10 +491,10 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose, initialCompa
                   !currentCompanion.unlocked 
                     ? 'opacity-50 cursor-not-allowed bg-gray-600' 
                                          : currentCompanion.id === 'samantha'
-                       ? 'bg-gradient-to-r from-pink-700 to-pink-900 hover:scale-105'
+                       ? 'bg-gradient-to-r from-orange-700 to-orange-900 hover:scale-105'
                        : currentCompanion.id === 'elias'
                        ? 'bg-gradient-to-r from-blue-500 to-cyan-600 hover:scale-105'
-                       : 'bg-gradient-to-r from-purple-500 to-pink-500 hover:scale-105'
+                       : 'bg-gradient-to-r from-purple-500 to-orange-500 hover:scale-105'
                 }`}
                 disabled={!currentCompanion.unlocked}
               >
@@ -504,12 +504,12 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose, initialCompa
           </div>
 
           {/* Right Panel - Video */}
-          <div className="flex-1 bg-gray-900/50 rounded-xl overflow-hidden border border-pink-800/20 relative">
+          <div className="flex-1 bg-gray-900/50 rounded-xl overflow-hidden border border-orange-800/20 relative">
             {/* Loading indicator */}
             {!isVideoLoaded && !videoError && currentCompanion.unlocked && (
               <div className="absolute inset-0 flex items-center justify-center">
                                  <div className={`animate-spin rounded-full h-16 w-16 border-b-2 ${
-                   currentCompanion.id === 'samantha' ? 'border-pink-400' : 
+                   currentCompanion.id === 'samantha' ? 'border-orange-400' : 
                    currentCompanion.id === 'elias' ? 'border-blue-400' : 'border-purple-400'
                  }`}></div>
               </div>
@@ -543,10 +543,10 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose, initialCompa
             {!currentCompanion.unlocked && (
               <div className={`absolute inset-0 flex items-center justify-center ${
                 currentCompanion.id === 'samantha' 
-                  ? 'bg-gradient-to-br from-pink-500/30 to-rose-600/30' 
+                  ? 'bg-gradient-to-br from-orange-500/30 to-rose-600/30' 
                   : currentCompanion.id === 'elias'
                   ? 'bg-gradient-to-br from-blue-500/30 to-cyan-600/30'
-                  : 'bg-gradient-to-br from-purple-500/30 to-pink-500/30'
+                  : 'bg-gradient-to-br from-purple-500/30 to-orange-500/30'
               }`}>
                 <div className="text-center">
                   <Lock className="w-24 h-24 text-white mx-auto mb-6" />
@@ -559,10 +559,10 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose, initialCompa
             {/* Fallback gradient */}
             <div className={`absolute inset-0 ${
               currentCompanion.id === 'samantha' 
-                ? 'bg-gradient-to-br from-pink-500/30 to-rose-600/30' 
+                ? 'bg-gradient-to-br from-orange-500/30 to-rose-600/30' 
                 : currentCompanion.id === 'elias'
                 ? 'bg-gradient-to-br from-blue-500/30 to-cyan-600/30'
-                : 'bg-gradient-to-br from-purple-500/30 to-pink-500/30'
+                : 'bg-gradient-to-br from-purple-500/30 to-orange-500/30'
             }`} />
             <div className="absolute inset-0 bg-black/40" />
             

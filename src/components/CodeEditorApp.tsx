@@ -9,7 +9,7 @@ const CodeEditorApp: React.FC = () => {
   <title>My Web Page</title>
 </head>
 <body>
-  <h1>Welcome to OmniaOS Code Editor!</h1>
+  <h1>Welcome to OS1 Code Editor!</h1>
   <p>Start typing your HTML code here...</p>
 </body>
 </html>`);
@@ -28,22 +28,22 @@ const CodeEditorApp: React.FC = () => {
   return (
     <div className="flex flex-col h-full bg-gray-900 rounded-lg overflow-hidden">
       {/* Toolbar */}
-      <div className="flex items-center justify-between px-4 py-2 bg-gray-800 border-b border-pink-500/30">
+      <div className="flex items-center justify-between px-4 py-2 bg-gray-800 border-b border-orange-500/30">
         <div className="flex items-center space-x-2">
-          <Code2 className="w-5 h-5 text-pink-500" />
+          <Code2 className="w-5 h-5 text-orange-500" />
           <span className="text-white font-medium">HTML Editor</span>
         </div>
         <div className="flex items-center space-x-4">
           <button
             onClick={handlePreview}
-            className="flex items-center space-x-1 px-3 py-1 rounded-md bg-pink-500/20 hover:bg-pink-500/30 text-pink-500"
+            className="flex items-center space-x-1 px-3 py-1 rounded-md bg-orange-500/20 hover:bg-orange-500/30 text-orange-500"
           >
             <Play className="w-4 h-4" />
             <span>{preview ? 'Edit' : 'Preview'}</span>
           </button>
           <button
             onClick={handleSave}
-            className="flex items-center space-x-1 px-3 py-1 rounded-md bg-pink-500/20 hover:bg-pink-500/30 text-pink-500"
+            className="flex items-center space-x-1 px-3 py-1 rounded-md bg-orange-500/20 hover:bg-orange-500/30 text-orange-500"
           >
             <Save className="w-4 h-4" />
             <span>Save</span>

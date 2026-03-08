@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 
 interface IntroSequenceProps {
   onComplete: () => void;
@@ -14,52 +14,51 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
   // Handle completion in a separate useEffect
   useEffect(() => {
     if (isCompleted && !isCompletedRef.current) {
-      console.log('IntroSequence: Completion detected, calling onComplete');
+      console.log("IntroSequence: Completion detected, calling onComplete");
       isCompletedRef.current = true;
 
-      
       setTimeout(() => {
         try {
-          console.log('IntroSequence: Executing onComplete callback');
+          console.log("IntroSequence: Executing onComplete callback");
           onComplete();
-          console.log('IntroSequence: onComplete executed successfully');
-
+          console.log("IntroSequence: onComplete executed successfully");
         } catch (error) {
-          console.error('IntroSequence: Error in onComplete:', error);
-          
+          console.error("IntroSequence: Error in onComplete:", error);
         }
       }, 100);
     }
   }, [isCompleted, onComplete]);
 
   useEffect(() => {
-    console.log('IntroSequence: Component mounted, starting boot sequence');
+    console.log("IntroSequence: Component mounted, starting boot sequence");
 
-    
     const totalDuration = 6000; // 6 seconds
     let startTime: number;
     let animationFrameId: number;
     let frameCount = 0;
-    
+
     // Progress animation function
     const updateProgress = (timestamp: number) => {
       frameCount++;
-      
+
       if (!startTime) {
         startTime = timestamp;
-        console.log('IntroSequence: Progress animation started at timestamp:', timestamp);
-
+        console.log(
+          "IntroSequence: Progress animation started at timestamp:",
+          timestamp,
+        );
       }
-      
+
       const elapsed = timestamp - startTime;
       const progress = Math.min((elapsed / totalDuration) * 100, 100);
-      
+
       // Log every 10 frames to avoid spam
       if (frameCount % 10 === 0) {
-        console.log(`IntroSequence: Frame ${frameCount}, Elapsed: ${elapsed}ms, Progress: ${progress.toFixed(1)}%`);
-
+        console.log(
+          `IntroSequence: Frame ${frameCount}, Elapsed: ${elapsed}ms, Progress: ${progress.toFixed(1)}%`,
+        );
       }
-      
+
       setCurrentProgress(progress);
 
       // Update boot phase based on progress
@@ -69,7 +68,9 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
       else setBootPhase(0);
 
       if (progress >= 100) {
-        console.log('IntroSequence: Progress reached 100%, setting completion flag');
+        console.log(
+          "IntroSequence: Progress reached 100%, setting completion flag",
+        );
 
         setIsCompleted(true);
         return; // Stop the animation loop
@@ -79,12 +80,12 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
     };
 
     // Start the progress animation
-    console.log('IntroSequence: Starting requestAnimationFrame');
+    console.log("IntroSequence: Starting requestAnimationFrame");
     animationFrameId = requestAnimationFrame(updateProgress);
 
     // Cleanup function
     return () => {
-      console.log('IntroSequence: Cleanup called');
+      console.log("IntroSequence: Cleanup called");
       if (animationFrameId) {
         cancelAnimationFrame(animationFrameId);
       }
@@ -93,70 +94,79 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
 
   const getPhaseText = () => {
     switch (bootPhase) {
-      case 0: return 'INITIALIZING CORE SYSTEMS';
-      case 1: return 'LOADING ESSENTIAL SERVICES';
-      case 2: return 'ESTABLISHING CONNECTIONS';
-      case 3: return 'SYSTEM READY';
-      default: return 'STARTING SYSTEM';
+      case 0:
+        return "INITIALIZING CORE SYSTEMS";
+      case 1:
+        return "LOADING ESSENTIAL SERVICES";
+      case 2:
+        return "ESTABLISHING CONNECTIONS";
+      case 3:
+        return "SYSTEM READY";
+      default:
+        return "STARTING SYSTEM";
     }
   };
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-black via-pink-950/10 to-black z-50 overflow-hidden">
-      {/* Subtle pink ambient glow */}
-      <div 
-        className="absolute inset-0 opacity-10"
+    <div className="fixed inset-0 bg-gradient-to-br from-black via-orange-950/10 to-black z-50 overflow-hidden">
+      {/* Subtle orange ambient glow */}
+      <div
+        className="absolute inset-0"
         style={{
-          background: `radial-gradient(ellipse at center, rgba(236, 72, 153, 0.3) 0%, transparent 70%)`
+          background: `#f74e28`,
         }}
       />
 
       {/* Portrait Sinusoidal Wave Animation - Vertical */}
-      <div className="absolute inset-0">
-        <svg viewBox="0 0 100 100" className="w-full h-full" preserveAspectRatio="none">
-          {/* Multiple flowing sine waves for continuous effect */}
+      <div className="absolute inset-0 ">
+        <svg
+          viewBox="0 0 100 100"
+          className="w-full h-full origin-center"
+          preserveAspectRatio="none"
+        >
+          {/* Multiple flowing sine waves for continuous effect - Horizontal */}
           {[...Array(3)].map((_, i) => (
             <g key={`wave-group-${i}`}>
-              {/* Primary flowing wave */}
+              {/* Primary flowing wave - horizontal */}
               <path
-                d="M50,0 Q30,12.5 50,25 Q70,37.5 50,50 Q30,62.5 50,75 Q70,87.5 50,100"
+                d="M0,50 Q12.5,30 25,50 Q37.5,70 50,50 Q62.5,30 75,50 Q87.5,70 100,50"
                 fill="none"
-                stroke={`rgba(239, 68, 68, ${0.6 - i * 0.1})`}
+                stroke={`rgba(255, 255, 255, ${0.6 - i * 0.1})`}
                 strokeWidth={0.4 - i * 0.1}
                 className="animate-flowing-wave-1"
                 style={{
-                  filter: `drop-shadow(0 0 ${3 - i}px rgba(239, 68, 68, ${0.8 - i * 0.1}))`,
-                  animationDelay: `${i * 0.5}s`
+                  filter: `drop-shadow(0 0 ${3 - i}px rgba(255, 255, 255, ${0.8 - i * 0.1}))`,
+                  animationDelay: `${i * 0.5}s`,
                 }}
               />
-              
-              {/* Secondary flowing wave (inverse) */}
+
+              {/* Secondary flowing wave (inverse) - horizontal */}
               <path
-                d="M50,0 Q70,12.5 50,25 Q30,37.5 50,50 Q70,62.5 50,75 Q30,87.5 50,100"
+                d="M0,50 Q12.5,70 25,50 Q37.5,30 50,50 Q62.5,70 75,50 Q87.5,30 100,50"
                 fill="none"
-                stroke={`rgba(239, 68, 68, ${0.4 - i * 0.08})`}
+                stroke={`rgba(255, 255, 255, ${0.4 - i * 0.08})`}
                 strokeWidth={0.3 - i * 0.08}
                 className="animate-flowing-wave-2"
                 style={{
-                  filter: `drop-shadow(0 0 ${2 - i}px rgba(239, 68, 68, ${0.6 - i * 0.1}))`,
-                  animationDelay: `${i * 0.7}s`
+                  filter: `drop-shadow(0 0 ${2 - i}px rgba(255, 255, 255, ${0.6 - i * 0.1}))`,
+                  animationDelay: `${i * 0.7}s`,
                 }}
               />
             </g>
           ))}
-          
-          {/* Flowing energy particles along the wave */}
+
+          {/* Flowing energy particles along the wave - horizontal */}
           {[...Array(5)].map((_, i) => (
             <circle
               key={`particle-${i}`}
-              cx="50"
-              cy={20 + i * 20}
+              cx={20 + i * 20}
+              cy="50"
               r="0.5"
               fill="rgba(255, 255, 255, 0.8)"
               className="animate-wave-particle"
               style={{
                 animationDelay: `${i * 0.4}s`,
-                filter: 'drop-shadow(0 0 2px rgba(255, 255, 255, 0.9))'
+                filter: "drop-shadow(0 0 2px rgba(255, 255, 255, 0.9))",
               }}
             />
           ))}
@@ -166,17 +176,18 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
       <div className="h-full flex items-center justify-center">
         {/* Simplified Terminal Display */}
         <div className="w-full max-w-2xl mx-8">
-          <div className="bg-black/60 backdrop-blur-sm border border-pink-900/30 rounded-lg p-8">
-            
+          <div className="bg-black/60 backdrop-blur-sm border border-orange-900/30 rounded-lg p-8">
             {/* Terminal Header */}
-            <div className="flex items-center mb-6 pb-3 border-b border-pink-900/20">
+            <div className="flex items-center mb-6 pb-3 border-b border-orange-900/20">
               <div className="flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-pink-500"></div>
-                <div className="w-3 h-3 rounded-full bg-pink-400/60"></div>
-                <div className="w-3 h-3 rounded-full bg-pink-300/40"></div>
+                <div className="w-3 h-3 rounded-full bg-orange-500"></div>
+                <div className="w-3 h-3 rounded-full bg-orange-400/60"></div>
+                <div className="w-3 h-3 rounded-full bg-orange-300/40"></div>
               </div>
               <div className="flex-1 text-center">
-                <span className="text-pink-200/80 text-sm font-mono">OMNIA System Boot</span>
+                <span className="text-orange-200/80 text-sm font-mono">
+                  OS1 System Boot
+                </span>
               </div>
             </div>
 
@@ -184,7 +195,7 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
             <div className="space-y-2 font-mono text-sm mb-6">
               <div className="text-white">
                 <span className="text-white/60 mr-2">&gt;</span>
-                OMNIA OS - Initializing Core Systems...
+                OS1 - Initializing Core Systems...
               </div>
               <div className="text-white">
                 <span className="text-white/60 mr-2">&gt;</span>
@@ -201,25 +212,27 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
             </div>
 
             {/* Progress Bar with Live Updates - LARGE AND VISIBLE */}
-            <div className="border-t border-pink-900/20 pt-6">
+            <div className="border-t border-orange-900/20 pt-6">
               <div className="flex items-center justify-between mb-4">
-                <span className="text-pink-200/80 text-base font-mono">Boot Progress</span>
-                <span className="text-pink-200/80 text-base font-mono bg-pink-500/20 px-2 py-1 rounded">
+                <span className="text-orange-200/80 text-base font-mono">
+                  Boot Progress
+                </span>
+                <span className="text-orange-200/80 text-base font-mono bg-orange-500/20 px-2 py-1 rounded">
                   {Math.round(currentProgress)}%
                 </span>
               </div>
-              
+
               {/* Large, highly visible progress bar */}
-                          <div className="w-full h-4 bg-pink-950/60 rounded-full overflow-hidden border border-pink-700/30">
-              <div 
-                className="h-full bg-gradient-to-r from-pink-500 via-pink-400 to-pink-300 transition-all duration-100 rounded-full relative overflow-hidden"
+              <div className="w-full h-4 bg-orange-950/60 rounded-full overflow-hidden border border-orange-700/30">
+                <div
+                  className="h-full bg-gradient-to-r from-orange-500 via-orange-400 to-orange-300 transition-all duration-100 rounded-full relative overflow-hidden"
                   style={{ width: `${currentProgress}%` }}
                 >
                   {/* Animated shine effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse"></div>
                 </div>
               </div>
-              
+
               {/* Additional visual progress indicator */}
               <div className="mt-2 text-center">
                 <div className="inline-flex space-x-1">
@@ -227,9 +240,9 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
                     <div
                       key={i}
                       className={`w-2 h-2 rounded-full transition-colors duration-200 ${
-                        i < Math.floor(currentProgress / 10) 
-                          ? 'bg-pink-400 animate-pulse' 
-                          : 'bg-pink-900/40'
+                        i < Math.floor(currentProgress / 10)
+                          ? "bg-orange-400 animate-pulse"
+                          : "bg-orange-900/40"
                       }`}
                     />
                   ))}
@@ -238,13 +251,13 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
             </div>
           </div>
 
-          {/* OMNIA Branding */}
+          {/* OS1 Branding */}
           <div className="mt-8 text-center">
             <div className="text-white text-3xl font-light tracking-[0.4em] mb-2">
-              OMNIA
+              OS1
             </div>
-            <div className="text-pink-200/60 text-sm font-light tracking-widest">
-              OPERATING SYSTEM 
+            <div className="text-orange-200/60 text-sm font-light tracking-widest">
+              OPERATING SYSTEM
             </div>
           </div>
         </div>
@@ -252,12 +265,17 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
 
       {/* Bottom Status */}
       <div className="absolute bottom-8 left-0 right-0 text-center">
-        <div className={`text-lg font-light tracking-wider transition-all duration-300 ${
-          bootPhase === 0 ? 'text-pink-400/60' :
-          bootPhase === 1 ? 'text-pink-300/70' :
-          bootPhase === 2 ? 'text-pink-200/80' :
-          'text-white animate-pulse'
-        }`}>
+        <div
+          className={`text-lg font-light tracking-wider transition-all duration-300 ${
+            bootPhase === 0
+              ? "text-orange-400/60"
+              : bootPhase === 1
+                ? "text-orange-300/70"
+                : bootPhase === 2
+                  ? "text-orange-200/80"
+                  : "text-white animate-pulse"
+          }`}
+        >
           {getPhaseText()}
         </div>
       </div>
@@ -265,4 +283,4 @@ const IntroSequence: React.FC<IntroSequenceProps> = ({ onComplete }) => {
   );
 };
 
-export default IntroSequence; 
+export default IntroSequence;

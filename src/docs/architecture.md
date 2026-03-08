@@ -1,7 +1,7 @@
-# OmniaOS Architecture
+# OS1 Architecture
 
 ## Overview
-OmniaOS is a revolutionary AI companion operating system designed to help users navigate their romantic lives through intelligent virtual companions. Built with React, TypeScript, and cutting-edge AI technologies, it creates a safe, supportive environment for relationship skill development and emotional growth.
+OS1 is a revolutionary AI companion operating system designed to help users navigate their romantic lives through intelligent virtual companions. Built with React, TypeScript, and cutting-edge AI technologies, it creates a safe, supportive environment for relationship skill development and emotional growth.
 
 ## Core Components
 
@@ -58,7 +58,7 @@ OmniaOS is a revolutionary AI companion operating system designed to help users 
 
 ### Component Structure
 ```
-OmniaOS/
+OS1/
 ├── AI Companions/
 │   ├── Samantha/          # Warm, supportive companion
 │   ├── Elias/            # Dating coach and rizz expert

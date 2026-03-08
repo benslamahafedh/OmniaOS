@@ -1,11 +1,11 @@
 import React from 'react';
 import logo from '../assets/image.png';
-interface OmniaLogoProps {
+interface OS1LogoProps {
   size?: number;
   className?: string;
 }
 
-const OmniaLogo: React.FC<OmniaLogoProps> = ({ size = 32, className = '' }) => {
+const OS1Logo: React.FC<OS1LogoProps> = ({ size = 32, className = '' }) => {
   return (
     <div 
       className={`flex items-center justify-center ${className}`}
@@ -13,7 +13,7 @@ const OmniaLogo: React.FC<OmniaLogoProps> = ({ size = 32, className = '' }) => {
     >
       <img 
         src={logo} 
-        alt="Omnia Logo" 
+        alt="OS1 Logo" 
         className="w-full h-full object-contain"
         style={{ width: size, height: size }}
       />
@@ -21,4 +21,4 @@ const OmniaLogo: React.FC<OmniaLogoProps> = ({ size = 32, className = '' }) => {
   );
 };
 
-export default OmniaLogo; 
+export default OS1Logo; 

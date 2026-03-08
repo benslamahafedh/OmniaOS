@@ -1,7 +1,7 @@
-# OmniaOS Access & Premium Features
+# OS1 Access & Premium Features
 
 ## Overview
-OmniaOS operates on a freemium model designed to make AI companion assistance accessible to everyone. Users get daily free access to all companions, with premium features available for enhanced experiences and extended usage.
+OS1 operates on a freemium model designed to make AI companion assistance accessible to everyone. Users get daily free access to all companions, with premium features available for enhanced experiences and extended usage.
 
 ## Access Model
 
