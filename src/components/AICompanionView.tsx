@@ -4,7 +4,6 @@ import { useMobile } from '../hooks/useMobile';
 
 // Import videos
 import samanthaVideo from '../assets/samatha.mp4';
-import eliasVideo from '../assets/elias.mp4';
 
 interface AICompanionViewProps {
   onClose: () => void;
@@ -604,4 +603,4 @@ const AICompanionView: React.FC<AICompanionViewProps> = ({ onClose, initialCompa
   );
 };
 
-export default AICompanionView; 
+export default AICompanionView;

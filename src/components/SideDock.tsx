@@ -3,8 +3,6 @@ import { useMobile } from "../hooks/useMobile";
 
 // Import the character images
 import samanthaImage from "../assets/samantha.png";
-import brotherImage from "../assets/brother.png";
-import sisterImage from "../assets/sister.png";
 
 interface Character {
   id: string;
