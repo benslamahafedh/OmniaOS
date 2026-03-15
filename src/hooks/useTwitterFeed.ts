@@ -83,7 +83,7 @@ export const useTwitterFeed = () => {
       // In production, replace this with actual API call:
       
       /*
-      const response = await fetch('/api/twitter/omniaosdotfun', {
+      const response = await fetch('/api/twitter/OS1dotfun', {
         headers: {
           'Authorization': `Bearer ${process.env.REACT_APP_TWITTER_BEARER_TOKEN}`,
         },
@@ -96,12 +96,12 @@ export const useTwitterFeed = () => {
       const data: TwitterApiResponse = await response.json();
       */
 
-             // Real tweets from @omniaosdotfun
+             // Real tweets from @OS1dotfun
        const mockData: TwitterApiResponse = {
          data: [
            {
              id: '1',
-             text: '𝘈𝘯𝘪 ´𝘴 𝘭𝘪𝘨𝘩𝘵𝘪𝘯𝘨 𝘪𝘵 𝘶𝘱. 𝘙𝘦𝘴𝘱𝘦𝘤𝘵. 🔥\n\nWait until you see Omnia.',
+             text: '𝘈𝘯𝘪 ´𝘴 𝘭𝘪𝘨𝘩𝘵𝘪𝘯𝘨 𝘪𝘵 𝘶𝘱. 𝘙𝘦𝘴𝘱𝘦𝘤𝘵. 🔥\n\nWait until you see OS1.',
              created_at: new Date('2024-07-30T10:00:00Z').toISOString(),
              public_metrics: {
                retweet_count: 12,
@@ -121,7 +121,7 @@ export const useTwitterFeed = () => {
            },
            {
              id: '3',
-             text: 'Omnia Os uses artificial intelligence to help online daters break the digital ice',
+             text: 'OS1 uses artificial intelligence to help online daters break the digital ice',
              created_at: new Date('2024-07-30T07:15:00Z').toISOString(),
              public_metrics: {
                retweet_count: 45,
@@ -131,7 +131,7 @@ export const useTwitterFeed = () => {
            },
            {
              id: '4',
-             text: 'Amor vincit omnia 🧿\n\nOmnia 🧿',
+             text: 'Amor vincit OS1 🧿\n\nOS1 🧿',
              created_at: new Date('2024-07-29T16:45:00Z').toISOString(),
              public_metrics: {
                retweet_count: 18,
@@ -141,7 +141,7 @@ export const useTwitterFeed = () => {
            },
            {
              id: '5',
-             text: 'Omnians, unite. A new era of AI-powered expression starts now. !',
+             text: 'OS1ns, unite. A new era of AI-powered expression starts now. !',
              created_at: new Date('2024-07-28T14:20:00Z').toISOString(),
              public_metrics: {
                retweet_count: 34,
@@ -173,9 +173,9 @@ export const useTwitterFeed = () => {
                    includes: {
              users: [
                {
-                 id: 'omniaosdotfun',
-                 name: 'OmniaOS',
-                 username: 'omniaosdotfun',
+                 id: 'OS1dotfun',
+                 name: 'OS1',
+                 username: 'OS1dotfun',
                  profile_image_url: logo,
                  verified: true
                }
@@ -213,8 +213,8 @@ export const useTwitterFeed = () => {
            id: 'fallback-1',
            type: 'tweet',
                         user: {
-               name: 'Omnia Os',
-               handle: '@omniaosdotfun',
+               name: 'OS1',
+               handle: '@OS1dotfun',
                avatar: logo,
                verified: true
              },

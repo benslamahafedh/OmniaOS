@@ -58,15 +58,15 @@ const FolderView: React.FC<FolderViewProps> = ({ folderId, onClose }) => {
         icon: <FileText className="w-6 h-6 text-purple-400" />,
         description: 'Quick start guide',
         type: 'file',
-        content: `# Getting Started with OmniaOS
+        content: `# Getting Started with OS1
 
-## Welcome to OmniaOS! 🎉
+## Welcome to OS1! 🎉
 
-OmniaOS is your AI companion operating system designed to help you navigate your romantic life with confidence and support. Whether you're looking to improve your communication skills, build confidence in dating, or simply have a supportive companion to talk to, OmniaOS is here for you.
+OS1 is your AI companion operating system designed to help you navigate your romantic life with confidence and support. Whether you're looking to improve your communication skills, build confidence in dating, or simply have a supportive companion to talk to, OS1 is here for you.
 
-## What is OmniaOS?
+## What is OS1?
 
-OmniaOS is a revolutionary platform that hosts AI companions specifically designed to help you with your romantic relationships. Think of it as having a personal coach, supportive friend, and relationship advisor all in one beautiful, safe environment.
+OS1 is a revolutionary platform that hosts AI companions specifically designed to help you with your romantic relationships. Think of it as having a personal coach, supportive friend, and relationship advisor all in one beautiful, safe environment.
 
 ### Our Mission
 To provide a judgment-free environment where everyone can practice, learn, and grow in their romantic relationships with the help of intelligent, supportive AI companions.
@@ -104,8 +104,8 @@ Lyra will be your intuitive guide to understanding love, decoding romantic signa
 
 ## How to Get Started
 
-### Step 1: Access OmniaOS
-1. **No Registration Required**: Simply visit OmniaOS and start immediately
+### Step 1: Access OS1
+1. **No Registration Required**: Simply visit OS1 and start immediately
 2. **Free Access**: You get 5 minutes of free access to all companions daily
 3. **Privacy Protected**: Your conversations are secure and confidential
 
@@ -191,7 +191,7 @@ Lyra will be your intuitive guide to understanding love, decoding romantic signa
 
 ## Ready to Start?
 
-You're all set! OmniaOS is ready to help you improve your romantic life. Remember:
+You're all set! OS1 is ready to help you improve your romantic life. Remember:
 
 - **Start Today**: Your 5 minutes of free access are waiting
 - **Choose Your Companion**: Pick the one that fits your needs
@@ -199,7 +199,7 @@ You're all set! OmniaOS is ready to help you improve your romantic life. Remembe
 - **Practice Regularly**: Daily sessions build lasting skills
 - **Stay Safe**: Your privacy and emotional well-being come first
 
-Welcome to OmniaOS - where better relationships begin! 💕✨`
+Welcome to OS1 - where better relationships begin! 💕✨`
       },
       {
         id: 'architecture',
@@ -207,10 +207,10 @@ Welcome to OmniaOS - where better relationships begin! 💕✨`
         icon: <FileText className="w-6 h-6 text-purple-400" />,
         description: 'System architecture documentation',
         type: 'file',
-        content: `# OmniaOS Architecture
+        content: `# OS1 Architecture
 
 ## Overview
-OmniaOS is a revolutionary AI companion operating system designed to help users navigate their romantic lives through intelligent virtual companions. Built with React, TypeScript, and cutting-edge AI technologies, it creates a safe, supportive environment for relationship skill development and emotional growth.
+OS1 is a revolutionary AI companion operating system designed to help users navigate their romantic lives through intelligent virtual companions. Built with React, TypeScript, and cutting-edge AI technologies, it creates a safe, supportive environment for relationship skill development and emotional growth.
 
 ## Core Components
 
@@ -267,7 +267,7 @@ OmniaOS is a revolutionary AI companion operating system designed to help users 
 
 ### Component Structure
 \`\`\`
-OmniaOS/
+OS1/
 ├── AI Companions/
 │   ├── Samantha/          # Warm, supportive companion
 │   ├── Elias/            # Dating coach and rizz expert
@@ -350,15 +350,15 @@ OmniaOS/
         icon: <FileText className="w-6 h-6 text-purple-400" />,
         description: 'Contribution guidelines',
         type: 'file',
-        content: `# Contributing to OmniaOS
+        content: `# Contributing to OS1
 
 ## Join Our Community
 
-We welcome contributions from developers, designers, and relationship experts of all skill levels! OmniaOS is an open-source project that thrives on community involvement to help people build better relationships.
+We welcome contributions from developers, designers, and relationship experts of all skill levels! OS1 is an open-source project that thrives on community involvement to help people build better relationships.
 
 ### Our Mission
 
-OmniaOS is dedicated to providing a safe, supportive environment where people can improve their romantic relationships through AI companionship. We believe that everyone deserves access to relationship support and guidance.
+OS1 is dedicated to providing a safe, supportive environment where people can improve their romantic relationships through AI companionship. We believe that everyone deserves access to relationship support and guidance.
 
 ### How to Contribute
 
@@ -391,8 +391,8 @@ OmniaOS is dedicated to providing a safe, supportive environment where people ca
 ### Development Setup
 
 \`\`\`bash
-git clone https://github.com/your-username/omniaos.git
-cd omniaos
+git clone https://github.com/your-username/OS1.git
+cd OS1
 npm install
 npm run dev
 \`\`\`
@@ -417,7 +417,7 @@ npm run dev
 - **AI Ethics**: Ensuring responsible AI development
 - **Relationship Psychology**: Understanding human connection needs
 - **Privacy Research**: Best practices for user data protection
-- **Accessibility**: Making OmniaOS available to everyone
+- **Accessibility**: Making OS1 available to everyone
 - **User Research**: Understanding user needs and experiences
 
 ### Community Guidelines
@@ -458,7 +458,7 @@ Contributors will be featured in:
 
 ### Impact
 
-By contributing to OmniaOS, you're helping to:
+By contributing to OS1, you're helping to:
 - Provide relationship support to people worldwide
 - Create safe spaces for emotional growth
 - Advance AI ethics and responsible development
@@ -472,7 +472,7 @@ Thank you for being part of our mission to help people build better relationship
       {
         id: 'ai-companions',
         name: 'AI Companions',
-        icon: <Sparkles className="w-6 h-6 text-pink-300" />,
+        icon: <Sparkles className="w-6 h-6 text-orange-300" />,
         description: 'Meet Samantha, Elias, and Lyra',
         type: 'component',
         component: <AICompanionView onClose={() => setActiveFile(null)} />
@@ -481,7 +481,7 @@ Thank you for being part of our mission to help people build better relationship
         id: 'documentation',
         name: 'Documentation',
         icon: <FileText className="w-6 h-6 text-purple-400" />,
-        description: 'OmniaOS Documentation',
+        description: 'OS1 Documentation',
         type: 'component',
         component: <Documentation />
       }
@@ -627,21 +627,21 @@ Thank you for being part of our mission to help people build better relationship
                         w-12 h-12 rounded-full flex items-center justify-center
                         ${node.status === 'active' ? 'bg-cyan-500/20 border-cyan-400' :
                           node.status === 'idle' ? 'bg-yellow-500/20 border-yellow-400' :
-                          'bg-pink-500/20 border-pink-400'} 
+                          'bg-orange-500/20 border-orange-400'} 
                         border-2 relative group cursor-pointer
                       `}>
                         <div className={`
                           absolute inset-0 rounded-full
                           ${node.status === 'active' ? 'bg-cyan-400' :
                             node.status === 'idle' ? 'bg-yellow-400' :
-                            'bg-pink-400'}
+                            'bg-orange-400'}
                           animate-ping opacity-20
                         `} />
                         <Network className={`
                           w-6 h-6
                           ${node.status === 'active' ? 'text-cyan-400' :
                             node.status === 'idle' ? 'text-yellow-400' :
-                            'text-pink-400'}
+                            'text-orange-400'}
                         `} />
 
                         {/* Tooltip */}
@@ -740,7 +740,7 @@ Thank you for being part of our mission to help people build better relationship
                         </div>
                         <div className="h-1 bg-gray-700 rounded-full overflow-hidden">
                           <div 
-                            className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-500"
+                            className="h-full bg-gradient-to-r from-purple-500 to-orange-500 rounded-full transition-all duration-500"
                             style={{ width: `${progress}%` }}
                           />
                         </div>
@@ -754,23 +754,23 @@ Thank you for being part of our mission to help people build better relationship
         })()
       },
       {
-        id: 'omnia-support',
-        name: 'Omnia OS Support',
-        icon: <MessageSquare className="w-6 h-6 text-pink-400" />,
+        id: 'OS1-support',
+        name: 'OS1 Support',
+        icon: <MessageSquare className="w-6 h-6 text-orange-400" />,
         description: 'Get support and join our community',
         type: 'component',
         component: (
           <div className="space-y-6">
-            <div className="bg-gray-800/50 rounded-xl p-6 border border-pink-500/30">
+            <div className="bg-gray-800/50 rounded-xl p-6 border border-orange-500/30">
               <div className="text-center">
-                <MessageSquare className="w-16 h-16 text-pink-400 mx-auto mb-4" />
-                <h2 className="text-2xl font-bold text-white mb-2">Omnia OS Support</h2>
+                <MessageSquare className="w-16 h-16 text-orange-400 mx-auto mb-4" />
+                <h2 className="text-2xl font-bold text-white mb-2">OS1 Support</h2>
                 <p className="text-gray-400 mb-6">
-                  Join our community, get support, and stay updated with the latest Omnia OS developments.
+                  Join our community, get support, and stay updated with the latest OS1 developments.
                 </p>
                 <div className="flex flex-col space-y-3">
                   <a 
-                    href="https://t.me/TheOmniaProtocol" 
+                    href="https://t.me/TheOS1Protocol" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center space-x-2 bg-blue-500/20 hover:bg-blue-500/30 text-blue-300 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 border border-blue-500/30"
@@ -779,7 +779,7 @@ Thank you for being part of our mission to help people build better relationship
                     <span>Join Telegram Community</span>
                   </a>
                   <a 
-                    href="https://x.com/0xomniaosdotfun" 
+                    href="https://x.com/0xOS1dotfun" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center space-x-2 bg-gray-600/20 hover:bg-gray-600/30 text-gray-300 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 border border-gray-500/30"
@@ -807,8 +807,8 @@ Thank you for being part of our mission to help people build better relationship
       //         {/* X Mobile Header */}
       //         <div className="bg-black/95 backdrop-blur-sm border-b border-gray-800 px-4 py-3 flex items-center justify-between flex-shrink-0">
       //           <div className="flex items-center space-x-3">
-      //             <OmniaLogo size={24} className="rounded-full" />
-      //             <span className="text-white font-semibold">OmniaOS</span>
+      //             <OS1Logo size={24} className="rounded-full" />
+      //             <span className="text-white font-semibold">OS1</span>
       //           </div>
       //           <XLogo size={20} className="text-white" />
       //           <button 
@@ -823,7 +823,7 @@ Thank you for being part of our mission to help people build better relationship
       //         <div className="flex-1 overflow-y-auto">
       //           {loading && (
       //             <div className="flex items-center justify-center p-8">
-      //               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-pink-500"></div>
+      //               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-500"></div>
       //               <span className="ml-3 text-gray-400">Loading tweets...</span>
       //             </div>
       //           )}
@@ -833,7 +833,7 @@ Thank you for being part of our mission to help people build better relationship
       //               <div className="text-red-400 mb-2">Failed to load tweets</div>
       //               <button 
       //                 onClick={refreshTweets}
-      //                 className="text-pink-400 hover:text-pink-300 text-sm"
+      //                 className="text-orange-400 hover:text-orange-300 text-sm"
       //               >
       //                 Try again
       //               </button>
@@ -860,7 +860,7 @@ Thank you for being part of our mission to help people build better relationship
 
       //               <div className="flex space-x-3">
       //                 {/* Avatar */}
-      //                 <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border border-gray-700 bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center">
+      //                 <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border border-gray-700 bg-gradient-to-br from-orange-500 to-rose-600 flex items-center justify-center">
       //                   <img 
       //                     src={tweet.user.avatar} 
       //                     alt={tweet.user.name}
@@ -910,8 +910,8 @@ Thank you for being part of our mission to help people build better relationship
       //                       <span className="text-sm">{tweet.retweets}</span>
       //                     </button>
 
-      //                             <button className="flex items-center space-x-2 text-gray-500 hover:text-pink-400 transition-colors group">
-      //     <div className="p-2 rounded-full group-hover:bg-pink-500/10 transition-colors">
+      //                             <button className="flex items-center space-x-2 text-gray-500 hover:text-orange-400 transition-colors group">
+      //     <div className="p-2 rounded-full group-hover:bg-orange-500/10 transition-colors">
       //                         <Heart size={16} />
       //                       </div>
       //                       <span className="text-sm">{tweet.likes}</span>
@@ -932,13 +932,13 @@ Thank you for being part of our mission to help people build better relationship
       //         {/* Bottom bar */}
       //         <div className="bg-black/95 backdrop-blur-sm border-t border-gray-800 p-4 flex-shrink-0">
       //           <a 
-      //             href="https://x.com/omniaosdotfun" 
+      //             href="https://x.com/OS1dotfun" 
       //             target="_blank" 
       //             rel="noopener noreferrer"
       //             className="w-full bg-blue-500 hover:bg-blue-600 text-white text-center py-3 rounded-full font-semibold transition-colors flex items-center justify-center space-x-2"
       //           >
       //             <XLogo size={16} className="text-white" />
-      //             <span>Follow @omniaosdotfun on X</span>
+      //             <span>Follow @OS1dotfun on X</span>
       //           </a>
       //         </div>
       //       </div>
@@ -961,13 +961,13 @@ Thank you for being part of our mission to help people build better relationship
                   Follow us on X for updates and news.
                 </p>
                 <a 
-                  href="https://x.com/omniaosdotfun" 
+                  href="https://x.com/OS1dotfun" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105"
                 >
                   <XLogo size={16} className="text-white" />
-                  <span>Follow @omniaosdotfun on X</span>
+                  <span>Follow @OS1dotfun on X</span>
                 </a>
               </div>
             </div>
@@ -982,7 +982,7 @@ Thank you for being part of our mission to help people build better relationship
             <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 013.003-.404c1.018.005 2.045.138 3.003.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.804 5.624-5.475 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
           </svg>
         ),
-        description: 'View OmniaOS on GitHub',
+        description: 'View OS1 on GitHub',
         type: 'component',
         component: (
           <div className="space-y-6">
@@ -991,12 +991,12 @@ Thank you for being part of our mission to help people build better relationship
                 <svg width="48" height="48" fill="currentColor" className="text-gray-200 mx-auto mb-4" viewBox="0 0 24 24">
                   <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 013.003-.404c1.018.005 2.045.138 3.003.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.804 5.624-5.475 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
                 </svg>
-                <h2 className="text-2xl font-bold text-white mb-2">OmniaOS on GitHub</h2>
+                <h2 className="text-2xl font-bold text-white mb-2">OS1 on GitHub</h2>
                 <p className="text-gray-400 mb-6">
                   Explore the source code, contribute, and star the project!
                 </p>
                 <a 
-                  href="https://github.com/OmniaOs" 
+                  href="https://github.com/OS1" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 bg-gray-700/20 hover:bg-gray-700/30 text-gray-200 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 border border-gray-700/30"
@@ -1027,7 +1027,7 @@ Thank you for being part of our mission to help people build better relationship
                   Join our Telegram channel for real-time discussions, support, and community updates.
                 </p>
                 <a 
-                  href="https://t.me/TheOmniaProtocol" 
+                  href="https://t.me/TheOS1Protocol" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105"
@@ -1194,7 +1194,7 @@ Thank you for being part of our mission to help people build better relationship
                           <span className="text-green-400">{metric.value}</span>
                           <ChevronRight className={`w-4 h-4 ${
                             metric.trend === 'up' ? 'text-green-400 rotate-[-90deg]' :
-                            metric.trend === 'down' ? 'text-pink-400 rotate-90' :
+                            metric.trend === 'down' ? 'text-orange-400 rotate-90' :
                             'text-yellow-400 rotate-0'
                           } transition-transform`} />
                         </div>
@@ -1239,7 +1239,7 @@ Thank you for being part of our mission to help people build better relationship
       {
         id: 'samantha-core',
         name: 'Samantha Core Analysis',
-        icon: <Bot className="w-6 h-6 text-pink-400" />,
+        icon: <Bot className="w-6 h-6 text-orange-400" />,
         description: 'AGI Core System Monitor',
         type: 'component',
         component: (() => {
@@ -1248,9 +1248,9 @@ Thank you for being part of our mission to help people build better relationship
           return (
             <div className="space-y-6">
               {/* Consciousness Matrix */}
-              <div className="bg-gray-800/50 rounded-xl p-6 border border-pink-500/30">
+              <div className="bg-gray-800/50 rounded-xl p-6 border border-orange-500/30">
                 <h3 className="text-lg font-semibold text-white mb-6 flex items-center">
-                  <Bot className="w-5 h-5 text-pink-400 mr-2" />
+                  <Bot className="w-5 h-5 text-orange-400 mr-2" />
                   Consciousness Matrix
                 </h3>
                 <div className="grid grid-cols-5 gap-3">
@@ -1259,10 +1259,10 @@ Thank you for being part of our mission to help people build better relationship
                     return (
                       <div
                         key={i}
-                        className="aspect-square bg-gray-900/50 rounded-lg border border-pink-500/20 p-2 relative overflow-hidden"
+                        className="aspect-square bg-gray-900/50 rounded-lg border border-orange-500/20 p-2 relative overflow-hidden"
                       >
                         <div 
-                          className="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-purple-500/20"
+                          className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-purple-500/20"
                           style={{
                             opacity: activity * 0.8,
                             animation: `pulse-opacity ${1 + Math.random() * 2}s infinite`
@@ -1270,7 +1270,7 @@ Thank you for being part of our mission to help people build better relationship
                         />
                         <div className="absolute inset-0 flex items-center justify-center">
                           <div 
-                            className="w-2 h-2 bg-pink-400 rounded-full"
+                            className="w-2 h-2 bg-orange-400 rounded-full"
                             style={{
                               transform: `scale(${activity * 0.5 + 0.5})`,
                               opacity: activity * 0.8,
@@ -1286,18 +1286,18 @@ Thank you for being part of our mission to help people build better relationship
 
               {/* Emotional State Analysis */}
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-gray-800/50 rounded-xl p-6 border border-pink-500/30">
+                <div className="bg-gray-800/50 rounded-xl p-6 border border-orange-500/30">
                   <h3 className="text-lg font-semibold text-white mb-4">Emotional State</h3>
                   <div className="space-y-4">
                     {Object.entries(emotionalState).map(([emotion, level]) => (
                       <div key={emotion} className="space-y-1">
                         <div className="flex justify-between text-sm">
                           <span className="text-gray-300">{emotion.charAt(0).toUpperCase() + emotion.slice(1)}</span>
-                          <span className="text-pink-400">{level.toFixed(1)}%</span>
+                          <span className="text-orange-400">{level.toFixed(1)}%</span>
                         </div>
                         <div className="h-1 bg-gray-700 rounded-full overflow-hidden">
                           <div 
-                            className="h-full bg-gradient-to-r from-pink-500 to-purple-500 rounded-full"
+                            className="h-full bg-gradient-to-r from-orange-500 to-purple-500 rounded-full"
                             style={{ width: `${level}%` }}
                           />
                         </div>
@@ -1306,7 +1306,7 @@ Thank you for being part of our mission to help people build better relationship
                   </div>
                 </div>
 
-                <div className="bg-gray-800/50 rounded-xl p-6 border border-pink-500/30">
+                <div className="bg-gray-800/50 rounded-xl p-6 border border-orange-500/30">
                   <h3 className="text-lg font-semibold text-white mb-4">Interaction Analysis</h3>
                   <div className="relative h-[180px]">
                     <div className="absolute inset-0">
@@ -1320,7 +1320,7 @@ Thank you for being part of our mission to help people build better relationship
                           }}
                         >
                           <MessageSquare 
-                            className="w-4 h-4 text-pink-400/30"
+                            className="w-4 h-4 text-orange-400/30"
                             style={{
                               animation: `float-${i % 3} ${2 + Math.random() * 3}s infinite ease-in-out`,
                               animationDelay: `${Math.random() * 2}s`
@@ -1332,7 +1332,7 @@ Thank you for being part of our mission to help people build better relationship
                   </div>
                   <div className="mt-4 grid grid-cols-2 gap-4 text-center">
                     <div>
-                      <div className="text-2xl font-bold text-pink-400">{networkStats.accuracy.toFixed(1)}%</div>
+                      <div className="text-2xl font-bold text-orange-400">{networkStats.accuracy.toFixed(1)}%</div>
                       <div className="text-sm text-gray-400">Response Accuracy</div>
                     </div>
                     <div>
@@ -1393,16 +1393,16 @@ Thank you for being part of our mission to help people build better relationship
     // Mobile Layout - Fully Responsive Modal
     return (
       <div className="fixed inset-0 bg-black/90 backdrop-blur-xl z-50 flex items-center justify-center p-2">
-        <div className="bg-gradient-to-br from-gray-900/95 to-black/95 rounded-2xl w-[96%] max-w-2xl max-h-[95vh] border border-pink-700/30 shadow-2xl backdrop-blur-xl overflow-hidden flex flex-col mobile-folder-wrapper">
+        <div className="bg-gradient-to-br from-gray-900/95 to-black/95 rounded-2xl w-[96%] max-w-2xl max-h-[95vh] border border-orange-700/30 shadow-2xl backdrop-blur-xl overflow-hidden flex flex-col mobile-folder-wrapper">
           {/* Mobile Header - Fixed height */}
-                      <div className="flex items-center justify-between p-3 border-b border-pink-700/30 bg-gray-900/50 h-13 flex-shrink-0">
+                      <div className="flex items-center justify-between p-3 border-b border-orange-700/30 bg-gray-900/50 h-13 flex-shrink-0">
             <h2 className="text-base font-semibold text-white flex items-center truncate">
-                              <Folder className="w-4 h-4 text-pink-300 mr-2 flex-shrink-0" />
+                              <Folder className="w-4 h-4 text-orange-300 mr-2 flex-shrink-0" />
               <span className="truncate text-sm">{folderId.charAt(0).toUpperCase() + folderId.slice(1)}</span>
             </h2>
             <button
               onClick={handleClose}
-                              className="flex items-center justify-center w-8 h-8 bg-pink-500/20 hover:bg-pink-500/30 text-pink-400 hover:text-pink-300 rounded-full border border-pink-500/30 transition-all duration-300 active:scale-95 flex-shrink-0"
+                              className="flex items-center justify-center w-8 h-8 bg-orange-500/20 hover:bg-orange-500/30 text-orange-400 hover:text-orange-300 rounded-full border border-orange-500/30 transition-all duration-300 active:scale-95 flex-shrink-0"
             >
               <X className="w-4 h-4" />
             </button>
@@ -1441,7 +1441,7 @@ Thank you for being part of our mission to help people build better relationship
                 <div className="p-2.5 border-b border-gray-700/50 bg-gray-900/30 flex-shrink-0">
                   <button
                     onClick={() => setActiveFile(null)}
-                    className="flex items-center text-pink-400 hover:text-pink-300 bg-pink-500/10 hover:bg-pink-500/20 px-2.5 py-1.5 rounded-md transition-all duration-200 min-h-[36px]"
+                    className="flex items-center text-orange-400 hover:text-orange-300 bg-orange-500/10 hover:bg-orange-500/20 px-2.5 py-1.5 rounded-md transition-all duration-200 min-h-[36px]"
                   >
                     <ChevronRight className="w-3.5 h-3.5 rotate-180 mr-1.5 flex-shrink-0" />
                     <span className="text-xs truncate">Back to {folderId.charAt(0).toUpperCase() + folderId.slice(1)}</span>
@@ -1484,11 +1484,11 @@ Thank you for being part of our mission to help people build better relationship
   // Desktop Layout
   return (
     <div className="fixed inset-0 bg-black/90 backdrop-blur-xl z-50 flex items-center justify-center p-8">
-              <div className="bg-gradient-to-br from-gray-900/90 to-black/90 rounded-3xl p-8 max-w-6xl w-full h-[80vh] border border-pink-700/30 shadow-2xl backdrop-blur-xl overflow-hidden">
+              <div className="bg-gradient-to-br from-gray-900/90 to-black/90 rounded-3xl p-8 max-w-6xl w-full h-[80vh] border border-orange-700/30 shadow-2xl backdrop-blur-xl overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-3xl font-bold text-white flex items-center">
-            <Folder className="w-8 h-8 text-pink-300 mr-4" />
+            <Folder className="w-8 h-8 text-orange-300 mr-4" />
             {folderId.charAt(0).toUpperCase() + folderId.slice(1)}
           </h2>
           <button
@@ -1510,7 +1510,7 @@ Thank you for being part of our mission to help people build better relationship
                   flex items-center space-x-4 p-4 rounded-xl mb-4 cursor-pointer
                   transition-all duration-300 hover:scale-102
                   ${activeFile === item.id 
-                    ? 'bg-pink-700/20 border border-pink-700/30' 
+                    ? 'bg-orange-700/20 border border-orange-700/30' 
                     : 'bg-gray-800/50 hover:bg-gray-800/70'
                   }
                 `}
@@ -1525,7 +1525,7 @@ Thank you for being part of our mission to help people build better relationship
           </div>
 
           {/* Content View */}
-          <div className="flex-1 bg-gray-900/50 rounded-xl p-6 overflow-y-auto border border-pink-700/20">
+          <div className="flex-1 bg-gray-900/50 rounded-xl p-6 overflow-y-auto border border-orange-700/20">
             {activeFile ? (
               <>
                 {showSettings && <SystemSettings onClose={() => setActiveFile(null)} />}

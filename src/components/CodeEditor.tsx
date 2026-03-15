@@ -11,7 +11,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue = '', onChange }) 
   const { theme } = useTheme();
 
   return (
-    <div className="w-full h-full rounded-lg overflow-hidden border border-pink-500/30">
+    <div className="w-full h-full rounded-lg overflow-hidden border border-orange-500/30">
       <Editor
         height="500px"
         defaultLanguage="html"

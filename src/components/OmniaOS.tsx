@@ -3,7 +3,7 @@ import Desktop from './Desktop';
 import Taskbar from './Taskbar';
 import SamanthaChat from './SamanthaChat';
 
-const OmniaOS: React.FC = () => {
+const OS1: React.FC = () => {
   // Core state management
   const [isBooting, setIsBooting] = useState(true);
   const [bootPhase, setBootPhase] = useState(0);
@@ -47,7 +47,7 @@ const OmniaOS: React.FC = () => {
         return (
           <div
             key={i}
-            className="absolute bg-pink-500/30 rounded-full animate-float"
+            className="absolute bg-orange-500/30 rounded-full animate-float"
             style={{
               width: `${size}px`,
               height: `${size}px`,
@@ -91,13 +91,13 @@ const OmniaOS: React.FC = () => {
       <div className="text-center">
         <div className="relative mb-8">
           <h1 
-            className={`text-8xl font-black bg-gradient-to-r from-pink-500 via-pink-600 to-pink-700 
+            className={`text-8xl font-black bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 
               bg-clip-text text-transparent animate-pulse tracking-wider transition-all duration-1000
               ${bootPhase >= 2 ? 'scale-110' : 'scale-90 opacity-50'}`}
           >
-            OMNIA OS
+            OS1
           </h1>
-          <div className="mt-4 text-pink-500 text-xl font-light">
+          <div className="mt-4 text-orange-500 text-xl font-light">
             {bootPhase >= 1 && "Initializing core systems..."}
             {bootPhase >= 2 && <div className="mt-2">Loading neural interface...</div>}
             {bootPhase >= 3 && <div className="mt-2">Connecting to Samantha...</div>}
@@ -109,8 +109,8 @@ const OmniaOS: React.FC = () => {
               key={i}
               className={`w-3 h-3 rounded-full transition-all duration-500
                 ${i + 1 <= bootPhase 
-                  ? 'bg-pink-500 scale-100' 
-                  : 'bg-pink-900 scale-75'}`}
+                  ? 'bg-orange-500 scale-100' 
+                  : 'bg-orange-900 scale-75'}`}
             />
           ))}
         </div>
@@ -154,4 +154,4 @@ const OmniaOS: React.FC = () => {
   );
 };
 
-export default OmniaOS; 
+export default OS1; 

@@ -29,10 +29,10 @@ interface ThemeContextType {
 
 const defaultTheme: Theme = {
   id: 'default',
-  name: 'Samantha Pink',
-  primary: 'from-pink-800 to-pink-950',
-  secondary: 'from-pink-900 to-black',
-  accent: 'text-pink-300',
+  name: 'Samantha orange',
+  primary: 'from-orange-800 to-orange-950',
+  secondary: 'from-orange-900 to-black',
+  accent: 'text-orange-300',
   background: 'from-gray-900 to-black'
 };
 
@@ -64,12 +64,12 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   // Load saved settings
   useEffect(() => {
     try {
-      const savedTheme = localStorage.getItem('omniaos-theme');
-      const savedSettings = localStorage.getItem('omniaos-settings');
+      const savedTheme = localStorage.getItem('OS1-theme');
+      const savedSettings = localStorage.getItem('OS1-settings');
 
       if (savedTheme) {
         const parsedTheme = JSON.parse(savedTheme);
-        // Force update to pink theme if it's still using red
+        // Force update to orange theme if it's still using red
         if (parsedTheme.primary.includes('red')) {
           setTheme(defaultTheme);
         } else {
@@ -93,9 +93,9 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const body = document.body;
     
     // Apply theme colors
-    root.style.setProperty('--tw-gradient-from', `rgb(157 23 77)`); // pink-800
+    root.style.setProperty('--tw-gradient-from', `rgb(157 23 77)`); // orange-800
     root.style.setProperty('--tw-gradient-to', `rgb(88 28 135)`); // purple-900 (darker)
-    root.style.setProperty('--accent-color', 'rgb(190 24 93)'); // pink-700 (darker)
+    root.style.setProperty('--accent-color', 'rgb(190 24 93)'); // orange-700 (darker)
     
     // Apply UI settings
     root.style.setProperty('--animation-speed', `${uiSettings.animationSpeed}%`);
@@ -112,8 +112,8 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     body.classList.toggle('no-particles', !uiSettings.particleEffects);
 
     // Save settings
-    localStorage.setItem('omniaos-theme', JSON.stringify(theme));
-    localStorage.setItem('omniaos-settings', JSON.stringify(uiSettings));
+    localStorage.setItem('OS1-theme', JSON.stringify(theme));
+    localStorage.setItem('OS1-settings', JSON.stringify(uiSettings));
   }, [theme, uiSettings, isInitialized]);
 
   if (!isInitialized) {
@@ -148,9 +148,9 @@ export const themes: Theme[] = [
   {
     id: 'sunset',
     name: 'Sunset Vibes',
-    primary: 'from-pink-700 to-pink-900',
-    secondary: 'from-pink-800 to-pink-950',
-    accent: 'text-pink-400',
+    primary: 'from-orange-700 to-orange-900',
+    secondary: 'from-orange-800 to-orange-950',
+    accent: 'text-orange-400',
     background: 'from-slate-900 to-black'
   }
 ]; 

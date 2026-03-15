@@ -27,8 +27,8 @@ const Taskbar: React.FC<TaskbarProps> = ({
     return (
       <div className={`
         mobile-taskbar fixed bottom-0 left-0 right-0 h-16
-        bg-gradient-to-r from-pink-900 to-black bg-opacity-95
-        border-t border-pink-800/30 backdrop-blur-xl
+        bg-gradient-to-r from-orange-900 to-black bg-opacity-95
+        border-t border-orange-800/30 backdrop-blur-xl
         flex flex-col items-center justify-center px-4
         theme-blur
       `}>
@@ -69,8 +69,8 @@ const Taskbar: React.FC<TaskbarProps> = ({
   return (
     <div className={`
       fixed bottom-0 left-0 right-0 h-16
-      bg-gradient-to-r from-pink-900 to-black bg-opacity-95
-      border-t border-pink-800/30 backdrop-blur-xl
+      bg-gradient-to-r from-orange-900 to-black bg-opacity-95
+      border-t border-orange-800/30 backdrop-blur-xl
       flex items-center justify-between px-4
       theme-blur
     `}>

@@ -1,27 +1,27 @@
-# OmniaOS Documentation
+# OS1 Documentation
 
-Welcome to the OmniaOS documentation. This guide will help you understand the AI companion operating system, its features, and how it can help improve your romantic relationships.
+Welcome to the OS1 documentation. This guide will help you understand the AI companion operating system, its features, and how it can help improve your romantic relationships.
 
 ## 📚 Documentation Index
 
 ### Core Documentation
-- **[About OmniaOS](./about-omniaos.md)** - Our story, mission, and vision
-- **[Getting Started](./getting-started.md)** - Complete guide to using OmniaOS
+- **[About OS1](./about-OS1.md)** - Our story, mission, and vision
+- **[Getting Started](./getting-started.md)** - Complete guide to using OS1
 - **[AI Companions](./ai-companions.md)** - Detailed guide to Samantha, Elias, and Lyra
-- **[Features](./features.md)** - Overview of OmniaOS features and capabilities
+- **[Features](./features.md)** - Overview of OS1 features and capabilities
 - **[Architecture](./architecture.md)** - Technical architecture and system design
 - **[Access & Premium Features](./payment.md)** - Freemium model and companion access
 
 ## 🚀 Quick Start
 
-1. **Getting Started** - Launch OmniaOS and choose your AI companion
+1. **Getting Started** - Launch OS1 and choose your AI companion
 2. **Features** - Explore the AI companions and their capabilities
 3. **Privacy** - Understand our commitment to your emotional safety
 
 ## 🎯 Key Concepts
 
 ### System Overview
-OmniaOS is an AI companion operating system designed to help you navigate your romantic life. The system features:
+OS1 is an AI companion operating system designed to help you navigate your romantic life. The system features:
 - Multiple AI companions with unique personalities
 - Safe, judgment-free environment for practice
 - Daily free access with premium features

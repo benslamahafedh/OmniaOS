@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const CodeEditor: React.FC = () => {
   const [code, setCode] = useState(`public class HelloWorld {
     public static void main(String[] args) {
-        System.out.println("Hello, OmniaOS!");
+        System.out.println("Hello, OS1!");
     }
 }`);
 
@@ -13,13 +13,13 @@ const CodeEditor: React.FC = () => {
         <h2 className="text-xl font-semibold text-white">Java Editor</h2>
         <div className="flex space-x-2">
           <button 
-            className="px-4 py-2 bg-pink-500/20 text-pink-400 rounded-md hover:bg-pink-500/30 transition-colors"
+            className="px-4 py-2 bg-orange-500/20 text-orange-400 rounded-md hover:bg-orange-500/30 transition-colors"
             onClick={() => console.log('Running code...')}
           >
             Run
           </button>
           <button 
-            className="px-4 py-2 bg-pink-500/20 text-pink-400 rounded-md hover:bg-pink-500/30 transition-colors"
+            className="px-4 py-2 bg-orange-500/20 text-orange-400 rounded-md hover:bg-orange-500/30 transition-colors"
             onClick={() => console.log('Saving code...')}
           >
             Save
@@ -30,7 +30,7 @@ const CodeEditor: React.FC = () => {
       <textarea
         value={code}
         onChange={(e) => setCode(e.target.value)}
-        className="flex-1 bg-gray-800 text-white font-mono p-4 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-pink-500/50"
+        className="flex-1 bg-gray-800 text-white font-mono p-4 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-orange-500/50"
         spellCheck="false"
       />
     </div>

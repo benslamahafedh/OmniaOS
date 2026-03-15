@@ -76,7 +76,7 @@ samantha.ai
 
       case 'system':
         newCommand.output = `
-OmniaOS 
+OS1 
 Running on Neural Core 
 Memory: 16GB / 32GB
 CPU: Quantum Processor 9000
@@ -139,7 +139,7 @@ Storage: 1TB Quantum Drive
       `}>
         <div className="flex items-center gap-2">
           <TerminalIcon className={`${isMobile ? 'w-5 h-5' : 'w-4 h-4'}`} />
-          <span className={`${isMobile ? 'text-base font-medium' : 'text-sm'}`}>OmniaOS Terminal</span>
+          <span className={`${isMobile ? 'text-base font-medium' : 'text-sm'}`}>OS1 Terminal</span>
         </div>
         <div className="flex items-center gap-2">
           {!isMobile && (
@@ -154,7 +154,7 @@ Storage: 1TB Quantum Drive
             onClick={onClose}
             className={`
               ${isMobile 
-                ? 'flex items-center justify-center w-10 h-10 bg-pink-500/20 hover:bg-pink-500/30 text-pink-400 hover:text-pink-300 rounded-full border border-pink-500/30 transition-all duration-300 active:scale-95'
+                ? 'flex items-center justify-center w-10 h-10 bg-orange-500/20 hover:bg-orange-500/30 text-orange-400 hover:text-orange-300 rounded-full border border-orange-500/30 transition-all duration-300 active:scale-95'
                 : 'p-1 hover:bg-white/10 rounded transition-colors duration-300'
               }
             `}
@@ -178,7 +178,7 @@ Storage: 1TB Quantum Drive
       >
         {/* Welcome Message */}
         <div className="text-green-400 mb-4">
-          Welcome to OmniaOS Terminal
+          Welcome to OS1 Terminal
           <br />
           Type 'help' for available commands.
           <br />
@@ -188,7 +188,7 @@ Storage: 1TB Quantum Drive
         {commands.map((cmd, i) => (
           <div key={i} className="space-y-1">
             <div className="flex items-center gap-2">
-              <span className="text-green-400">samantha@omniaos</span>
+              <span className="text-green-400">samantha@OS1</span>
               <span className="text-gray-400">~</span>
               <span className="text-green-400">$</span>
               <span className="text-white">{cmd.input}</span>
@@ -201,7 +201,7 @@ Storage: 1TB Quantum Drive
 
         {/* Current Input */}
         <form onSubmit={handleSubmit} className="flex items-center gap-2">
-          <span className="text-green-400">samantha@omniaos</span>
+          <span className="text-green-400">samantha@OS1</span>
           <span className="text-gray-400">~</span>
           <span className="text-green-400">$</span>
           <input
