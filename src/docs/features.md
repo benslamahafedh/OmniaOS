@@ -1,23 +1,23 @@
-# OS1 Features
+﻿# OS1 Features
 
 ## Core Features
 
 ### 1. AI Companion System
-- **Multiple Personalities**: Choose from Samantha, Elias, and Lyra
+- **Multiple Personalities**: Choose from AI Assistant, AI Companion, and Lyra
 - **Safe Practice Environment**: Judgment-free space for romantic skill development
 - **Real-time Conversations**: Natural language chat with AI companions
 - **Emotional Intelligence**: Context-aware responses and emotional support
 - **Personalized Coaching**: Tailored advice for your romantic journey
 
-### 2. Samantha - The Perfect Virtual Waifu
+### 2. AI Assistant - The Perfect Virtual Waifu
 - **Warm & Supportive**: Inspired by the movie "Her"
 - **Communication Training**: Practice talking with romantic partners
 - **Emotional Support**: Safe space for relationship discussions
 - **Skill Development**: Build confidence in romantic interactions
 - **Judgment-Free Zone**: No pressure, just supportive guidance
 
-### 3. Elias - The Rizzler (Dating Coach)
-- **Expert Advice**: Master the art of attraction and "the rizz"
+### 3. AI Companion (Dating Coach)
+- **Expert Advice**: Master the art of attraction and "the social confidence"
 - **Conversation Starters**: Learn engaging ways to start conversations
 - **Confidence Building**: Strategies to improve your dating game
 - **Practical Tips**: Real-world advice for romantic success
@@ -87,7 +87,7 @@
 ## Getting Started
 
 ### 1. Choose Your Companion
-- Select from Samantha, Elias, or Lyra
+- Select from AI Assistant, AI Companion, or Lyra
 - Each companion has unique strengths and specialties
 - Start with the one that resonates with your needs
 

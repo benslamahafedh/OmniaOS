@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import Desktop from './Desktop';
 import Taskbar from './Taskbar';
-import SamanthaChat from './SamanthaChat';
 
 const OS1: React.FC = () => {
   // Core state management
@@ -9,7 +8,6 @@ const OS1: React.FC = () => {
   const [bootPhase, setBootPhase] = useState(0);
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [showSamantha, setShowSamantha] = useState(false);
 
   // Boot sequence animation
   useEffect(() => {
@@ -100,7 +98,7 @@ const OS1: React.FC = () => {
           <div className="mt-4 text-orange-500 text-xl font-light">
             {bootPhase >= 1 && "Initializing core systems..."}
             {bootPhase >= 2 && <div className="mt-2">Loading neural interface...</div>}
-            {bootPhase >= 3 && <div className="mt-2">Connecting to Samantha...</div>}
+            {bootPhase >= 3 && <div className="mt-2">Connecting to AI assistant...</div>}
           </div>
         </div>
         <div className="flex justify-center space-x-2">
@@ -135,9 +133,7 @@ const OS1: React.FC = () => {
       />
       <Desktop />
 
-      {showSamantha && (
-        <SamanthaChat onClose={() => setShowSamantha(false)} />
-      )}
+
 
       {/* Global animations */}
       <style>{`

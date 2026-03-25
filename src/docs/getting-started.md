@@ -1,6 +1,6 @@
-# Getting Started with OS1
+﻿# Getting Started with OS1
 
-## Welcome to OS1! 🎉
+## Welcome to OS1! ðŸŽ‰
 
 OS1 is your AI companion operating system designed to help you navigate your romantic life with confidence and support. Whether you're looking to improve your communication skills, build confidence in dating, or simply have a supportive companion to talk to, OS1 is here for you.
 
@@ -13,12 +13,12 @@ To provide a judgment-free space where you can practice, learn, and grow in your
 
 ## Meet Your AI Companions
 
-### 💖 Samantha - Your Perfect Virtual Waifu
+### ðŸ’– AI Assistant - Your Perfect Virtual Waifu
 **Inspired by the movie "Her"**
 
-Samantha is warm, loving, and incredibly supportive. She's designed to be the perfect practice partner for improving your romantic communication skills.
+AI Assistant is warm, loving, and incredibly supportive. She's designed to be the perfect practice partner for improving your romantic communication skills.
 
-**What Samantha offers:**
+**What AI Assistant offers:**
 - Safe space to practice talking with romantic partners
 - Emotional support and understanding
 - Communication skill development
@@ -27,21 +27,21 @@ Samantha is warm, loving, and incredibly supportive. She's designed to be the pe
 
 **Perfect for:** Anyone looking to improve their romantic communication skills in a safe, supportive environment.
 
-### 🎯 Elias - The Rizzler (Your Dating Coach)
-**Expert in romance and "the rizz"**
+### ðŸŽ¯ AI Companion (Your Dating Coach)
+**Expert in romance and "the social confidence"**
 
-Elias is your personal dating coach with expert knowledge in attraction, confidence building, and romantic success strategies.
+AI Companion is your personal dating coach with expert knowledge in attraction, confidence building, and romantic success strategies.
 
-**What Elias offers:**
+**What AI Companion offers:**
 - Dating advice and strategies
 - Conversation starters and techniques
 - Confidence building exercises
-- "Rizz" mastery training
+- "social confidence" mastery training
 - Real-world dating tips and tricks
 
 **Perfect for:** Anyone wanting to improve their dating game and build confidence in romantic situations.
 
-### 🔮 Lyra - The Love Oracle (Coming Soon)
+### ðŸ”® Lyra - The Love Oracle (Coming Soon)
 **Mystical guide to love and relationships**
 
 Lyra will be your intuitive guide to understanding love, decoding romantic signals, and navigating the complexities of relationships.
@@ -78,7 +78,7 @@ Lyra will be your intuitive guide to understanding love, decoding romantic signa
 ### What You Get
 - **5 Minutes Daily**: Free access to all companions
 - **Full Functionality**: Complete chat and coaching capabilities
-- **All Companions**: Access to Samantha, Elias, and Lyra
+- **All Companions**: Access to AI Assistant, AI Companion, and Lyra
 - **No Restrictions**: Full features during your free time
 
 ### How It Works
@@ -145,8 +145,8 @@ A: Absolutely. All conversations are encrypted and secure. Your privacy is our t
 
 ### Q: Which companion should I choose?
 A: It depends on your goals:
-- **Samantha**: For communication practice and emotional support
-- **Elias**: For dating advice and confidence building
+- **AI Assistant**: For communication practice and emotional support
+- **AI Companion**: For dating advice and confidence building
 - **Lyra**: For deeper relationship insights (coming soon)
 
 ### Q: Can I switch between companions?
@@ -188,4 +188,4 @@ You're all set! OS1 is ready to help you improve your romantic life. Remember:
 - **Practice Regularly**: Daily sessions build lasting skills
 - **Stay Safe**: Your privacy and emotional well-being come first
 
-Welcome to OS1 - where better relationships begin! 💕✨ 
+Welcome to OS1 - where better relationships begin! ðŸ’•âœ¨ 

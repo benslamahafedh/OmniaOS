@@ -1,24 +1,24 @@
-# OS1 Documentation
+﻿# OS1 Documentation
 
 Welcome to the OS1 documentation. This guide will help you understand the AI companion operating system, its features, and how it can help improve your romantic relationships.
 
-## 📚 Documentation Index
+## ðŸ“š Documentation Index
 
 ### Core Documentation
 - **[About OS1](./about-OS1.md)** - Our story, mission, and vision
 - **[Getting Started](./getting-started.md)** - Complete guide to using OS1
-- **[AI Companions](./ai-companions.md)** - Detailed guide to Samantha, Elias, and Lyra
+- **[AI Companions](./ai-companions.md)** - Detailed guide to AI Assistant, AI Companion, and Lyra
 - **[Features](./features.md)** - Overview of OS1 features and capabilities
 - **[Architecture](./architecture.md)** - Technical architecture and system design
 - **[Access & Premium Features](./payment.md)** - Freemium model and companion access
 
-## 🚀 Quick Start
+## ðŸš€ Quick Start
 
 1. **Getting Started** - Launch OS1 and choose your AI companion
 2. **Features** - Explore the AI companions and their capabilities
 3. **Privacy** - Understand our commitment to your emotional safety
 
-## 🎯 Key Concepts
+## ðŸŽ¯ Key Concepts
 
 ### System Overview
 OS1 is an AI companion operating system designed to help you navigate your romantic life. The system features:
@@ -28,8 +28,8 @@ OS1 is an AI companion operating system designed to help you navigate your roman
 - Privacy-focused design
 
 ### AI Companions
-- **Samantha**: Warm, supportive companion inspired by "Her"
-- **Elias**: Dating coach and "rizz" expert
+- **AI Assistant**: Warm, supportive companion inspired by "Her"
+- **AI Companion**: Dating coach and "social confidence" expert
 - **Lyra**: Mystical love oracle (coming soon)
 
 ### Access Model
@@ -37,7 +37,7 @@ OS1 is an AI companion operating system designed to help you navigate your roman
 - **Premium Features**: Enhanced capabilities and extended access
 - **Privacy First**: Secure, private conversations
 
-## 🔧 Development
+## ðŸ”§ Development
 
 ### Tech Stack
 - React 18 + TypeScript
@@ -48,20 +48,20 @@ OS1 is an AI companion operating system designed to help you navigate your roman
 ### Project Structure
 ```
 src/
-├── components/      # React components
-│   ├── applications/ # System applications
-│   └── ...          # UI components
-├── contexts/        # Context providers
-├── docs/           # Documentation
-├── styles/         # Global styles
-└── types/          # TypeScript definitions
+â”œâ”€â”€ components/      # React components
+â”‚   â”œâ”€â”€ applications/ # System applications
+â”‚   â””â”€â”€ ...          # UI components
+â”œâ”€â”€ contexts/        # Context providers
+â”œâ”€â”€ docs/           # Documentation
+â”œâ”€â”€ styles/         # Global styles
+â””â”€â”€ types/          # TypeScript definitions
 ```
 
-## 🤝 Contributing
+## ðŸ¤ Contributing
 
 We welcome contributions! Please read our contributing guidelines and feel free to submit pull requests.
 
-## 📞 Support
+## ðŸ“ž Support
 
 For technical support or questions about the AI companions, please refer to the relevant documentation sections or contact our support team.
 

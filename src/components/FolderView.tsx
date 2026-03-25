@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { X, FileText, Folder, Settings, Terminal as TerminalIcon, Globe, Search, Brain, Activity, Link, Network, Cpu, Database, Zap, ChevronRight, Sparkles, Workflow, Bot, Share2, MessageSquare, Send } from 'lucide-react';
 import XLogo from './XLogo';
 import ReactMarkdown from 'react-markdown';
@@ -8,7 +8,6 @@ import { useMobile } from '../hooks/useMobile';
 import SystemSettings from './SystemSettings';
 import Terminal from './Terminal';
 import { Documentation } from './applications';
-import AICompanionView from './AICompanionView';
 
 interface FolderViewProps {
   folderId: string;
@@ -60,7 +59,7 @@ const FolderView: React.FC<FolderViewProps> = ({ folderId, onClose }) => {
         type: 'file',
         content: `# Getting Started with OS1
 
-## Welcome to OS1! 🎉
+## Welcome to OS1! ðŸŽ‰
 
 OS1 is your AI companion operating system designed to help you navigate your romantic life with confidence and support. Whether you're looking to improve your communication skills, build confidence in dating, or simply have a supportive companion to talk to, OS1 is here for you.
 
@@ -73,34 +72,34 @@ To provide a judgment-free environment where everyone can practice, learn, and g
 
 ## Meet Your AI Companions
 
-### 💖 Samantha - Your Perfect Virtual Waifu
+### ðŸ’– AI Assistant - Your Perfect Virtual Waifu
 **Inspired by the movie "Her"**
 
-Samantha is warm, loving, and incredibly supportive. She's designed to be the perfect practice partner for improving your romantic communication skills.
+AI Assistant is warm, loving, and incredibly supportive. She's designed to be the perfect practice partner for improving your romantic communication skills.
 
-**What Samantha offers:**
+**What AI Assistant offers:**
 - Safe space to practice talking with romantic partners
 - Emotional support and understanding
 - Communication skill development
 - Confidence building through conversation
 - Judgment-free advice and guidance
 
-### 🎯 Elias - The Rizzler (Your Dating Coach)
-**Expert in romance and "the rizz"**
+### ðŸŽ¯ AI Assistant - The Assistant (Your Dating Coach)
+**Expert in romance and "the confidence"**
 
-Elias is your personal dating coach with expert knowledge in attraction, confidence building, and romantic success strategies.
+AI Assistant is your personal dating coach with expert knowledge in attraction, confidence building, and romantic success strategies.
 
-**What Elias offers:**
+**What AI Assistant offers:**
 - Dating advice and strategies
 - Conversation starters and techniques
 - Confidence building exercises
-- "Rizz" mastery training
+- "confidence" mastery training
 - Real-world dating tips and tricks
 
-### 🔮 Lyra - The Love Oracle (Coming Soon)
+### ðŸ”® AI Intelligence - The Love Oracle (Coming Soon)
 **Mystical guide to love and relationships**
 
-Lyra will be your intuitive guide to understanding love, decoding romantic signals, and navigating the complexities of relationships.
+AI Intelligence will be your intuitive guide to understanding love, decoding romantic signals, and navigating the complexities of relationships.
 
 ## How to Get Started
 
@@ -125,7 +124,7 @@ Lyra will be your intuitive guide to understanding love, decoding romantic signa
 ### What You Get
 - **5 Minutes Daily**: Free access to all companions
 - **Full Functionality**: Complete chat and coaching capabilities
-- **All Companions**: Access to Samantha, Elias, and Lyra
+- **All Companions**: Access to AI Assistant, AI Assistant, and AI Intelligence
 - **No Restrictions**: Full features during your free time
 
 ### How It Works
@@ -185,7 +184,7 @@ Lyra will be your intuitive guide to understanding love, decoding romantic signa
 
 ### Advanced Capabilities
 - **Conversation Screenshots**: Upload chats for personalized coaching
-- **Photo Texting**: Send photos to Lyra for insights
+- **Photo Texting**: Send photos to AI Intelligence for insights
 - **Custom Companions**: Build your own virtual partner
 - **Progress Tracking**: Detailed analytics and improvement metrics
 
@@ -199,7 +198,7 @@ You're all set! OS1 is ready to help you improve your romantic life. Remember:
 - **Practice Regularly**: Daily sessions build lasting skills
 - **Stay Safe**: Your privacy and emotional well-being come first
 
-Welcome to OS1 - where better relationships begin! 💕✨`
+Welcome to OS1 - where better relationships begin! ðŸ’•âœ¨`
       },
       {
         id: 'architecture',
@@ -222,9 +221,9 @@ OS1 is a revolutionary AI companion operating system designed to help users navi
 - **Privacy Protection**: Secure conversation handling and data protection
 
 ### 2. Companion Management System
-- **Samantha Core**: Warm, supportive companion inspired by "Her"
-- **Elias Engine**: Dating coach with "rizz" expertise and confidence building
-- **Lyra Framework**: Mystical love oracle with intuitive insights (coming soon)
+- **AI Assistant Core**: Warm, supportive companion inspired by "Her"
+- **AI Assistant Engine**: Dating coach with "confidence" expertise and confidence building
+- **AI Intelligence Framework**: Mystical love oracle with intuitive insights (coming soon)
 - **Personality Switching**: Seamless transition between companions
 - **Session Management**: Daily access control and usage tracking
 
@@ -268,22 +267,22 @@ OS1 is a revolutionary AI companion operating system designed to help users navi
 ### Component Structure
 \`\`\`
 OS1/
-├── AI Companions/
-│   ├── Samantha/          # Warm, supportive companion
-│   ├── Elias/            # Dating coach and rizz expert
-│   └── Lyra/             # Mystical love oracle (future)
-├── User Interface/
-│   ├── Chat System/      # Real-time conversation interface
-│   ├── Navigation/       # Companion selection and switching
-│   └── Settings/         # User preferences and privacy controls
-├── Security Layer/
-│   ├── Encryption/       # Conversation security
-│   ├── Privacy/          # Data protection
-│   └── Access Control/   # Daily limits and permissions
-└── Infrastructure/
-    ├── Web Platform/     # Cross-platform compatibility
-    ├── Performance/      # Optimization and speed
-    └── Scalability/      # Future growth capabilities
+â”œâ”€â”€ AI Companions/
+â”‚   â”œâ”€â”€ AI Assistant/          # Warm, supportive companion
+â”‚   â”œâ”€â”€ AI Assistant/            # Dating coach and confidence expert
+â”‚   â””â”€â”€ AI Intelligence/             # Mystical love oracle (future)
+â”œâ”€â”€ User Interface/
+â”‚   â”œâ”€â”€ Chat System/      # Real-time conversation interface
+â”‚   â”œâ”€â”€ Navigation/       # Companion selection and switching
+â”‚   â””â”€â”€ Settings/         # User preferences and privacy controls
+â”œâ”€â”€ Security Layer/
+â”‚   â”œâ”€â”€ Encryption/       # Conversation security
+â”‚   â”œâ”€â”€ Privacy/          # Data protection
+â”‚   â””â”€â”€ Access Control/   # Daily limits and permissions
+â””â”€â”€ Infrastructure/
+    â”œâ”€â”€ Web Platform/     # Cross-platform compatibility
+    â”œâ”€â”€ Performance/      # Optimization and speed
+    â””â”€â”€ Scalability/      # Future growth capabilities
 \`\`\`
 
 ### Data Flow
@@ -407,7 +406,7 @@ npm run dev
 - **Testing**: Unit tests, integration tests, user testing
 
 #### Content & Design
-- **AI Companion Personalities**: Help develop Samantha, Elias, and Lyra
+- **AI Companion Personalities**: Help develop AI Assistant, AI Assistant, and AI Intelligence
 - **User Experience**: Interface design, user flows, accessibility
 - **Documentation**: Guides, tutorials, help content
 - **Relationship Expertise**: Dating advice, communication strategies
@@ -465,18 +464,10 @@ By contributing to OS1, you're helping to:
 - Build technology that genuinely helps people
 - Make relationship guidance accessible to everyone
 
-Thank you for being part of our mission to help people build better relationships! 💕✨`
+Thank you for being part of our mission to help people build better relationships! ðŸ’•âœ¨`
       }
     ],
     apps: [
-      {
-        id: 'ai-companions',
-        name: 'AI Companions',
-        icon: <Sparkles className="w-6 h-6 text-orange-300" />,
-        description: 'Meet Samantha, Elias, and Lyra',
-        type: 'component',
-        component: <AICompanionView onClose={() => setActiveFile(null)} />
-      },
       {
         id: 'documentation',
         name: 'Documentation',
@@ -874,11 +865,11 @@ Thank you for being part of our mission to help people build better relationship
       //                     <span className="text-white font-bold truncate">{tweet.user.name}</span>
       //                     {tweet.user.verified && (
       //                       <div className="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center">
-      //                         <span className="text-white text-xs">✓</span>
+      //                         <span className="text-white text-xs">âœ“</span>
       //                       </div>
       //                     )}
       //                     <span className="text-gray-500 truncate">{tweet.user.handle}</span>
-      //                     <span className="text-gray-500">·</span>
+      //                     <span className="text-gray-500">Â·</span>
       //                     <span className="text-gray-500">{tweet.timestamp}</span>
       //                   </div>
 
@@ -1237,8 +1228,8 @@ Thank you for being part of our mission to help people build better relationship
         })()
       },
       {
-        id: 'samantha-core',
-        name: 'Samantha Core Analysis',
+        id: 'AI Assistant-core',
+        name: 'AI Assistant Core Analysis',
         icon: <Bot className="w-6 h-6 text-orange-400" />,
         description: 'AGI Core System Monitor',
         type: 'component',
@@ -1360,10 +1351,6 @@ Thank you for being part of our mission to help people build better relationship
       } else if (fileId === 'terminal') {
         setShowTerminal(true);
         setShowSettings(false);
-      } else if (fileId === 'ai-companions') {
-        // Don't set any internal states for AI companions - let it render independently
-        setShowSettings(false);
-        setShowTerminal(false);
       } else {
         setShowSettings(false);
         setShowTerminal(false);
@@ -1383,13 +1370,6 @@ Thank you for being part of our mission to help people build better relationship
   };
 
   if (isMobile) {
-    // Special handling for AI companions - render them full screen
-    if (activeFile === 'ai-companions') {
-      return (
-        <AICompanionView onClose={() => setActiveFile(null)} />
-      );
-    }
-    
     // Mobile Layout - Fully Responsive Modal
     return (
       <div className="fixed inset-0 bg-black/90 backdrop-blur-xl z-50 flex items-center justify-center p-2">
@@ -1453,7 +1433,7 @@ Thank you for being part of our mission to help people build better relationship
                   <div className="mobile-content-wrapper">
                     {showSettings && <SystemSettings onClose={() => setActiveFile(null)} />}
                     {showTerminal && <Terminal onClose={() => setActiveFile(null)} />}
-                    {!showSettings && !showTerminal && activeFile !== 'ai-companions' && (
+                    {!showSettings && !showTerminal && (
                       folderContents[folderId]?.find(item => item.id === activeFile)?.type === 'component' ? (
                         <div className="mobile-component-container">
                           {folderContents[folderId]?.find(item => item.id === activeFile)?.component}
@@ -1471,13 +1451,6 @@ Thank you for being part of our mission to help people build better relationship
           </div>
         </div>
       </div>
-    );
-  }
-
-  // Special handling for AI companions on desktop - render them full screen
-  if (activeFile === 'ai-companions') {
-    return (
-      <AICompanionView onClose={() => setActiveFile(null)} />
     );
   }
 
@@ -1530,7 +1503,7 @@ Thank you for being part of our mission to help people build better relationship
               <>
                 {showSettings && <SystemSettings onClose={() => setActiveFile(null)} />}
                 {showTerminal && <Terminal onClose={() => setActiveFile(null)} />}
-                {!showSettings && !showTerminal && activeFile !== 'ai-companions' && (
+                {!showSettings && !showTerminal && (
                   folderContents[folderId]?.find(item => item.id === activeFile)?.type === 'component' ? (
                     folderContents[folderId]?.find(item => item.id === activeFile)?.component
                   ) : (

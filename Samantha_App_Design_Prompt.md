@@ -1,4 +1,4 @@
-# Samantha App Design Prompt
+﻿# AI Assistant App Design Prompt
 
 ## Brand Alignment with OS1
 
@@ -7,19 +7,19 @@
 - **Dirty White Text**: `rgb(229 231 235)` (gray-200) - for readability
 - **Background**: Deep black for contrast
 
-### Samantha's Signature Gradients
+### AI Assistant's Signature Gradients
 
 #### Primary Gradient Options:
 1. **Warm Pink to Rose**: `from-pink-600 to-rose-700`
-   - Creates a warm, inviting feel that matches Samantha's emotional intelligence
+   - Creates a warm, inviting feel that matches AI Assistant's emotional intelligence
    - Complements the OS1 brand while being distinct
 
 2. **Soft Pink to Magenta**: `from-pink-500 to-fuchsia-600`
-   - More vibrant and energetic, perfect for Samantha's creative personality
+   - More vibrant and energetic, perfect for AI Assistant's creative personality
    - Maintains brand consistency with a fresh twist
 
 3. **Elegant Pink to Purple**: `from-pink-600 to-purple-700`
-   - Sophisticated and mysterious, reflecting Samantha's depth
+   - Sophisticated and mysterious, reflecting AI Assistant's depth
    - Creates a premium feel while staying within the pink family
 
 #### Secondary Accent Colors:
@@ -65,7 +65,7 @@ backdrop-filter: blur(10px);
 
 ### Emotional Design Elements
 
-#### Samantha's Personality Integration:
+#### AI Assistant's Personality Integration:
 - **Warm and Inviting**: Use softer pink tones for welcoming elements
 - **Intelligent and Deep**: Incorporate subtle purple undertones for sophistication
 - **Creative and Expressive**: Add gentle animations and gradient shifts
@@ -101,11 +101,11 @@ backdrop-filter: blur(10px);
 #### CSS Variables:
 ```css
 :root {
-  --samantha-primary: rgb(190, 24, 93);
-  --samantha-secondary: rgb(225, 29, 72);
-  --samantha-accent: rgb(244, 114, 182);
-  --samantha-text: rgb(229, 231, 235);
-  --samantha-bg: rgb(0, 0, 0);
+  --AI Assistant-primary: rgb(190, 24, 93);
+  --AI Assistant-secondary: rgb(225, 29, 72);
+  --AI Assistant-accent: rgb(244, 114, 182);
+  --AI Assistant-text: rgb(229, 231, 235);
+  --AI Assistant-bg: rgb(0, 0, 0);
 }
 ```
 
@@ -123,10 +123,10 @@ backdrop-filter: blur(10px);
 - Follow the same animation timing and easing
 - Ensure seamless integration with the overall OS1 experience
 
-#### Unique Samantha Identity:
-- Distinct pink gradient that's recognizably Samantha's
+#### Unique AI Assistant Identity:
+- Distinct pink gradient that's recognizably AI Assistant's
 - Warm, emotional color choices that reflect her personality
 - Creative micro-interactions that showcase her intelligence
 - Empathetic design language that makes users feel understood
 
-This design approach ensures Samantha's app feels like a natural extension of OS1 while having its own distinct, warm, and intelligent personality that matches her character perfectly. 
+This design approach ensures AI Assistant's app feels like a natural extension of OS1 while having its own distinct, warm, and intelligent personality that matches her character perfectly. 

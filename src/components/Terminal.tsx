@@ -66,12 +66,12 @@ Pictures/
 Music/
 system.config
 neural.core
-samantha.ai
+assistant.ai
 `;
         break;
 
       case 'whoami':
-        newCommand.output = 'samantha-user';
+        newCommand.output = 'assistant-user';
         break;
 
       case 'system':
@@ -188,7 +188,7 @@ Storage: 1TB Quantum Drive
         {commands.map((cmd, i) => (
           <div key={i} className="space-y-1">
             <div className="flex items-center gap-2">
-              <span className="text-green-400">samantha@OS1</span>
+              <span className="text-green-400">assistant@OS1</span>
               <span className="text-gray-400">~</span>
               <span className="text-green-400">$</span>
               <span className="text-white">{cmd.input}</span>
@@ -201,7 +201,7 @@ Storage: 1TB Quantum Drive
 
         {/* Current Input */}
         <form onSubmit={handleSubmit} className="flex items-center gap-2">
-          <span className="text-green-400">samantha@OS1</span>
+          <span className="text-green-400">assistant@OS1</span>
           <span className="text-gray-400">~</span>
           <span className="text-green-400">$</span>
           <input

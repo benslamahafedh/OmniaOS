@@ -1,4 +1,4 @@
-# Twitter API Setup Guide for OS1
+﻿# Twitter API Setup Guide for OS1
 
 ## Overview
 This guide explains how to set up real Twitter API integration to fetch tweets from @OS1dotfun instead of using mock data.
@@ -160,7 +160,7 @@ The current implementation includes:
 ## Current Mock Data
 The mock data includes realistic tweets about:
 - OS1 launch announcement
-- AI companion introductions (Samantha, Elias, Lyra)
+- AI companion introductions (AI Assistant, AI Companion, Lyra)
 - Privacy and safety features
 - Premium features coming soon
 

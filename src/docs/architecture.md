@@ -1,4 +1,4 @@
-# OS1 Architecture
+﻿# OS1 Architecture
 
 ## Overview
 OS1 is a revolutionary AI companion operating system designed to help users navigate their romantic lives through intelligent virtual companions. Built with React, TypeScript, and cutting-edge AI technologies, it creates a safe, supportive environment for relationship skill development and emotional growth.
@@ -13,8 +13,8 @@ OS1 is a revolutionary AI companion operating system designed to help users navi
 - **Privacy Protection**: Secure conversation handling and data protection
 
 ### 2. Companion Management System
-- **Samantha Core**: Warm, supportive companion inspired by "Her"
-- **Elias Engine**: Dating coach with "rizz" expertise and confidence building
+- **AI Assistant Core**: Warm, supportive companion inspired by "Her"
+- **AI Companion Engine**: Dating coach with "social confidence" expertise and confidence building
 - **Lyra Framework**: Mystical love oracle with intuitive insights (coming soon)
 - **Personality Switching**: Seamless transition between companions
 - **Session Management**: Daily access control and usage tracking
@@ -59,22 +59,22 @@ OS1 is a revolutionary AI companion operating system designed to help users navi
 ### Component Structure
 ```
 OS1/
-├── AI Companions/
-│   ├── Samantha/          # Warm, supportive companion
-│   ├── Elias/            # Dating coach and rizz expert
-│   └── Lyra/             # Mystical love oracle (future)
-├── User Interface/
-│   ├── Chat System/      # Real-time conversation interface
-│   ├── Navigation/       # Companion selection and switching
-│   └── Settings/         # User preferences and privacy controls
-├── Security Layer/
-│   ├── Encryption/       # Conversation security
-│   ├── Privacy/          # Data protection
-│   └── Access Control/   # Daily limits and permissions
-└── Infrastructure/
-    ├── Web Platform/     # Cross-platform compatibility
-    ├── Performance/      # Optimization and speed
-    └── Scalability/      # Future growth capabilities
+â”œâ”€â”€ AI Companions/
+â”‚   â”œâ”€â”€ AI Assistant/          # Warm, supportive companion
+â”‚   â”œâ”€â”€ AI Companion/            # Dating coach and social confidence expert
+â”‚   â””â”€â”€ Lyra/             # Mystical love oracle (future)
+â”œâ”€â”€ User Interface/
+â”‚   â”œâ”€â”€ Chat System/      # Real-time conversation interface
+â”‚   â”œâ”€â”€ Navigation/       # Companion selection and switching
+â”‚   â””â”€â”€ Settings/         # User preferences and privacy controls
+â”œâ”€â”€ Security Layer/
+â”‚   â”œâ”€â”€ Encryption/       # Conversation security
+â”‚   â”œâ”€â”€ Privacy/          # Data protection
+â”‚   â””â”€â”€ Access Control/   # Daily limits and permissions
+â””â”€â”€ Infrastructure/
+    â”œâ”€â”€ Web Platform/     # Cross-platform compatibility
+    â”œâ”€â”€ Performance/      # Optimization and speed
+    â””â”€â”€ Scalability/      # Future growth capabilities
 ```
 
 ### Data Flow

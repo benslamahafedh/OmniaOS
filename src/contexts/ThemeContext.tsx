@@ -29,7 +29,7 @@ interface ThemeContextType {
 
 const defaultTheme: Theme = {
   id: 'default',
-  name: 'Samantha orange',
+  name: 'AI assistant orange',
   primary: 'from-orange-800 to-orange-950',
   secondary: 'from-orange-900 to-black',
   accent: 'text-orange-300',

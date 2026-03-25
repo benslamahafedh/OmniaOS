@@ -17,7 +17,6 @@ import {
   Server,
   Database,
   Radio,
-  Sparkles,
   Grid3X3,
   Code2,
   Search,
@@ -32,10 +31,7 @@ import {
 import Taskbar from "./Taskbar";
 import SystemSettings from "./SystemSettings";
 import Terminal from "./Terminal";
-import AICompanionView from "./AICompanionView";
 import FolderView from "./FolderView";
-
-import SideDock from "./SideDock";
 import XLogo from "./XLogo";
 import OS1Logo from "./OmniaLogo";
 
@@ -328,14 +324,6 @@ const Desktop: React.FC = () => {
       category: "Development",
     },
     {
-      id: "chat-samantha",
-      name: "Chat with Samantha",
-      description: "Open AI assistant interface",
-      icon: <Sparkles className="w-4 h-4" />,
-      action: () => window.open("https://www.OS1samantha.fun/", "_blank"),
-      category: "AI",
-    },
-    {
       id: "add-widget",
       name: "Add Widget",
       description: "Add a new desktop widget",
@@ -525,22 +513,6 @@ const Desktop: React.FC = () => {
 
   const handleWindowClose = () => {
     setActiveWindow(null);
-  };
-
-  const handleCharacterClick = (characterId: string) => {
-    switch (characterId) {
-      case "samantha":
-        handleWindowOpen("ai-companion-samantha");
-        break;
-      case "elias":
-        handleWindowOpen("ai-companion-elias");
-        break;
-      case "lyra":
-        handleWindowOpen("ai-companion-lyra");
-        break;
-      default:
-        break;
-    }
   };
 
   return (
@@ -918,15 +890,10 @@ const Desktop: React.FC = () => {
             {folders.map((folder, i) => (
               <div
                 key={folder.id}
-                onClick={() =>
-                  folder.id === "samantha"
-                    ? window.open("https://www.OS1samantha.fun/", "_blank")
-                    : handleWindowOpen(`folder-${folder.id}`)
-                }
+                onClick={() => handleWindowOpen(`folder-${folder.id}`)}
                 className={`
                   relative group cursor-pointer transition-all duration-500
                   hover:scale-110 hover:-translate-y-2
-                  ${folder.id === "samantha" ? "animate-pulse" : ""}
                 `}
                 style={{
                   animation: `slideInUp 0.8s ease-out ${i * 150}ms both`,
@@ -942,21 +909,6 @@ const Desktop: React.FC = () => {
                     transform group-hover:rotate-12 group-hover:scale-110
                   `}
                 >
-                  {/* Special effects for Samantha folder */}
-                  {folder.id === "samantha" && (
-                    <>
-                      <div className="absolute -inset-1 bg-gradient-to-r from-orange-400/40 to-rose-600/40 rounded-2xl blur-md animate-pulse" />
-                      <div className="absolute -inset-2 bg-gradient-to-r from-orange-400/20 to-rose-600/20 rounded-2xl blur-lg animate-ping" />
-                      <div
-                        className="absolute inset-0 bg-gradient-to-r from-orange-400/30 to-rose-600/30 rounded-2xl animate-spin"
-                        style={{
-                          animation:
-                            "sparkle 2s ease-in-out infinite alternate",
-                        }}
-                      />
-                    </>
-                  )}
-
                   {/* Neural Network special effects */}
                   {folder.id === "neural" && (
                     <div className="absolute inset-0 rounded-2xl overflow-hidden">
@@ -1109,18 +1061,6 @@ const Desktop: React.FC = () => {
               onClose={handleWindowClose}
             />
           </div>
-        )}
-
-        {(activeWindow === "ai-companion" ||
-          activeWindow?.startsWith("ai-companion-")) && (
-          <AICompanionView
-            onClose={handleWindowClose}
-            initialCompanion={
-              activeWindow?.startsWith("ai-companion-")
-                ? activeWindow.replace("ai-companion-", "")
-                : undefined
-            }
-          />
         )}
 
         {/* Desktop Widgets */}
@@ -1442,12 +1382,6 @@ const Desktop: React.FC = () => {
                       label: "Terminal",
                     },
                     {
-                      icon: <Sparkles size={isMobile ? 24 : 20} />,
-                      action: () =>
-                        window.open("https://www.OS1samantha.fun/", "_blank"),
-                      label: "Samantha",
-                    },
-                    {
                       icon: <Command size={isMobile ? 24 : 20} />,
                       action: () => setShowCommandPalette(true),
                       label: "Commands",
@@ -1499,9 +1433,6 @@ const Desktop: React.FC = () => {
             <div>Right Click - Context Menu</div>
           </div>
         )}
-
-        {/* Side Dock */}
-        <SideDock onCharacterClick={handleCharacterClick} />
 
         {/* Taskbar */}
         <Taskbar

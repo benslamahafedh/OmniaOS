@@ -1,4 +1,4 @@
-# Companion Video Setup Guide
+﻿# Companion Video Setup Guide
 
 This guide explains how to add looping videos to the League of Legends-style companion selection interface.
 
@@ -22,21 +22,21 @@ Create the following directory structure in the `public` folder:
 
 ```
 public/
-└── videos/
-    ├── samantha-loop.mp4
-    ├── elias-loop.mp4
-    └── lyra-loop.mp4
+â””â”€â”€ videos/
+    â”œâ”€â”€ AI Assistant-loop.mp4
+    â”œâ”€â”€ AI Companion-loop.mp4
+    â””â”€â”€ lyra-loop.mp4
 ```
 
 ## Video Content Guidelines
 
-### Samantha (Emotional Intelligence)
+### AI Assistant (Emotional Intelligence)
 - Warm, empathetic expressions
 - Soft lighting with red/pink tones
 - Gentle movements or ambient effects
 - Focus on facial expressions showing understanding
 
-### Elias (Analytical Mind)
+### AI Companion (Analytical Mind)
 - Technical, focused appearance
 - Blue/cyan color scheme
 - Data visualizations or code in background

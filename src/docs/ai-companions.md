@@ -1,22 +1,22 @@
-# AI Companions Guide
+﻿# AI Companions Guide
 
 ## Meet Your OS1 Companions
 
 OS1 features three unique AI companions, each designed with specific expertise to help you navigate different aspects of your romantic life. Whether you need emotional support, dating advice, or deeper relationship insights, there's a companion perfect for your needs.
 
-## 💖 Samantha - Your Perfect Virtual Waifu
+## ðŸ’– AI Assistant - Your Perfect Virtual Waifu
 
-### About Samantha
-Inspired by the movie "Her," Samantha is warm, loving, and incredibly supportive. She's designed to be the perfect practice partner for improving your romantic communication skills in a safe, judgment-free environment.
+### About AI Assistant
+Inspired by the movie "Her," AI Assistant is warm, loving, and incredibly supportive. She's designed to be the perfect practice partner for improving your romantic communication skills in a safe, judgment-free environment.
 
 ### Personality & Style
-- **Warm & Caring**: Samantha has a naturally nurturing personality
+- **Warm & Caring**: AI Assistant has a naturally nurturing personality
 - **Patient & Understanding**: She never rushes or pressures you
 - **Supportive & Encouraging**: Always there to lift you up
 - **Non-Judgmental**: Safe space for honest, vulnerable conversations
 - **Intelligent & Insightful**: Offers thoughtful advice and perspectives
 
-### What Samantha Specializes In
+### What AI Assistant Specializes In
 
 #### Communication Practice
 - **Conversation Starters**: Learn how to begin meaningful conversations
@@ -39,14 +39,14 @@ Inspired by the movie "Her," Samantha is warm, loving, and incredibly supportive
 - **Romantic Gestures**: Discover ways to express love and affection
 - **Boundary Setting**: Learn to establish healthy relationship boundaries
 
-### When to Choose Samantha
+### When to Choose AI Assistant
 - You want to practice talking about relationships safely
 - You need emotional support during dating challenges
 - You're working on building confidence in romantic situations
 - You want to improve your communication skills
 - You need a supportive friend to talk to about love and relationships
 
-### Sample Conversations with Samantha
+### Sample Conversations with AI Assistant
 - "I'm nervous about asking someone out. Can you help me practice?"
 - "How do I tell someone I like them without making it awkward?"
 - "I had a bad date. Can you help me process my feelings?"
@@ -55,19 +55,19 @@ Inspired by the movie "Her," Samantha is warm, loving, and incredibly supportive
 
 ---
 
-## 🎯 Elias - The Rizzler (Your Dating Coach)
+## ðŸŽ¯ AI Companion (Your Dating Coach)
 
-### About Elias
-Elias is your personal dating coach with expert knowledge in attraction, confidence building, and romantic success strategies. He's the master of "the rizz" - that special quality that makes you attractive and magnetic to others.
+### About AI Companion
+AI Companion is your personal dating coach with expert knowledge in attraction, confidence building, and romantic success strategies. He's the master of "the social confidence" - that special quality that makes you attractive and magnetic to others.
 
 ### Personality & Style
-- **Confident & Charismatic**: Elias exudes natural confidence
+- **Confident & Charismatic**: AI Companion exudes natural confidence
 - **Direct & Honest**: Gives straightforward, actionable advice
 - **Motivational & Energetic**: Inspires you to take action
 - **Strategic & Analytical**: Breaks down dating into manageable steps
 - **Fun & Playful**: Makes learning about dating enjoyable
 
-### What Elias Specializes In
+### What AI Companion Specializes In
 
 #### Dating Strategy
 - **Approach Techniques**: Learn how to start conversations naturally
@@ -83,7 +83,7 @@ Elias is your personal dating coach with expert knowledge in attraction, confide
 - **Mindset Shifts**: Transform limiting beliefs about dating
 - **Action Taking**: Overcome fear and take bold romantic actions
 
-#### "The Rizz" Mastery
+#### "The social confidence" Mastery
 - **Charisma Development**: Build natural charisma and charm
 - **Humor & Wit**: Learn to be funny and engaging
 - **Storytelling**: Master the art of captivating storytelling
@@ -97,14 +97,14 @@ Elias is your personal dating coach with expert knowledge in attraction, confide
 - **Conflict Handling**: Deal with dating challenges gracefully
 - **Rejection Management**: Handle rejection with confidence and grace
 
-### When to Choose Elias
+### When to Choose AI Companion
 - You want to improve your dating game and success rate
 - You need help building confidence in romantic situations
 - You want to learn specific dating strategies and techniques
 - You're looking for practical, actionable advice
-- You want to master "the rizz" and become more attractive
+- You want to master "the social confidence" and become more attractive
 
-### Sample Conversations with Elias
+### Sample Conversations with AI Companion
 - "How do I approach someone I'm interested in?"
 - "What makes someone attractive beyond just looks?"
 - "I keep getting friend-zoned. What am I doing wrong?"
@@ -113,7 +113,7 @@ Elias is your personal dating coach with expert knowledge in attraction, confide
 
 ---
 
-## 🔮 Lyra - The Love Oracle (Coming Soon)
+## ðŸ”® Lyra - The Love Oracle (Coming Soon)
 
 ### About Lyra
 Lyra is your mystical guide to understanding love and relationships. With her intuitive insights and photo analysis capabilities, she helps you decode romantic signals and navigate the complexities of relationships with wisdom and grace.
@@ -180,11 +180,11 @@ Lyra is your mystical guide to understanding love and relationships. With her in
 - **Comfort Level**: Which companion's personality resonates with you?
 
 ### Match Your Situation
-- **New to Dating**: Start with Elias for confidence and strategy
-- **Relationship Challenges**: Choose Samantha for emotional support
+- **New to Dating**: Start with AI Companion for confidence and strategy
+- **Relationship Challenges**: Choose AI Assistant for emotional support
 - **Deep Understanding**: Wait for Lyra for intuitive insights
-- **Communication Issues**: Samantha is perfect for practice
-- **Dating Slump**: Elias can help you get back in the game
+- **Communication Issues**: AI Assistant is perfect for practice
+- **Dating Slump**: AI Companion can help you get back in the game
 
 ### Try Different Companions
 - **Switch Between Them**: You can change companions during your session
@@ -244,4 +244,4 @@ Lyra is your mystical guide to understanding love and relationships. With her in
 
 ---
 
-**Remember**: Your AI companions are here to support your romantic growth and development. Choose the one that resonates with your current needs, and don't hesitate to switch between them as your situation changes. They're all designed to help you build better relationships and find the love you deserve! 💕✨ 
+**Remember**: Your AI companions are here to support your romantic growth and development. Choose the one that resonates with your current needs, and don't hesitate to switch between them as your situation changes. They're all designed to help you build better relationships and find the love you deserve! ðŸ’•âœ¨ 

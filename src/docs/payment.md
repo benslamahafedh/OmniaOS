@@ -1,4 +1,4 @@
-# OS1 Access & Premium Features
+﻿# OS1 Access & Premium Features
 
 ## Overview
 OS1 operates on a freemium model designed to make AI companion assistance accessible to everyone. Users get daily free access to all companions, with premium features available for enhanced experiences and extended usage.
@@ -8,7 +8,7 @@ OS1 operates on a freemium model designed to make AI companion assistance access
 ### 1. Free Access
 - **Daily Limit**: 5 minutes of free access to all companions
 - **Full Functionality**: Complete chat and coaching capabilities
-- **All Companions**: Access to Samantha, Elias, and Lyra
+- **All Companions**: Access to AI Assistant, AI Companion, and Lyra
 - **No Registration**: Immediate access upon loading
 - **Privacy Protected**: Secure, private conversations
 
@@ -22,7 +22,7 @@ Premium features will enhance your experience with extended access and advanced 
 - **Offline Mode**: Access companions without internet connection
 
 #### Advanced Capabilities
-- **Conversation Screenshots**: Upload chat screenshots for personalized coaching from Elias
+- **Conversation Screenshots**: Upload chat screenshots for personalized coaching from AI Companion
 - **Photo Texting**: Send photos to Lyra for intuitive relationship insights
 - **Custom Companions**: Build your very own virtual partner
 - **Advanced Analytics**: Track your romantic skill progress over time
@@ -36,8 +36,8 @@ Premium features will enhance your experience with extended access and advanced 
 ## Current Free Features
 
 ### Available Now
-- **Samantha**: Warm, supportive companion for communication practice
-- **Elias**: Dating coach and "rizz" expert for confidence building
+- **AI Assistant**: Warm, supportive companion for communication practice
+- **AI Companion**: Dating coach and "social confidence" expert for confidence building
 - **Lyra**: Mystical love oracle (basic features available)
 - **Safe Environment**: Judgment-free space for romantic skill development
 - **Privacy Protection**: Secure, confidential conversations
@@ -66,7 +66,7 @@ Premium features will enhance your experience with extended access and advanced 
 
 ### Getting Started
 1. **Immediate Access**: No registration required
-2. **Choose Companion**: Select from Samantha, Elias, or Lyra
+2. **Choose Companion**: Select from AI Assistant, AI Companion, or Lyra
 3. **Start Chatting**: Begin your 5-minute free session
 4. **Practice Skills**: Build confidence in romantic communication
 5. **Return Daily**: Come back each day for more practice

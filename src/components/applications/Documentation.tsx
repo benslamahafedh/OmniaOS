@@ -18,35 +18,12 @@ const Documentation: React.FC = () => {
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold mb-3 text-orange-400">AI Companions</h2>
-          
-          <div className="space-y-4">
-            <div className="p-4 bg-orange-500/10 rounded-lg border border-orange-500/30">
-              <h3 className="text-xl font-semibold mb-2 text-orange-300">Samantha</h3>
-              <p className="text-gray-300 leading-relaxed">
-                Inspired by the movie "Her," Samantha is a warm, lovable female companion designed to be the perfect virtual waifu. 
-                She helps you train and practice talking with romantic partners in a safe, judgment-free environment. 
-                Samantha provides emotional support and helps you develop better communication skills for real-world relationships.
-              </p>
-            </div>
-
-            <div className="p-4 bg-blue-500/10 rounded-lg border border-blue-500/30">
-              <h3 className="text-xl font-semibold mb-2 text-blue-300">Elias - The Rizzler</h3>
-              <p className="text-gray-300 leading-relaxed">
-                Your personal dating coach with expert knowledge in romance and "the rizz." Elias provides practical advice, 
-                conversation starters, and strategies to help you build confidence and improve your dating game. 
-                He's your go-to companion for mastering the art of attraction and building meaningful connections.
-              </p>
-            </div>
-
-            <div className="p-4 bg-purple-500/10 rounded-lg border border-purple-500/30">
-              <h3 className="text-xl font-semibold mb-2 text-purple-300">Lyra - The Love Oracle</h3>
-              <p className="text-gray-300 leading-relaxed">
-                Coming soon! Lyra will be your mystical guide to understanding love and relationships. 
-                With her intuitive insights and photo texting capabilities, she'll help you decode romantic signals 
-                and provide guidance on your love journey.
-              </p>
-            </div>
+          <h2 className="text-2xl font-semibold mb-3 text-orange-400">AI Companion</h2>
+          <div className="p-4 bg-blue-500/10 rounded-lg border border-blue-500/30">
+            <h3 className="text-xl font-semibold mb-2 text-blue-300">Core Assistant</h3>
+            <p className="text-gray-300 leading-relaxed">
+              A single AI assistant providing general guidance and productivity support. It helps with conversational context, task completion, and safe interactions.
+            </p>
           </div>
         </section>
 
@@ -68,7 +45,7 @@ const Documentation: React.FC = () => {
             <div className="p-3 bg-gradient-to-r from-orange-500/10 to-purple-500/10 rounded-lg border border-orange-500/20">
               <h3 className="text-lg font-semibold text-orange-300">Enhanced UX & Conversation Screenshots</h3>
               <p className="text-gray-300 text-sm">
-                Upload conversation screenshots for personalized coaching from Elias the Rizzler
+                Upload conversation screenshots for personalized coaching from AI assistant
               </p>
             </div>
             
