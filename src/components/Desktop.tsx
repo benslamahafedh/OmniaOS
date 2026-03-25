@@ -34,7 +34,6 @@ import SystemSettings from "./SystemSettings";
 import Terminal from "./Terminal";
 import FolderView from "./FolderView";
 import XLogo from "./XLogo";
-import OS1Logo from "./OmniaLogo";
 
 interface FolderItem {
   id: string;
