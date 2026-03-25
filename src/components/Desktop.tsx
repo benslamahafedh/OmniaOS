@@ -530,40 +530,40 @@ const Desktop: React.FC = () => {
           ${isMobile ? "px-4 py-2" : "px-6 py-3"}
         `}
         >
-          <div className="relative flex-1">
+          <div className="relative flex-1" style={{ transform: 'translateX(-10px)' }}>
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <svg width="250" height="250" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
   <defs>
     
     <linearGradient id="g1" x1="125" y1="256" x2="205" y2="256" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="0%" stop-color="#ff4500" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#ff2200" stop-opacity="1"/>
     </linearGradient>
 
     <linearGradient id="g2" x1="205" y1="256" x2="285" y2="256" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.35"/>
+      <stop offset="0%" stop-color="#ff2200" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#d31010" stop-opacity="0.75"/>
     </linearGradient>
 
     <linearGradient id="g3" x1="285" y1="256" x2="365" y2="256" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.35"/>
-      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.12"/>
+      <stop offset="0%" stop-color="#d31010" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#ff4500" stop-opacity="0.3"/>
     </linearGradient>
 
     <linearGradient id="g4" x1="365" y1="256" x2="285" y2="256" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="0%" stop-color="#ff4500" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#ff1a00" stop-opacity="0.8"/>
     </linearGradient>
 
     <linearGradient id="g5" x1="285" y1="256" x2="205" y2="256" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.55"/>
-      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.75"/>
+      <stop offset="0%" stop-color="#ff1a00" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#ff6000" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#ff2400" stop-opacity="0.85"/>
     </linearGradient>
 
     <linearGradient id="g6" x1="205" y1="256" x2="125" y2="256" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.75"/>
-      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#ff6000" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#ff2200" stop-opacity="0"/>
     </linearGradient>
   </defs>
 
