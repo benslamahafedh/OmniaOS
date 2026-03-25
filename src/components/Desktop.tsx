@@ -27,6 +27,7 @@ import {
   RotateCw,
   Plus,
   Send,
+  Sparkles,
 } from "lucide-react";
 import Taskbar from "./Taskbar";
 import SystemSettings from "./SystemSettings";
@@ -491,13 +492,13 @@ const Desktop: React.FC = () => {
       color: "from-orange-700 to-orange-900",
       description: "Internet connectivity",
     },
-    // {
-    //   id: 'samantha',
-    //   name: 'Samantha Core',
-    //   icon: <Sparkles className="w-6 h-6" />,
-    //   color: 'from-orange-500 to-orange-700',
-    //   description: 'AGI consciousness module'
-    // },
+    {
+      id: 'samantha',
+      name: 'Samantha Core',
+      icon: <Sparkles className="w-6 h-6" />,
+      color: 'from-orange-500 to-orange-700',
+      description: 'AGI consciousness module'
+    },
     {
       id: "apps",
       name: "Applications",
@@ -546,18 +547,7 @@ const Desktop: React.FC = () => {
             {/* Social Media Links - Hide on mobile or show simplified */}
             {!isMobile && (
               <div className="flex items-center space-x-3">
-                <a
-                  href="https://x.com/OS1dotfun"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-orange-800/10 hover:bg-orange-800/20 cursor-pointer transition-all duration-300 group border border-orange-700/20"
-                  title="OS1 X"
-                >
-                  <XLogo
-                    size={16}
-                    className="text-gray-200 group-hover:text-white"
-                  />
-                </a>
+                
                 <a
                   href="https://x.com/0xOS1dotfun"
                   target="_blank"
@@ -583,7 +573,7 @@ const Desktop: React.FC = () => {
                   />
                 </a>
                 <a
-                  href="https://github.com/OS1"
+                  href="https://github.com/jesuscopado"
                   target="_blank"
                   rel="noopener noreferrer"
                   title="OS1 GitHub"
@@ -890,7 +880,13 @@ const Desktop: React.FC = () => {
             {folders.map((folder, i) => (
               <div
                 key={folder.id}
-                onClick={() => handleWindowOpen(`folder-${folder.id}`)}
+                onClick={() => {
+                  if (folder.id === 'samantha') {
+                    window.open('https://www.os1samantha.fun/', '_blank');
+                  } else {
+                    handleWindowOpen(`folder-${folder.id}`);
+                  }
+                }}
                 className={`
                   relative group cursor-pointer transition-all duration-500
                   hover:scale-110 hover:-translate-y-2
