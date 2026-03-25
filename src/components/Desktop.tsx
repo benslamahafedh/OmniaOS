@@ -531,19 +531,71 @@ const Desktop: React.FC = () => {
           ${isMobile ? "px-4 py-2" : "px-6 py-3"}
         `}
         >
-          <div className="flex items-center space-x-6">
-            <div className="flex items-center space-x-3">
-              <OS1Logo size={isMobile ? 20 : 28} className="rounded-full" />
-              <div
-                className={`
-                font-light text-gray-200 tracking-[0.3em]
-                ${isMobile ? "text-lg" : "text-2xl"}
-              `}
-              >
-                {isMobile ? "OS1" : "OS1"}
-              </div>
-            </div>
+          <div className="relative flex-1">
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <svg width="250" height="250" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    
+    <linearGradient id="g1" x1="125" y1="256" x2="205" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="1"/>
+    </linearGradient>
 
+    <linearGradient id="g2" x1="205" y1="256" x2="285" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.35"/>
+    </linearGradient>
+
+    <linearGradient id="g3" x1="285" y1="256" x2="365" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.12"/>
+    </linearGradient>
+
+    <linearGradient id="g4" x1="365" y1="256" x2="285" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.55"/>
+    </linearGradient>
+
+    <linearGradient id="g5" x1="285" y1="256" x2="205" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.75"/>
+    </linearGradient>
+
+    <linearGradient id="g6" x1="205" y1="256" x2="125" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <path d="M 125 256 C 145 220, 185 220, 205 256"
+        fill="none" stroke="url(#g1)" stroke-width="4"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M 205 256 C 225 292, 265 292, 285 256"
+        fill="none" stroke="url(#g2)" stroke-width="4"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M 285 256 C 305 220, 345 220, 365 256"
+        fill="none" stroke="url(#g3)" stroke-width="4"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M 365 256 C 345 292, 305 292, 285 256"
+        fill="none" stroke="url(#g4)" stroke-width="4"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M 285 256 C 265 220, 225 220, 205 256"
+        fill="none" stroke="url(#g5)" stroke-width="4"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M 205 256 C 185 292, 145 292, 125 256"
+        fill="none" stroke="url(#g6)" stroke-width="4"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+            </div>
+          </div>
+
+          <div className="flex items-center space-x-6">
             {/* Social Media Links - Hide on mobile or show simplified */}
             {!isMobile && (
               <div className="flex items-center space-x-3">
@@ -1589,7 +1641,39 @@ const Desktop: React.FC = () => {
             transform: scale(1.2);
           }
         }
-        
+
+        @keyframes infinityMotion {
+          0% {
+            transform: scale(0.96) translateY(0px) rotate(0deg);
+            opacity: 0.85;
+          }
+          50% {
+            transform: scale(1.02) translateY(-2px) rotate(2deg);
+            opacity: 1;
+          }
+          100% {
+            transform: scale(0.96) translateY(0px) rotate(-2deg);
+            opacity: 0.85;
+          }
+        }
+
+        .infinity-icon {
+          animation: infinityMotion 2.2s ease-in-out infinite;
+          transform-origin: center;
+        }
+
+        .animate-pulse {
+          animation: pulse 1.2s ease-in-out infinite;
+        }
+
+        .animation-delay-150 {
+          animation-delay: 0.15s;
+        }
+
+        .animation-delay-300 {
+          animation-delay: 0.3s;
+        }
+
         @keyframes gentleFloat {
           0%, 100% {
             transform: translateY(0px);
