@@ -770,7 +770,7 @@ Thank you for being part of our mission to help people build better relationship
                     <span>Join Telegram Community</span>
                   </a>
                   <a 
-                    href="https://x.com/0xOS1dotfun" 
+                    href="https://x.com/0xos1dotfun?s=210xOS1dotfun" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center space-x-2 bg-gray-600/20 hover:bg-gray-600/30 text-gray-300 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 border border-gray-500/30"
@@ -923,7 +923,7 @@ Thank you for being part of our mission to help people build better relationship
       //         {/* Bottom bar */}
       //         <div className="bg-black/95 backdrop-blur-sm border-t border-gray-800 p-4 flex-shrink-0">
       //           <a 
-      //             href="https://x.com/OS1dotfun" 
+      //             href="https://x.com/0xos1dotfun?s=21OS1dotfun" 
       //             target="_blank" 
       //             rel="noopener noreferrer"
       //             className="w-full bg-blue-500 hover:bg-blue-600 text-white text-center py-3 rounded-full font-semibold transition-colors flex items-center justify-center space-x-2"
@@ -952,7 +952,7 @@ Thank you for being part of our mission to help people build better relationship
                   Follow us on X for updates and news.
                 </p>
                 <a 
-                  href="https://x.com/OS1dotfun" 
+                  href="https://x.com/0xos1dotfun?s=21OS1dotfun" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105"
