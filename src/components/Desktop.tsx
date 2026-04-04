@@ -498,13 +498,13 @@ const Desktop: React.FC = () => {
       color: 'from-orange-500 to-orange-700',
       description: 'AGI consciousness module'
     },
-    {
-      id: "apps",
-      name: "Applications",
-      icon: <Grid3X3 className="w-6 h-6" />,
-      color: "from-orange-800 to-orange-950",
-      description: "Installed applications",
-    },
+    // {
+    //   id: "apps",
+    //   name: "Applications",
+    //   icon: <Grid3X3 className="w-6 h-6" />,
+    //   color: "from-orange-800 to-orange-950",
+    //   description: "Installed applications",
+    // },
   ];
 
   const handleWindowOpen = (windowId: string) => {
