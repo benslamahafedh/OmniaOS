@@ -1,10 +1,10 @@
 ﻿# Twitter API Setup Guide for OS1
 
 ## Overview
-This guide explains how to set up real Twitter API integration to fetch tweets from @OS1dotfun instead of using mock data.
+This guide explains how to set up real Twitter API integration to fetch tweets from @0xos1dotfun instead of using mock data.
 
 ## Current Implementation
-The Twitter feed currently uses mock data that simulates real tweets from the @OS1dotfun account. This provides a realistic preview while avoiding API rate limits and authentication complexity.
+The Twitter feed currently uses mock data that simulates real tweets from the @0xos1dotfun account. This provides a realistic preview while avoiding API rate limits and authentication complexity.
 
 ## Setting Up Real Twitter API
 
@@ -93,7 +93,7 @@ const fetchTweets = async () => {
     setError(null);
 
     // Replace mock data with real API call
-    const response = await fetch('/api/twitter/OS1dotfun');
+    const response = await fetch('/api/twitter/0xos1dotfun');
     
     if (!response.ok) {
       throw new Error('Failed to fetch tweets');

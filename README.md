@@ -33,7 +33,7 @@ Your mystical guide to understanding love and relationships. With her intuitive 
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/OS1.git
+git clone https://github.com/jesuscopado/OS1.git
 
 # Install dependencies
 npm install

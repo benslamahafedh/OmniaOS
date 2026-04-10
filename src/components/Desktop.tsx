@@ -17,7 +17,6 @@ import {
   Server,
   Database,
   Radio,
-  Grid3X3,
   Code2,
   Search,
   Command,
@@ -600,11 +599,11 @@ const Desktop: React.FC = () => {
               <div className="flex items-center space-x-3">
                 
                 <a
-                  href="https://x.com/0xos1dotfun?s=210xOS1dotfun"
+                  href="https://x.com/0xos1dotfun"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 rounded-lg bg-orange-800/10 hover:bg-orange-800/20 cursor-pointer transition-all duration-300 group border border-orange-700/20"
-                  title="OS1 X (Alt)"
+                  title="OS1 X"
                 >
                   <XLogo
                     size={16}

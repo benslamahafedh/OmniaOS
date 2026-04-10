@@ -83,7 +83,7 @@ export const useTwitterFeed = () => {
       // In production, replace this with actual API call:
       
       /*
-      const response = await fetch('/api/twitter/OS1dotfun', {
+      const response = await fetch('/api/twitter/0xos1dotfun', {
         headers: {
           'Authorization': `Bearer ${process.env.REACT_APP_TWITTER_BEARER_TOKEN}`,
         },
@@ -96,7 +96,7 @@ export const useTwitterFeed = () => {
       const data: TwitterApiResponse = await response.json();
       */
 
-             // Real tweets from @OS1dotfun
+             // Real tweets from @0xos1dotfun
        const mockData: TwitterApiResponse = {
          data: [
            {
@@ -173,9 +173,9 @@ export const useTwitterFeed = () => {
                    includes: {
              users: [
                {
-                 id: 'OS1dotfun',
+                 id: '0xos1dotfun',
                  name: 'OS1',
-                 username: 'OS1dotfun',
+                 username: '0xos1dotfun',
                  profile_image_url: logo,
                  verified: true
                }
@@ -214,7 +214,7 @@ export const useTwitterFeed = () => {
            type: 'tweet',
                         user: {
                name: 'OS1',
-               handle: '@OS1dotfun',
+               handle: '@0xos1dotfun',
                avatar: logo,
                verified: true
              },

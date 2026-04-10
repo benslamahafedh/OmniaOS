@@ -390,7 +390,7 @@ OS1 is dedicated to providing a safe, supportive environment where people can im
 ### Development Setup
 
 \`\`\`bash
-git clone https://github.com/your-username/OS1.git
+git clone https://github.com/jesuscopado/OS1.git
 cd OS1
 npm install
 npm run dev
@@ -770,7 +770,7 @@ Thank you for being part of our mission to help people build better relationship
                     <span>Join Telegram Community</span>
                   </a>
                   <a 
-                    href="https://x.com/0xos1dotfun?s=210xOS1dotfun" 
+                    href="https://x.com/0xos1dotfun" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center space-x-2 bg-gray-600/20 hover:bg-gray-600/30 text-gray-300 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 border border-gray-500/30"
@@ -923,13 +923,13 @@ Thank you for being part of our mission to help people build better relationship
       //         {/* Bottom bar */}
       //         <div className="bg-black/95 backdrop-blur-sm border-t border-gray-800 p-4 flex-shrink-0">
       //           <a 
-      //             href="https://x.com/0xos1dotfun?s=21OS1dotfun" 
+      //             href="https://x.com/0xos1dotfun" 
       //             target="_blank" 
       //             rel="noopener noreferrer"
       //             className="w-full bg-blue-500 hover:bg-blue-600 text-white text-center py-3 rounded-full font-semibold transition-colors flex items-center justify-center space-x-2"
       //           >
       //             <XLogo size={16} className="text-white" />
-      //             <span>Follow @OS1dotfun on X</span>
+      //             <span>Follow @0xos1dotfun on X</span>
       //           </a>
       //         </div>
       //       </div>
@@ -952,13 +952,13 @@ Thank you for being part of our mission to help people build better relationship
                   Follow us on X for updates and news.
                 </p>
                 <a 
-                  href="https://x.com/0xos1dotfun?s=21OS1dotfun" 
+                  href="https://x.com/0xos1dotfun" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105"
                 >
                   <XLogo size={16} className="text-white" />
-                  <span>Follow @OS1dotfun on X</span>
+                  <span>Follow @0xos1dotfun on X</span>
                 </a>
               </div>
             </div>
@@ -987,7 +987,7 @@ Thank you for being part of our mission to help people build better relationship
                   Explore the source code, contribute, and star the project!
                 </p>
                 <a 
-                  href="https://github.com/OS1" 
+                  href="https://github.com/jesuscopado" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 bg-gray-700/20 hover:bg-gray-700/30 text-gray-200 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 border border-gray-700/30"
