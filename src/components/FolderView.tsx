@@ -1276,13 +1276,13 @@ Thank you for being part of our mission to help people build better relationship
                   Follow us on X for updates and news.
                 </p>
                 <a
-                  href="https://x.com/0xos1dotfun"
+                  href="https://x.com/0xos1_tech"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105"
                 >
                   <XLogo size={16} className="text-white" />
-                  <span>Follow @0xos1dotfun on X</span>
+                  <span>Follow @0xos1_tech on X</span>
                 </a>
               </div>
             </div>
