@@ -603,7 +603,7 @@ const Desktop: React.FC = () => {
 
           <div className="flex items-center space-x-6 pr-6">
             {/* Social Media Links - Hide on mobile or show simplified */}
-            {(
+            {!isMobile && (
               <div className="flex items-center space-x-3">
 
                 <a
