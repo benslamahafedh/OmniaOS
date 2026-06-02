@@ -1089,7 +1089,7 @@ Thank you for being part of our mission to help people build better relationship
 
               <div className="flex flex-col space-y-3">
                 <a
-                  href="mailto:contact@0xos1.fun"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@0xos1.fun"
                   className="inline-flex items-center justify-center space-x-2 bg-red-500/20 hover:bg-red-500/30 text-red-300 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 border border-red-500/30"
                 >
                   <Mail className="w-5 h-5" />
