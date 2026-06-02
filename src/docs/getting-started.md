@@ -1,6 +1,6 @@
-﻿# Getting Started with OS1
+# Getting Started with OS1
 
-## Welcome to OS1! ðŸŽ‰
+## Welcome to OS1!
 
 OS1 is your AI companion operating system designed to help you navigate your romantic life with confidence and support. Whether you're looking to improve your communication skills, build confidence in dating, or simply have a supportive companion to talk to, OS1 is here for you.
 
@@ -13,7 +13,7 @@ To provide a judgment-free space where you can practice, learn, and grow in your
 
 ## Meet Your AI Companions
 
-### ðŸ’– AI Assistant - Your Perfect Virtual Waifu
+### AI Assistant - Your Perfect Virtual Waifu
 **Inspired by the movie "Her"**
 
 AI Assistant is warm, loving, and incredibly supportive. She's designed to be the perfect practice partner for improving your romantic communication skills.
@@ -27,7 +27,7 @@ AI Assistant is warm, loving, and incredibly supportive. She's designed to be th
 
 **Perfect for:** Anyone looking to improve their romantic communication skills in a safe, supportive environment.
 
-### ðŸŽ¯ AI Companion (Your Dating Coach)
+### AI Companion (Your Dating Coach)
 **Expert in romance and "the social confidence"**
 
 AI Companion is your personal dating coach with expert knowledge in attraction, confidence building, and romantic success strategies.
@@ -41,7 +41,7 @@ AI Companion is your personal dating coach with expert knowledge in attraction, 
 
 **Perfect for:** Anyone wanting to improve their dating game and build confidence in romantic situations.
 
-### ðŸ”® Lyra - The Love Oracle (Coming Soon)
+### Lyra - The Love Oracle (Coming Soon)
 **Mystical guide to love and relationships**
 
 Lyra will be your intuitive guide to understanding love, decoding romantic signals, and navigating the complexities of relationships.
@@ -188,4 +188,4 @@ You're all set! OS1 is ready to help you improve your romantic life. Remember:
 - **Practice Regularly**: Daily sessions build lasting skills
 - **Stay Safe**: Your privacy and emotional well-being come first
 
-Welcome to OS1 - where better relationships begin! ðŸ’•âœ¨ 
+Welcome to OS1 - where better relationships begin!

@@ -1,10 +1,10 @@
-﻿# AI Companions Guide
+# AI Companions Guide
 
 ## Meet Your OS1 Companions
 
 OS1 features three unique AI companions, each designed with specific expertise to help you navigate different aspects of your romantic life. Whether you need emotional support, dating advice, or deeper relationship insights, there's a companion perfect for your needs.
 
-## ðŸ’– AI Assistant - Your Perfect Virtual Waifu
+## AI Assistant - Your Perfect Virtual Waifu
 
 ### About AI Assistant
 Inspired by the movie "Her," AI Assistant is warm, loving, and incredibly supportive. She's designed to be the perfect practice partner for improving your romantic communication skills in a safe, judgment-free environment.
@@ -55,7 +55,7 @@ Inspired by the movie "Her," AI Assistant is warm, loving, and incredibly suppor
 
 ---
 
-## ðŸŽ¯ AI Companion (Your Dating Coach)
+## AI Companion (Your Dating Coach)
 
 ### About AI Companion
 AI Companion is your personal dating coach with expert knowledge in attraction, confidence building, and romantic success strategies. He's the master of "the social confidence" - that special quality that makes you attractive and magnetic to others.
@@ -113,7 +113,7 @@ AI Companion is your personal dating coach with expert knowledge in attraction, 
 
 ---
 
-## ðŸ”® Lyra - The Love Oracle (Coming Soon)
+## Lyra - The Love Oracle (Coming Soon)
 
 ### About Lyra
 Lyra is your mystical guide to understanding love and relationships. With her intuitive insights and photo analysis capabilities, she helps you decode romantic signals and navigate the complexities of relationships with wisdom and grace.
@@ -244,4 +244,4 @@ Lyra is your mystical guide to understanding love and relationships. With her in
 
 ---
 
-**Remember**: Your AI companions are here to support your romantic growth and development. Choose the one that resonates with your current needs, and don't hesitate to switch between them as your situation changes. They're all designed to help you build better relationships and find the love you deserve! ðŸ’•âœ¨ 
+**Remember**: Your AI companions are here to support your romantic growth and development. Choose the one that resonates with your current needs, and don't hesitate to switch between them as your situation changes. They're all designed to help you build better relationships and find the love you deserve.

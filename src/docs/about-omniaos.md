@@ -1,4 +1,4 @@
-﻿# About OS1
+# About OS1
 
 ## Our Story
 
@@ -21,21 +21,21 @@ We believe that:
 
 ## What Makes OS1 Special
 
-### ðŸ¤– AI Companions with Purpose
+### AI Companions with Purpose
 Unlike generic AI chatbots, our companions are specifically designed for romantic relationship assistance. Each companion has a unique personality and expertise:
 
 - **AI Assistant**: The warm, supportive companion who helps you practice communication
 - **AI Companion**: The dating coach who teaches you "the social confidence" and builds confidence
 - **Lyra**: The mystical love oracle who provides deeper relationship insights
 
-### ðŸ›¡ï¸ Privacy & Safety First
+### Privacy & Safety First
 Your emotional well-being and privacy are our highest priorities:
 - **Secure Conversations**: All chats are encrypted and protected
 - **No Data Mining**: Your conversations stay private and aren't used for training
 - **Judgment-Free Zone**: Safe space for honest, vulnerable discussions
 - **Professional Standards**: Ethical AI behavior and supportive responses
 
-### ðŸ’ Accessible to Everyone
+### Accessible to Everyone
 We believe relationship support should be available to everyone:
 - **Free Daily Access**: 5 minutes of free access to all companions
 - **No Registration Required**: Start immediately without barriers
@@ -44,16 +44,16 @@ We believe relationship support should be available to everyone:
 
 ## Our Values
 
-### ðŸ’• Empathy & Understanding
+### Empathy & Understanding
 We understand that relationships can be challenging, confusing, and emotional. Our AI companions are designed with empathy and understanding, providing support without judgment.
 
-### ðŸ”’ Privacy & Trust
+### Privacy & Trust
 Your privacy is sacred. We've built OS1 with privacy by design, ensuring your conversations and personal information remain secure and confidential.
 
-### ðŸŒŸ Growth & Development
+### Growth & Development
 We believe in continuous improvement - both for our users and our platform. We're committed to helping you grow in your romantic relationships while constantly enhancing our AI companions.
 
-### ðŸ¤ Community & Support
+### Community & Support
 While OS1 provides individual support, we're building a community of people committed to better relationships. We believe in supporting each other's growth and development.
 
 ## The Technology Behind OS1
@@ -134,8 +134,8 @@ We promise to:
 
 OS1 is more than just an AI platform - it's a partner in your romantic growth. Whether you're looking to improve your communication skills, build confidence in dating, or simply have a supportive companion to talk to, we're here for you.
 
-**Start your journey today and discover how OS1 can help you build better relationships.** ðŸ’•âœ¨
+**Start your journey today and discover how OS1 can help you build better relationships.**
 
 ---
 
-*Made with â¤ï¸ for better relationships - The OS1 Team* 
+*Made with love for better relationships - The OS1 Team*
