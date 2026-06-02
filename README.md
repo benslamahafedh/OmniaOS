@@ -1,7 +1,7 @@
 # OS1 - AI Companion Operating System
 
 <div align="center">
-  <img src="/favicon.svg" alt="OS1 Logo" width="200" />
+  <img src="public/logo.png" alt="OS1 Logo" width="200" />
   <p><em>Your AI companions for better romantic relationships</em></p>
 </div>
 
