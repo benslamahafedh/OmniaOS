@@ -1047,7 +1047,7 @@ Thank you for being part of our mission to help people build better relationship
                     <span>Join Telegram Community</span>
                   </a>
                   <a
-                    href="https://x.com/0xos1dotfun"
+                    href="https://x.com/0xos1_tech?s=21"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center space-x-2 bg-gray-600/20 hover:bg-gray-600/30 text-gray-300 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 border border-gray-500/30"
