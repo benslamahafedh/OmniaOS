@@ -28,6 +28,7 @@ import {
   Send,
   Sparkles,
   Mail,
+  Building2,
 } from "lucide-react";
 import Taskbar from "./Taskbar";
 import SystemSettings from "./SystemSettings";
@@ -496,6 +497,13 @@ const Desktop: React.FC = () => {
       icon: <Sparkles className="w-6 h-6" />,
       color: 'from-orange-500 to-orange-700',
       description: 'AGI consciousness module'
+    },
+    {
+      id: 'ltd',
+      name: 'OS1 Protocol LTD',
+      icon: <Building2 className="w-6 h-6" />,
+      color: 'from-orange-600 to-rose-950',
+      description: 'Official corporate registration & entity status'
     },
     // {
     //   id: "apps",

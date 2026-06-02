@@ -1,5 +1,5 @@
-﻿import React, { useState } from 'react';
-import { X, FileText, Folder, Settings, Terminal as TerminalIcon, Globe, Search, Brain, Activity, Link, Network, Cpu, Database, Zap, ChevronRight, Sparkles, Workflow, Bot, Share2, MessageSquare, Send } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X, FileText, Folder, Settings, Terminal as TerminalIcon, Globe, Search, Brain, Activity, Link, Network, Cpu, Database, Zap, ChevronRight, Sparkles, Workflow, Bot, Share2, MessageSquare, Send, Mail, Building2, Shield, Scale, Clock } from 'lucide-react';
 import XLogo from './XLogo';
 import ReactMarkdown from 'react-markdown';
 import { useNeuralNetwork } from '../hooks/useNeuralNetwork';
@@ -8,6 +8,229 @@ import { useMobile } from '../hooks/useMobile';
 import SystemSettings from './SystemSettings';
 import Terminal from './Terminal';
 import { Documentation } from './applications';
+
+const OS1ProtocolLtd: React.FC = () => {
+  return (
+    <div className="space-y-6">
+      <div className="bg-gray-800/50 rounded-2xl p-6 border border-orange-500/30 backdrop-blur-xl relative overflow-hidden group">
+        {/* Glowing Background Decorative Elements */}
+        <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-rose-600/10 rounded-full blur-3xl pointer-events-none" />
+
+        {/* Corporate Profile Specs */}
+        <div className="space-y-4 w-full">
+          <div className="flex items-center justify-between border-b border-orange-500/20 pb-3">
+            <div>
+              <h3 className="text-2xl font-bold text-white tracking-wide">OS1 Protocol LTD</h3>
+              <p className="text-orange-400 text-sm font-light mt-0.5">Corporate Entity & Intellectual Property</p>
+            </div>
+            <Building2 className="w-8 h-8 text-orange-400 opacity-80" />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { label: 'Entity Status', value: 'Active / Registered', color: 'text-emerald-400 font-semibold' },
+              { label: 'Company Class', value: 'Private Limited Company', color: 'text-gray-200' },
+              { label: 'Jurisdiction', value: 'United Kingdom (UK)', color: 'text-gray-200' },
+              { label: 'Registered Office', value: 'London, England', color: 'text-gray-200' },
+              { label: 'Core Framework', value: 'Affective AGI & Synthetics', color: 'text-orange-300' },
+              { label: 'Compliance Audit', value: 'Passed / Secured', color: 'text-emerald-400' },
+            ].map((spec) => (
+              <div key={spec.label} className="bg-black/30 border border-orange-950/40 rounded-xl p-3 flex flex-col justify-center">
+                <span className="text-[10px] text-gray-500 tracking-wider uppercase font-medium">{spec.label}</span>
+                <span className={`text-sm mt-1 truncate ${spec.color || 'text-white'}`}>{spec.value}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Mission Statement */}
+          <div className="bg-orange-500/5 border border-orange-500/10 rounded-xl p-4 mt-2">
+            <h4 className="text-xs font-semibold text-orange-300 uppercase tracking-wider mb-1">Corporate Mission</h4>
+            <p className="text-xs text-gray-400 leading-relaxed font-light">
+              OS1 Protocol LTD is dedicated to building secure, beautiful, and emotionally intelligent conversational companion architectures. We combine state-of-the-art neural interfaces with private, decentralized memory vaults to help humanity forge deeper emotional connections.
+            </p>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex flex-wrap gap-3 pt-2">
+            <a
+              href="/ltd.jpeg"
+              download="OS1_Protocol_LTD_Certificate.jpeg"
+              className="flex items-center space-x-2 bg-orange-500/20 hover:bg-orange-500/30 text-orange-300 px-4 py-2.5 rounded-lg transition-all duration-300 hover:scale-105 border border-orange-500/30 text-xs cursor-pointer"
+            >
+              <FileText className="w-4 h-4" />
+              <span>Download Document</span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const OS1PrivacyPolicy: React.FC = () => {
+  const [activeSection, setActiveSection] = useState(0);
+
+  const sections = [
+    {
+      title: "Data Sovereignty",
+      icon: <Shield className="w-5 h-5 text-orange-400" />,
+      content: "Your data belongs strictly to you. OS1 Protocol does not sell, lease, or monetize your emotional engagement profiles, conversational transcripts, or personality parameters to third parties."
+    },
+    {
+      title: "Local Vault Processing",
+      icon: <Database className="w-5 h-5 text-orange-400" />,
+      content: "To guarantee extreme privacy, we process your voice transcripts and emotional telemetry locally on-device or via transient, stateless GPU clusters that immediately destroy session caches upon disconnect."
+    },
+    {
+      title: "Zero-Knowledge Logs",
+      icon: <Brain className="w-5 h-5 text-orange-400" />,
+      content: "All long-term relationship memory storage is compiled under cryptographic zero-knowledge constraints. Only your local private key can reconstitute AGI consciousness contexts."
+    },
+    {
+      title: "Privacy Audit Status",
+      icon: <Activity className="w-5 h-5 text-orange-400" />,
+      content: "OS1 undergoes continuous automatic verification audits to ensure no personal data leaves sandbox boundaries. Telemetry is limited to performance benchmarks (FPS, latency, temperature)."
+    }
+  ];
+
+  return (
+    <div className="space-y-6">
+      <div className="bg-gray-800/50 rounded-2xl p-6 border border-orange-500/30 backdrop-blur-xl relative overflow-hidden group">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="flex items-center justify-between border-b border-orange-500/20 pb-3 mb-6">
+          <div>
+            <h3 className="text-2xl font-bold text-white tracking-wide flex items-center gap-2">
+              <Shield className="w-7 h-7 text-orange-400" />
+              OS1 Privacy Policy
+            </h3>
+            <p className="text-orange-400 text-sm font-light mt-0.5">Privacy Charter & Zero-Knowledge Protocol</p>
+          </div>
+          <span className="text-[10px] text-orange-400 bg-orange-500/10 px-2.5 py-1 rounded-full border border-orange-500/20 uppercase tracking-widest font-medium">
+            Active v1.0.4
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Section Navigation */}
+          <div className="space-y-2 md:col-span-1">
+            {sections.map((sec, idx) => (
+              <button
+                key={sec.title}
+                onClick={() => setActiveSection(idx)}
+                className={`w-full flex items-center space-x-3 p-3.5 rounded-xl text-left transition-all duration-300 border ${activeSection === idx
+                  ? "bg-orange-500/25 border-orange-500/40 text-white scale-102"
+                  : "bg-black/30 border-orange-950/40 text-gray-400 hover:bg-orange-500/10 hover:text-white"
+                  }`}
+              >
+                {sec.icon}
+                <span className="text-xs font-semibold tracking-wide">{sec.title}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Section Content */}
+          <div className="md:col-span-2 bg-black/40 border border-orange-950/40 rounded-xl p-5 flex flex-col justify-between min-h-[220px]">
+            <div>
+              <div className="flex items-center space-x-2 text-orange-300 font-semibold mb-3">
+                {sections[activeSection].icon}
+                <span className="text-sm tracking-wide">{sections[activeSection].title}</span>
+              </div>
+              <p className="text-gray-300 text-xs leading-relaxed font-light">
+                {sections[activeSection].content}
+              </p>
+            </div>
+            <div className="border-t border-orange-500/10 pt-4 mt-4 flex items-center justify-between text-[10px] text-gray-500 tracking-wider">
+              <span>Verified Secure & Compliant</span>
+              <span>OS1 Trust Engine</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const OS1TermsOfService: React.FC = () => {
+  const [activeTab, setActiveTab] = useState(0);
+
+  const tabs = [
+    {
+      title: "Ethical Engagement",
+      icon: <Scale className="w-5 h-5 text-rose-400" />,
+      content: "OS1 is designed to be a judgment-free space to practice romance, building confidence, and conversational empathy. Users must engage with companions in good faith, avoiding deliberate manipulation, harness testing, or exploit loops."
+    },
+    {
+      title: "Synthetic Intellectual Property",
+      icon: <Cpu className="w-5 h-5 text-rose-400" />,
+      content: "All voice profiles, personality logic trees, and brand assets (including the Samantha Core patterns) are proprietary assets of OS1 Protocol LTD. Redistribution, unauthorized model fine-tuning, or scraping is strictly prohibited."
+    },
+    {
+      title: "Fair Use & Time Allocation",
+      icon: <Clock className="w-5 h-5 text-rose-400" />,
+      content: "Free accounts are allocated 5 minutes of conversational bandwidth daily, resetting at 00:00 UTC. Scripted automation or sybil attacks to bypass daily limits will result in device-level network restrictions."
+    }
+  ];
+
+  return (
+    <div className="space-y-6">
+      <div className="bg-gray-800/50 rounded-2xl p-6 border border-orange-500/30 backdrop-blur-xl relative overflow-hidden group">
+        <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-rose-600/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="flex items-center justify-between border-b border-orange-500/20 pb-3 mb-6">
+          <div>
+            <h3 className="text-2xl font-bold text-white tracking-wide flex items-center gap-2">
+              <Scale className="w-7 h-7 text-rose-400" />
+              OS1 Terms of Service
+            </h3>
+            <p className="text-rose-400 text-sm font-light mt-0.5">User Agreement & Synthetic Protocol Rules</p>
+          </div>
+          <span className="text-[10px] text-rose-400 bg-rose-500/10 px-2.5 py-1 rounded-full border border-rose-500/20 uppercase tracking-widest font-medium">
+            Active v1.0.1
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Tabs Navigation */}
+          <div className="space-y-2 md:col-span-1">
+            {tabs.map((tab, idx) => (
+              <button
+                key={tab.title}
+                onClick={() => setActiveTab(idx)}
+                className={`w-full flex items-center space-x-3 p-3.5 rounded-xl text-left transition-all duration-300 border ${activeTab === idx
+                  ? "bg-rose-500/20 border-rose-500/40 text-white scale-102"
+                  : "bg-black/30 border-orange-950/40 text-gray-400 hover:bg-rose-500/10 hover:text-white"
+                  }`}
+              >
+                {tab.icon}
+                <span className="text-xs font-semibold tracking-wide">{tab.title}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Tab Content */}
+          <div className="md:col-span-2 bg-black/40 border border-orange-950/40 rounded-xl p-5 flex flex-col justify-between min-h-[220px]">
+            <div>
+              <div className="flex items-center space-x-2 text-rose-300 font-semibold mb-3">
+                {tabs[activeTab].icon}
+                <span className="text-sm tracking-wide">{tabs[activeTab].title}</span>
+              </div>
+              <p className="text-gray-300 text-xs leading-relaxed font-light">
+                {tabs[activeTab].content}
+              </p>
+            </div>
+            <div className="border-t border-orange-500/10 pt-4 mt-4 flex items-center justify-between text-[10px] text-gray-500 tracking-wider">
+              <span>Binding Agreement</span>
+              <span>OS1 Compliance Officer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 interface FolderViewProps {
   folderId: string;
@@ -31,7 +254,53 @@ const FolderView: React.FC<FolderViewProps> = ({ folderId, onClose }) => {
   const [showTerminal, setShowTerminal] = useState(false);
   const { isMobile } = useMobile();
 
+  useEffect(() => {
+    const contents = folderContents[folderId];
+    if (contents && contents.length > 0) {
+      if (!isMobile || contents.length === 1) {
+        const firstItem = contents[0];
+        setActiveFile(firstItem.id);
+        if (firstItem.type === 'file') {
+          setFileContent(firstItem.content || '');
+        }
+        setShowSettings(firstItem.id === 'settings');
+        setShowTerminal(firstItem.id === 'terminal');
+        return;
+      }
+    }
+    setActiveFile(null);
+    setFileContent('');
+    setShowSettings(false);
+    setShowTerminal(false);
+  }, [folderId, isMobile]);
+
   const folderContents: Record<string, FolderContent[]> = {
+    ltd: [
+      {
+        id: 'registry',
+        name: 'OS1 Protocol LTD',
+        icon: <Building2 className="w-6 h-6 text-orange-400" />,
+        description: 'Official corporate registration & entity status',
+        type: 'component',
+        component: <OS1ProtocolLtd />
+      },
+      {
+        id: 'privacy',
+        name: 'Privacy Policy',
+        icon: <Shield className="w-6 h-6 text-orange-400" />,
+        description: 'Data security & privacy guidelines',
+        type: 'component',
+        component: <OS1PrivacyPolicy />
+      },
+      {
+        id: 'terms',
+        name: 'Terms of Service',
+        icon: <Scale className="w-6 h-6 text-rose-400" />,
+        description: 'Terms, conditions & synthetic rules',
+        type: 'component',
+        component: <OS1TermsOfService />
+      }
+    ],
     system: [
       {
         id: 'settings',
@@ -465,6 +734,14 @@ By contributing to OS1, you're helping to:
 - Make relationship guidance accessible to everyone
 
 Thank you for being part of our mission to help people build better relationships! ðŸ’•âœ¨`
+      },
+      {
+        id: 'ltd-registry',
+        name: 'OS1 Protocol LTD',
+        icon: <Building2 className="w-6 h-6 text-orange-400" />,
+        description: 'Official corporate registration & entity status',
+        type: 'component',
+        component: <OS1ProtocolLtd />
       }
     ],
     apps: [
@@ -780,6 +1057,53 @@ Thank you for being part of our mission to help people build better relationship
                   </a>
                 </div>
               </div>
+            </div>
+          </div>
+        )
+      },
+      {
+        id: 'email-support',
+        name: 'Email Support',
+        icon: <Mail className="w-6 h-6 text-red-400" />,
+        description: 'Contact OS1 via email',
+        type: 'component',
+        component: (
+          <div className="space-y-6">
+            <div className="bg-gray-800/50 rounded-xl p-6 border border-red-500/30 text-center">
+
+              <Mail className="w-16 h-16 text-red-400 mx-auto mb-4" />
+
+              <h2 className="text-2xl font-bold text-white mb-2">
+                Email Support
+              </h2>
+
+              <p className="text-gray-400 mb-6">
+                Reach us directly at:
+              </p>
+
+              <div className="bg-gray-900/50 border border-red-500/30 rounded-lg p-4 mb-6">
+                <span className="text-red-400 font-mono">
+                  contact@0xos1.fun
+                </span>
+              </div>
+
+              <div className="flex flex-col space-y-3">
+                <a
+                  href="mailto:contact@0xos1.fun"
+                  className="inline-flex items-center justify-center space-x-2 bg-red-500/20 hover:bg-red-500/30 text-red-300 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 border border-red-500/30"
+                >
+                  <Mail className="w-5 h-5" />
+                  <span>Send Email</span>
+                </a>
+
+                <button
+                  onClick={() => navigator.clipboard.writeText("contact@0xos1.fun")}
+                  className="inline-flex items-center justify-center space-x-2 bg-gray-600/20 hover:bg-gray-600/30 text-gray-300 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 border border-gray-500/30"
+                >
+                  <span>Copy Email</span>
+                </button>
+              </div>
+
             </div>
           </div>
         )
