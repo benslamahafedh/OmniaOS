@@ -27,6 +27,7 @@ import {
   Plus,
   Send,
   Sparkles,
+  Mail,
 } from "lucide-react";
 import Taskbar from "./Taskbar";
 import SystemSettings from "./SystemSettings";
@@ -388,11 +389,10 @@ const Desktop: React.FC = () => {
     <div className={`p-4 h-full ${isMobile ? "mobile-system-metrics" : ""}`}>
       <div
         className={`
-        ${
-          isMobile
+        ${isMobile
             ? "mobile-system-metrics grid grid-cols-2 gap-3 h-full text-sm"
             : "grid grid-cols-2 gap-3 h-full text-sm"
-        }
+          }
       `}
       >
         <div className={`space-y-2 ${isMobile ? "mobile-metric-item" : ""}`}>
@@ -532,72 +532,72 @@ const Desktop: React.FC = () => {
           <div className="relative flex-1" style={{ transform: 'translateX(-10px)' }}>
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <svg width="250" height="250" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    
-    <linearGradient id="g1" x1="125" y1="256" x2="205" y2="256" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#ff4500" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#ff2200" stop-opacity="1"/>
-    </linearGradient>
+                <defs>
 
-    <linearGradient id="g2" x1="205" y1="256" x2="285" y2="256" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#ff2200" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#d31010" stop-opacity="0.75"/>
-    </linearGradient>
+                  <linearGradient id="g1" x1="125" y1="256" x2="205" y2="256" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#ff4500" stop-opacity="1" />
+                    <stop offset="100%" stop-color="#ff2200" stop-opacity="1" />
+                  </linearGradient>
 
-    <linearGradient id="g3" x1="285" y1="256" x2="365" y2="256" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#d31010" stop-opacity="0.75"/>
-      <stop offset="100%" stop-color="#ff4500" stop-opacity="0.3"/>
-    </linearGradient>
+                  <linearGradient id="g2" x1="205" y1="256" x2="285" y2="256" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#ff2200" stop-opacity="1" />
+                    <stop offset="100%" stop-color="#d31010" stop-opacity="0.75" />
+                  </linearGradient>
 
-    <linearGradient id="g4" x1="365" y1="256" x2="285" y2="256" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#ff4500" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#ff1a00" stop-opacity="0.8"/>
-    </linearGradient>
+                  <linearGradient id="g3" x1="285" y1="256" x2="365" y2="256" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#d31010" stop-opacity="0.75" />
+                    <stop offset="100%" stop-color="#ff4500" stop-opacity="0.3" />
+                  </linearGradient>
 
-    <linearGradient id="g5" x1="285" y1="256" x2="205" y2="256" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#ff1a00" stop-opacity="0.8"/>
-      <stop offset="50%" stop-color="#ff6000" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#ff2400" stop-opacity="0.85"/>
-    </linearGradient>
+                  <linearGradient id="g4" x1="365" y1="256" x2="285" y2="256" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#ff4500" stop-opacity="0.3" />
+                    <stop offset="100%" stop-color="#ff1a00" stop-opacity="0.8" />
+                  </linearGradient>
 
-    <linearGradient id="g6" x1="205" y1="256" x2="125" y2="256" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#ff6000" stop-opacity="0.75"/>
-      <stop offset="100%" stop-color="#ff2200" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
+                  <linearGradient id="g5" x1="285" y1="256" x2="205" y2="256" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#ff1a00" stop-opacity="0.8" />
+                    <stop offset="50%" stop-color="#ff6000" stop-opacity="1" />
+                    <stop offset="100%" stop-color="#ff2400" stop-opacity="0.85" />
+                  </linearGradient>
 
-  <path d="M 125 256 C 145 220, 185 220, 205 256"
-        fill="none" stroke="url(#g1)" stroke-width="4"
-        stroke-linecap="round" stroke-linejoin="round"/>
+                  <linearGradient id="g6" x1="205" y1="256" x2="125" y2="256" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#ff6000" stop-opacity="0.75" />
+                    <stop offset="100%" stop-color="#ff2200" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
 
-  <path d="M 205 256 C 225 292, 265 292, 285 256"
-        fill="none" stroke="url(#g2)" stroke-width="4"
-        stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M 125 256 C 145 220, 185 220, 205 256"
+                  fill="none" stroke="url(#g1)" stroke-width="4"
+                  stroke-linecap="round" stroke-linejoin="round" />
 
-  <path d="M 285 256 C 305 220, 345 220, 365 256"
-        fill="none" stroke="url(#g3)" stroke-width="4"
-        stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M 205 256 C 225 292, 265 292, 285 256"
+                  fill="none" stroke="url(#g2)" stroke-width="4"
+                  stroke-linecap="round" stroke-linejoin="round" />
 
-  <path d="M 365 256 C 345 292, 305 292, 285 256"
-        fill="none" stroke="url(#g4)" stroke-width="4"
-        stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M 285 256 C 305 220, 345 220, 365 256"
+                  fill="none" stroke="url(#g3)" stroke-width="4"
+                  stroke-linecap="round" stroke-linejoin="round" />
 
-  <path d="M 285 256 C 265 220, 225 220, 205 256"
-        fill="none" stroke="url(#g5)" stroke-width="4"
-        stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M 365 256 C 345 292, 305 292, 285 256"
+                  fill="none" stroke="url(#g4)" stroke-width="4"
+                  stroke-linecap="round" stroke-linejoin="round" />
 
-  <path d="M 205 256 C 185 292, 145 292, 125 256"
-        fill="none" stroke="url(#g6)" stroke-width="4"
-        stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+                <path d="M 285 256 C 265 220, 225 220, 205 256"
+                  fill="none" stroke="url(#g5)" stroke-width="4"
+                  stroke-linecap="round" stroke-linejoin="round" />
+
+                <path d="M 205 256 C 185 292, 145 292, 125 256"
+                  fill="none" stroke="url(#g6)" stroke-width="4"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
             </div>
           </div>
 
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-6 pr-6">
             {/* Social Media Links - Hide on mobile or show simplified */}
-            {!isMobile && (
+            {(
               <div className="flex items-center space-x-3">
-                
+
                 <a
                   href="https://x.com/0xos1dotfun"
                   target="_blank"
@@ -638,6 +638,18 @@ const Desktop: React.FC = () => {
                   >
                     <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 013.003-.404c1.018.005 2.045.138 3.003.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.804 5.624-5.475 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
                   </svg>
+                </a>
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@0xos1.fun"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg bg-orange-800/10 hover:bg-orange-800/20 cursor-pointer transition-all duration-300 group border border-orange-700/20"
+                  title="Email OS1"
+                >
+                  <Mail
+                    size={16}
+                    className="text-gray-200 group-hover:text-white"
+                  />
                 </a>
               </div>
             )}
@@ -920,11 +932,10 @@ const Desktop: React.FC = () => {
           {/* Folder Grid */}
           <div
             className={`
-            ${
-              isMobile
+            ${isMobile
                 ? "mobile-widget-grid grid grid-cols-3 gap-2"
                 : "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8"
-            }
+              }
           `}
           >
             {folders.map((folder, i) => (
@@ -1040,14 +1051,13 @@ const Desktop: React.FC = () => {
                   style={{
                     background: `radial-gradient(
                       circle at center,
-                      ${
-                        folder.color.includes("red")
+                      ${folder.color.includes("red")
+                        ? "#f74e25"
+                        : folder.color.includes("orange")
                           ? "#f74e25"
-                          : folder.color.includes("orange")
+                          : folder.color.includes("rose")
                             ? "#f74e25"
-                            : folder.color.includes("rose")
-                              ? "#f74e25"
-                              : "#f74e25"
+                            : "#f74e25"
                       } 0%,
                       transparent 70%
                     )`,
@@ -1209,11 +1219,10 @@ const Desktop: React.FC = () => {
             <div
               className={`
               bg-gray-900/95 backdrop-blur-xl rounded-2xl border border-orange-500/30 overflow-hidden
-              ${
-                isMobile
+              ${isMobile
                   ? "palette-content w-full h-full max-h-none m-0 rounded-none"
                   : "w-full max-w-2xl mx-4"
-              }
+                }
             `}
             >
               {/* Search Header */}
@@ -1317,19 +1326,18 @@ const Desktop: React.FC = () => {
           <div
             className={`
               fixed z-50 bg-gray-900/95 backdrop-blur-xl border border-orange-500/30 py-2
-              ${
-                isMobile
-                  ? "mobile-context-menu rounded-2xl min-w-full"
-                  : "rounded-xl min-w-48"
+              ${isMobile
+                ? "mobile-context-menu rounded-2xl min-w-full"
+                : "rounded-xl min-w-48"
               }
             `}
             style={
               isMobile
                 ? {}
                 : {
-                    left: contextMenuPosition.x,
-                    top: contextMenuPosition.y,
-                  }
+                  left: contextMenuPosition.x,
+                  top: contextMenuPosition.y,
+                }
             }
           >
             <button
@@ -1393,11 +1401,10 @@ const Desktop: React.FC = () => {
           <div
             className={`
             fixed z-40
-            ${
-              isMobile
+            ${isMobile
                 ? "bottom-20 left-4 right-4"
                 : "bottom-20 left-1/2 transform -translate-x-1/2"
-            }
+              }
           `}
           >
             <div className="bg-black/90 backdrop-blur-xl rounded-2xl border border-orange-500/30 p-4">
@@ -1446,10 +1453,9 @@ const Desktop: React.FC = () => {
                       }}
                       className={`
                         group relative rounded-xl bg-orange-500/10 hover:bg-orange-500/20 text-orange-400 hover:text-orange-300 transition-all duration-300
-                        ${
-                          isMobile
-                            ? "p-4 flex flex-col items-center justify-center"
-                            : "p-3 hover:scale-110"
+                        ${isMobile
+                          ? "p-4 flex flex-col items-center justify-center"
+                          : "p-3 hover:scale-110"
                         }
                       `}
                       title={item.label}

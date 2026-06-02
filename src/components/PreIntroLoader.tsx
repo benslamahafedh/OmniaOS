@@ -49,13 +49,13 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
 
   const glitchedText = shouldGlitch
     ? displayText
-        .split("")
-        .map((char) =>
-          Math.random() < 0.3
-            ? glitchChars[Math.floor(Math.random() * glitchChars.length)]
-            : char,
-        )
-        .join("")
+      .split("")
+      .map((char) =>
+        Math.random() < 0.3
+          ? glitchChars[Math.floor(Math.random() * glitchChars.length)]
+          : char,
+      )
+      .join("")
     : displayText;
 
   return (
@@ -63,9 +63,8 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
       {glitchedText}
       {currentIndex < text.length && startTyping && (
         <span
-          className={`animate-pulse ${
-            phase >= 4 ? "text-white" : "text-orange-400"
-          }`}
+          className={`animate-pulse ${phase >= 4 ? "text-white" : "text-orange-400"
+            }`}
         >
           |
         </span>
@@ -376,11 +375,10 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
         {[...Array(isPressed ? 12 : 6)].map((_, i) => (
           <div
             key={i}
-            className={`absolute rounded-full transition-all duration-500 ${
-              isPressed
-                ? "animate-float-minimal opacity-90"
-                : "animate-float-minimal opacity-30"
-            }`}
+            className={`absolute rounded-full transition-all duration-500 ${isPressed
+              ? "animate-float-minimal opacity-90"
+              : "animate-float-minimal opacity-30"
+              }`}
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -400,19 +398,18 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
                         : phase === 4
                           ? "rgba(255, 200, 200, 1)"
                           : "rgba(255, 255, 255, 0.9)",
-              boxShadow: `0 0 ${isPressed ? 4 + phase * 2 : 2}px ${
-                phase === 0
-                  ? "rgba(220, 38, 38, 0.6)"
-                  : phase === 1
-                    ? "rgba(239, 68, 68, 0.7)"
-                    : phase === 2
-                      ? "rgba(248, 113, 113, 0.8)"
-                      : phase === 3
-                        ? "rgba(252, 165, 165, 0.9)"
-                        : phase === 4
-                          ? "rgba(255, 200, 200, 1)"
-                          : "rgba(255, 255, 255, 1)"
-              }`,
+              boxShadow: `0 0 ${isPressed ? 4 + phase * 2 : 2}px ${phase === 0
+                ? "rgba(220, 38, 38, 0.6)"
+                : phase === 1
+                  ? "rgba(239, 68, 68, 0.7)"
+                  : phase === 2
+                    ? "rgba(248, 113, 113, 0.8)"
+                    : phase === 3
+                      ? "rgba(252, 165, 165, 0.9)"
+                      : phase === 4
+                        ? "rgba(255, 200, 200, 1)"
+                        : "rgba(255, 255, 255, 1)"
+                }`,
             }}
           />
         ))}
@@ -429,15 +426,14 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
                 top: `${20 + i * 20}%`,
                 width: "2px",
                 height: `${10 + phase * 2}px`,
-                background: `linear-gradient(to bottom, transparent, ${
-                  phase === 2
-                    ? "rgba(248, 113, 113, 0.6)"
-                    : phase === 3
-                      ? "rgba(252, 165, 165, 0.8)"
-                      : phase === 4
-                        ? "rgba(255, 200, 200, 1)"
-                        : "rgba(255, 255, 255, 0.9)"
-                }, transparent)`,
+                background: `linear-gradient(to bottom, transparent, ${phase === 2
+                  ? "rgba(248, 113, 113, 0.6)"
+                  : phase === 3
+                    ? "rgba(252, 165, 165, 0.8)"
+                    : phase === 4
+                      ? "rgba(255, 200, 200, 1)"
+                      : "rgba(255, 255, 255, 0.9)"
+                  }, transparent)`,
                 transform: "translateX(-50%)",
                 animationDelay: `${i * 0.2}s`,
                 filter: `blur(${0.5 + phase * 0.2}px)`,
@@ -478,9 +474,8 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
           }}
         >
           <div
-            className={`text-orange-200 text-sm font-light tracking-wider transition-all duration-300 ${
-              isPressed ? "opacity-100 animate-pulse-glow" : "opacity-50"
-            }`}
+            className={`text-orange-200 text-sm font-light tracking-wider transition-all duration-300 ${isPressed ? "opacity-100 animate-pulse-glow" : "opacity-50"
+              }`}
             style={{
               textShadow: isPressed
                 ? `0 0 ${5 + phase}px ${"rgba(255, 255, 255, 1)"}`
@@ -488,11 +483,11 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
               color: "rgba(255, 255, 255, 0.9)",
             }}
           >
-            {isPressed ? (
+            {/* {isPressed ? (
               <TypewriterText text={getPhaseText()} phase={phase} delay={200} />
             ) : (
               getPhaseText()
-            )}
+            )} */}
           </div>
         </div>
       )}
@@ -513,7 +508,7 @@ const PreIntroLoader: React.FC<PreIntroLoaderProps> = ({ onComplete }) => {
           </div>
         </div>
       )}
-      
+
 
       {/* OS1 Logo with enhanced animations */}
 

@@ -39,7 +39,7 @@ const FolderView: React.FC<FolderViewProps> = ({ folderId, onClose }) => {
         icon: <Settings className="w-6 h-6 text-blue-400" />,
         description: 'Configure system preferences',
         type: 'component',
-        component: <SystemSettings onClose={() => {}} />
+        component: <SystemSettings onClose={() => { }} />
       },
       {
         id: 'terminal',
@@ -47,7 +47,7 @@ const FolderView: React.FC<FolderViewProps> = ({ folderId, onClose }) => {
         icon: <TerminalIcon className="w-6 h-6 text-green-400" />,
         description: 'Command line interface',
         type: 'component',
-        component: <Terminal onClose={() => {}} />
+        component: <Terminal onClose={() => { }} />
       }
     ],
     docs: [
@@ -59,7 +59,7 @@ const FolderView: React.FC<FolderViewProps> = ({ folderId, onClose }) => {
         type: 'file',
         content: `# Getting Started with OS1
 
-## Welcome to OS1! ðŸŽ‰
+## Welcome to OS1!
 
 OS1 is your AI companion operating system designed to help you navigate your romantic life with confidence and support. Whether you're looking to improve your communication skills, build confidence in dating, or simply have a supportive companion to talk to, OS1 is here for you.
 
@@ -72,7 +72,7 @@ To provide a judgment-free environment where everyone can practice, learn, and g
 
 ## Meet Your AI Companions
 
-### ðŸ’– AI Assistant - Your Perfect Virtual Waifu
+### AI Assistant - Your Perfect Virtual Waifu
 **Inspired by the movie "Her"**
 
 AI Assistant is warm, loving, and incredibly supportive. She's designed to be the perfect practice partner for improving your romantic communication skills.
@@ -84,7 +84,7 @@ AI Assistant is warm, loving, and incredibly supportive. She's designed to be th
 - Confidence building through conversation
 - Judgment-free advice and guidance
 
-### ðŸŽ¯ AI Assistant - The Assistant (Your Dating Coach)
+### AI Assistant - The Assistant (Your Dating Coach)
 **Expert in romance and "the confidence"**
 
 AI Assistant is your personal dating coach with expert knowledge in attraction, confidence building, and romantic success strategies.
@@ -96,7 +96,7 @@ AI Assistant is your personal dating coach with expert knowledge in attraction, 
 - "confidence" mastery training
 - Real-world dating tips and tricks
 
-### ðŸ”® AI Intelligence - The Love Oracle (Coming Soon)
+### AI Intelligence - The Love Oracle (Coming Soon)
 **Mystical guide to love and relationships**
 
 AI Intelligence will be your intuitive guide to understanding love, decoding romantic signals, and navigating the complexities of relationships.
@@ -267,22 +267,22 @@ OS1 is a revolutionary AI companion operating system designed to help users navi
 ### Component Structure
 \`\`\`
 OS1/
-â”œâ”€â”€ AI Companions/
-â”‚   â”œâ”€â”€ AI Assistant/          # Warm, supportive companion
-â”‚   â”œâ”€â”€ AI Assistant/            # Dating coach and confidence expert
-â”‚   â””â”€â”€ AI Intelligence/             # Mystical love oracle (future)
-â”œâ”€â”€ User Interface/
-â”‚   â”œâ”€â”€ Chat System/      # Real-time conversation interface
-â”‚   â”œâ”€â”€ Navigation/       # Companion selection and switching
-â”‚   â””â”€â”€ Settings/         # User preferences and privacy controls
-â”œâ”€â”€ Security Layer/
-â”‚   â”œâ”€â”€ Encryption/       # Conversation security
-â”‚   â”œâ”€â”€ Privacy/          # Data protection
-â”‚   â””â”€â”€ Access Control/   # Daily limits and permissions
-â””â”€â”€ Infrastructure/
-    â”œâ”€â”€ Web Platform/     # Cross-platform compatibility
-    â”œâ”€â”€ Performance/      # Optimization and speed
-    â””â”€â”€ Scalability/      # Future growth capabilities
+AI Companions/
+AI Assistant/     # Warm, supportive companion
+AI Assistant/     # Dating coach and confidence expert
+AI Intelligence/  # Mystical love oracle (future)
+User Interface/
+Chat System/      # Real-time conversation interface
+Navigation/       # Companion selection and switching
+Settings/         # User preferences and privacy controls
+Security Layer/
+Encryption/       # Conversation security
+Privacy/          # Data protection
+Access Control/   # Daily limits and permissions
+Infrastructure/
+Web Platform/     # Cross-platform compatibility
+Performance/      # Optimization and speed
+Scalability/      # Future growth capabilities
 \`\`\`
 
 ### Data Flow
@@ -486,7 +486,7 @@ Thank you for being part of our mission to help people build better relationship
         type: 'component',
         component: (() => {
           const { searchResults, searchMetrics } = useWebInterface();
-          
+
           return (
             <div className="space-y-6">
               {/* Search Interface */}
@@ -556,7 +556,7 @@ Thank you for being part of our mission to help people build better relationship
         type: 'component',
         component: (() => {
           const { networkMetrics, quantumNodes, formatBandwidth, formatLatency, formatNumber } = useWebInterface();
-          
+
           return (
             <div className="space-y-6">
               {/* Network Metrics */}
@@ -588,7 +588,7 @@ Thank you for being part of our mission to help people build better relationship
                 <div className="relative h-96 bg-gray-900/50 rounded-lg overflow-hidden border border-cyan-500/20">
                   {/* Node Connections */}
                   <svg className="absolute inset-0 w-full h-full">
-                    {quantumNodes.map(node => 
+                    {quantumNodes.map(node =>
                       node.connections.map(targetId => {
                         const target = quantumNodes.find(n => n.id === targetId);
                         if (!target) return null;
@@ -618,21 +618,21 @@ Thank you for being part of our mission to help people build better relationship
                         w-12 h-12 rounded-full flex items-center justify-center
                         ${node.status === 'active' ? 'bg-cyan-500/20 border-cyan-400' :
                           node.status === 'idle' ? 'bg-yellow-500/20 border-yellow-400' :
-                          'bg-orange-500/20 border-orange-400'} 
+                            'bg-orange-500/20 border-orange-400'} 
                         border-2 relative group cursor-pointer
                       `}>
                         <div className={`
                           absolute inset-0 rounded-full
                           ${node.status === 'active' ? 'bg-cyan-400' :
                             node.status === 'idle' ? 'bg-yellow-400' :
-                            'bg-orange-400'}
+                              'bg-orange-400'}
                           animate-ping opacity-20
                         `} />
                         <Network className={`
                           w-6 h-6
                           ${node.status === 'active' ? 'text-cyan-400' :
                             node.status === 'idle' ? 'text-yellow-400' :
-                            'text-orange-400'}
+                              'text-orange-400'}
                         `} />
 
                         {/* Tooltip */}
@@ -661,7 +661,7 @@ Thank you for being part of our mission to help people build better relationship
         type: 'component',
         component: (() => {
           const { gatewayMetrics, formatNumber } = useWebInterface();
-          
+
           return (
             <div className="space-y-6">
               {/* Processing Metrics */}
@@ -695,8 +695,8 @@ Thank you for being part of our mission to help people build better relationship
                     {/* Activity Graph */}
                     <svg className="w-full h-full">
                       <path
-                        d={`M 0 ${100 - gatewayMetrics.neuralActivity[0] * 100} ` + 
-                          gatewayMetrics.neuralActivity.map((value, i) => 
+                        d={`M 0 ${100 - gatewayMetrics.neuralActivity[0] * 100} ` +
+                          gatewayMetrics.neuralActivity.map((value, i) =>
                             `L ${(i / (gatewayMetrics.neuralActivity.length - 1)) * 100}% ${100 - value * 100}%`
                           ).join(' ')}
                         fill="none"
@@ -706,7 +706,7 @@ Thank you for being part of our mission to help people build better relationship
                     </svg>
 
                     {/* Gradient Overlay */}
-                    <div 
+                    <div
                       className="absolute inset-0 bg-gradient-to-t from-purple-500/20 to-transparent"
                       style={{ mixBlendMode: 'overlay' }}
                     />
@@ -730,7 +730,7 @@ Thank you for being part of our mission to help people build better relationship
                           <span className="text-purple-400">{progress.toFixed(1)}%</span>
                         </div>
                         <div className="h-1 bg-gray-700 rounded-full overflow-hidden">
-                          <div 
+                          <div
                             className="h-full bg-gradient-to-r from-purple-500 to-orange-500 rounded-full transition-all duration-500"
                             style={{ width: `${progress}%` }}
                           />
@@ -760,18 +760,18 @@ Thank you for being part of our mission to help people build better relationship
                   Join our community, get support, and stay updated with the latest OS1 developments.
                 </p>
                 <div className="flex flex-col space-y-3">
-                  <a 
-                    href="https://t.me/TheOS1Protocol" 
-                    target="_blank" 
+                  <a
+                    href="https://t.me/TheOS1Protocol"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center space-x-2 bg-blue-500/20 hover:bg-blue-500/30 text-blue-300 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 border border-blue-500/30"
                   >
                     <Send className="w-5 h-5" />
                     <span>Join Telegram Community</span>
                   </a>
-                  <a 
-                    href="https://x.com/0xos1dotfun" 
-                    target="_blank" 
+                  <a
+                    href="https://x.com/0xos1dotfun"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center space-x-2 bg-gray-600/20 hover:bg-gray-600/30 text-gray-300 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 border border-gray-500/30"
                   >
@@ -792,7 +792,7 @@ Thank you for being part of our mission to help people build better relationship
       //   type: 'component',
       //   component: (() => {
       //     const { tweets, loading, error, refreshTweets } = useTwitterFeed();
-          
+
       //     return (
       //       <div className="max-w-2xl mx-auto bg-black rounded-3xl border border-gray-800 shadow-2xl flex flex-col h-auto">
       //         {/* X Mobile Header */}
@@ -818,7 +818,7 @@ Thank you for being part of our mission to help people build better relationship
       //               <span className="ml-3 text-gray-400">Loading tweets...</span>
       //             </div>
       //           )}
-                
+
       //           {error && (
       //             <div className="p-4 text-center">
       //               <div className="text-red-400 mb-2">Failed to load tweets</div>
@@ -830,7 +830,7 @@ Thank you for being part of our mission to help people build better relationship
       //               </button>
       //             </div>
       //           )}
-                
+
       //           {!loading && !error && tweets.map((tweet) => (
       //             <div key={tweet.id} className="border-b border-gray-800 p-4 hover:bg-gray-900/30 transition-colors">
       //               {/* Retweet indicator */}
@@ -840,7 +840,7 @@ Thank you for being part of our mission to help people build better relationship
       //                   <span>{tweet.retweetedBy?.name} retweeted</span>
       //                 </div>
       //               )}
-                    
+
       //               {/* Reply indicator */}
       //               {tweet.type === 'reply' && (
       //                 <div className="flex items-center space-x-2 mb-2 text-gray-500 text-sm">
@@ -951,9 +951,9 @@ Thank you for being part of our mission to help people build better relationship
                 <p className="text-gray-400 mb-6">
                   Follow us on X for updates and news.
                 </p>
-                <a 
-                  href="https://x.com/0xos1dotfun" 
-                  target="_blank" 
+                <a
+                  href="https://x.com/0xos1dotfun"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105"
                 >
@@ -970,7 +970,7 @@ Thank you for being part of our mission to help people build better relationship
         name: 'GitHub',
         icon: (
           <svg width="24" height="24" fill="currentColor" className="text-gray-200" viewBox="0 0 24 24">
-            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 013.003-.404c1.018.005 2.045.138 3.003.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.804 5.624-5.475 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 013.003-.404c1.018.005 2.045.138 3.003.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.804 5.624-5.475 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
           </svg>
         ),
         description: 'View OS1 on GitHub',
@@ -980,20 +980,20 @@ Thank you for being part of our mission to help people build better relationship
             <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700/30">
               <div className="text-center">
                 <svg width="48" height="48" fill="currentColor" className="text-gray-200 mx-auto mb-4" viewBox="0 0 24 24">
-                  <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 013.003-.404c1.018.005 2.045.138 3.003.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.804 5.624-5.475 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                  <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 013.003-.404c1.018.005 2.045.138 3.003.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.804 5.624-5.475 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
                 </svg>
                 <h2 className="text-2xl font-bold text-white mb-2">OS1 on GitHub</h2>
                 <p className="text-gray-400 mb-6">
                   Explore the source code, contribute, and star the project!
                 </p>
-                <a 
-                  href="https://github.com/jesuscopado" 
-                  target="_blank" 
+                <a
+                  href="https://github.com/jesuscopado"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 bg-gray-700/20 hover:bg-gray-700/30 text-gray-200 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 border border-gray-700/30"
                 >
                   <svg width="20" height="20" fill="currentColor" className="text-gray-200" viewBox="0 0 24 24">
-                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 013.003-.404c1.018.005 2.045.138 3.003.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.804 5.624-5.475 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 013.003-.404c1.018.005 2.045.138 3.003.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.804 5.624-5.475 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
                   </svg>
                   <span>View on GitHub</span>
                 </a>
@@ -1017,9 +1017,9 @@ Thank you for being part of our mission to help people build better relationship
                 <p className="text-gray-400 mb-6">
                   Join our Telegram channel for real-time discussions, support, and community updates.
                 </p>
-                <a 
-                  href="https://t.me/TheOS1Protocol" 
-                  target="_blank" 
+                <a
+                  href="https://t.me/TheOS1Protocol"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105"
                 >
@@ -1041,7 +1041,7 @@ Thank you for being part of our mission to help people build better relationship
         type: 'component',
         component: (() => {
           const { nodes, networkStats, autoArrangeNodes, resetNodes, formatNumber } = useNeuralNetwork();
-          
+
           return (
             <div className="space-y-6">
               {/* Neural Network Visualization */}
@@ -1052,13 +1052,13 @@ Thank you for being part of our mission to help people build better relationship
                     Neural Network Topology
                   </h3>
                   <div className="flex items-center space-x-2">
-                    <button 
+                    <button
                       onClick={autoArrangeNodes}
                       className="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-lg hover:bg-purple-500/30 transition-colors text-sm"
                     >
                       Auto-Arrange
                     </button>
-                    <button 
+                    <button
                       onClick={resetNodes}
                       className="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-lg hover:bg-purple-500/30 transition-colors text-sm"
                     >
@@ -1138,7 +1138,7 @@ Thank you for being part of our mission to help people build better relationship
         type: 'component',
         component: (() => {
           const { trainingSessions, resourceMetrics, formatEta } = useNeuralNetwork();
-          
+
           return (
             <div className="space-y-6">
               {/* Active Training Sessions */}
@@ -1155,7 +1155,7 @@ Thank you for being part of our mission to help people build better relationship
                         <span className="text-green-400">{session.progress.toFixed(1)}%</span>
                       </div>
                       <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
-                        <div 
+                        <div
                           className="h-full bg-gradient-to-r from-green-500 to-emerald-500 rounded-full transition-all duration-500"
                           style={{ width: `${session.progress}%` }}
                         />
@@ -1183,11 +1183,10 @@ Thank you for being part of our mission to help people build better relationship
                         <span className="text-gray-300">{metric.metric}</span>
                         <div className="flex items-center space-x-2">
                           <span className="text-green-400">{metric.value}</span>
-                          <ChevronRight className={`w-4 h-4 ${
-                            metric.trend === 'up' ? 'text-green-400 rotate-[-90deg]' :
+                          <ChevronRight className={`w-4 h-4 ${metric.trend === 'up' ? 'text-green-400 rotate-[-90deg]' :
                             metric.trend === 'down' ? 'text-orange-400 rotate-90' :
-                            'text-yellow-400 rotate-0'
-                          } transition-transform`} />
+                              'text-yellow-400 rotate-0'
+                            } transition-transform`} />
                         </div>
                       </div>
                     ))}
@@ -1208,13 +1207,13 @@ Thank you for being part of our mission to help people build better relationship
                           <span className="text-green-400">{resource.value}</span>
                         </div>
                         <div className="h-1 bg-gray-700 rounded-full overflow-hidden">
-                          <div 
+                          <div
                             className="h-full bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"
-                            style={{ 
-                              width: `${(parseFloat(resource.value) / 
+                            style={{
+                              width: `${(parseFloat(resource.value) /
                                 (resource.resource === 'GPU Utilization' ? 100 :
-                                 resource.resource === 'Memory Usage' ? resourceMetrics.totalMemory :
-                                 resourceMetrics.totalVram)) * 100}%` 
+                                  resource.resource === 'Memory Usage' ? resourceMetrics.totalMemory :
+                                    resourceMetrics.totalVram)) * 100}%`
                             }}
                           />
                         </div>
@@ -1235,7 +1234,7 @@ Thank you for being part of our mission to help people build better relationship
         type: 'component',
         component: (() => {
           const { emotionalState, networkStats } = useNeuralNetwork();
-          
+
           return (
             <div className="space-y-6">
               {/* Consciousness Matrix */}
@@ -1252,7 +1251,7 @@ Thank you for being part of our mission to help people build better relationship
                         key={i}
                         className="aspect-square bg-gray-900/50 rounded-lg border border-orange-500/20 p-2 relative overflow-hidden"
                       >
-                        <div 
+                        <div
                           className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-purple-500/20"
                           style={{
                             opacity: activity * 0.8,
@@ -1260,7 +1259,7 @@ Thank you for being part of our mission to help people build better relationship
                           }}
                         />
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <div 
+                          <div
                             className="w-2 h-2 bg-orange-400 rounded-full"
                             style={{
                               transform: `scale(${activity * 0.5 + 0.5})`,
@@ -1287,7 +1286,7 @@ Thank you for being part of our mission to help people build better relationship
                           <span className="text-orange-400">{level.toFixed(1)}%</span>
                         </div>
                         <div className="h-1 bg-gray-700 rounded-full overflow-hidden">
-                          <div 
+                          <div
                             className="h-full bg-gradient-to-r from-orange-500 to-purple-500 rounded-full"
                             style={{ width: `${level}%` }}
                           />
@@ -1310,7 +1309,7 @@ Thank you for being part of our mission to help people build better relationship
                             top: `${Math.random() * 100}%`,
                           }}
                         >
-                          <MessageSquare 
+                          <MessageSquare
                             className="w-4 h-4 text-orange-400/30"
                             style={{
                               animation: `float-${i % 3} ${2 + Math.random() * 3}s infinite ease-in-out`,
@@ -1343,7 +1342,7 @@ Thank you for being part of our mission to help people build better relationship
   const handleFileClick = (fileId: string) => {
     setActiveFile(fileId);
     const file = folderContents[folderId]?.find(item => item.id === fileId);
-    
+
     if (file?.type === 'component') {
       if (fileId === 'settings') {
         setShowSettings(true);
@@ -1375,14 +1374,14 @@ Thank you for being part of our mission to help people build better relationship
       <div className="fixed inset-0 bg-black/90 backdrop-blur-xl z-50 flex items-center justify-center p-2">
         <div className="bg-gradient-to-br from-gray-900/95 to-black/95 rounded-2xl w-[96%] max-w-2xl max-h-[95vh] border border-orange-700/30 shadow-2xl backdrop-blur-xl overflow-hidden flex flex-col mobile-folder-wrapper">
           {/* Mobile Header - Fixed height */}
-                      <div className="flex items-center justify-between p-3 border-b border-orange-700/30 bg-gray-900/50 h-13 flex-shrink-0">
+          <div className="flex items-center justify-between p-3 border-b border-orange-700/30 bg-gray-900/50 h-13 flex-shrink-0">
             <h2 className="text-base font-semibold text-white flex items-center truncate">
-                              <Folder className="w-4 h-4 text-orange-300 mr-2 flex-shrink-0" />
+              <Folder className="w-4 h-4 text-orange-300 mr-2 flex-shrink-0" />
               <span className="truncate text-sm">{folderId.charAt(0).toUpperCase() + folderId.slice(1)}</span>
             </h2>
             <button
               onClick={handleClose}
-                              className="flex items-center justify-center w-8 h-8 bg-orange-500/20 hover:bg-orange-500/30 text-orange-400 hover:text-orange-300 rounded-full border border-orange-500/30 transition-all duration-300 active:scale-95 flex-shrink-0"
+              className="flex items-center justify-center w-8 h-8 bg-orange-500/20 hover:bg-orange-500/30 text-orange-400 hover:text-orange-300 rounded-full border border-orange-500/30 transition-all duration-300 active:scale-95 flex-shrink-0"
             >
               <X className="w-4 h-4" />
             </button>
@@ -1427,7 +1426,7 @@ Thank you for being part of our mission to help people build better relationship
                     <span className="text-xs truncate">Back to {folderId.charAt(0).toUpperCase() + folderId.slice(1)}</span>
                   </button>
                 </div>
-                
+
                 {/* Content - Proper scroll container with padding */}
                 <div className="flex-1 overflow-y-auto p-3">
                   <div className="mobile-content-wrapper">
@@ -1457,7 +1456,7 @@ Thank you for being part of our mission to help people build better relationship
   // Desktop Layout
   return (
     <div className="fixed inset-0 bg-black/90 backdrop-blur-xl z-50 flex items-center justify-center p-8">
-              <div className="bg-gradient-to-br from-gray-900/90 to-black/90 rounded-3xl p-8 max-w-6xl w-full h-[80vh] border border-orange-700/30 shadow-2xl backdrop-blur-xl overflow-hidden">
+      <div className="bg-gradient-to-br from-gray-900/90 to-black/90 rounded-3xl p-8 max-w-6xl w-full h-[80vh] border border-orange-700/30 shadow-2xl backdrop-blur-xl overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-3xl font-bold text-white flex items-center">
@@ -1482,8 +1481,8 @@ Thank you for being part of our mission to help people build better relationship
                 className={`
                   flex items-center space-x-4 p-4 rounded-xl mb-4 cursor-pointer
                   transition-all duration-300 hover:scale-102
-                  ${activeFile === item.id 
-                    ? 'bg-orange-700/20 border border-orange-700/30' 
+                  ${activeFile === item.id
+                    ? 'bg-orange-700/20 border border-orange-700/30'
                     : 'bg-gray-800/50 hover:bg-gray-800/70'
                   }
                 `}
