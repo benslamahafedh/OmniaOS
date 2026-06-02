@@ -467,7 +467,7 @@ You're all set! OS1 is ready to help you improve your romantic life. Remember:
 - **Practice Regularly**: Daily sessions build lasting skills
 - **Stay Safe**: Your privacy and emotional well-being come first
 
-Welcome to OS1 - where better relationships begin! ðŸ’•âœ¨`
+Welcome to OS1 - where better relationships begin! ¨`
       },
       {
         id: 'architecture',
@@ -733,7 +733,7 @@ By contributing to OS1, you're helping to:
 - Build technology that genuinely helps people
 - Make relationship guidance accessible to everyone
 
-Thank you for being part of our mission to help people build better relationships! ðŸ’•âœ¨`
+Thank you for being part of our mission to help people build better relationships!¨`
       },
       {
         id: 'ltd-registry',
