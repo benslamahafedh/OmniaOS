@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { X, FileText, Folder, Settings, Terminal as TerminalIcon, Globe, Search, Brain, Activity, Link, Network, Cpu, Database, Zap, ChevronRight, Sparkles, Workflow, Bot, Share2, MessageSquare, Send, Mail, Building2, Shield, Scale, Clock } from 'lucide-react';
+import { X, FileText, Folder, Settings, Terminal as TerminalIcon, Globe, Brain, Activity, Cpu, Database, ChevronRight, Sparkles, Workflow, Bot, Share2, MessageSquare, Send, Mail, Building2, Shield, Scale, Clock } from 'lucide-react';
 import XLogo from './XLogo';
 import ReactMarkdown from 'react-markdown';
 import { useNeuralNetwork } from '../hooks/useNeuralNetwork';
-import { useWebInterface } from '../hooks/useWebInterface';
+// import { useWebInterface } from '../hooks/useWebInterface';
 import { useMobile } from '../hooks/useMobile';
 import SystemSettings from './SystemSettings';
 import Terminal from './Terminal';
