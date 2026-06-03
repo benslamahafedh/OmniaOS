@@ -15,7 +15,7 @@ const OS1Logo: React.FC<OS1LogoProps> = ({ size = 32, className = '' }) => {
         src={logo}
         alt="OS1 Logo"
         className="w-full h-full object-contain"
-        style={{ width: size, height: size }}
+        style={{ width: size, height: size, imageRendering: 'auto' }}
       />
     </div>
   );

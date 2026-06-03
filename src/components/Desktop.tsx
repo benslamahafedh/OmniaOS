@@ -464,12 +464,19 @@ const Desktop: React.FC = () => {
   );
 
   const folders: FolderItem[] = [
+    // {
+    //   id: "system",
+    //   name: "System Core",
+    //   icon: <Server className="w-6 h-6" />,
+    //   color: "from-orange-800 to-orange-950",
+    //   description: "Core system files and settings",
+    // },
     {
-      id: "system",
-      name: "System Core",
-      icon: <Server className="w-6 h-6" />,
-      color: "from-orange-800 to-orange-950",
-      description: "Core system files and settings",
+      id: 'samantha',
+      name: 'System Core',
+      icon: <Sparkles className="w-6 h-6" />,
+      color: 'from-orange-500 to-orange-700',
+      description: 'AGI consciousness module'
     },
     {
       id: "docs",
@@ -492,13 +499,7 @@ const Desktop: React.FC = () => {
       color: "from-orange-700 to-orange-900",
       description: "Internet connectivity",
     },
-    {
-      id: 'samantha',
-      name: 'Samantha Core',
-      icon: <Sparkles className="w-6 h-6" />,
-      color: 'from-orange-500 to-orange-700',
-      description: 'AGI consciousness module'
-    },
+
     {
       id: 'ltd',
       name: 'Corporate informations',
@@ -763,7 +764,7 @@ const Desktop: React.FC = () => {
       </div>
 
       {/* Brand GIF Full Screen Background */}
-      <div className="fixed inset-0 z-5">
+      <div className="fixed inset-0 z-5 gif-background">
         <div
           className="w-full h-full opacity-20"
           style={{
@@ -1651,8 +1652,8 @@ const Desktop: React.FC = () => {
           }
         }
 
-        /* GIF Performance Optimizations */
-        img {
+        /* GIF Performance Optimizations - scoped to GIF only, not all images */
+        .gif-background img {
           image-rendering: -webkit-optimize-contrast;
           image-rendering: -moz-crisp-edges;
           image-rendering: crisp-edges;
