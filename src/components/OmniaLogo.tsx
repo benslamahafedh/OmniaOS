@@ -13,7 +13,7 @@ const OS1Logo: React.FC<OS1LogoProps> = ({ size = 32, className = '' }) => {
         alt="OS1 Logo"
         style={{ width: size, height: size }}
       />
-      <span className="leading-none">0xos1</span>
+      <span className="leading-none text-sm">0xos1</span>
     </div>
   );
 };
