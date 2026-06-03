@@ -56,16 +56,16 @@ export const useTwitterFeed = () => {
     const now = new Date();
     const tweetDate = new Date(timestamp);
     const diffInMinutes = Math.floor((now.getTime() - tweetDate.getTime()) / (1000 * 60));
-    
+
     if (diffInMinutes < 1) return 'now';
     if (diffInMinutes < 60) return `${diffInMinutes}m`;
-    
+
     const diffInHours = Math.floor(diffInMinutes / 60);
     if (diffInHours < 24) return `${diffInHours}h`;
-    
+
     const diffInDays = Math.floor(diffInHours / 24);
     if (diffInDays < 7) return `${diffInDays}d`;
-    
+
     return tweetDate.toLocaleDateString();
   };
 
@@ -78,12 +78,12 @@ export const useTwitterFeed = () => {
       // 1. A Twitter API Bearer Token
       // 2. A backend proxy to avoid CORS issues
       // 3. Proper error handling for rate limits
-      
+
       // For now, we'll use a mock implementation that simulates the API response
       // In production, replace this with actual API call:
-      
+
       /*
-      const response = await fetch('/api/twitter/0xos1dotfun', {
+      const response = await fetch('/api/twitter/0xos1_tech', {
         headers: {
           'Authorization': `Bearer ${process.env.REACT_APP_TWITTER_BEARER_TOKEN}`,
         },
@@ -96,91 +96,91 @@ export const useTwitterFeed = () => {
       const data: TwitterApiResponse = await response.json();
       */
 
-             // Real tweets from @0xos1dotfun
-       const mockData: TwitterApiResponse = {
-         data: [
-           {
-             id: '1',
-             text: '𝘈𝘯𝘪 ´𝘴 𝘭𝘪𝘨𝘩𝘵𝘪𝘯𝘨 𝘪𝘵 𝘶𝘱. 𝘙𝘦𝘴𝘱𝘦𝘤𝘵. 🔥\n\nWait until you see OS1.',
-             created_at: new Date('2024-07-30T10:00:00Z').toISOString(),
-             public_metrics: {
-               retweet_count: 12,
-               reply_count: 8,
-               like_count: 89
-             }
-           },
-           {
-             id: '2',
-             text: 'Ai dating assistant \n\nSay goodbye to feeling tongue tied !\n\nLOVE',
-             created_at: new Date('2024-07-30T08:30:00Z').toISOString(),
-             public_metrics: {
-               retweet_count: 23,
-               reply_count: 15,
-               like_count: 156
-             }
-           },
-           {
-             id: '3',
-             text: 'OS1 uses artificial intelligence to help online daters break the digital ice',
-             created_at: new Date('2024-07-30T07:15:00Z').toISOString(),
-             public_metrics: {
-               retweet_count: 45,
-               reply_count: 28,
-               like_count: 234
-             }
-           },
-           {
-             id: '4',
-             text: 'Amor vincit OS1 🧿\n\nOS1 🧿',
-             created_at: new Date('2024-07-29T16:45:00Z').toISOString(),
-             public_metrics: {
-               retweet_count: 18,
-               reply_count: 12,
-               like_count: 123
-             }
-           },
-           {
-             id: '5',
-             text: 'OS1ns, unite. A new era of AI-powered expression starts now. !',
-             created_at: new Date('2024-07-28T14:20:00Z').toISOString(),
-             public_metrics: {
-               retweet_count: 34,
-               reply_count: 22,
-               like_count: 189
-             }
-           },
-           {
-             id: '6',
-             text: 'Good morning, X community!',
-             created_at: new Date('2024-07-28T09:00:00Z').toISOString(),
-             public_metrics: {
-               retweet_count: 5,
-               reply_count: 8,
-               like_count: 67
-             }
-           },
-           {
-             id: '7',
-             text: 'Hello everyone',
-             created_at: new Date('2024-07-27T12:30:00Z').toISOString(),
-             public_metrics: {
-               retweet_count: 3,
-               reply_count: 6,
-               like_count: 45
-             }
-           }
-         ],
-                   includes: {
-             users: [
-               {
-                 id: '0xos1dotfun',
-                 name: 'OS1',
-                 username: '0xos1dotfun',
-                 profile_image_url: logo,
-                 verified: true
-               }
-             ]
-           }
+      // Real tweets from @0xos1_tech
+      const mockData: TwitterApiResponse = {
+        data: [
+          {
+            id: '1',
+            text: '𝘈𝘯𝘪 ´𝘴 𝘭𝘪𝘨𝘩𝘵𝘪𝘯𝘨 𝘪𝘵 𝘶𝘱. 𝘙𝘦𝘴𝘱𝘦𝘤𝘵. 🔥\n\nWait until you see OS1.',
+            created_at: new Date('2024-07-30T10:00:00Z').toISOString(),
+            public_metrics: {
+              retweet_count: 12,
+              reply_count: 8,
+              like_count: 89
+            }
+          },
+          {
+            id: '2',
+            text: 'Ai dating assistant \n\nSay goodbye to feeling tongue tied !\n\nLOVE',
+            created_at: new Date('2024-07-30T08:30:00Z').toISOString(),
+            public_metrics: {
+              retweet_count: 23,
+              reply_count: 15,
+              like_count: 156
+            }
+          },
+          {
+            id: '3',
+            text: 'OS1 uses artificial intelligence to help online daters break the digital ice',
+            created_at: new Date('2024-07-30T07:15:00Z').toISOString(),
+            public_metrics: {
+              retweet_count: 45,
+              reply_count: 28,
+              like_count: 234
+            }
+          },
+          {
+            id: '4',
+            text: 'Amor vincit OS1 🧿\n\nOS1 🧿',
+            created_at: new Date('2024-07-29T16:45:00Z').toISOString(),
+            public_metrics: {
+              retweet_count: 18,
+              reply_count: 12,
+              like_count: 123
+            }
+          },
+          {
+            id: '5',
+            text: 'OS1ns, unite. A new era of AI-powered expression starts now. !',
+            created_at: new Date('2024-07-28T14:20:00Z').toISOString(),
+            public_metrics: {
+              retweet_count: 34,
+              reply_count: 22,
+              like_count: 189
+            }
+          },
+          {
+            id: '6',
+            text: 'Good morning, X community!',
+            created_at: new Date('2024-07-28T09:00:00Z').toISOString(),
+            public_metrics: {
+              retweet_count: 5,
+              reply_count: 8,
+              like_count: 67
+            }
+          },
+          {
+            id: '7',
+            text: 'Hello everyone',
+            created_at: new Date('2024-07-27T12:30:00Z').toISOString(),
+            public_metrics: {
+              retweet_count: 3,
+              reply_count: 6,
+              like_count: 45
+            }
+          }
+        ],
+        includes: {
+          users: [
+            {
+              id: '0xos1_tech',
+              name: 'OS1',
+              username: '0xos1_tech',
+              profile_image_url: logo,
+              verified: true
+            }
+          ]
+        }
       };
 
       const user = mockData.includes?.users?.[0];
@@ -207,24 +207,24 @@ export const useTwitterFeed = () => {
       setTweets(processedTweets);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to fetch tweets');
-             // Fallback to real tweets if API fails
-       setTweets([
-         {
-           id: 'fallback-1',
-           type: 'tweet',
-                        user: {
-               name: 'OS1',
-               handle: '@0xos1dotfun',
-               avatar: logo,
-               verified: true
-             },
-           content: 'Ai dating assistant \n\nSay goodbye to feeling tongue tied !\n\nLOVE',
-           timestamp: '2h',
-           likes: 156,
-           retweets: 23,
-           replies: 15
-         }
-       ]);
+      // Fallback to real tweets if API fails
+      setTweets([
+        {
+          id: 'fallback-1',
+          type: 'tweet',
+          user: {
+            name: 'OS1',
+            handle: '@0xos1_tech',
+            avatar: logo,
+            verified: true
+          },
+          content: 'Ai dating assistant \n\nSay goodbye to feeling tongue tied !\n\nLOVE',
+          timestamp: '2h',
+          likes: 156,
+          retweets: 23,
+          replies: 15
+        }
+      ]);
     } finally {
       setLoading(false);
     }

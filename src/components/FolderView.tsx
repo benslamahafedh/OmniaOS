@@ -1247,13 +1247,13 @@ Thank you for being part of our mission to help people build better relationship
       //         {/* Bottom bar */}
       //         <div className="bg-black/95 backdrop-blur-sm border-t border-gray-800 p-4 flex-shrink-0">
       //           <a 
-      //             href="https://x.com/0xos1dotfun" 
+      //             href="https://x.com/0xos1_tech" 
       //             target="_blank" 
       //             rel="noopener noreferrer"
       //             className="w-full bg-blue-500 hover:bg-blue-600 text-white text-center py-3 rounded-full font-semibold transition-colors flex items-center justify-center space-x-2"
       //           >
       //             <XLogo size={16} className="text-white" />
-      //             <span>Follow @0xos1dotfun on X</span>
+      //             <span>Follow @0xos1_tech on X</span>
       //           </a>
       //         </div>
       //       </div>
