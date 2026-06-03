@@ -49,7 +49,7 @@ const Documentation: React.FC = () => {
         <section>
           <h2 className="text-2xl font-semibold mb-3 text-orange-400">Current Features</h2>
           <ul className="list-disc list-inside text-gray-300 space-y-2">
-            <li>Daily 5 minutes of free access to all companions</li>
+
             <li>Real-time conversation with AI companions</li>
             <li>Safe, judgment-free environment for practice</li>
             <li>Personalized advice and coaching</li>
@@ -159,7 +159,7 @@ const Documentation: React.FC = () => {
           Made with ❤️ for better relationships — OS1 Team
         </p>
         <p className="text-center text-gray-400 text-sm mt-2">
-          First Release — Testing Phase | Free Access at 0xos1.fun
+          First Release at 0xos1.fun
         </p>
       </div>
     </div>

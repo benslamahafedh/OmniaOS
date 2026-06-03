@@ -32,7 +32,7 @@ const OS1ProtocolLtd: React.FC = () => {
               { label: 'Entity Status', value: 'Active / Registered', color: 'text-emerald-400 font-semibold' },
               { label: 'Company Class', value: 'Private Limited Company', color: 'text-gray-200' },
               { label: 'Jurisdiction', value: 'United Kingdom (UK)', color: 'text-gray-200' },
-              { label: 'Registered Office', value: 'London, England', color: 'text-gray-200' },
+              { label: 'Registered Office', value: 'England & wales', color: 'text-gray-200' },
               { label: 'Core Framework', value: 'Affective AGI & Synthetics', color: 'text-orange-300' },
               { label: 'Compliance Audit', value: 'Passed / Secured', color: 'text-emerald-400' },
             ].map((spec) => (
@@ -352,7 +352,7 @@ const FolderView: React.FC<FolderViewProps> = ({ folderId, onClose }) => {
 
             {/* Daily Free Access */}
             <div className="bg-gray-800/50 border border-orange-500/20 rounded-xl p-5">
-              <h2 className="text-base font-semibold text-orange-300 mb-3">Daily Free Access</h2>
+
               <div className="grid grid-cols-2 gap-3">
                 {[
 
@@ -818,15 +818,6 @@ OS1 is a fully web-based AI companion platform — no installation required. Sim
 - Stable internet connection
 - JavaScript enabled
 - Modern browser (2020 or newer recommended)
-
-## Daily Free Access
-
-OS1 provides **Free access daily** to all AI companions.
-
-- Access resets every 24 hours at 00:00 UTC
-- Switch between companions freely within your session
-- No registration required to start
-- Full features available during free time
 
 ## Community & Support Channels
 
