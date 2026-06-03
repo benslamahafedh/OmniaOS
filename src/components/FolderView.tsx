@@ -21,7 +21,7 @@ const OS1ProtocolLtd: React.FC = () => {
         <div className="space-y-4 w-full">
           <div className="flex items-center justify-between border-b border-orange-500/20 pb-3">
             <div>
-              <h3 className="text-2xl font-bold text-white tracking-wide">OS1 Protocol LTD</h3>
+              <h3 className="text-2xl font-bold text-white tracking-wide">Corporate informations</h3>
               <p className="text-orange-400 text-sm font-light mt-0.5">Corporate Entity & Intellectual Property</p>
             </div>
             <Building2 className="w-8 h-8 text-orange-400 opacity-80" />
@@ -47,7 +47,7 @@ const OS1ProtocolLtd: React.FC = () => {
           <div className="bg-orange-500/5 border border-orange-500/10 rounded-xl p-4 mt-2">
             <h4 className="text-xs font-semibold text-orange-300 uppercase tracking-wider mb-1">Corporate Mission</h4>
             <p className="text-xs text-gray-400 leading-relaxed font-light">
-              OS1 Protocol LTD is dedicated to building secure, beautiful, and emotionally intelligent conversational companion architectures. We combine state-of-the-art neural interfaces with private, decentralized memory vaults to help humanity forge deeper emotional connections.
+              Corporate informations is dedicated to building secure, beautiful, and emotionally intelligent conversational companion architectures. We combine state-of-the-art neural interfaces with private, decentralized memory vaults to help humanity forge deeper emotional connections.
             </p>
           </div>
 
@@ -165,7 +165,7 @@ const OS1TermsOfService: React.FC = () => {
     {
       title: "Synthetic Intellectual Property",
       icon: <Cpu className="w-5 h-5 text-rose-400" />,
-      content: "All voice profiles, personality logic trees, and brand assets (including the Samantha Core patterns) are proprietary assets of OS1 Protocol LTD. Redistribution, unauthorized model fine-tuning, or scraping is strictly prohibited."
+      content: "All voice profiles, personality logic trees, and brand assets (including the Samantha Core patterns) are proprietary assets of Corporate informations. Redistribution, unauthorized model fine-tuning, or scraping is strictly prohibited."
     },
     {
       title: "Fair Use & Time Allocation",
@@ -278,7 +278,7 @@ const FolderView: React.FC<FolderViewProps> = ({ folderId, onClose }) => {
     ltd: [
       {
         id: 'registry',
-        name: 'OS1 Protocol LTD',
+        name: 'Corporate informations',
         icon: <Building2 className="w-6 h-6 text-orange-400" />,
         description: 'Official corporate registration & entity status',
         type: 'component',
@@ -737,7 +737,7 @@ Thank you for being part of our mission to help people build better relationship
       },
       {
         id: 'ltd-registry',
-        name: 'OS1 Protocol LTD',
+        name: 'Corporate informations',
         icon: <Building2 className="w-6 h-6 text-orange-400" />,
         description: 'Official corporate registration & entity status',
         type: 'component',

@@ -14,57 +14,57 @@ const Taskbar: React.FC<TaskbarProps> = ({
   onFolderClick
 }) => {
 
-  const { isMobile } = useMobile();
+  // const { isMobile } = useMobile();
 
   const folders = [
-    { id: 'system', name: 'System' },
+    // { id: 'system', name: 'System' },
     { id: 'docs', name: 'Docs' },
-    { id: 'neural', name: 'Neural' },
+    // { id: 'neural', name: 'Neural' },
     { id: 'apps', name: 'Apps' }
   ];
 
-  if (isMobile) {
-    return (
-      <div className={`
-        mobile-taskbar fixed bottom-0 left-0 right-0 h-16
-        bg-gradient-to-r from-orange-900 to-black bg-opacity-95
-        border-t border-orange-800/30 backdrop-blur-xl
-        flex flex-col items-center justify-center px-4
-        theme-blur
-      `}>
-        {/* Top row - Main actions */}
-        <div className="taskbar-section">
-          <button
-            onClick={onSettingsClick}
-            className="p-2 hover:bg-white/10 rounded-lg transition-colors duration-300
-              flex items-center gap-1 text-white show-text"
-          >
-            <Settings className="w-4 h-4" />
-            <span className="text-xs">Settings</span>
-          </button>
+  // if (isMobile) {
+  //   return (
+  //     <div className={`
+  //       mobile-taskbar fixed bottom-0 left-0 right-0 h-16
+  //       bg-gradient-to-r from-orange-900 to-black bg-opacity-95
+  //       border-t border-orange-800/30 backdrop-blur-xl
+  //       flex flex-col items-center justify-center px-4
+  //       theme-blur
+  //     `}>
+  //       {/* Top row - Main actions */}
+  //       <div className="taskbar-section">
+  //         <button
+  //           onClick={onSettingsClick}
+  //           className="p-2 hover:bg-white/10 rounded-lg transition-colors duration-300
+  //             flex items-center gap-1 text-white show-text"
+  //         >
+  //           <Settings className="w-4 h-4" />
+  //           <span className="text-xs">Settings</span>
+  //         </button>
 
-          <button
-            onClick={onTerminalClick}
-            className="p-2 hover:bg-white/10 rounded-lg transition-colors duration-300
-              flex items-center gap-1 text-white"
-          >
-            <TerminalIcon className="w-4 h-4" />
-          </button>
+  //         <button
+  //           onClick={onTerminalClick}
+  //           className="p-2 hover:bg-white/10 rounded-lg transition-colors duration-300
+  //             flex items-center gap-1 text-white"
+  //         >
+  //           <TerminalIcon className="w-4 h-4" />
+  //         </button>
 
-          {/* Most important folders only on mobile */}
-          <button
-            onClick={() => onFolderClick('system')}
-            className="p-2 hover:bg-white/10 rounded-lg transition-colors duration-300
-              flex items-center gap-1 text-white"
-          >
-            <Folder className="w-4 h-4" />
-          </button>
+  //         {/* Most important folders only on mobile */}
+  //         <button
+  //           onClick={() => onFolderClick('system')}
+  //           className="p-2 hover:bg-white/10 rounded-lg transition-colors duration-300
+  //             flex items-center gap-1 text-white"
+  //         >
+  //           <Folder className="w-4 h-4" />
+  //         </button>
 
 
-        </div>
-      </div>
-    );
-  }
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className={`
@@ -75,7 +75,7 @@ const Taskbar: React.FC<TaskbarProps> = ({
       theme-blur
     `}>
       {/* Left Section */}
-      <div className="flex items-center gap-2">
+      {/* <div className="flex items-center gap-2">
         <button
           onClick={onSettingsClick}
           className="p-2 hover:bg-white/10 rounded-lg transition-colors duration-300
@@ -93,7 +93,7 @@ const Taskbar: React.FC<TaskbarProps> = ({
           <TerminalIcon className="w-5 h-5" />
           <span className="text-sm">Terminal</span>
         </button>
-      </div>
+      </div> */}
 
       {/* Center Section - Folders */}
       <div className="flex items-center gap-2">

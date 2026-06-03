@@ -31,8 +31,8 @@ import {
   Building2,
 } from "lucide-react";
 import Taskbar from "./Taskbar";
-import SystemSettings from "./SystemSettings";
-import Terminal from "./Terminal";
+// import SystemSettings from "./SystemSettings";
+// import Terminal from "./Terminal";
 import FolderView from "./FolderView";
 import XLogo from "./XLogo";
 
@@ -308,22 +308,22 @@ const Desktop: React.FC = () => {
 
   // Quick actions for command palette
   const quickActions: QuickAction[] = [
-    {
-      id: "open-settings",
-      name: "Open Settings",
-      description: "Access system settings and preferences",
-      icon: <Settings className="w-4 h-4" />,
-      action: () => handleWindowOpen("settings"),
-      category: "System",
-    },
-    {
-      id: "open-terminal",
-      name: "Open Terminal",
-      description: "Launch command line interface",
-      icon: <Code2 className="w-4 h-4" />,
-      action: () => handleWindowOpen("terminal"),
-      category: "Development",
-    },
+    // {
+    //   id: "open-settings",
+    //   name: "Open Settings",
+    //   description: "Access system settings and preferences",
+    //   icon: <Settings className="w-4 h-4" />,
+    //   action: () => handleWindowOpen("settings"),
+    //   category: "System",
+    // },
+    // {
+    //   id: "open-terminal",
+    //   name: "Open Terminal",
+    //   description: "Launch command line interface",
+    //   icon: <Code2 className="w-4 h-4" />,
+    //   action: () => handleWindowOpen("terminal"),
+    //   category: "Development",
+    // },
     {
       id: "add-widget",
       name: "Add Widget",
@@ -500,7 +500,7 @@ const Desktop: React.FC = () => {
     },
     {
       id: 'ltd',
-      name: 'OS1 Protocol LTD',
+      name: 'Corporate informations',
       icon: <Building2 className="w-6 h-6" />,
       color: 'from-orange-600 to-rose-950',
       description: 'Official corporate registration & entity status'
@@ -1106,7 +1106,7 @@ const Desktop: React.FC = () => {
 
         {/* Windows */}
 
-        {activeWindow === "settings" && (
+        {/* {activeWindow === "settings" && (
           <div className={isMobile ? "mobile-window" : ""}>
             <SystemSettings onClose={handleWindowClose} />
           </div>
@@ -1116,7 +1116,7 @@ const Desktop: React.FC = () => {
           <div className={isMobile ? "mobile-window" : ""}>
             <Terminal onClose={handleWindowClose} />
           </div>
-        )}
+        )} */}
 
         {activeWindow?.startsWith("folder-") && (
           <div className={isMobile ? "mobile-window" : ""}>
@@ -1432,16 +1432,16 @@ const Desktop: React.FC = () => {
                 `}
                 >
                   {[
-                    {
-                      icon: <Settings size={isMobile ? 24 : 20} />,
-                      action: () => handleWindowOpen("settings"),
-                      label: "Settings",
-                    },
-                    {
-                      icon: <Code2 size={isMobile ? 24 : 20} />,
-                      action: () => handleWindowOpen("terminal"),
-                      label: "Terminal",
-                    },
+                    // {
+                    //   icon: <Settings size={isMobile ? 24 : 20} />,
+                    //   action: () => handleWindowOpen("settings"),
+                    //   label: "Settings",
+                    // },
+                    // {
+                    //   icon: <Code2 size={isMobile ? 24 : 20} />,
+                    //   action: () => handleWindowOpen("terminal"),
+                    //   label: "Terminal",
+                    // },
                     {
                       icon: <Command size={isMobile ? 24 : 20} />,
                       action: () => setShowCommandPalette(true),
