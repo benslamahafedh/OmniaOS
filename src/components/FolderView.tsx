@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, FileText, Folder, Settings, Terminal as TerminalIcon, Globe, Brain, Activity, Cpu, Database, ChevronRight, Sparkles, Workflow, Bot, Share2, MessageSquare, Send, Mail, Building2, Shield, Scale, Clock } from 'lucide-react';
+import { X, FileText, Folder, Settings, Terminal as TerminalIcon, Globe, Brain, Activity, Cpu, Database, ChevronRight, Sparkles, Workflow, Bot, Share2, MessageSquare, Send, Mail, Building2, Shield, Scale } from 'lucide-react';
 import XLogo from './XLogo';
 import ReactMarkdown from 'react-markdown';
 import { useNeuralNetwork } from '../hooks/useNeuralNetwork';
