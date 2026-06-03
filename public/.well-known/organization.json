@@ -1,0 +1,18 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "OS1 Protocol Ltd.",
+  "url": "https://0xos1.fun",
+  "logo": "https://0xos1.fun/logo.png",
+  "description": "AI companion platform helping users build better romantic relationships through intelligent, emotionally aware AI.",
+  "email": "contact@0xos1.fun",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "London",
+    "addressCountry": "GB"
+  },
+  "sameAs": [
+    "https://x.com/0xos1_tech",
+    "https://t.me/TheOS1Protocol"
+  ]
+}
