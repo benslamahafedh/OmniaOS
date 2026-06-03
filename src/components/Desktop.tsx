@@ -14,7 +14,7 @@ import {
   Cpu,
   MemoryStick,
   Thermometer,
-  Server,
+
   Database,
   Radio,
   // Code2,
@@ -533,7 +533,7 @@ const Desktop: React.FC = () => {
         border-b border-orange-800/30 theme-brightness
         ${isMobile ? "h-14" : "h-auto"}
       `}
-        style={{ background: "linear-gradient(to right, #7c2d12, #000000)" }}
+        style={{ background: "linear-gradient(to right, #f84205ff, #000000)" }}
       >
         <div
           className={`
@@ -712,7 +712,7 @@ const Desktop: React.FC = () => {
       {/* Background Gradients */}
       <div className="fixed inset-0 z-0">
         {/* Base gradient - enhanced orange theme */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-orange-950/20 to-black opacity-90 transition-colors duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-orange-900 opacity-90 transition-colors duration-500" />
 
         {/* Dynamic spotlight following cursor - refined */}
         <div
