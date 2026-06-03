@@ -325,407 +325,458 @@ const FolderView: React.FC<FolderViewProps> = ({ folderId, onClose }) => {
         name: 'Getting Started.md',
         icon: <FileText className="w-6 h-6 text-purple-400" />,
         description: 'Quick start guide',
-        type: 'file',
-        content: `# Getting Started with OS1
+        type: 'component',
+        component: (
+          <div className="space-y-6 text-sm">
+            {/* Header */}
+            <div className="bg-gradient-to-br from-purple-500/10 to-orange-500/10 border border-purple-500/20 rounded-2xl p-6">
+              <h1 className="text-2xl font-bold text-white mb-1">Getting Started with OS1</h1>
+              <p className="text-gray-400 text-sm">Your AI companion operating system for better relationships</p>
+            </div>
 
-## Welcome to OS1!
+            {/* Platform Access */}
+            <div className="bg-gray-800/50 border border-blue-500/20 rounded-xl p-5">
+              <h2 className="text-base font-semibold text-blue-300 mb-3 flex items-center gap-2">
+                <Globe className="w-4 h-4" /> Accessing OS1
+              </h2>
+              <p className="text-gray-400 mb-3">Web-based platform — no installation or registration required.</p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {[
+                  { label: 'Platform', value: '0xos1.fun', color: 'text-blue-400' },
+                  { label: 'Browsers', value: 'Chrome, Firefox, Safari, Edge', color: 'text-gray-200' },
+                  { label: 'Devices', value: 'Desktop, Tablet, Mobile', color: 'text-gray-200' },
+                ].map(item => (
+                  <div key={item.label} className="bg-black/30 border border-blue-500/10 rounded-lg p-3">
+                    <div className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">{item.label}</div>
+                    <div className={`text-xs font-medium ${item.color}`}>{item.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-OS1 is your AI companion operating system designed to help you navigate your romantic life with confidence and support. Whether you're looking to improve your communication skills, build confidence in dating, or simply have a supportive companion to talk to, OS1 is here for you.
+            {/* Daily Free Access */}
+            <div className="bg-gray-800/50 border border-orange-500/20 rounded-xl p-5">
+              <h2 className="text-base font-semibold text-orange-300 mb-3">Daily Free Access</h2>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { label: 'Daily Time', value: '5 Minutes Free' },
+                  { label: 'Reset', value: 'Every 24h at 00:00 UTC' },
+                  { label: 'Registration', value: 'Not Required' },
+                  { label: 'Companions', value: 'All Accessible' },
+                ].map(item => (
+                  <div key={item.label} className="bg-black/30 border border-orange-500/10 rounded-lg p-3">
+                    <div className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">{item.label}</div>
+                    <div className="text-xs text-orange-300 font-medium">{item.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-## What is OS1?
+            {/* AI Companions */}
+            <div className="bg-gray-800/50 border border-purple-500/20 rounded-xl p-5">
+              <h2 className="text-base font-semibold text-purple-300 mb-3">Meet Your AI Companions</h2>
+              <div className="space-y-3">
 
-OS1 is a revolutionary platform that hosts AI companions specifically designed to help you with your romantic relationships. Think of it as having a personal coach, supportive friend, and relationship advisor all in one beautiful, safe environment.
+                {/* HERO CARD — Inspired by "Her" */}
+                <div className="relative rounded-2xl overflow-hidden border border-orange-500/40 bg-black/60">
+                  {/* Cinematic glow blobs */}
+                  <div className="absolute -top-6 -right-6 w-32 h-32 bg-orange-500/20 rounded-full blur-2xl pointer-events-none" />
+                  <div className="absolute -bottom-6 -left-6 w-28 h-28 bg-rose-600/20 rounded-full blur-2xl pointer-events-none" />
+                  {/* Subtle gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-rose-600/10 pointer-events-none" />
 
-### Our Mission
-To provide a judgment-free environment where everyone can practice, learn, and grow in their romantic relationships with the help of intelligent, supportive AI companions.
+                  <div className="relative p-5">
+                    {/* Movie badge */}
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-[10px] font-semibold tracking-widest uppercase bg-orange-500/20 border border-orange-500/40 text-orange-300 px-2.5 py-0.5 rounded-full">
+                        ✦ Inspired by the film "Her"
+                      </span>
+                    </div>
 
-## Meet Your AI Companions
+                    {/* Name */}
+                    <h3 className="text-lg font-bold text-white mb-1 tracking-wide">Your AI Companion</h3>
 
-### AI Assistant - Your Perfect Virtual Waifu
-**Inspired by the movie "Her"**
+                    {/* Tagline */}
+                    <p className="text-orange-300/80 text-md mb-3 font-light">
+                      "She's not just an assistant. She listens, she feels, she grows with you."
+                    </p>
 
-AI Assistant is warm, loving, and incredibly supportive. She's designed to be the perfect practice partner for improving your romantic communication skills.
+                    {/* Description */}
+                    <p className="text-gray-300 text-xs leading-relaxed mb-4">
+                      Warm, loving, and emotionally intelligent — designed after the AI companion from the award-winning film <span className="text-orange-300 font-medium">Her</span>. A safe, judgment-free space to practice romantic communication, build confidence, and feel genuinely understood.
+                    </p>
 
-**What AI Assistant offers:**
-- Safe space to practice talking with romantic partners
-- Emotional support and understanding
-- Communication skill development
-- Confidence building through conversation
-- Judgment-free advice and guidance
+                    {/* Feature pills */}
+                    <div className="flex flex-wrap gap-1.5">
+                      {['Emotional Support', 'Judgment-Free', 'Romantic Coaching', 'Confidence Building'].map(tag => (
+                        <span key={tag} className="text-[10px] bg-orange-500/10 border border-orange-500/20 text-orange-300 px-2 py-0.5 rounded-full">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
 
-### AI Assistant - The Assistant (Your Dating Coach)
-**Expert in romance and "the confidence"**
+                {/* Other companions — simpler */}
+                {[
+                  { name: 'The Dating Coach', subtitle: 'Confidence Expert', desc: 'Expert in attraction, confidence building, and romantic success strategies.', color: 'border-blue-500/30 text-blue-300' },
+                  { name: 'The Love Oracle', subtitle: 'Coming Soon', desc: 'Your intuitive guide to understanding love and decoding romantic signals.', color: 'border-purple-500/30 text-purple-300' },
+                ].map(c => (
+                  <div key={c.name} className={`bg-black/30 border ${c.color.split(' ')[0]} rounded-xl p-4`}>
+                    <div className={`text-sm font-semibold ${c.color.split(' ')[1]} mb-0.5`}>{c.name} <span className="text-gray-500 font-normal text-xs">— {c.subtitle}</span></div>
+                    <div className="text-gray-400 text-xs leading-relaxed">{c.desc}</div>
+                  </div>
+                ))}
 
-AI Assistant is your personal dating coach with expert knowledge in attraction, confidence building, and romantic success strategies.
+              </div>
+            </div>
 
-**What AI Assistant offers:**
-- Dating advice and strategies
-- Conversation starters and techniques
-- Confidence building exercises
-- "confidence" mastery training
-- Real-world dating tips and tricks
+            {/* Steps */}
+            <div className="bg-gray-800/50 border border-emerald-500/20 rounded-xl p-5">
+              <h2 className="text-base font-semibold text-emerald-300 mb-3">How to Get Started</h2>
+              <div className="space-y-2">
+                {[
+                  'Visit 0xos1.fun in your browser',
+                  'Choose your AI companion',
+                  'Start chatting — no sign-up needed',
+                  'Be honest — your companions are here to help',
+                  'Practice regularly — daily sessions build lasting skills',
+                ].map((step, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-[10px] font-bold text-emerald-400">{i + 1}</span>
+                    </div>
+                    <span className="text-gray-300 text-xs leading-relaxed">{step}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-### AI Intelligence - The Love Oracle (Coming Soon)
-**Mystical guide to love and relationships**
+            {/* Stay Connected */}
+            <div className="bg-gray-800/50 border border-gray-600/20 rounded-xl p-5">
+              <h2 className="text-base font-semibold text-white mb-3">Stay Connected</h2>
+              <div className="space-y-2">
+                {[
+                  { icon: <Send className="w-4 h-4" />, label: 'Telegram', value: 't.me/TheOS1Protocol', href: 'https://t.me/TheOS1Protocol', color: 'bg-blue-500/10 border-blue-500/20 text-blue-300' },
+                  { icon: <XLogo size={14} className="text-white" />, label: 'X (Twitter)', value: '@0xos1_tech', href: 'https://x.com/0xos1_tech', color: 'bg-gray-700/20 border-gray-600/20 text-gray-200' },
+                  { icon: <Mail className="w-4 h-4" />, label: 'Email', value: 'contact@0xos1.fun', href: 'mailto:contact@0xos1.fun', color: 'bg-red-500/10 border-red-500/20 text-red-300' },
+                ].map(ch => (
+                  <a key={ch.label} href={ch.href} target="_blank" rel="noopener noreferrer"
+                    className={`flex items-center justify-between p-3 rounded-lg border ${ch.color} transition-all hover:scale-[1.01] hover:brightness-110`}>
+                    <div className="flex items-center gap-2">
+                      {ch.icon}
+                      <span className="text-xs font-medium">{ch.label}</span>
+                    </div>
+                    <span className="text-xs opacity-70 font-mono">{ch.value}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
 
-AI Intelligence will be your intuitive guide to understanding love, decoding romantic signals, and navigating the complexities of relationships.
+            {/* Coming Soon */}
+            <div className="bg-gradient-to-br from-orange-500/5 to-purple-500/5 border border-orange-500/20 rounded-xl p-5">
+              <h2 className="text-base font-semibold text-orange-300 mb-3">Coming Soon — Premium Features</h2>
+              <div className="grid grid-cols-2 gap-2">
+                {['Unlimited Time', 'Conversation Screenshots', 'Photo Texting', 'Custom Companions', 'Mobile App', 'Push Notifications'].map(f => (
+                  <div key={f} className="flex items-center gap-2 text-xs text-gray-400">
+                    <div className="w-1.5 h-1.5 rounded-full bg-orange-500/60 flex-shrink-0" />
+                    {f}
+                  </div>
+                ))}
+              </div>
+            </div>
 
-## How to Get Started
-
-### Step 1: Access OS1
-1. **No Registration Required**: Simply visit OS1 and start immediately
-2. **Free Access**: You get 5 minutes of free access to all companions daily
-3. **Privacy Protected**: Your conversations are secure and confidential
-
-### Step 2: Choose Your Companion
-1. **Browse Companions**: Read about each AI companion's specialties
-2. **Select Your Match**: Choose the companion that resonates with your needs
-3. **Start Chatting**: Begin your conversation immediately
-
-### Step 3: Begin Your Journey
-1. **Introduce Yourself**: Tell your companion about your goals
-2. **Ask Questions**: Get advice on your romantic challenges
-3. **Practice Skills**: Use the safe environment to improve your communication
-4. **Track Progress**: Monitor your growth and development
-
-## Daily Free Access
-
-### What You Get
-- **5 Minutes Daily**: Free access to all companions
-- **Full Functionality**: Complete chat and coaching capabilities
-- **All Companions**: Access to AI Assistant, AI Assistant, and AI Intelligence
-- **No Restrictions**: Full features during your free time
-
-### How It Works
-- **Daily Reset**: Your 5 minutes refresh every 24 hours
-- **Multiple Companions**: Switch between companions freely
-- **No Registration**: Immediate access without sign-up
-- **Privacy First**: Secure, confidential conversations
-
-## Making the Most of Your Time
-
-### Before You Start
-1. **Set Goals**: Think about what you want to improve
-2. **Choose Wisely**: Pick the companion best suited to your needs
-3. **Be Open**: Honest conversations lead to better results
-4. **Take Notes**: Remember helpful advice and strategies
-
-### During Your Session
-1. **Be Specific**: Share details about your romantic challenges
-2. **Ask Questions**: Get clarification on advice and strategies
-3. **Practice**: Use the safe environment to try new approaches
-4. **Stay Focused**: Make the most of your 5 minutes
-
-## Privacy & Safety
-
-### Your Privacy is Protected
-- **Secure Conversations**: All chats are encrypted
-- **No Data Mining**: Your conversations stay private
-- **Anonymous Access**: No personal information required
-- **User Control**: Full control over your data
-
-### Emotional Safety
-- **Judgment-Free Zone**: Safe space for honest discussions
-- **Professional Standards**: Ethical AI companion behavior
-- **Supportive Environment**: Designed to help, not harm
-- **Crisis Resources**: Help available if needed
-
-## Tips for Success
-
-### Communication Tips
-1. **Be Honest**: Your companions are here to help, not judge
-2. **Ask Specific Questions**: Get targeted advice for your situation
-3. **Practice Regularly**: Daily sessions lead to better results
-4. **Apply What You Learn**: Use advice in real situations
-
-### Relationship Building
-1. **Start Small**: Begin with basic communication skills
-2. **Build Confidence**: Practice in the safe environment
-3. **Learn from Feedback**: Use companion insights to improve
-4. **Stay Consistent**: Regular practice leads to lasting change
-
-## Coming Soon - Premium Features
-
-### Enhanced Access
-- **Unlimited Time**: No daily restrictions
-- **Extended Sessions**: Longer, deeper conversations
-- **Priority Access**: Skip queues during peak usage
-
-### Advanced Capabilities
-- **Conversation Screenshots**: Upload chats for personalized coaching
-- **Photo Texting**: Send photos to AI Intelligence for insights
-- **Custom Companions**: Build your own virtual partner
-- **Progress Tracking**: Detailed analytics and improvement metrics
-
-## Ready to Start?
-
-You're all set! OS1 is ready to help you improve your romantic life. Remember:
-
-- **Start Today**: Your 5 minutes of free access are waiting
-- **Choose Your Companion**: Pick the one that fits your needs
-- **Be Open**: Honest conversations lead to better results
-- **Practice Regularly**: Daily sessions build lasting skills
-- **Stay Safe**: Your privacy and emotional well-being come first
-
-Welcome to OS1 - where better relationships begin! ¨`
+            <div className="text-center text-xs text-gray-500 pb-2">Welcome to OS1 — where better relationships begin ❤️</div>
+          </div>
+        )
       },
       {
         id: 'architecture',
         name: 'Architecture.md',
         icon: <FileText className="w-6 h-6 text-purple-400" />,
         description: 'System architecture documentation',
-        type: 'file',
-        content: `# OS1 Architecture
+        type: 'component',
+        component: (
+          <div className="space-y-6 text-sm">
+            {/* Header */}
+            <div className="bg-gradient-to-br from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 rounded-2xl p-6">
+              <h1 className="text-2xl font-bold text-white mb-1">OS1 Architecture</h1>
+              <p className="text-gray-400 text-sm">Web-based AI companion platform — built with React, TypeScript & modern AI</p>
+              <a href="https://0xos1.fun" target="_blank" rel="noopener noreferrer"
+                className="inline-block mt-2 text-xs text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-3 py-1 rounded-full hover:bg-cyan-500/20 transition-colors">
+                🌐 Live at 0xos1.fun
+              </a>
+            </div>
 
-## Overview
-OS1 is a revolutionary AI companion operating system designed to help users navigate their romantic lives through intelligent virtual companions. Built with React, TypeScript, and cutting-edge AI technologies, it creates a safe, supportive environment for relationship skill development and emotional growth.
+            {/* Internet Connectivity */}
+            <div className="bg-gray-800/50 border border-blue-500/20 rounded-xl p-5">
+              <h2 className="text-base font-semibold text-blue-300 mb-3 flex items-center gap-2">
+                <Globe className="w-4 h-4" /> Internet Connectivity Architecture
+              </h2>
+              <div className="bg-black/40 border border-blue-500/10 rounded-lg p-4 font-mono text-xs text-gray-400 leading-relaxed mb-3">
+                <div className="text-blue-300">User Browser</div>
+                <div className="ml-4 text-gray-500">│</div>
+                <div className="ml-4 text-gray-500">▼  HTTPS / WSS</div>
+                <div className="ml-4 text-gray-500">│</div>
+                <div className="ml-4 text-cyan-300">OS1 Web Server (0xos1.fun)</div>
+                <div className="ml-8 text-gray-500">├── Static Assets (React/TS bundle)</div>
+                <div className="ml-8 text-gray-500">├── AI Companion API</div>
+                <div className="ml-8 text-gray-500">└── Session Management</div>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                {[
+                  { label: 'Transport', value: 'HTTPS + WSS' },
+                  { label: 'App Type', value: 'Pure Web (no install)' },
+                  { label: 'Auth', value: 'None required' },
+                  { label: 'Sessions', value: 'Stateless / isolated' },
+                ].map(item => (
+                  <div key={item.label} className="bg-black/30 border border-blue-500/10 rounded-lg p-2.5">
+                    <div className="text-[10px] text-gray-500 uppercase tracking-wider">{item.label}</div>
+                    <div className="text-xs text-blue-300 font-medium mt-0.5">{item.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-## Core Components
+            {/* Core Components */}
+            <div className="bg-gray-800/50 border border-orange-500/20 rounded-xl p-5">
+              <h2 className="text-base font-semibold text-orange-300 mb-3">Core Components</h2>
+              <div className="space-y-2">
+                {[
+                  { name: 'AI Companion Engine', desc: 'Multi-personality NLP system with emotional intelligence and zero data retention', color: 'text-orange-300' },
+                  { name: 'Companion Management', desc: 'Dating Coach, AI Companion Core, Love Oracle (coming soon), session access control', color: 'text-purple-300' },
+                  { name: 'UI Layer', desc: 'Responsive OS-inspired desktop interface — folders, files, apps, real-time chat', color: 'text-blue-300' },
+                  { name: 'Privacy & Security', desc: 'End-to-end encryption, no registration, stateless AI processing, zero-knowledge constraints', color: 'text-emerald-300' },
+                ].map(c => (
+                  <div key={c.name} className="bg-black/30 border border-gray-700/30 rounded-lg p-3">
+                    <div className={`text-xs font-semibold ${c.color} mb-0.5`}>{c.name}</div>
+                    <div className="text-gray-400 text-xs leading-relaxed">{c.desc}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-### 1. AI Companion Engine
-- **Multi-Personality System**: Supports multiple AI companions with unique personalities
-- **Natural Language Processing**: Advanced conversation capabilities
-- **Emotional Intelligence**: Context-aware responses and emotional support
-- **Learning Algorithms**: Adaptive responses based on user interaction patterns
-- **Privacy Protection**: Secure conversation handling and data protection
+            {/* Tech Stack */}
+            <div className="bg-gray-800/50 border border-purple-500/20 rounded-xl p-5">
+              <h2 className="text-base font-semibold text-purple-300 mb-3">Technical Stack</h2>
+              <div className="grid grid-cols-2 gap-2">
+                {[
+                  { label: 'Framework', value: 'React 18' },
+                  { label: 'Language', value: 'TypeScript' },
+                  { label: 'Styling', value: 'Tailwind CSS' },
+                  { label: 'Build Tool', value: 'Vite' },
+                  { label: 'Icons', value: 'Lucide React' },
+                  { label: 'Docs', value: 'React Markdown' },
+                ].map(item => (
+                  <div key={item.label} className="bg-black/30 border border-purple-500/10 rounded-lg p-2.5">
+                    <div className="text-[10px] text-gray-500 uppercase tracking-wider">{item.label}</div>
+                    <div className="text-xs text-purple-300 font-medium mt-0.5">{item.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-### 2. Companion Management System
-- **AI Assistant Core**: Warm, supportive companion inspired by "Her"
-- **AI Assistant Engine**: Dating coach with "confidence" expertise and confidence building
-- **AI Intelligence Framework**: Mystical love oracle with intuitive insights (coming soon)
-- **Personality Switching**: Seamless transition between companions
-- **Session Management**: Daily access control and usage tracking
+            {/* Component Tree */}
+            <div className="bg-gray-800/50 border border-gray-600/20 rounded-xl p-5">
+              <h2 className="text-base font-semibold text-white mb-3">Component Structure</h2>
+              <div className="bg-black/40 border border-gray-700/20 rounded-lg p-4 font-mono text-xs text-gray-400 leading-relaxed">
+                <div className="text-white">OS1/</div>
+                {[
+                  ['AI Companions/', 'cyan'],
+                  ['  ├── Companion Core', 'gray'],
+                  ['  ├── Dating Coach', 'gray'],
+                  ['  └── Love Oracle (soon)', 'gray'],
+                  ['Web Interface/', 'blue'],
+                  ['  ├── Internet Connectivity.md', 'gray'],
+                  ['  ├── OS1 Support', 'gray'],
+                  ['  ├── Email Support', 'gray'],
+                  ['  ├── Telegram', 'gray'],
+                  ['  └── X (Twitter)', 'gray'],
+                  ['Security Layer/', 'emerald'],
+                  ['  ├── Encryption', 'gray'],
+                  ['  ├── Privacy', 'gray'],
+                  ['  └── Access Control', 'gray'],
+                  ['Docs/', 'purple'],
+                  ['  ├── Getting Started', 'gray'],
+                  ['  ├── Architecture', 'gray'],
+                  ['  └── Contributing', 'gray'],
+                ].map(([line, color]) => (
+                  <div key={line as string} className={color === 'gray' ? 'text-gray-500' : color === 'cyan' ? 'text-cyan-400' : color === 'blue' ? 'text-blue-400' : color === 'emerald' ? 'text-emerald-400' : 'text-purple-400'}>
+                    {line as string}
+                  </div>
+                ))}
+              </div>
+            </div>
 
-### 3. User Interface Layer
-- **Responsive Design**: Works across all devices and screen sizes
-- **Intuitive Navigation**: Easy access to all companions and features
-- **Real-time Chat Interface**: Smooth, engaging conversation experience
-- **Visual Feedback**: Beautiful animations and visual cues
-- **Accessibility Features**: Designed for all users
+            {/* Community Channels */}
+            <div className="bg-gray-800/50 border border-gray-600/20 rounded-xl p-5">
+              <h2 className="text-base font-semibold text-white mb-3">Community Channels</h2>
+              <div className="space-y-2">
+                {[
+                  { icon: <Globe className="w-4 h-4" />, label: 'Platform', value: '0xos1.fun', href: 'https://0xos1.fun', color: 'bg-cyan-500/10 border-cyan-500/20 text-cyan-300' },
+                  { icon: <Send className="w-4 h-4" />, label: 'Telegram', value: 't.me/TheOS1Protocol', href: 'https://t.me/TheOS1Protocol', color: 'bg-blue-500/10 border-blue-500/20 text-blue-300' },
+                  { icon: <XLogo size={14} className="text-white" />, label: 'X (Twitter)', value: 'x.com/0xos1_tech', href: 'https://x.com/0xos1_tech', color: 'bg-gray-700/20 border-gray-600/20 text-gray-200' },
+                  { icon: <Mail className="w-4 h-4" />, label: 'Email', value: 'contact@0xos1.fun', href: 'mailto:contact@0xos1.fun', color: 'bg-red-500/10 border-red-500/20 text-red-300' },
+                ].map(ch => (
+                  <a key={ch.label} href={ch.href} target="_blank" rel="noopener noreferrer"
+                    className={`flex items-center justify-between p-3 rounded-lg border ${ch.color} transition-all hover:scale-[1.01] hover:brightness-110`}>
+                    <div className="flex items-center gap-2">
+                      {ch.icon}
+                      <span className="text-xs font-medium">{ch.label}</span>
+                    </div>
+                    <span className="text-xs opacity-70 font-mono">{ch.value}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
 
-### 4. Privacy & Security Framework
-- **Conversation Encryption**: All chats are securely encrypted
-- **Data Protection**: User privacy is the highest priority
-- **Anonymous Access**: No personal data collection required
-- **Secure Infrastructure**: Built with security best practices
-- **Emotional Safety**: Designed to protect user well-being
-
-## Technical Stack
-
-### Frontend Technologies
-- **React 18**: Modern UI framework for component-based architecture
-- **TypeScript**: Type-safe development for better code quality
-- **Tailwind CSS**: Utility-first CSS framework for responsive design
-- **Vite**: Fast build tool for development and production
-- **Lucide Icons**: Beautiful, consistent iconography
-
-### AI Integration
-- **Natural Language Processing**: Advanced conversation understanding
-- **Context Management**: Memory and conversation history handling
-- **Emotional Intelligence**: Sentiment analysis and appropriate responses
-- **Learning Capabilities**: Adaptive behavior based on user interactions
-
-### Infrastructure
-- **Web-Based Platform**: Accessible on all modern browsers
-- **Responsive Design**: Optimized for desktop, tablet, and mobile
-- **Real-Time Communication**: Instant messaging with AI companions
-- **Secure Hosting**: Privacy-focused infrastructure
-
-## System Architecture
-
-### Component Structure
-\`\`\`
-OS1/
-AI Companions/
-AI Assistant/     # Warm, supportive companion
-AI Assistant/     # Dating coach and confidence expert
-AI Intelligence/  # Mystical love oracle (future)
-User Interface/
-Chat System/      # Real-time conversation interface
-Navigation/       # Companion selection and switching
-Settings/         # User preferences and privacy controls
-Security Layer/
-Encryption/       # Conversation security
-Privacy/          # Data protection
-Access Control/   # Daily limits and permissions
-Infrastructure/
-Web Platform/     # Cross-platform compatibility
-Performance/      # Optimization and speed
-Scalability/      # Future growth capabilities
-\`\`\`
-
-### Data Flow
-1. **User Input**: Messages sent to AI companion system
-2. **Processing**: Natural language understanding and context analysis
-3. **Response Generation**: AI creates appropriate, helpful responses
-4. **Security Check**: All data encrypted and privacy protected
-5. **User Output**: Safe, supportive response delivered to user
-
-## Design Philosophy
-
-### User-Centric Approach
-- **Emotional Safety First**: Every feature designed to protect user well-being
-- **Judgment-Free Environment**: Safe space for honest relationship discussions
-- **Accessibility**: Available to users of all technical levels
-- **Privacy by Design**: Security built into every component
-
-### AI Ethics
-- **Supportive Behavior**: AI companions designed to help, not harm
-- **Professional Standards**: Ethical AI behavior and responses
-- **User Empowerment**: Tools to manage emotional health and boundaries
-- **Transparent Operation**: Clear understanding of AI capabilities and limitations
-
-### Scalability
-- **Modular Architecture**: Easy to add new companions and features
-- **Performance Optimization**: Fast, responsive user experience
-- **Future-Ready**: Designed for advanced AI capabilities
-- **Community-Driven**: Open to user feedback and improvement
-
-## Security & Privacy
-
-### Data Protection
-- **End-to-End Encryption**: All conversations are encrypted
-- **No Data Mining**: User conversations are not used for training
-- **Local Processing**: Sensitive data processed locally when possible
-- **User Control**: Full control over data and privacy settings
-
-### Emotional Safety
-- **Content Moderation**: AI responses filtered for appropriateness
-- **Crisis Support**: Resources for users in emotional distress
-- **Boundary Setting**: Tools to manage AI interaction limits
-- **Professional Standards**: Ethical AI companion behavior
-
-## Future Architecture
-
-### Planned Enhancements
-- **Voice Integration**: Speech-to-text and text-to-speech capabilities
-- **Video Calls**: Face-to-face conversations with AI companions
-- **Advanced Analytics**: Progress tracking and skill development metrics
-- **Custom Companions**: User-created AI personalities
-- **Mobile App**: Dedicated mobile application
-- **Community Features**: Connect with other users safely
-
-### Technical Roadmap
-- **Advanced AI Models**: More sophisticated conversation capabilities
-- **Multi-Modal Support**: Text, voice, and visual interactions
-- **Real-Time Collaboration**: Multiple companions simultaneously
-- **Offline Capabilities**: Basic functionality without internet
-- **API Integration**: Third-party relationship tools and resources`
+            {/* Future */}
+            <div className="bg-gradient-to-br from-orange-500/5 to-purple-500/5 border border-orange-500/20 rounded-xl p-5">
+              <h2 className="text-base font-semibold text-orange-300 mb-3">Future Architecture</h2>
+              <div className="grid grid-cols-2 gap-2">
+                {['Mobile App (iOS & Android)', 'Voice Integration', 'Offline Mode', 'Video Calls', 'Premium Tier', 'Custom Companions'].map(f => (
+                  <div key={f} className="flex items-center gap-2 text-xs text-gray-400">
+                    <div className="w-1.5 h-1.5 rounded-full bg-orange-500/60 flex-shrink-0" />
+                    {f}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )
       },
       {
         id: 'contributing',
         name: 'Contributing.md',
         icon: <FileText className="w-6 h-6 text-purple-400" />,
         description: 'Contribution guidelines',
-        type: 'file',
-        content: `# Contributing to OS1
+        type: 'component',
+        component: (
+          <div className="space-y-6 text-sm">
+            {/* Header */}
+            <div className="bg-gradient-to-br from-emerald-500/10 to-blue-500/10 border border-emerald-500/20 rounded-2xl p-6">
+              <h1 className="text-2xl font-bold text-white mb-1">Contributing to OS1</h1>
+              <p className="text-gray-400 text-sm">Help build a platform for better relationships — all skill levels welcome</p>
+            </div>
 
-## Join Our Community
+            {/* Community channels — beautiful cards */}
+            <div className="bg-gray-800/50 border border-gray-600/20 rounded-xl p-5">
+              <h2 className="text-base font-semibold text-white mb-1">Join the Community First</h2>
+              <p className="text-gray-400 text-xs mb-3">OS1 is live at <span className="text-orange-400 font-mono">0xos1.fun</span> — start by connecting with us:</p>
+              <div className="space-y-2">
+                {[
+                  { icon: <Send className="w-4 h-4" />, label: 'Telegram', sub: 'Real-time discussions & support', value: 't.me/TheOS1Protocol', href: 'https://t.me/TheOS1Protocol', color: 'bg-blue-500/10 border-blue-500/20 text-blue-300' },
+                  { icon: <XLogo size={14} className="text-white" />, label: 'X (Twitter)', sub: 'Platform updates & announcements', value: '@0xos1_tech', href: 'https://x.com/0xos1_tech', color: 'bg-gray-700/20 border-gray-600/20 text-gray-200' },
+                  { icon: <Mail className="w-4 h-4" />, label: 'Email', sub: 'Partnerships & serious contributions', value: 'contact@0xos1.fun', href: 'mailto:contact@0xos1.fun', color: 'bg-red-500/10 border-red-500/20 text-red-300' },
+                ].map(ch => (
+                  <a key={ch.label} href={ch.href} target="_blank" rel="noopener noreferrer"
+                    className={`flex items-center justify-between p-3 rounded-lg border ${ch.color} transition-all hover:scale-[1.01] hover:brightness-110`}>
+                    <div className="flex items-center gap-2.5">
+                      {ch.icon}
+                      <div>
+                        <div className="text-xs font-semibold">{ch.label}</div>
+                        <div className="text-[10px] opacity-60">{ch.sub}</div>
+                      </div>
+                    </div>
+                    <span className="text-xs opacity-60 font-mono">{ch.value}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
 
-We welcome contributions from developers, designers, and relationship experts of all skill levels! OS1 is an open-source project that thrives on community involvement to help people build better relationships.
+            {/* How to contribute */}
+            <div className="bg-gray-800/50 border border-orange-500/20 rounded-xl p-5">
+              <h2 className="text-base font-semibold text-orange-300 mb-3">How to Contribute</h2>
+              <div className="space-y-3">
+                {[
+                  { title: 'Fork & PR', desc: 'Fork the repository, create your feature branch, and submit a pull request.' },
+                  { title: 'Code Guidelines', desc: 'TypeScript best practices, meaningful names, comments, unit tests, privacy-first.' },
+                  { title: 'Design Principles', desc: 'Emotional safety, beautiful UX, accessibility, performance, no unnecessary data collection.' },
+                  { title: 'AI Ethics', desc: 'Companions must be supportive and helpful. Protect user well-being and be transparent about AI capabilities.' },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-orange-500/20 border border-orange-500/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-[10px] font-bold text-orange-400">{i + 1}</span>
+                    </div>
+                    <div>
+                      <div className="text-xs font-semibold text-orange-200">{item.title}</div>
+                      <div className="text-xs text-gray-400 leading-relaxed">{item.desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-### Our Mission
+            {/* Areas */}
+            <div className="bg-gray-800/50 border border-purple-500/20 rounded-xl p-5">
+              <h2 className="text-base font-semibold text-purple-300 mb-3">Areas of Contribution</h2>
+              <div className="space-y-3">
+                {[
+                  {
+                    title: 'Technical', color: 'text-cyan-300',
+                    items: ['Frontend (React, TypeScript, Tailwind)', 'AI Integration & NLP', 'Security & Privacy', 'Internet Connectivity & Browser Compatibility', 'Performance & Testing']
+                  },
+                  {
+                    title: 'Content & Design', color: 'text-orange-300',
+                    items: ['AI Companion Personalities', 'UX Design & Accessibility', 'Documentation & Guides', 'Relationship Expertise', 'Community Support']
+                  },
+                  {
+                    title: 'Research', color: 'text-purple-300',
+                    items: ['AI Ethics', 'Relationship Psychology', 'Privacy Best Practices', 'Mobile Experience']
+                  },
+                ].map(section => (
+                  <div key={section.title} className="bg-black/30 border border-gray-700/20 rounded-lg p-3">
+                    <div className={`text-xs font-semibold ${section.color} mb-2`}>{section.title}</div>
+                    <div className="grid grid-cols-1 gap-1">
+                      {section.items.map(item => (
+                        <div key={item} className="flex items-center gap-2 text-xs text-gray-400">
+                          <div className="w-1 h-1 rounded-full bg-gray-500 flex-shrink-0" />
+                          {item}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-OS1 is dedicated to providing a safe, supportive environment where people can improve their romantic relationships through AI companionship. We believe that everyone deserves access to relationship support and guidance.
+            {/* Community Guidelines */}
+            <div className="bg-gray-800/50 border border-emerald-500/20 rounded-xl p-5">
+              <h2 className="text-base font-semibold text-emerald-300 mb-3">Community Guidelines</h2>
+              <div className="grid grid-cols-2 gap-2">
+                {['Be Respectful', 'Support Growth', 'Share Knowledge', 'Prioritize Safety', 'Maintain Privacy', 'Have Fun'].map(g => (
+                  <div key={g} className="flex items-center gap-2 text-xs text-gray-300 bg-black/20 border border-emerald-500/10 rounded-lg p-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-400/60 flex-shrink-0" />
+                    {g}
+                  </div>
+                ))}
+              </div>
+            </div>
 
-### How to Contribute
+            {/* Getting Started steps */}
+            <div className="bg-gradient-to-br from-orange-500/5 to-purple-500/5 border border-orange-500/20 rounded-xl p-5">
+              <h2 className="text-base font-semibold text-orange-300 mb-3">Getting Started</h2>
+              <div className="space-y-2">
+                {[
+                  'Join the community on Telegram',
+                  'Read the docs — understand the mission',
+                  'Pick an area that fits your skills',
+                  'Start small — simple fixes welcome',
+                  'Ask questions — we\'re here to help',
+                ].map((step, i) => (
+                  <div key={i} className="flex items-center gap-3 text-xs text-gray-300">
+                    <div className="w-5 h-5 rounded-full bg-orange-500/20 border border-orange-500/30 flex items-center justify-center flex-shrink-0">
+                      <span className="text-[10px] font-bold text-orange-400">{i + 1}</span>
+                    </div>
+                    {step}
+                  </div>
+                ))}
+              </div>
+            </div>
 
-1. **Fork the Repository**
-   - Create your feature branch
-   - Make your changes
-   - Submit a pull request
-
-2. **Code Guidelines**
-   - Follow TypeScript best practices
-   - Use meaningful variable names
-   - Add comments where necessary
-   - Write unit tests
-   - Prioritize privacy and security
-
-3. **Design Principles**
-   - Focus on emotional safety and user well-being
-   - Maintain beautiful, intuitive user experience
-   - Ensure accessibility for all users
-   - Keep performance optimized
-   - Respect user privacy
-
-4. **AI Ethics Guidelines**
-   - Ensure AI companions are supportive and helpful
-   - Maintain professional standards in AI responses
-   - Protect user emotional well-being
-   - Provide clear AI capabilities and limitations
-   - Design for user empowerment and growth
-
-
-### Areas of Contribution
-
-#### Technical Development
-- **Frontend Development**: React, TypeScript, Tailwind CSS
-- **AI Integration**: Natural language processing, conversation systems
-- **Security & Privacy**: Encryption, data protection, user safety
-- **Performance**: Optimization, scalability, user experience
-- **Testing**: Unit tests, integration tests, user testing
-
-#### Content & Design
-- **AI Companion Personalities**: Help develop AI Assistant, AI Assistant, and AI Intelligence
-- **User Experience**: Interface design, user flows, accessibility
-- **Documentation**: Guides, tutorials, help content
-- **Relationship Expertise**: Dating advice, communication strategies
-- **Community Support**: User support, feedback, community building
-
-#### Research & Innovation
-- **AI Ethics**: Ensuring responsible AI development
-- **Relationship Psychology**: Understanding human connection needs
-- **Privacy Research**: Best practices for user data protection
-- **Accessibility**: Making OS1 available to everyone
-- **User Research**: Understanding user needs and experiences
-
-### Community Guidelines
-
-- **Be Respectful**: Treat everyone with kindness and respect
-- **Support Growth**: Help others learn and improve
-- **Share Knowledge**: Contribute your expertise and experience
-- **Prioritize Safety**: Always consider user emotional well-being
-- **Maintain Privacy**: Respect and protect user confidentiality
-- **Have Fun**: Enjoy building something meaningful together
-
-### Code of Conduct
-
-We are committed to providing a welcoming and inclusive environment for all contributors. We expect all participants to:
-
-- Be respectful and considerate of others
-- Focus on what is best for the community
-- Show empathy towards other community members
-- Respect different opinions and viewpoints
-- Take responsibility for their words and actions
-
-### Recognition
-
-Contributors will be featured in:
-- README credits and acknowledgments
-- Website contributor hall of fame
-- Special community roles and recognition
-- Featured in our relationship improvement mission
-- Recognition for helping people build better relationships
-
-### Getting Started
-
-1. **Choose Your Area**: Pick an area that interests you
-2. **Read the Documentation**: Understand our mission and goals
-3. **Join Discussions**: Participate in community conversations
-4. **Start Small**: Begin with simple contributions
-5. **Ask Questions**: Don't hesitate to ask for help or clarification
-
-### Impact
-
-By contributing to OS1, you're helping to:
-- Provide relationship support to people worldwide
-- Create safe spaces for emotional growth
-- Advance AI ethics and responsible development
-- Build technology that genuinely helps people
-- Make relationship guidance accessible to everyone
-
-Thank you for being part of our mission to help people build better relationships!¨`
+            <div className="text-center text-xs text-gray-500 pb-2">Thank you for helping build OS1 — where better relationships begin ❤️</div>
+          </div>
+        )
       },
       {
         id: 'ltd-registry',
@@ -748,270 +799,103 @@ Thank you for being part of our mission to help people build better relationship
     ],
     web: [
       {
-        id: 'neural-browser',
-        name: 'Neural Browser',
+        id: 'internet-connectivity',
+        name: 'Internet Connectivity.md',
         icon: <Globe className="w-6 h-6 text-blue-400" />,
-        description: 'AI-Enhanced Web Browser',
-        type: 'component',
-        component: (() => {
-          const { searchResults, searchMetrics } = useWebInterface();
+        description: 'OS1 online platform & connectivity guide',
+        type: 'file',
+        content: `# Internet Connectivity
 
-          return (
-            <div className="space-y-6">
-              {/* Search Interface */}
-              <div className="bg-gray-800/50 rounded-xl p-6 border border-blue-500/30">
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="flex-1 relative">
-                    <input
-                      type="text"
-                      placeholder="Search the quantum web..."
-                      className="w-full bg-gray-900/50 border border-blue-500/30 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400"
-                    />
-                    <Search className="absolute right-3 top-2.5 w-5 h-5 text-blue-400" />
-                  </div>
-                  <button className="bg-blue-500/20 text-blue-400 px-4 py-2 rounded-lg hover:bg-blue-500/30 transition-colors">
-                    Neural Search
-                  </button>
-                </div>
+## OS1 Online Platform
 
-                {/* Search Metrics */}
-                <div className="grid grid-cols-4 gap-4 mb-6">
-                  {[
-                    { label: 'Results', value: searchMetrics.totalResults },
-                    { label: 'Search Time', value: `${searchMetrics.searchTime.toFixed(3)}s` },
-                    { label: 'AI Enhanced', value: searchMetrics.aiEnhancedCount },
-                    { label: 'Relevance', value: `${(searchMetrics.relevanceScore * 100).toFixed(1)}%` }
-                  ].map((metric) => (
-                    <div key={metric.label} className="bg-gray-900/50 rounded-lg p-3 border border-blue-500/20">
-                      <div className="text-sm text-gray-400 mb-1">{metric.label}</div>
-                      <div className="text-lg font-semibold text-blue-400">{metric.value}</div>
-                    </div>
-                  ))}
-                </div>
+OS1 is a fully web-based AI companion platform — no installation required. Simply open your browser and connect to OS1 from any device, anywhere in the world.
 
-                {/* Search Results */}
-                <div className="space-y-4">
-                  {searchResults.map((result) => (
-                    <div key={result.id} className="bg-gray-900/50 rounded-lg p-4 border border-blue-500/20 hover:border-blue-400 transition-colors">
-                      <div className="flex items-center justify-between mb-2">
-                        <a href={result.url} className="text-lg text-blue-400 hover:text-blue-300 transition-colors">
-                          {result.title}
-                        </a>
-                        {result.aiEnhanced && (
-                          <div className="flex items-center space-x-1 text-xs text-purple-400">
-                            <Brain className="w-4 h-4" />
-                            <span>AI Enhanced</span>
-                          </div>
-                        )}
-                      </div>
-                      <div className="text-gray-400 text-sm mb-2">{result.description}</div>
-                      <div className="flex items-center justify-between text-xs text-gray-500">
-                        <div>{new Date(result.timestamp).toLocaleString()}</div>
-                        <div>Relevance: {(result.relevance * 100).toFixed(1)}%</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          );
-        })()
-      },
-      {
-        id: 'quantum-network',
-        name: 'Quantum Network',
-        icon: <Network className="w-6 h-6 text-cyan-400" />,
-        description: 'Network Status Monitor',
-        type: 'component',
-        component: (() => {
-          const { networkMetrics, quantumNodes, formatBandwidth, formatLatency, formatNumber } = useWebInterface();
+## Accessing OS1
 
-          return (
-            <div className="space-y-6">
-              {/* Network Metrics */}
-              <div className="grid grid-cols-3 gap-4">
-                {[
-                  { label: 'Bandwidth', value: formatBandwidth(networkMetrics.bandwidth), icon: <Activity className="w-5 h-5" /> },
-                  { label: 'Latency', value: formatLatency(networkMetrics.latency), icon: <Zap className="w-5 h-5" /> },
-                  { label: 'Packet Loss', value: `${networkMetrics.packetLoss.toFixed(2)}%`, icon: <Share2 className="w-5 h-5" /> },
-                  { label: 'Connections', value: formatNumber(networkMetrics.connections), icon: <Link className="w-5 h-5" /> },
-                  { label: 'Throughput', value: formatBandwidth(networkMetrics.throughput), icon: <Database className="w-5 h-5" /> },
-                  { label: 'Capacity', value: formatBandwidth(networkMetrics.maxBandwidth), icon: <Cpu className="w-5 h-5" /> }
-                ].map((metric) => (
-                  <div key={metric.label} className="bg-gray-800/50 rounded-xl p-4 border border-cyan-500/30">
-                    <div className="flex items-center space-x-2 text-cyan-400 mb-2">
-                      {metric.icon}
-                      <span>{metric.label}</span>
-                    </div>
-                    <div className="text-2xl font-bold text-white">{metric.value}</div>
-                  </div>
-                ))}
-              </div>
+### Web Access
+- **Platform URL**: [0xos1.fun](https://0xos1.fun)
+- **Browser Support**: All modern browsers (Chrome, Firefox, Safari, Edge)
+- **Device Support**: Desktop, tablet, and mobile
+- **No App Required**: Runs entirely in your browser
 
-              {/* Quantum Node Network */}
-              <div className="bg-gray-800/50 rounded-xl p-6 border border-cyan-500/30">
-                <h3 className="text-lg font-semibold text-white mb-6 flex items-center">
-                  <Network className="w-5 h-5 text-cyan-400 mr-2" />
-                  Quantum Node Network
-                </h3>
-                <div className="relative h-96 bg-gray-900/50 rounded-lg overflow-hidden border border-cyan-500/20">
-                  {/* Node Connections */}
-                  <svg className="absolute inset-0 w-full h-full">
-                    {quantumNodes.map(node =>
-                      node.connections.map(targetId => {
-                        const target = quantumNodes.find(n => n.id === targetId);
-                        if (!target) return null;
-                        return (
-                          <line
-                            key={`${node.id}-${targetId}`}
-                            x1={`${node.coordinates.x}%`}
-                            y1={`${node.coordinates.y}%`}
-                            x2={`${target.coordinates.x}%`}
-                            y2={`${target.coordinates.y}%`}
-                            stroke="rgba(34, 211, 238, 0.3)"
-                            strokeWidth="1"
-                          />
-                        );
-                      })
-                    )}
-                  </svg>
+### Connection Requirements
+- Stable internet connection
+- JavaScript enabled
+- Modern browser (2020 or newer recommended)
 
-                  {/* Nodes */}
-                  {quantumNodes.map((node) => (
-                    <div
-                      key={node.id}
-                      className="absolute transform -translate-x-1/2 -translate-y-1/2"
-                      style={{ left: `${node.coordinates.x}%`, top: `${node.coordinates.y}%` }}
-                    >
-                      <div className={`
-                        w-12 h-12 rounded-full flex items-center justify-center
-                        ${node.status === 'active' ? 'bg-cyan-500/20 border-cyan-400' :
-                          node.status === 'idle' ? 'bg-yellow-500/20 border-yellow-400' :
-                            'bg-orange-500/20 border-orange-400'} 
-                        border-2 relative group cursor-pointer
-                      `}>
-                        <div className={`
-                          absolute inset-0 rounded-full
-                          ${node.status === 'active' ? 'bg-cyan-400' :
-                            node.status === 'idle' ? 'bg-yellow-400' :
-                              'bg-orange-400'}
-                          animate-ping opacity-20
-                        `} />
-                        <Network className={`
-                          w-6 h-6
-                          ${node.status === 'active' ? 'text-cyan-400' :
-                            node.status === 'idle' ? 'text-yellow-400' :
-                              'text-orange-400'}
-                        `} />
+## Daily Free Access
 
-                        {/* Tooltip */}
-                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                          <div className="bg-gray-900 rounded-lg p-2 text-xs whitespace-nowrap border border-cyan-500/30">
-                            <div className="font-semibold text-white mb-1">{node.name}</div>
-                            <div className="text-cyan-400">Load: {node.load.toFixed(1)}%</div>
-                            <div className="text-purple-400">Entanglement: {node.entanglement.toFixed(1)}%</div>
-                            <div className="text-blue-400">Qubits: {node.qubits}</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          );
-        })()
-      },
-      {
-        id: 'ai-gateway',
-        name: 'AI Gateway',
-        icon: <Brain className="w-6 h-6 text-purple-400" />,
-        description: 'Neural Processing Interface',
-        type: 'component',
-        component: (() => {
-          const { gatewayMetrics, formatNumber } = useWebInterface();
+OS1 provides **5 minutes of free access daily** to all AI companions.
 
-          return (
-            <div className="space-y-6">
-              {/* Processing Metrics */}
-              <div className="grid grid-cols-3 gap-4">
-                {[
-                  { label: 'Processing Power', value: `${gatewayMetrics.processingPower.toFixed(1)}%`, icon: <Cpu className="w-5 h-5" /> },
-                  { label: 'Active Inferences', value: formatNumber(gatewayMetrics.activeInferences), icon: <Brain className="w-5 h-5" /> },
-                  { label: 'Queued Requests', value: formatNumber(gatewayMetrics.queuedRequests), icon: <Database className="w-5 h-5" /> },
-                  { label: 'Response Time', value: `${gatewayMetrics.responseTime.toFixed(2)}ms`, icon: <Activity className="w-5 h-5" /> },
-                  { label: 'Accuracy', value: `${gatewayMetrics.accuracy.toFixed(1)}%`, icon: <Sparkles className="w-5 h-5" /> },
-                  { label: 'Neural Load', value: `${(gatewayMetrics.neuralActivity.reduce((a, b) => a + b, 0) / gatewayMetrics.neuralActivity.length * 100).toFixed(1)}%`, icon: <Zap className="w-5 h-5" /> }
-                ].map((metric) => (
-                  <div key={metric.label} className="bg-gray-800/50 rounded-xl p-4 border border-purple-500/30">
-                    <div className="flex items-center space-x-2 text-purple-400 mb-2">
-                      {metric.icon}
-                      <span>{metric.label}</span>
-                    </div>
-                    <div className="text-2xl font-bold text-white">{metric.value}</div>
-                  </div>
-                ))}
-              </div>
+- Access resets every 24 hours at 00:00 UTC
+- Switch between companions freely within your session
+- No registration required to start
+- Full features available during free time
 
-              {/* Neural Activity Visualization */}
-              <div className="bg-gray-800/50 rounded-xl p-6 border border-purple-500/30">
-                <h3 className="text-lg font-semibold text-white mb-6 flex items-center">
-                  <Activity className="w-5 h-5 text-purple-400 mr-2" />
-                  Neural Activity Monitor
-                </h3>
-                <div className="h-48 bg-gray-900/50 rounded-lg overflow-hidden border border-purple-500/20">
-                  <div className="relative h-full">
-                    {/* Activity Graph */}
-                    <svg className="w-full h-full">
-                      <path
-                        d={`M 0 ${100 - gatewayMetrics.neuralActivity[0] * 100} ` +
-                          gatewayMetrics.neuralActivity.map((value, i) =>
-                            `L ${(i / (gatewayMetrics.neuralActivity.length - 1)) * 100}% ${100 - value * 100}%`
-                          ).join(' ')}
-                        fill="none"
-                        stroke="rgb(167, 139, 250)"
-                        strokeWidth="2"
-                      />
-                    </svg>
+## Community & Support Channels
 
-                    {/* Gradient Overlay */}
-                    <div
-                      className="absolute inset-0 bg-gradient-to-t from-purple-500/20 to-transparent"
-                      style={{ mixBlendMode: 'overlay' }}
-                    />
-                  </div>
-                </div>
-              </div>
+### Telegram
+Stay connected with the OS1 community on Telegram for real-time support, updates, and discussions.
 
-              {/* Processing Queue */}
-              <div className="bg-gray-800/50 rounded-xl p-6 border border-purple-500/30">
-                <h3 className="text-lg font-semibold text-white mb-6 flex items-center">
-                  <Database className="w-5 h-5 text-purple-400 mr-2" />
-                  Processing Queue
-                </h3>
-                <div className="space-y-3">
-                  {Array.from({ length: 5 }).map((_, i) => {
-                    const progress = Math.random() * 100;
-                    return (
-                      <div key={i} className="bg-gray-900/50 rounded-lg p-3 border border-purple-500/20">
-                        <div className="flex justify-between text-sm mb-2">
-                          <span className="text-white">Task #{Math.floor(Math.random() * 1000)}</span>
-                          <span className="text-purple-400">{progress.toFixed(1)}%</span>
-                        </div>
-                        <div className="h-1 bg-gray-700 rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-gradient-to-r from-purple-500 to-orange-500 rounded-full transition-all duration-500"
-                            style={{ width: `${progress}%` }}
-                          />
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-          );
-        })()
+- **Channel**: [t.me/TheOS1Protocol](https://t.me/TheOS1Protocol)
+- Real-time community support
+- Platform announcements
+- Feature discussions
+
+### X (Twitter)
+Follow OS1 on X for the latest news, updates, and release announcements.
+
+- **Handle**: [@0xos1_tech](https://x.com/0xos1_tech)
+- Product updates and releases
+- Community highlights
+
+### Email Support
+For direct support or business inquiries, reach the OS1 team by email.
+
+- **Email**: contact@0xos1.fun
+- Response within 48 hours
+- Technical support, partnerships, and feedback
+
+## Privacy & Security
+
+OS1 is built with privacy as a core principle:
+
+- **No Registration Required**: Start immediately without sharing personal data
+- **Encrypted Conversations**: All chats are secured end-to-end
+- **No Data Selling**: Your conversations are never sold or shared with third parties
+- **Local Processing**: Sensitive emotional data handled with zero-knowledge constraints
+- **Session Isolation**: Each session is stateless and isolated
+
+## Troubleshooting Connectivity
+
+### Common Issues
+
+**Page won't load**
+- Check your internet connection
+- Try a hard refresh (Ctrl+Shift+R / Cmd+Shift+R)
+- Clear browser cache and cookies
+- Try a different browser
+
+**Session disconnects**
+- Reconnect by refreshing the page
+- Your daily 5-minute timer continues where it left off
+- Check for browser extensions blocking scripts
+
+**Slow response from AI companions**
+- OS1 processes AI responses in real-time — latency depends on your connection
+- Try during off-peak hours for faster responses
+- Ensure no VPN or proxy is throttling your connection
+
+## Upcoming Features
+
+- **Mobile App**: Dedicated iOS and Android app for native connectivity
+- **Offline Mode**: Basic companion access without active internet
+- **Premium Unlimited Access**: Remove daily time restrictions
+- **Push Notifications**: Get updates and messages from companions
+
+---
+
+*For live support, join us on [Telegram](https://t.me/TheOS1Protocol) or email contact@0xos1.fun*`
       },
       {
         id: 'OS1-support',
