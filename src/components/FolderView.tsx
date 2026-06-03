@@ -842,7 +842,7 @@ Stay connected with the OS1 community on Telegram for real-time support, updates
 - Platform announcements
 - Feature discussions
 
-### X (Twitter)
+### X
 Follow OS1 on X for the latest news, updates, and release announcements.
 
 - **Handle**: [@0xos1_tech](https://x.com/0xos1_tech)
