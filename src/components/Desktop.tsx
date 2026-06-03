@@ -5,7 +5,7 @@ import loadingGif from "../assets/bcf67b6246b68b1f43a98b219fabe105.gif";
 import {
   Settings,
   Network,
-  Activity,
+  // Activity,
   Wifi,
   Battery,
   Volume2,
@@ -35,6 +35,7 @@ import Taskbar from "./Taskbar";
 // import Terminal from "./Terminal";
 import FolderView from "./FolderView";
 import XLogo from "./XLogo";
+import OS1Logo from "./OmniaLogo";
 
 interface FolderItem {
   id: string;
@@ -477,13 +478,13 @@ const Desktop: React.FC = () => {
       color: "from-orange-700 to-orange-900",
       description: "System documentation and guides",
     },
-    {
-      id: "neural",
-      name: "Neural Network",
-      icon: <Activity className="w-6 h-6" />,
-      color: "from-orange-800 to-orange-950",
-      description: "AI processing modules",
-    },
+    // {
+    //   id: "neural",
+    //   name: "Neural Network",
+    //   icon: <Activity className="w-6 h-6" />,
+    //   color: "from-orange-800 to-orange-950",
+    //   description: "AI processing modules",
+    // },
     {
       id: "web",
       name: "Web Interface",
@@ -527,84 +528,29 @@ const Desktop: React.FC = () => {
       {/* Notification Bar */}
       <div
         className={`
-        fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-xl border-b border-orange-700/20
+        fixed top-0 left-0 right-0 z-50
+        border-b border-orange-800/30 theme-brightness
         ${isMobile ? "h-14" : "h-auto"}
       `}
+        style={{ background: "linear-gradient(to right, #7c2d12, #000000)" }}
       >
         <div
           className={`
-          flex items-center justify-between px-6 py-2
-          ${isMobile ? "px-4 py-2" : "px-6 py-3"}
+          flex items-center justify-between
+          ${isMobile ? "px-4 " : "px-6 "}
         `}
         >
-          <div className="relative flex-1" style={{ transform: 'translateX(-10px)' }}>
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <svg width="250" height="250" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-
-                  <linearGradient id="g1" x1="125" y1="256" x2="205" y2="256" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#ff4500" stop-opacity="1" />
-                    <stop offset="100%" stop-color="#ff2200" stop-opacity="1" />
-                  </linearGradient>
-
-                  <linearGradient id="g2" x1="205" y1="256" x2="285" y2="256" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#ff2200" stop-opacity="1" />
-                    <stop offset="100%" stop-color="#d31010" stop-opacity="0.75" />
-                  </linearGradient>
-
-                  <linearGradient id="g3" x1="285" y1="256" x2="365" y2="256" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#d31010" stop-opacity="0.75" />
-                    <stop offset="100%" stop-color="#ff4500" stop-opacity="0.3" />
-                  </linearGradient>
-
-                  <linearGradient id="g4" x1="365" y1="256" x2="285" y2="256" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#ff4500" stop-opacity="0.3" />
-                    <stop offset="100%" stop-color="#ff1a00" stop-opacity="0.8" />
-                  </linearGradient>
-
-                  <linearGradient id="g5" x1="285" y1="256" x2="205" y2="256" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#ff1a00" stop-opacity="0.8" />
-                    <stop offset="50%" stop-color="#ff6000" stop-opacity="1" />
-                    <stop offset="100%" stop-color="#ff2400" stop-opacity="0.85" />
-                  </linearGradient>
-
-                  <linearGradient id="g6" x1="205" y1="256" x2="125" y2="256" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#ff6000" stop-opacity="0.75" />
-                    <stop offset="100%" stop-color="#ff2200" stop-opacity="0" />
-                  </linearGradient>
-                </defs>
-
-                <path d="M 125 256 C 145 220, 185 220, 205 256"
-                  fill="none" stroke="url(#g1)" stroke-width="4"
-                  stroke-linecap="round" stroke-linejoin="round" />
-
-                <path d="M 205 256 C 225 292, 265 292, 285 256"
-                  fill="none" stroke="url(#g2)" stroke-width="4"
-                  stroke-linecap="round" stroke-linejoin="round" />
-
-                <path d="M 285 256 C 305 220, 345 220, 365 256"
-                  fill="none" stroke="url(#g3)" stroke-width="4"
-                  stroke-linecap="round" stroke-linejoin="round" />
-
-                <path d="M 365 256 C 345 292, 305 292, 285 256"
-                  fill="none" stroke="url(#g4)" stroke-width="4"
-                  stroke-linecap="round" stroke-linejoin="round" />
-
-                <path d="M 285 256 C 265 220, 225 220, 205 256"
-                  fill="none" stroke="url(#g5)" stroke-width="4"
-                  stroke-linecap="round" stroke-linejoin="round" />
-
-                <path d="M 205 256 C 185 292, 145 292, 125 256"
-                  fill="none" stroke="url(#g6)" stroke-width="4"
-                  stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </div>
+          <div className="flex" >
+            <OS1Logo
+              size={62}
+              className=""
+            />
           </div>
 
-          <div className="flex items-center space-x-6 pr-6">
-
+          <div className="flex items-center space-x-6">
+            {/* System Metrics - Simplified on mobile */}
             {!isMobile && (
-              <div className="flex items-center space-x-3">
+              <div className="flex space-x-3">
 
                 <a
                   href="https://x.com/0xos1_tech"
@@ -630,7 +576,7 @@ const Desktop: React.FC = () => {
                     className="text-gray-200 group-hover:text-white"
                   />
                 </a>
-                <a
+                {/* <a
                   href="https://github.com/jesuscopado"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -646,7 +592,7 @@ const Desktop: React.FC = () => {
                   >
                     <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 013.003-.404c1.018.005 2.045.138 3.003.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.804 5.624-5.475 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
                   </svg>
-                </a>
+                </a> */}
                 <a
                   href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@0xos1.fun"
                   target="_blank"
@@ -661,11 +607,8 @@ const Desktop: React.FC = () => {
                 </a>
               </div>
             )}
-          </div>
-
-          <div className="flex items-center space-x-6">
-            {/* System Metrics - Simplified on mobile */}
             {isMobile ? (
+
               <div className="flex items-center space-x-2">
                 <div className="flex items-center space-x-1 text-orange-300/80">
                   <Cpu size={12} />
@@ -775,7 +718,7 @@ const Desktop: React.FC = () => {
           className="absolute inset-0 opacity-30 transition-opacity duration-300"
           style={{
             background: `radial-gradient(circle 800px at ${mousePosition.x}px ${mousePosition.y}px, 
-              rgba(236,72,153,0.15), 
+              rgba(241, 101, 8, 0.15), 
               rgba(190,24,93,0.12), 
               transparent)`,
           }}

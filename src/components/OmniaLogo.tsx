@@ -8,7 +8,7 @@ interface OS1LogoProps {
 const OS1Logo: React.FC<OS1LogoProps> = ({ size = 32, className = '' }) => {
   return (
     <div
-      className={`flex items-center justify-center ${className}`}
+      className={`flex ${className}`}
       style={{ width: size, height: size }}
     >
       <img
