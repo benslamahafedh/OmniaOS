@@ -502,7 +502,7 @@ const Desktop: React.FC = () => {
 
     {
       id: 'ltd',
-      name: 'Corporate informations',
+      name: 'Corporate information',
       icon: <Building2 className="w-6 h-6" />,
       color: 'from-orange-600 to-rose-950',
       description: 'Official corporate registration & entity status'
@@ -530,7 +530,7 @@ const Desktop: React.FC = () => {
       <div
         className={`
         fixed top-0 left-0 right-0 z-50
-        border-b border-orange-800/30 theme-brightness
+        border-b border-orange-800 theme-brightness
         ${isMobile ? "h-14" : "h-auto"}
       `}
         style={{ background: "linear-gradient(to right, #f84205ff, #000000)" }}
