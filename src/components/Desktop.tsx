@@ -17,7 +17,7 @@ import {
   Server,
   Database,
   Radio,
-  Code2,
+  // Code2,
   Search,
   Command,
   Maximize2,

@@ -1,6 +1,7 @@
+import { Folder } from 'lucide-react';
 import React from 'react';
-import { Settings, Terminal as TerminalIcon, Folder } from 'lucide-react';
-import { useMobile } from '../hooks/useMobile';
+// import { Settings, Terminal as TerminalIcon, Folder } from 'lucide-react';
+// import { useMobile } from '../hooks/useMobile';
 
 interface TaskbarProps {
   onSettingsClick: () => void;
@@ -9,8 +10,8 @@ interface TaskbarProps {
 }
 
 const Taskbar: React.FC<TaskbarProps> = ({
-  onSettingsClick,
-  onTerminalClick,
+  // onSettingsClick,
+  // onTerminalClick,
   onFolderClick
 }) => {
 
