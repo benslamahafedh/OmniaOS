@@ -37,7 +37,7 @@ Your emotional well-being and privacy are our highest priorities:
 
 ### Accessible to Everyone
 We believe relationship support should be available to everyone:
-- **Free Daily Access**: 5 minutes of free access to all companions
+- **Free Access**: Free access to all companions
 - **No Registration Required**: Start immediately without barriers
 - **Cross-Platform**: Works on all devices and browsers
 - **User-Friendly**: Intuitive design for all technical levels

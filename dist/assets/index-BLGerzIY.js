@@ -577,7 +577,7 @@ AI Intelligence will be your intuitive guide to understanding love, decoding rom
 ## Daily Free Access
 
 ### What You Get
-- **5 Minutes Daily**: Free access to all companions
+
 - **Full Functionality**: Complete chat and coaching capabilities
 - **All Companions**: Access to AI Assistant, AI Assistant, and AI Intelligence
 - **No Restrictions**: Full features during your free time

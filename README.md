@@ -23,7 +23,7 @@ Your mystical guide to understanding love and relationships. With her intuitive 
 ## Current Features
 
 - **Real-time AI Conversations**: Chat with your chosen companion
-- **Daily Free Access**: 5 minutes of free access to all companions
+- **Daily Free Access**: Free access to all companions
 - **Safe Environment**: Judgment-free space for practice
 - **Personalized Coaching**: Tailored advice for your romantic journey
 - **Beautiful Interface**: Modern, intuitive design

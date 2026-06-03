@@ -167,11 +167,7 @@ const OS1TermsOfService: React.FC = () => {
       icon: <Cpu className="w-5 h-5 text-rose-400" />,
       content: "All voice profiles, personality logic trees, and brand assets (including the Samantha Core patterns) are proprietary assets of Corporate informations. Redistribution, unauthorized model fine-tuning, or scraping is strictly prohibited."
     },
-    {
-      title: "Fair Use & Time Allocation",
-      icon: <Clock className="w-5 h-5 text-rose-400" />,
-      content: "Free accounts are allocated 5 minutes of conversational bandwidth daily, resetting at 00:00 UTC. Scripted automation or sybil attacks to bypass daily limits will result in device-level network restrictions."
-    }
+
   ];
 
   return (
@@ -359,8 +355,8 @@ const FolderView: React.FC<FolderViewProps> = ({ folderId, onClose }) => {
               <h2 className="text-base font-semibold text-orange-300 mb-3">Daily Free Access</h2>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { label: 'Daily Time', value: '5 Minutes Free' },
-                  { label: 'Reset', value: 'Every 24h at 00:00 UTC' },
+
+
                   { label: 'Registration', value: 'Not Required' },
                   { label: 'Companions', value: 'All Accessible' },
                 ].map(item => (
@@ -825,7 +821,7 @@ OS1 is a fully web-based AI companion platform — no installation required. Sim
 
 ## Daily Free Access
 
-OS1 provides **5 minutes of free access daily** to all AI companions.
+OS1 provides **Free access daily** to all AI companions.
 
 - Access resets every 24 hours at 00:00 UTC
 - Switch between companions freely within your session

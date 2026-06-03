@@ -59,7 +59,7 @@ Lyra will be your intuitive guide to understanding love, decoding romantic signa
 
 ### Step 1: Access OS1
 1. **No Registration Required**: Simply visit OS1 and start immediately
-2. **Free Access**: You get 5 minutes of free access to all companions daily
+2. **Free Access**: You get Free access to all companions daily
 3. **Privacy Protected**: Your conversations are secure and confidential
 
 ### Step 2: Choose Your Companion
@@ -76,13 +76,13 @@ Lyra will be your intuitive guide to understanding love, decoding romantic signa
 ## Daily Free Access
 
 ### What You Get
-- **5 Minutes Daily**: Free access to all companions
+
 - **Full Functionality**: Complete chat and coaching capabilities
 - **All Companions**: Access to AI Assistant, AI Companion, and Lyra
 - **No Restrictions**: Full features during your free time
 
 ### How It Works
-- **Daily Reset**: Your 5 minutes refresh every 24 hours
+
 - **Multiple Companions**: Switch between companions freely
 - **No Registration**: Immediate access without sign-up
 - **Privacy First**: Secure, confidential conversations
@@ -138,7 +138,7 @@ Lyra will be your intuitive guide to understanding love, decoding romantic signa
 ## Common Questions
 
 ### Q: Is OS1 really free?
-A: Yes! You get 5 minutes of free access to all companions daily. No registration or payment required.
+A: Yes! No registration or payment required.
 
 ### Q: Are my conversations private?
 A: Absolutely. All conversations are encrypted and secure. Your privacy is our top priority.

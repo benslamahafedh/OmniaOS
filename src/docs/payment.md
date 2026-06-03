@@ -6,7 +6,7 @@ OS1 operates on a freemium model designed to make AI companion assistance access
 ## Access Model
 
 ### 1. Free Access
-- **Daily Limit**: 5 minutes of free access to all companions
+-
 - **Full Functionality**: Complete chat and coaching capabilities
 - **All Companions**: Access to AI Assistant, AI Companion, and Lyra
 - **No Registration**: Immediate access upon loading
@@ -43,8 +43,8 @@ Premium features will enhance your experience with extended access and advanced 
 - **Privacy Protection**: Secure, confidential conversations
 
 ### Daily Usage
-- **5 Minutes**: Free access to all companions each day
-- **Reset Time**: Access refreshes every 24 hours
+
+
 - **No Restrictions**: Full functionality during free time
 - **Multiple Companions**: Switch between companions freely
 
